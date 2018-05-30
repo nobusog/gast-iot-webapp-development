@@ -3,7 +3,7 @@ $(document).ready(function () {
   var timeData = [],
     temperatureData = [],
     humidityData = [],
-    pressureData = [];
+    pressureData = [50,50,50,60,60];
   
     //create a variable data to hold datasets for the chart 
   var data = {
@@ -37,7 +37,7 @@ $(document).ready(function () {
         yAxisID: 'Pressure',
         borderColor: "rgba(66, 244, 72, 1)",
         pointBoarderColor: "rgba(66, 244, 72, 1)",
-        backgroundColor: "rgba(24, 120, 240, 0.4)",
+        backgroundColor: "rgba(66, 244, 72, 0.4)",
         pointHoverBackgroundColor: "rgba(66, 244, 72, 1)",
         pointHoverBorderColor: "rgba(66, 244, 72, 1)",
         data: pressureData
@@ -120,6 +120,7 @@ $(document).ready(function () {
 
       if (obj.pressure) {
         pressureData.push(obj.pressure);
+        console.log('we pushed pressure data ')
       }
       if (pressureData.length > maxLen) {
         pressureData.shift();
