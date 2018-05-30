@@ -1,7 +1,11 @@
 $(document).ready(function () {
+  //creating variable nams for the different data streams
   var timeData = [],
     temperatureData = [],
-    humidityData = [];
+    humidityData = [],
+    pressureData = [];
+  
+    //create a variable data to hold datasets for the chart 
   var data = {
     labels: timeData,
     datasets: [
@@ -26,6 +30,17 @@ $(document).ready(function () {
         pointHoverBackgroundColor: "rgba(24, 120, 240, 1)",
         pointHoverBorderColor: "rgba(24, 120, 240, 1)",
         data: humidityData
+      },
+      {
+        fill: false,
+        label: 'Pressure',
+        yAxisID: 'Pressure',
+        borderColor: "rgba(66, 244, 72, 1)",
+        pointBoarderColor: "rgba(66, 244, 72, 1)",
+        backgroundColor: "rgba(24, 120, 240, 0.4)",
+        pointHoverBackgroundColor: "rgba(66, 244, 72, 1)",
+        pointHoverBorderColor: "rgba(66, 244, 72, 1)",
+        data: pressureData
       }
     ]
   }
@@ -33,7 +48,7 @@ $(document).ready(function () {
   var basicOption = {
     title: {
       display: true,
-      text: 'Temperature & Humidity Real-time Data',
+      text: 'Sensor Real-time Data',
       fontSize: 36
     },
     scales: {
@@ -53,6 +68,15 @@ $(document).ready(function () {
             display: true
           },
           position: 'right'
+        },
+        {
+          id: 'Pressure',
+          type: 'linear',
+          scaleLabel: {
+            labelString: 'Pressure(bar)',
+            display: true
+          },
+          position: 'bottom'
         }]
     }
   }
