@@ -3,7 +3,7 @@ $(document).ready(function () {
   var timeData = [],
     temperatureData = [],
     humidityData = [],
-    pressureData = [50,50,50,60,60];
+    pressureData = [];
   
     //create a variable data to hold datasets for the chart 
   var data = {
