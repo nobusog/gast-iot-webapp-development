@@ -1,8 +1,7 @@
 $(document).ready(function () {
   var timeData = [],
     temperatureData = [],
-    humidityData = [],
-    pressureData = [];
+    humidityData = [];
   var data = {
     labels: timeData,
     datasets: [
@@ -27,17 +26,6 @@ $(document).ready(function () {
         pointHoverBackgroundColor: "rgba(24, 120, 240, 1)",
         pointHoverBorderColor: "rgba(24, 120, 240, 1)",
         data: humidityData
-      },
-      {
-        fill: false,
-        label: 'Pressure',
-        yAxisID: 'Pressure',
-        borderColor: "rgba(1, 220, 1, 1)",
-        pointBoarderColor: "rgba(1, 220, 1, 1)",
-        backgroundColor: "rgba(24, 120, 240, 0.4)",
-        pointHoverBackgroundColor: "rgba(1, 220, 1, 1)",
-        pointHoverBorderColor: "rgba(1, 220, 1, 1)",
-        data: pressureData
       }
     ]
   }
@@ -45,7 +33,7 @@ $(document).ready(function () {
   var basicOption = {
     title: {
       display: true,
-      text: 'Sensor Real-time Data',
+      text: 'Temperature & Humidity Real-time Data',
       fontSize: 36
     },
     scales: {
@@ -104,12 +92,6 @@ $(document).ready(function () {
       }
       if (humidityData.length > maxLen) {
         humidityData.shift();
-      }
-      if (obj.pressure) {
-        pressureData.push(obj.pressure);
-      }
-      if (pressure.length > maxLen) {
-        pressureData.shift();
       }
 
       myLineChart.update();
