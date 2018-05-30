@@ -118,6 +118,13 @@ $(document).ready(function () {
         humidityData.shift();
       }
 
+      if (obj.pressure) {
+        pressureData.push(obj.pressure);
+      }
+      if (pressureData.length > maxLen) {
+        pressureData.shift();
+      }
+
       myLineChart.update();
     } catch (err) {
       console.error(err);
