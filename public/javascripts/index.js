@@ -76,7 +76,7 @@ $(document).ready(function () {
             labelString: 'Pressure(bar)',
             display: true
           },
-          position: 'left'
+          position: 'right'
         }]
     }
   }
