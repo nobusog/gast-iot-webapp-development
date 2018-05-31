@@ -95,7 +95,6 @@ $(document).ready(function () {
     console.log('Successfully connect WebSocket');
   }
   ws.onmessage = function (message) {
-    console.log(pressureData)
     console.log('receive message' + message.data);
     try {
       var obj = JSON.parse(message.data);
@@ -121,8 +120,6 @@ $(document).ready(function () {
 
       if (obj.pressure) {
         pressureData.push(obj.pressure);
-        console.log(obj.pressure)
-        console.log('we pushed pressure data ')
       }
       if (pressureData.length > maxLen) {
         pressureData.shift();
