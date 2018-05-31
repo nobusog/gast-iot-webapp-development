@@ -18,7 +18,7 @@ $(document).ready(function () {
         backgroundColor: "rgba(255, 204, 0, 0.4)",
         pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
         pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-        data: temperatureData
+        data: temperatureData 
       },
       {
         fill: false,
@@ -76,7 +76,7 @@ $(document).ready(function () {
             labelString: 'Pressure(bar)',
             display: true
           },
-          position: 'right'
+          position: 'left'
         }]
     }
   }
