@@ -120,6 +120,7 @@ $(document).ready(function () {
 
       if (obj.pressure) {
         pressureData.push(obj.pressure);
+        console.log(obj.pressure)
         console.log('we pushed pressure data ')
       }
       if (pressureData.length > maxLen) {
