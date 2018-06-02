@@ -122,7 +122,7 @@ $(document).ready(function () {
         return 0;
       } else {
         endTime = Date.now();
-        time_diff = endTime - startTime ;
+        time_diff = Math.round((endTime - startTime)/1000) ;
         console.log(endTime);
         prev_signal = 1;
         return time_diff;
