@@ -93,6 +93,7 @@ $(document).ready(function () {
         {
           id: 'Relative Humidity',
           type: 'linear',
+          display: false,
           scaleLabel: {
             labelString: 'Relative Humidity',
             display: false
