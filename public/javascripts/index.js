@@ -4,7 +4,7 @@ $(document).ready(function () {
     temperatureData = [],
     humidityData = [],
     pressureData = [],
-    RelativehumidityData = [];
+    relativehumidityData = [];
   
     //create a variable data to hold datasets for the chart 
   var data = {
@@ -52,7 +52,7 @@ $(document).ready(function () {
         backgroundColor: "rgba(255, 0, 0, 0.4)",
         pointHoverBackgroundColor: "rgba(255, 0, 0, 1)",
         pointHoverBorderColor: "rgba(255, 0, 0, 1)",
-        data: RelativehumidityData
+        data: relativehumidityData
       }
     ]
   }
@@ -127,6 +127,7 @@ $(document).ready(function () {
       }
       timeData.push(obj.time);
       temperatureData.push(obj.temperature);
+      console.log(obj.temperature);
       RelativehumidityData.push(Relativehumidity(obj.temperature, 40));
       // only keep no more than 50 points in the line chart
       const maxLen = 50;
