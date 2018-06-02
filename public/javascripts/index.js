@@ -120,7 +120,7 @@ $(document).ready(function () {
       if (prev_signal = 0){
         startTime = new Date();
         prev_signal = 1;
-        return startTime; 
+        return 0; 
       } else {
         endTime = new Date();
         console.log(endTime);
