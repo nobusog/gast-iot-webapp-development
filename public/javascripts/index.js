@@ -145,7 +145,7 @@ $(document).ready(function () {
       if (len > maxLen) {
         timeData.shift();
         temperatureData.shift();
-        RelativehumidityData.shift();
+        relativehumidityData.shift();
       }
 
       if (obj.humidity) {
