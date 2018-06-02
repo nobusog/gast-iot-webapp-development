@@ -123,7 +123,7 @@ $(document).ready(function () {
       } else {
         endTime.getTime;
         time_diff = endTime - startTime ;
-        console.log(time_diff);
+        console.log(endTime);
         prev_signal = 1;
         return time_diff;
       }
