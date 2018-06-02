@@ -116,7 +116,7 @@ $(document).ready(function () {
         return 0;
       }
     } else {
-      console.log ('entered this loop')
+      console.log (prev_signal)
       if (prev_signal = 0){
         startTime = new Date();
         prev_signal = 1;
