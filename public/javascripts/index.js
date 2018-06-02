@@ -107,35 +107,27 @@ $(document).ready(function () {
   //calculate on time, takes an input of 1 or 0. 1 if compressor is on or 0 if compressor is off.
    function ontime (signal){
     var startTime = 0, endTime = 0, time_diff, prev_signal =0 ; 
-    if ((signal = 1) && (prev_signal = 0)) {
-       startTime = (new Date()).getTime ;
-       prev_signal = 1;
-       return 0;
+    if (signal = 0) {
+      if (prev_signal = 0){
+        prev_signal = 0;
+        return 0;
+      } else {
+        prev_signal = 0;
+        return 0;
+      }
     }
-    else if ((signal = 1) && (prev_signal = 1)) {
-      endTime = (new Date()).getTime ;
-      time_diff = Math.round((endTime - startTime)/1000) ;
-      return time_diff;
-    }
-    else if ((signal = 0) && (prev_signal = 0)) {
-      return 0;
-    }
-    else if ((signal = 0) && (prev_signal = 1)) {
-      startTime = 0 ;
-      endTime = 0;
-      time_diff = 0 ;
-      return 0;
-    }
-
-    
-    //if the compressor hasn't been turned on, make sure we don't get any errors.
-    if (startTime = 0) {
-      return 0;
-    } else {
-    //get the time difference in integers and seconds
-     ;
-    return time_diff;
-   }
+    else {
+      if (prev_signal = 0){
+        startTime = (new Date()).getTime ;
+        prev_signal = 1;
+        return startTime; 
+      } else {
+        endTime = (new Date()).getTime ;
+        time_diff = Math.round((endTime - startTime)/1000) ;
+        prev_signal = 1;
+        return time_diff;
+      }
+    }    
   }
 
   // Calculate Relative humidity using Temperature at a certain dewpoint
