@@ -103,10 +103,10 @@ $(document).ready(function () {
     }
   }
   
+  var startTime = 0, endTime = 0, time_diff = 0, prev_signal = 0 ; 
   
   //calculate on time, takes an input of 1 or 0. 1 if compressor is on or 0 if compressor is off.
    function ontime (signal){
-    var startTime = new Date(), endTime = 0, time_diff = 0, prev_signal = 0 ; 
     if (signal = 0) {
       if (prev_signal = 0){
         prev_signal = 0;
