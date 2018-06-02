@@ -3,7 +3,8 @@ $(document).ready(function () {
   var timeData = [],
     temperatureData = [],
     humidityData = [],
-    pressureData = [];
+    pressureData = [],
+    RelativehumidityData = [];
   
     //create a variable data to hold datasets for the chart 
   var data = {
@@ -41,6 +42,17 @@ $(document).ready(function () {
         pointHoverBackgroundColor: "rgba(66, 244, 72, 1)",
         pointHoverBorderColor: "rgba(66, 244, 72, 1)",
         data: pressureData
+      },
+      {
+        fill: false,
+        label: 'Relative Humidity',
+        yAxisID: 'Relative Humidity',
+        borderColor: "rgba(255, 0, 0, 1)",
+        pointBoarderColor: "rgba(255, 0, 0, 1)",
+        backgroundColor: "rgba(255, 0, 0, 0.4)",
+        pointHoverBackgroundColor: "rgba(255, 0, 0, 1)",
+        pointHoverBorderColor: "rgba(255, 0, 0, 1)",
+        data: RelativehumidityData
       }
     ]
   }
@@ -80,6 +92,18 @@ $(document).ready(function () {
         }]
     }
   }
+  
+  // Calculate Relative humidity using Temperature
+  Relativehumidity = function (t, dewpoint) {
+  var b = 18.678 ;
+  var c = 257.14 ; //in Celsius
+  var d = 234.5 ; // in Celsius
+  var t_dp = dewpoint ; // in Celsius
+
+  var A = Math.exp((b*t_dp)/(c+t_dp)) ; 
+  var B = Math.exp((b-(temp/d))*(t/(c+t))) ;
+  return ((A/B)*100)
+  }
 
   //Get the context of the canvas element we want to select
   var ctx = document.getElementById("myChart").getContext("2d");
@@ -103,12 +127,14 @@ $(document).ready(function () {
       }
       timeData.push(obj.time);
       temperatureData.push(obj.temperature);
+      RelativehumidityData.push(Relativehumidity(obj.temperature, 40));
       // only keep no more than 50 points in the line chart
       const maxLen = 50;
       var len = timeData.length;
       if (len > maxLen) {
         timeData.shift();
         temperatureData.shift();
+        RelativehumidityData.shift();
       }
 
       if (obj.humidity) {
