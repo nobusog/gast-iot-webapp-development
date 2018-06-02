@@ -138,7 +138,7 @@ $(document).ready(function () {
       timeData.push(obj.time);
       temperatureData.push(obj.temperature);
       console.log(obj.temperature);
-      RelativehumidityData.push(relativehumidity(obj.temperature, 40));
+      relativehumidityData.push(relativehumidity(obj.temperature, 40));
       // only keep no more than 50 points in the line chart
       const maxLen = 50;
       var len = timeData.length;
