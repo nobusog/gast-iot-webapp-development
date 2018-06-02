@@ -89,6 +89,15 @@ $(document).ready(function () {
             display: true
           },
           position: 'right'
+        },
+        {
+          id: 'Relative Humidity',
+          type: 'linear',
+          scaleLabel: {
+            labelString: 'Relative Humidity',
+            display: false
+          },
+          position: 'right'
         }]
     }
   }
