@@ -124,6 +124,7 @@ $(document).ready(function () {
         endTime = Date.now();
         time_diff = Math.round((endTime - startTime)/1000) ;
         console.log(endTime);
+        console.log(Math.round(endTime));
         prev_signal = 1;
         return (time_diff-13);
       }
