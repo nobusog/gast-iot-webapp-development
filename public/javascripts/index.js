@@ -94,7 +94,7 @@ $(document).ready(function () {
   }
   
   // Calculate Relative humidity using Temperature
-  relativehumidity = function (t, dewpoint) {
+  function relativehumidity(t, dewpoint) {
   var b = 18.678 ;
   var c = 257.14 ; //in Celsius
   var d = 234.5 ; // in Celsius
