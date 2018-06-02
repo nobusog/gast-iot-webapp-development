@@ -112,7 +112,7 @@ $(document).ready(function () {
         prev_signal = 0;
         return 0;
       } else {
-        startTime.getTime
+        startTime = Date.now();
         prev_signal = 1;
         return 0;
       }
@@ -121,7 +121,7 @@ $(document).ready(function () {
         prev_signal = 0;
         return 0;
       } else {
-        endTime.getTime;
+        endTime = Date.now();
         time_diff = endTime - startTime ;
         console.log(endTime);
         prev_signal = 1;
