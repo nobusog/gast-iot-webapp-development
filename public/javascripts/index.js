@@ -113,7 +113,6 @@ $(document).ready(function () {
     var B = Math.exp((b-(t/d))*(t/(c+t))) ;
     return ((A/B)*100)
     }
-    console.log(relativehumidity(23,40)) ;
     
   //Get the context of the canvas element we want to select
   var ctx = document.getElementById("myChart").getContext("2d");
@@ -138,7 +137,7 @@ $(document).ready(function () {
       timeData.push(obj.time);
       temperatureData.push(obj.temperature);
       console.log(obj.temperature);
-      relativehumidityData.push(relativehumidity(obj.temperature, 40));
+      relativehumidityData.push(relativehumidity(obj.temperature, obj.temperature));
       // only keep no more than 50 points in the line chart
       const maxLen = 50;
       var len = timeData.length;
