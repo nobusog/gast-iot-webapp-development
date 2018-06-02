@@ -94,7 +94,7 @@ $(document).ready(function () {
   }
   
   // Calculate Relative humidity using Temperature
-  Relativehumidity = function (t, dewpoint) {
+  relativehumidity = function (t, dewpoint) {
   var b = 18.678 ;
   var c = 257.14 ; //in Celsius
   var d = 234.5 ; // in Celsius
@@ -104,6 +104,8 @@ $(document).ready(function () {
   var B = Math.exp((b-(temp/d))*(t/(c+t))) ;
   return ((A/B)*100)
   }
+
+  console.log(relativehumidity(23,40)) ;
 
   //Get the context of the canvas element we want to select
   var ctx = document.getElementById("myChart").getContext("2d");
@@ -128,7 +130,7 @@ $(document).ready(function () {
       timeData.push(obj.time);
       temperatureData.push(obj.temperature);
       console.log(obj.temperature);
-      RelativehumidityData.push(Relativehumidity(obj.temperature, 40));
+      RelativehumidityData.push(relativehumidity(obj.temperature, 40));
       // only keep no more than 50 points in the line chart
       const maxLen = 50;
       var len = timeData.length;
