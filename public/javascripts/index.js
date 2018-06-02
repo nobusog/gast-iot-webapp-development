@@ -108,12 +108,12 @@ $(document).ready(function () {
    function ontime (signal){
     var startTime = 0, endTime = 0, time_diff, prev_signal =0 ; 
     if ((signal = 1) && (prev_signal = 0)) {
-       startTime = new Date() ;
+       startTime = (new Date()).getTime ;
        prev_signal = 1;
        return 0;
     }
     else if ((signal = 1) && (prev_signal = 1)) {
-      endTime = new Date() ;
+      endTime = (new Date()).getTime ;
       time_diff = Math.round((endTime - startTime)/1000) ;
       return time_diff;
     }
