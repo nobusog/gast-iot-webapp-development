@@ -126,7 +126,7 @@ $(document).ready(function () {
         console.log(endTime);
         console.log(Math.round(endTime/1000));
         prev_signal = 1;
-        return (time_diff-13);
+        return (time_diff);
       }
     }    
   }
