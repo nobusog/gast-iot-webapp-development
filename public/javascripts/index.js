@@ -120,7 +120,8 @@ $(document).ready(function () {
     //get the time difference in integers and seconds
     time_diff = Math.round((endTime - startTime)/1000) ;
     return time_diff;
-   } 
+   }
+  }
 
   // Calculate Relative humidity using Temperature at a certain dewpoint
   //---> reference https://en.wikipedia.org/wiki/Dew_point
@@ -192,4 +193,4 @@ $(document).ready(function () {
       console.error(err);
     }
   }
-});
+})
