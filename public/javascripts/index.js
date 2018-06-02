@@ -110,7 +110,7 @@ $(document).ready(function () {
     var t_dp = dewpoint ; // in Celsius
   
     var A = Math.exp((b*t_dp)/(c+t_dp)) ; 
-    var B = Math.exp((b-(temp/d))*(t/(c+t))) ;
+    var B = Math.exp((b-(t/d))*(t/(c+t))) ;
     return ((A/B)*100)
     }
     console.log(relativehumidity(23,40)) ;
