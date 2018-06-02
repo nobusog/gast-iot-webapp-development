@@ -162,7 +162,7 @@ $(document).ready(function () {
       relativehumidityData.push(relativehumidity(obj.temperature, obj.temperature));
       console.log(relativehumidity(obj.temperature, obj.temperature));
       //push the on time to the html template 
-      compressor_on_time = ontime(object.compressor)
+      compressor_on_time = ontime(obj.compressor)
       $("#compressor_on_time").append(compressor_on_time) ;
       // only keep no more than 50 points in the line chart
       const maxLen = 50;
