@@ -125,7 +125,7 @@ $(document).ready(function () {
         time_diff = Math.round((endTime - startTime)/1000) ;
         console.log(endTime);
         prev_signal = 1;
-        return time_diff;
+        return (time_diff-13);
       }
     }    
   }
