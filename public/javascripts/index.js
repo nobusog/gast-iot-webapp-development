@@ -118,11 +118,11 @@ $(document).ready(function () {
     }
     else {
       if (prev_signal = 0){
-        startTime = (new Date()).getTime ;
+        startTime = new Date();
         prev_signal = 1;
         return startTime; 
       } else {
-        endTime = (new Date()).getTime ;
+        endTime = new Date();
         console.log(endTime);
         time_diff = Math.round((endTime - startTime)/1000) ;
         console.log(time_diff);
