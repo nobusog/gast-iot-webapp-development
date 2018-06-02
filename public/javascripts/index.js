@@ -93,6 +93,19 @@ $(document).ready(function () {
     }
   }
   
+  // Calculate Relative humidity using Temperature
+  function relativehumidity(t, dewpoint) {
+    var b = 18.678 ;
+    var c = 257.14 ; //in Celsius
+    var d = 234.5 ; // in Celsius
+    var t_dp = dewpoint ; // in Celsius
+  
+    var A = Math.exp((b*t_dp)/(c+t_dp)) ; 
+    var B = Math.exp((b-(temp/d))*(t/(c+t))) ;
+    return ((A/B)*100)
+    }
+    console.log(relativehumidity(23,40)) ;
+    
   //Get the context of the canvas element we want to select
   var ctx = document.getElementById("myChart").getContext("2d");
   var optionsNoAnimation = { animation: false }
@@ -105,19 +118,6 @@ $(document).ready(function () {
   var ws = new WebSocket('wss://' + location.host);
   ws.onopen = function () {
     console.log('Successfully connect WebSocket');
-
-     // Calculate Relative humidity using Temperature
-  function relativehumidity(t, dewpoint) {
-    var b = 18.678 ;
-    var c = 257.14 ; //in Celsius
-    var d = 234.5 ; // in Celsius
-    var t_dp = dewpoint ; // in Celsius
-  
-    var A = Math.exp((b*t_dp)/(c+t_dp)) ; 
-    var B = Math.exp((b-(temp/d))*(t/(c+t))) ;
-    return ((A/B)*100)
-    }
-    console.log(relativehumidity(23,40)) ;
   }
   ws.onmessage = function (message) {
     console.log('receive message' + message.data);
