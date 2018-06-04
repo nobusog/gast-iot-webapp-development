@@ -34,7 +34,8 @@ iotHubReader.startReadMessage(function (obj, date) {
   try {
     console.log(date);
     date = date || Date.now()
-    wss.broadcast(JSON.stringify(Object.assign(obj, { time: moment.utc(date).format('YYYY:MM:DD[T]hh:mm:ss') }, {compressor_on_time: ontime(obj.signal)})));
+    wss.broadcast(JSON.stringify(Object.assign(obj, { time: moment.utc(date).format('YYYY:MM:DD[T]hh:mm:ss') }, {compressor_on_time: ontime(obj.signal)}, 
+    {relativehumidity: relativehumidity(obj.temperature, 40)})));
   } catch (err) {
     console.log(obj);
     console.error(err);
@@ -90,3 +91,16 @@ function ontime (signal){
     }
   }    
 }
+
+// Calculate Relative humidity using Temperature at a certain dewpoint
+//---> reference https://en.wikipedia.org/wiki/Dew_point
+function relativehumidity(t, dewpoint) {
+  var b = 18.678 ;
+  var c = 257.14 ; //in Celsius
+  var d = 234.5 ; // in Celsius
+  var t_dp = dewpoint ; // in Celsius
+
+  var A = Math.exp((b*t_dp)/(c+t_dp)) ; 
+  var B = Math.exp((b-(t/d))*(t/(c+t))) ;
+  return ((A/B)*100)
+  }
