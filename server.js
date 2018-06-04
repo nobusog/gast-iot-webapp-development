@@ -35,7 +35,7 @@ iotHubReader.startReadMessage(function (obj, date) {
     console.log(date);
     date = date || Date.now()
     wss.broadcast(JSON.stringify(Object.assign(obj, { time: moment.utc(date).format('YYYY:MM:DD[T]hh:mm:ss') }, {compressor_on_time: ontime(obj.signal)}, 
-    {relativehumidity: relativehumidity(obj.temperature, 40)})));
+    {relativehumidity: relativehumidity(obj.temperature, 7)})));
   } catch (err) {
     console.log(obj);
     console.error(err);
