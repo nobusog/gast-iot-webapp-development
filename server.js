@@ -34,7 +34,7 @@ iotHubReader.startReadMessage(function (obj, date) {
   try {
     console.log(date);
     date = date || Date.now()
-    wss.broadcast(JSON.stringify(Object.assign(obj, { time: moment.utc(date).format('YYYY:MM:DD[T]hh:mm:ss') })));
+    wss.broadcast(JSON.stringify(Object.assign(obj, { time: moment.utc(date).format('YYYY:MM:DD[T]hh:mm:ss') }, {compressor_on_time: ontime(obj.signal)})));
   } catch (err) {
     console.log(obj);
     console.error(err);
@@ -64,4 +64,28 @@ function normalizePort(val) {
   }
 
   return false;
+}
+
+//A function to record how long the compressor has been on 
+function ontime (signal){
+  if (prev_signal = 0) {
+    if (signal = 0){
+      prev_signal = 0;
+      return 0;
+    } else {
+      startTime = Date.now();
+      prev_signal = 1;
+      return 0;
+    }
+  } else {
+    if (signal = 0){
+      prev_signal = 0;
+      return 0;
+    } else {
+      endTime = Date.now();
+      time_diff = Math.round((endTime - startTime)/1000) ;
+      prev_signal = 1;
+      return (time_diff);
+    }
+  }    
 }

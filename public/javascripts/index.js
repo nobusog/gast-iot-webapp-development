@@ -104,32 +104,6 @@ $(document).ready(function () {
   }
   
   var startTime = new Date() , endTime = new Date(), time_diff = 0, prev_signal = 0 ; 
-  
-  //calculate on time, takes an input of 1 or 0. 1 if compressor is on or 0 if compressor is off.
-   function ontime (signal){
-    if (prev_signal = 0) {
-      if (signal = 0){
-        prev_signal = 0;
-        return 0;
-      } else {
-        startTime = Date.now();
-        prev_signal = 1;
-        return 0;
-      }
-    } else {
-      if (signal = 0){
-        prev_signal = 0;
-        return 0;
-      } else {
-        endTime = Date.now();
-        time_diff = Math.round((endTime - startTime)/1000) ;
-        console.log(endTime);
-        console.log(Math.round(endTime/1000));
-        prev_signal = 1;
-        return (time_diff);
-      }
-    }    
-  }
 
   // Calculate Relative humidity using Temperature at a certain dewpoint
   //---> reference https://en.wikipedia.org/wiki/Dew_point
@@ -170,8 +144,7 @@ $(document).ready(function () {
       relativehumidityData.push(relativehumidity(obj.temperature, obj.temperature));
       console.log(relativehumidity(obj.temperature, obj.temperature));
       //push the on time to the html template 
-      compressor_on_time = ontime(obj.compressor)
-      $("#compressor_on_time").text(compressor_on_time) ;
+      $("#compressor_on_time").text(obj.compressor_on_time) ;
       // only keep no more than 50 points in the line chart
       const maxLen = 50;
       var len = timeData.length;
