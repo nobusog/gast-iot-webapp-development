@@ -103,11 +103,8 @@ $(document).ready(function () {
     }
   }
   
-  var startTime = new Date() , endTime = new Date(), time_diff = 0, prev_signal = 0 ; 
-
   // Calculate Relative humidity using Temperature at a certain dewpoint
   //---> reference https://en.wikipedia.org/wiki/Dew_point
-
   function relativehumidity(t, dewpoint) {
     var b = 18.678 ;
     var c = 257.14 ; //in Celsius

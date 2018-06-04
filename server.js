@@ -67,6 +67,7 @@ function normalizePort(val) {
 }
 
 //A function to record how long the compressor has been on 
+var startTime = new Date() , endTime = new Date(), time_diff = 0, prev_signal = 0 ; 
 function ontime (signal){
   if (prev_signal = 0) {
     if (signal = 0){
