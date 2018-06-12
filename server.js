@@ -13,7 +13,7 @@ app.get('/',function(req,res){
   //It will find and locate index.html from View or Scripts
 });
 
-app.get('/',function(req,res){
+app.get('/dashboard',function(req,res){
   res.sendFile('dashboard.html');
   //It will find and locate index.html from View or Scripts
 });
