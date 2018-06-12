@@ -8,11 +8,9 @@ const iotHubClient = require('./IoThub/iot-hub.js');
 const app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(function (req, res/*, next*/) {
-  res.render('/');
-});
-app.get('/dashboard',function (req, res) {
-  res.render('/dashboard');
+app.get('/',function(req,res){
+  res.sendFile('index.html');
+  //It will find and locate index.html from View or Scripts
 });
 
 const server = http.createServer(app);
