@@ -4,6 +4,8 @@ $(document).ready(function () {
     temperatureData = [],
     humidityData = [],
     pressureData = [],
+    am2302temperatureData = [],
+    am2302humidityData = [],
     relativehumidityData = [];
   
     //create a variable data to hold datasets for the chart 
@@ -57,6 +59,33 @@ $(document).ready(function () {
     ]
   }
 
+  var am2302data = {
+    labels: timeData,
+    datasets: [
+      {
+      fill: false,
+      label: 'Temperature',
+      yAxisID: 'Temperature',
+      borderColor: "rgba(255, 204, 0, 1)",
+      pointBoarderColor: "rgba(255, 204, 0, 1)",
+      backgroundColor: "rgba(255, 204, 0, 0.4)",
+      pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
+      pointHoverBorderColor: "rgba(255, 204, 0, 1)",
+      data: am2302temperatureData 
+    },
+    {
+      fill: false,
+      label: 'Humidity',
+      yAxisID: 'Humidity',
+      borderColor: "rgba(24, 120, 240, 1)",
+      pointBoarderColor: "rgba(24, 120, 240, 1)",
+      backgroundColor: "rgba(24, 120, 240, 0.4)",
+      pointHoverBackgroundColor: "rgba(24, 120, 240, 1)",
+      pointHoverBorderColor: "rgba(24, 120, 240, 1)",
+      data: am2302humidityData
+    }
+    ]
+  }
   var basicOption = {
     title: {
       display: true,
@@ -102,6 +131,34 @@ $(document).ready(function () {
         }]
     }
   }
+
+  var am2302Options = {
+    title: {
+      display: true,
+      text: 'AM2302Sensor Real-time Data',
+      fontSize: 36
+    },
+    scales: {
+      yAxes: [{
+        id: 'Temperature',
+        type: 'linear',
+        scaleLabel: {
+          labelString: 'Temperature(C)',
+          display: true
+        },
+        position: 'left',
+      }, {
+          id: 'Humidity',
+          type: 'linear',
+          scaleLabel: {
+            labelString: 'Humidity(%)',
+            display: true
+          },
+          position: 'right'
+        }
+      ]
+    }
+  }
   
   
     
@@ -112,6 +169,15 @@ $(document).ready(function () {
     type: 'line',
     data: data,
     options: basicOption
+  });
+
+  //Get the context of the AM2302 chart canvas element.
+  var am2302ctx = document.getElementById("am2302Chart").getContext("2d");
+  var optionsNoAnimation = { animation: false }
+  var am2302Chart = new Chart(am2302ctx, {
+    type: 'line',
+    data: am2302data,
+    options: am2302Options
   });
 
   var ws = new WebSocket('wss://' + location.host);
@@ -128,6 +194,8 @@ $(document).ready(function () {
       timeData.push(obj.time);
       temperatureData.push(obj.temperature);
       relativehumidityData.push(obj.relativehumidity);
+      am2302humidityData.push(obj.am2302humidity);
+      am2302temperatureData.push(obj.am2302temperature);
       console.log(obj.relativehumidity);
       //push the on time to the html template 
       $("#compressor_on_time").text(obj.compressor_on_time) ;
@@ -156,6 +224,7 @@ $(document).ready(function () {
       }
 
       myLineChart.update();
+      am2302Chart.update();
     } catch (err) {
       console.error(err);
     }
