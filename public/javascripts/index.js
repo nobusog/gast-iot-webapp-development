@@ -44,17 +44,6 @@ $(document).ready(function () {
         pointHoverBackgroundColor: "rgba(66, 244, 72, 1)",
         pointHoverBorderColor: "rgba(66, 244, 72, 1)",
         data: pressureData
-      },
-      {
-        fill: false,
-        label: 'Relative Humidity',
-        yAxisID: 'Relative Humidity',
-        borderColor: "rgba(255, 0, 0, 1)",
-        pointBoarderColor: "rgba(255, 0, 0, 1)",
-        backgroundColor: "rgba(255, 0, 0, 0.4)",
-        pointHoverBackgroundColor: "rgba(255, 0, 0, 1)",
-        pointHoverBorderColor: "rgba(255, 0, 0, 1)",
-        data: relativehumidityData
       }
     ]
   }
@@ -116,16 +105,6 @@ $(document).ready(function () {
           scaleLabel: {
             labelString: 'Pressure(bar)',
             display: true
-          },
-          position: 'right'
-        },
-        {
-          id: 'Relative Humidity',
-          type: 'linear',
-          display: false,
-          scaleLabel: {
-            labelString: 'Relative Humidity',
-            display: false
           },
           position: 'right'
         }]
@@ -193,20 +172,14 @@ $(document).ready(function () {
       }
       timeData.push(obj.time);
       temperatureData.push(obj.temperature);
-      relativehumidityData.push(obj.relativehumidity);
       am2302humidityData.push(obj.am2302humidity);
       am2302temperatureData.push(obj.am2302temperature);
-      console.log(obj.relativehumidity);
-      //push the on time to the html template 
-      $("#compressor_on_time").text(obj.compressor_on_time) ;
       // only keep no more than 50 points in the line chart
       const maxLen = 50;
       var len = timeData.length;
       if (len > maxLen) {
         timeData.shift();
         temperatureData.shift();
-        relativehumidityData.shift();
-
       }
 
       if (obj.humidity) {
@@ -222,7 +195,20 @@ $(document).ready(function () {
       if (pressureData.length > maxLen) {
         pressureData.shift();
       }
-
+      //push the am2302 humiduty data if it exists and keep only 50 points in the line chart
+      if (obj.am2302humidity) {
+        am2302humidityData.push(obj.am2302humidity);
+      }
+      if (am2302humidityData.length > maxLen) {
+        am2302humidityData.shift();
+      }
+      //push the am2302 temperature data if it exists and keep only 50 points in the line chart
+      if (obj.am2302temperature) {
+        am2302temperatureData.push(obj.am2302temperature);
+      }
+      if (am2302temperatureData.length > maxLen) {
+        am2302temperatureData.shift();
+      }
       myLineChart.update();
       am2302Chart.update();
     } catch (err) {
