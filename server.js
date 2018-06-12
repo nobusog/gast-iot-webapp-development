@@ -13,6 +13,11 @@ app.get('/',function(req,res){
   //It will find and locate index.html from View or Scripts
 });
 
+app.get('/',function(req,res){
+  res.sendFile('dashboard.html');
+  //It will find and locate index.html from View or Scripts
+});
+
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
