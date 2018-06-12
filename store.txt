@@ -36,6 +36,7 @@ function relativehumidity(t, dewpoint) {
   return ((A/B)*100)
   }
 
+<<<<<<< HEAD
 
 app.use(function (req, res/*, next*/) {
   res.render('/');
@@ -43,3 +44,6 @@ app.use(function (req, res/*, next*/) {
 app.get('/dashboard',function (req, res) {
   res.render('/dashboard');
 });
+=======
+   
+>>>>>>> parent of bd5ccc2... test
