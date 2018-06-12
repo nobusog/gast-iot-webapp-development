@@ -11,6 +11,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(function (req, res/*, next*/) {
   res.redirect('/');
 });
+app.route('/dashboard')
+.get(function (req, res) {
+  res.render('dashboard');
+});
 
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
