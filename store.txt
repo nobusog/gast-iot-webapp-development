@@ -47,3 +47,6 @@ app.get('/dashboard',function (req, res) {
 =======
    
 >>>>>>> parent of bd5ccc2... test
+\
+
+<script src="javascripts/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
