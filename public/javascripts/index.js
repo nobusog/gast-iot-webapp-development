@@ -6,7 +6,7 @@ $(document).ready(function () {
     pressureData = [],
     am2302temperatureData = [],
     am2302humidityData = [],
-    adcpressureData = [];
+    adcpressureData = [] ; 
   
     //create a variable data to hold datasets for the chart 
   var data = {
