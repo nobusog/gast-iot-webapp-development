@@ -9,7 +9,7 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function (req, res/*, next*/) {
-  res.render('/dashboard');
+  res.render('/');
 });
 app.get('/dashboard',function (req, res) {
   res.render('/dashboard');
