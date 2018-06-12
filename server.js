@@ -11,9 +11,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(function (req, res/*, next*/) {
   res.render('/');
 });
-app.route('/dashboard')
-.get(function (req, res) {
-  res.render('dashboard');
+app.get('/dashboard',function (req, res) {
+  res.render('public/dashboard');
 });
 
 const server = http.createServer(app);
