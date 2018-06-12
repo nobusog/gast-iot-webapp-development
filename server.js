@@ -14,6 +14,7 @@ app.get('/',function(req,res){
 });
 
 app.get('/dashboard',function(req,res){
+  console.log('we got the dashboar')
   res.sendFile('dashboard.html');
   //It will find and locate index.html from View or Scripts
 });
