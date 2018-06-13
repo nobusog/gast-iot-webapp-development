@@ -22,11 +22,24 @@ $(document).ready(function () {
     };
 
     //Insert Current Time into jumbotron
-    document.getElementById("timePlaceHolder").innerHTML = "Current Time"
+    var currentTime =   new Date().toLocaleString();
+    document.getElementById("timePlaceHolder").innerHTML = currentTime
 
-     //Insert Current Location into jumbotron
-     document.getElementById("locationPlaceHolder").innerHTML = "Current Location"
+    //Insert Current Location into jumbotron
+    document.getElementById("locationPlaceHolder").innerHTML = "Current Location"
 
-      //Insert Current Time into jumbotron
-    document.getElementById("greeting").innerHTML = "Greeting"
+    //Insert Current Time into jumbotron
+    var currentTimeHours = new Date().getHours();
+    
+    if (currentTimeHours < 12 & currentTimeHours >= 0) {
+        greeting = "Good Morning, "
+    }
+
+    else if (currentTimeHours >= 12 & currentTimeHours <= 5) {
+        greeting = "Good Afternoon, "
+    }
+    else {
+        greeting = "Good Evening, "
+    }
+    document.getElementById("greeting").innerHTML = greeting
 })
