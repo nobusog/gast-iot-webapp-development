@@ -1,11 +1,13 @@
 $(document).ready(function () {
     //initialize map in index when button is clicked
-    document.getElementById("mapButton").onclick  = function (){
-        document.getElementById("map").classList.remove("d-none");
+    function getMap(){    
         var map = new Microsoft.Maps.Map('#bingmap');
-   }
+    };
 
-    
+    //show device map when button is clicked
+    document.getElementById("mapButton").onclick = function() {
+        document.getElementById("map").classList.remove("d-none");
+    }; 
 
     //close map when close button is clicked 
     document.getElementById("mapCloseButton").onclick = function() {
