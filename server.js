@@ -13,7 +13,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/dashboard', function (req, res) {
-  res.send('dashboard.html')
+  res.render('dashboard.html')
 })
 
 const server = http.createServer(app);
@@ -70,3 +70,4 @@ function normalizePort(val) {
   return false;
 }
 
+   
