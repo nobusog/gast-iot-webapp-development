@@ -8,7 +8,7 @@ const iotHubClient = require('./IoThub/iot-hub.js');
 const app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(function (req, res, next) {
+app.get('/', function (req, res) {
   res.render('index.html');
 });
 
