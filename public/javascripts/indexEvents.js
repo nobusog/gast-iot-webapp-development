@@ -10,6 +10,11 @@ $(document).ready(function () {
         document.getElementById("pressureTransmitterContainer").classList.remove("d-none");
     };
 
+    //show device map when button is clicked
+    document.getElementById("mapButton").onclick = function() {
+        document.getElementById("map").classList.remove("d-none");
+    }; 
+
     //close charts when button is clicked
     document.getElementById("bme280CloseButton").onclick = function() {
         document.getElementById("bmeContainer").classList.add("d-none");
@@ -42,4 +47,5 @@ $(document).ready(function () {
         greeting = "Good Evening, ";
     }
     document.getElementById("greeting").innerHTML = greeting;
+
 });
