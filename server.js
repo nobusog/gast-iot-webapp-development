@@ -12,7 +12,7 @@ app.get('/', function (req, res) {
   res.render('index.html');
 });
 
-app.get('/dashboard', function (req, res) {
+app.get('dashboard', function (req, res) {
   res.render('dashboard.html')
 })
 
