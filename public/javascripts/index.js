@@ -287,4 +287,9 @@ $(document).ready(function () {
       console.error(err);
     }
   }
+
+  //Show charts when button is clicked
+  document.getElementById("bme280Button").onclick = function() {
+    document.getElementById("bmeContainer").removeClass("d-none")
+  }
 })

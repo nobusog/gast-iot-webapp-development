@@ -31,9 +31,9 @@
                 Charts
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">AM2302 Sensor</a>
-                <a class="dropdown-item" href="#">BME280 Sensor</a>
-                <a class="dropdown-item" href="#">Pressure Transmitter</a>
+                <a class="dropdown-item" href="#" id="am2302Button">AM2302 Sensor</a>
+                <a class="dropdown-item" href="#" id="bme280Button">BME280 Sensor</a>
+                <a class="dropdown-item" href="#" id="pressureTransmitterButton">Pressure Transmitter</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Stuff</a>
                 </div>
@@ -50,14 +50,14 @@
         <hr class="my-4">
         <p>stuff</p>
     </div>
-    <div class="container-fluid bg-light border shadow rounded my-5">
+    <div class="container-fluid bg-light d-none border shadow rounded my-5" id="bmeContainer">
         <canvas id="bme280Chart" width="400" height="150"></canvas>
         
     </div>
-    <div class="container-fluid bg-light border shadow rounded my-5">
+    <div class="container-fluid bg-light border d-none shadow rounded my-5" id="am2302Container" >
         <canvas id="am2302Chart" width="400" height="150"></canvas>
     </div>
-    <div class="container-fluid bg-light border shadow rounded my-5">
+    <div class="container-fluid bg-light border d-none shadow rounded my-5" id="pressureTransmitterContainer>
         <canvas id="pressureTransmitter" width="400" height="150"></canvas>
     </div>
     <!--from bootstrap-->
