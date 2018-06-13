@@ -187,7 +187,7 @@ $(document).ready(function () {
   var bme280Chart = new Chart(bme280ctx, {
     type: 'line',
     data: bme280Dataset,
-    options: bme280Dataset
+    options: bme280SensorOptions
   });
 
   //Get the context of the AM2302 sensor chart canvas element.
