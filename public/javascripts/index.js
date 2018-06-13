@@ -1,15 +1,15 @@
 $(document).ready(function () {
   //creating variable names for the different data streams
   var timeData = [],
-    temperatureData = [],
-    humidityData = [],
-    pressureData = [],
-    am2302temperatureData = [],
-    am2302humidityData = [],
-    adcpressureData = [] ; 
+    bme280TemperatureData = [],
+    bme280HumidityData = [],
+    bme280PressureData = [],
+    am2302TemperatureData = [],
+    am2302HumidityData = [],
+    pressureTransmitterData = [] ; 
   
-    //create a variable data to hold datasets for the chart 
-  var data = {
+  //datasets for the bme280 sensor chart 
+  var bme280Dataset = {
     labels: timeData,
     datasets: [
       {
@@ -21,7 +21,7 @@ $(document).ready(function () {
         backgroundColor: "rgba(255, 204, 0, 0.4)",
         pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
         pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-        data: temperatureData 
+        data: bme280TemperatureData 
       },
       {
         fill: false,
@@ -32,7 +32,7 @@ $(document).ready(function () {
         backgroundColor: "rgba(24, 120, 240, 0.4)",
         pointHoverBackgroundColor: "rgba(24, 120, 240, 1)",
         pointHoverBorderColor: "rgba(24, 120, 240, 1)",
-        data: humidityData
+        data: bme280HumidityData
       },
       {
         fill: false,
@@ -43,12 +43,13 @@ $(document).ready(function () {
         backgroundColor: "rgba(66, 244, 72, 0.4)",
         pointHoverBackgroundColor: "rgba(66, 244, 72, 1)",
         pointHoverBorderColor: "rgba(66, 244, 72, 1)",
-        data: pressureData
+        data: bme280PressureData
       }
     ]
   }
 
-  var am2302data = {
+  //datasets for the am2302 sensor chart 
+  var am2302Dataset = {
     labels: timeData,
     datasets: [
       {
@@ -60,7 +61,7 @@ $(document).ready(function () {
       backgroundColor: "rgba(255, 204, 0, 0.4)",
       pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
       pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-      data: am2302temperatureData 
+      data: am2302TemperatureData 
     },
     {
       fill: false,
@@ -71,15 +72,33 @@ $(document).ready(function () {
       backgroundColor: "rgba(24, 120, 240, 0.4)",
       pointHoverBackgroundColor: "rgba(24, 120, 240, 1)",
       pointHoverBorderColor: "rgba(24, 120, 240, 1)",
-      data: am2302humidityData
-    }
-    ]
+      data: am2302HumidityData
+    }]
   }
-  var basicOption = {
+
+  //datasets for the pressure transmitter chart 
+  var pressureTransmitterDataset = {
+    labels: timeData,
+    datasets: [
+      {
+      fill: false,
+      label: 'Pressure',
+      yAxisID: 'Pressure',
+      borderColor: "rgba(255, 204, 0, 1)",
+      pointBoarderColor: "rgba(255, 204, 0, 1)",
+      backgroundColor: "rgba(255, 204, 0, 0.4)",
+      pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
+      pointHoverBorderColor: "rgba(255, 204, 0, 1)",
+      data: pressureTransmitterData 
+    }]
+  }
+
+  //define options for the BME280 Sensor Chart
+  var bme280SensorOptions = {
     title: {
       display: true,
-      text: 'Sensor Real-time Data',
-      fontSize: 36
+      text: 'BME280 Sensor Real-time Data',
+      fontSize: 30
     },
     scales: {
       yAxes: [{
@@ -111,11 +130,12 @@ $(document).ready(function () {
     }
   }
 
-  var am2302Options = {
+  //define options for the AM2302 Sensor Chart
+  var am2302SensorOptions = {
     title: {
       display: true,
-      text: 'AM2302Sensor Real-time Data',
-      fontSize: 36
+      text: 'AM2302 Sensor Real-time Data',
+      fontSize: 30
     },
     scales: {
       yAxes: [{
@@ -138,25 +158,54 @@ $(document).ready(function () {
       ]
     }
   }
+
+  //define options for the Pressure Transmitter Chart
+  var pressureTransmitterOptions = {
+    title: {
+      display: true,
+      text: 'Pressure Transmitter Real-time Data',
+      fontSize: 30
+    },
+    scales: {
+      yAxes: [{
+        id: 'Pressure',
+        type: 'linear',
+        scaleLabel: {
+          labelString: 'Pressure (psi)',
+          display: true
+        },
+        position: 'right',
+      }]
+    }
+  }
   
   
     
-  //Get the context of the canvas element we want to select
-  var ctx = document.getElementById("myChart").getContext("2d");
+  //Get the context of the BME280  sensor chart canvas element.
+  var bme280ctx = document.getElementById("bme280Chart").getContext("2d");
   var optionsNoAnimation = { animation: false }
-  var myLineChart = new Chart(ctx, {
+  var bme280Chart = new Chart(bme280ctx, {
     type: 'line',
-    data: data,
-    options: basicOption
+    data: bme280Dataset,
+    options: bme280Dataset
   });
 
-  //Get the context of the AM2302 chart canvas element.
+  //Get the context of the AM2302 sensor chart canvas element.
   var am2302ctx = document.getElementById("am2302Chart").getContext("2d");
   var optionsNoAnimation = { animation: false }
   var am2302Chart = new Chart(am2302ctx, {
     type: 'line',
-    data: am2302data,
-    options: am2302Options
+    data: am2302Dataset,
+    options: am2302SensorOptions
+  });
+
+  //Get the context of the Pressure transmitter chart canvas element.
+  var pressuretransmitterctx = document.getElementById("pressureTransmitter").getContext("2d");
+  var optionsNoAnimation = { animation: false }
+  var pressureTransmitterChart = new Chart(pressuretransmitterctx, {
+    type: 'line',
+    data: pressureTransmitterDataset,
+    options: pressureTransmitterOptions
   });
 
   var ws = new WebSocket('wss://' + location.host);
@@ -171,46 +220,60 @@ $(document).ready(function () {
         return;
       }
       timeData.push(obj.time);
-      temperatureData.push(obj.temperature);
-      am2302humidityData.push(obj.am2302humidity);
-      am2302temperatureData.push(obj.am2302temperature);
+      bme280TemperatureData.push(obj.temperature);
+
       // only keep no more than 50 points in the line chart
       const maxLen = 50;
       var len = timeData.length;
       if (len > maxLen) {
         timeData.shift();
-        temperatureData.shift();
+        bme280TemperatureData.shift();
       }
 
+      //push the bme280 humiduty data if it exists and keep only 50 points in the line chart
       if (obj.humidity) {
-        humidityData.push(obj.humidity);
+        bme280HumidityData.push(obj.humidity);
       }
-      if (humidityData.length > maxLen) {
-        humidityData.shift();
+      if (bme280HumidityData.length > maxLen) {
+        bme280HumidityData.shift();
+      }
+      
+      //push the bme280 humiduty data if it exists and keep only 50 points in the line chart
+      if (obj.pressure) {
+        bme280PressureData.push(obj.pressure);
+      }
+      if (bme280PressureData.length > maxLen) {
+        bme280PressureData.shift();
       }
 
-      if (obj.pressure) {
-        pressureData.push(obj.pressure);
-      }
-      if (pressureData.length > maxLen) {
-        pressureData.shift();
-      }
       //push the am2302 humiduty data if it exists and keep only 50 points in the line chart
       if (obj.am2302humidity) {
-        am2302humidityData.push(obj.am2302humidity);
+        am2302HumidityData.push(obj.am2302humidity);
       }
-      if (am2302humidityData.length > maxLen) {
-        am2302humidityData.shift();
+      if (am2302HumidityData.length > maxLen) {
+        am2302HumidityData.shift();
       }
+
       //push the am2302 temperature data if it exists and keep only 50 points in the line chart
       if (obj.am2302temperature) {
-        am2302temperatureData.push(obj.am2302temperature);
+        am2302TemperatureData.push(obj.am2302temperature);
       }
-      if (am2302temperatureData.length > maxLen) {
-        am2302temperatureData.shift();
+      if (am2302TemperatureData.length > maxLen) {
+        am2302TemperatureData.shift();
       }
-      myLineChart.update();
+
+      //push the pressure transmitter data if it exists and keep only 50 points in the line chart
+      if (obj.adc_pressure) {
+        pressureTransmitterData.push(obj.adc_pressure);
+      }
+      if (pressureTransmitterData.length > maxLen) {
+        pressureTransmitterData.shift();
+      }
+
+      //update charts with new points
+      bme280Chart.update();
       am2302Chart.update();
+      pressureTransmitterChart.update();
     } catch (err) {
       console.error(err);
     }
