@@ -29,14 +29,13 @@ $(document).ready(function () {
     document.getElementById("locationPlaceHolder").innerHTML = "Current Location";
 
     //Insert Current Time into jumbotron
-    console.log(currentTimeHours);
     var currentTimeHours = new Date().getHours();
     
     if (currentTimeHours < 12 & currentTimeHours >= 0) {
         greeting = "Good Morning, ";
     }
 
-    else if (currentTimeHours >= 12 & currentTimeHours <= 5) {
+    else if (currentTimeHours >= 12 & currentTimeHours <= 17) {
         greeting = "Good Afternoon, ";
     }
     else {
