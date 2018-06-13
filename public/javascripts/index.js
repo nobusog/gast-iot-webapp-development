@@ -274,7 +274,8 @@ $(document).ready(function () {
       bme280Chart.update();
       am2302Chart.update();
       pressureTransmitterChart.update();
-    } catch (err) {
+    } 
+    catch (err) {
       console.error(err);
     }
   }
