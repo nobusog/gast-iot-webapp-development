@@ -12,10 +12,9 @@ app.get('/', function (req, res) {
   res.render('index.html');
 });
 
-app.route('/dashboard')
-  .get('/dashboard', function (req, res) {
-    res.render('dashboard.html')
-});
+app.get('/dashboard', function (req, res) {
+  res.send('dashboard.html')
+})
 
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
@@ -71,4 +70,3 @@ function normalizePort(val) {
   return false;
 }
 
-   
