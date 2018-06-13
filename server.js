@@ -13,7 +13,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/dashboard', function (req, res) {
-  res.send('dashboard.html')
+  res.sendfile('dashboard.html')
 })
 
 const server = http.createServer(app);
