@@ -20,4 +20,13 @@ $(document).ready(function () {
     document.getElementById("pressureTransmitterCloseButton").onclick = function() {
         document.getElementById("pressureTransmitterContainer").classList.add("d-none")
     };
+
+    //Insert Current Time into jumbotron
+    document.getElementById("timePlaceHolder").innerHTML = "Current Time"
+
+     //Insert Current Location into jumbotron
+     document.getElementById("locationPlaceHolder").innerHTML = "Current Location"
+
+      //Insert Current Time into jumbotron
+    document.getElementById("greeting").innerHTML = "Greeting"
 })
