@@ -6,15 +6,18 @@ const path = require('path');
 const iotHubClient = require('./IoThub/iot-hub.js');
 
 const app = express();
+// here you set that all templates are located in `/views` directory
+app.set('views', __dirname + '/views');
 
 app.use(express.static(path.join(__dirname, '/public')));
 app.get('/', function (req, res) {
   res.render('index.html');
 });
 
-app.get('/dashboard', function (req, res) {
-  res.render('dashboard.html')
-})
+app.route('/dashboard')
+  .get('/dashboard', function (req, res) {
+    res.render('dashboard.html')
+});
 
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
