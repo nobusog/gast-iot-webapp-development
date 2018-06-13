@@ -1,7 +1,12 @@
 $(document).ready(function () {
     //initialize map in index when button is clicked
     function getMap(){    
-        var map = new Microsoft.Maps.Map('#bingmap');
+        var map = new Microsoft.Maps.Map('#bingmap', {
+        credentials: 'AqEFqPxl34dV_2oT5xxennb5A-kS1yj_9CwTJlZzKj5s21nIcAs3wCEno8wSJvYj',
+        center: new Microsoft.Maps.Location(51.50632, -0.12714),
+        mapTypeId: Microsoft.Maps.MapTypeId.aerial,
+        zoom: 6
+        });
     };
 
     //show device map when button is clicked
