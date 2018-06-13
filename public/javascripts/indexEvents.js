@@ -15,6 +15,15 @@ $(document).ready(function () {
         document.getElementById("map").classList.remove("d-none");
     }; 
 
+    //close map when close button is clicked 
+    document.getElementById("mapCloseButton").onclick = function() {
+        document.getElementById("map").classList.add("d-none");
+    };
+    //initialize map in index
+    function GetMap(){
+        var map = new Microsoft.Maps.Map('#map')
+   }
+
     //close charts when button is clicked
     document.getElementById("bme280CloseButton").onclick = function() {
         document.getElementById("bmeContainer").classList.add("d-none");
