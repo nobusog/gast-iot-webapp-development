@@ -12,8 +12,8 @@ app.get('/', function (req, res) {
   res.render('index.html');
 });
 
-app.get('dashboard', function (req, res) {
-  res.render('dashboard.html')
+app.get('/dashboard', function (req, res) {
+  res.send('dashboard.html')
 })
 
 const server = http.createServer(app);
