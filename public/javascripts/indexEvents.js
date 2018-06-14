@@ -56,4 +56,14 @@ $(document).ready(function () {
     document.getElementById("pressureTransmitterCloseButton").onclick = function() {
         document.getElementById("pressureTransmitterContainer").classList.add("d-none");
     };
+
+    //Toggle quick stats when button is clicked
+    document.getElementById("quickStatsButton").onclick = function() {
+        if (document.getElementById("quickStatsContainer".classList.contains("d-none"))) {
+            document.getElementById("quickStatsContainer").classList.remove("d-none");
+        }
+        else  {
+            document.getElementById("quickStatsContainer").classList.add("d-none");
+        }
+    };
 });
