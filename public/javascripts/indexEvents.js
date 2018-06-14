@@ -20,13 +20,12 @@ $(document).ready(function () {
     })(); 
    
     //Insert Current Location into jumbotron
-    navigator.geolocation.getCurrentPosition(locationFound, locationNotFound);
-    function locationNotFound(position) {
+    navigator.geolocation.getCurrentPosition(function locationNotFound(position) {
         currentLocation = position.coords.latitude;
-    }
-    function locationFound() {
+    }, function locationFound() {
         currentLocation = "Location not Found" ;
-    }
+    });
+    
     document.getElementById("locationPlaceHolder").innerHTML = currentLocation;
 
     //Insert greeting into jumbotron and update every 30 mins
