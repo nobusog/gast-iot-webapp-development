@@ -13,7 +13,7 @@ $(document).ready(function () {
     document.getElementById("timePlaceHolder").innerHTML = currentTime;
     //update time after inserting it into place holder
     setInterval(function(){ 
-    currentTime = new Date().toLocaleString();
+    currentTime = new Date().toLocaleString([], { weekday: 'long', year: 'numeric', month: 'long', day: '2-digit', hour: '2-digit', minute: '2-digit' });
     document.getElementById("timePlaceHolder").innerHTML = currentTime; }, 60000);
    
    //Insert Current Location into jumbotron
