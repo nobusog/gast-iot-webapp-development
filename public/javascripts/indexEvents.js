@@ -8,31 +8,34 @@ $(document).ready(function () {
     document.getElementById("mapCloseButton").onclick = function() {
         document.getElementById("mapholder").classList.add("d-none");
     };
-   //Insert Current Time into jumbotron
-    currentTime = new Date().toLocaleString([], { weekday: 'long', year: 'numeric', month: 'long', day: '2-digit', hour: '2-digit', minute: '2-digit' });
-    document.getElementById("timePlaceHolder").innerHTML = currentTime;
-    //update time after inserting it into place holder
-    setInterval(function(){ 
-    currentTime = new Date().toLocaleString([], { weekday: 'long', year: 'numeric', month: 'long', day: '2-digit', hour: '2-digit', minute: '2-digit' });
-    document.getElementById("timePlaceHolder").innerHTML = currentTime; }, 60000);
    
-   //Insert Current Location into jumbotron
-   document.getElementById("locationPlaceHolder").innerHTML = "Current Location";
-
-   //Insert Current Time into jumbotron
-   var currentTimeHours = new Date().getHours();
+    //insert time into place holder
+    function updateTime(){ 
+        currentTime = new Date().toLocaleString([], { weekday: 'long', year: 'numeric', month: 'long', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+        document.getElementById("timePlaceHolder").innerHTML = currentTime; 
+        setTimeout(updateTime, 60000)
+    };
    
-   if (currentTimeHours < 12 & currentTimeHours >= 0) {
-       greeting = "Good Morning, ";
-   }
+    //Insert Current Location into jumbotron
+    document.getElementById("locationPlaceHolder").innerHTML = "Current Location";
 
-   else if (currentTimeHours >= 12 & currentTimeHours <= 17) {
-       greeting = "Good Afternoon, ";
-   }
-   else {
-       greeting = "Good Evening, ";
-   }
-   document.getElementById("greeting").innerHTML = greeting;
+    //Insert greeting into jumbotron and update every 30 mins
+    function updateGreeting() {
+        var currentTimeHours = new Date().getHours();
+        if (currentTimeHours < 12 & currentTimeHours >= 0) {
+            greeting = "Good Morning, ";
+        }
+
+        else if (currentTimeHours >= 12 & currentTimeHours <= 17) {
+            greeting = "Good Afternoon, ";
+        }
+        else {
+            greeting = "Good Evening, ";
+        }
+        document.getElementById("greeting").innerHTML = greeting;
+        
+        setTimeout(updateGreeting,1800000)
+    };
     
     //Show charts when button is clicked
     document.getElementById("bme280Button").onclick = function() {
