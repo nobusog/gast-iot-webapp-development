@@ -9,11 +9,11 @@ $(document).ready(function () {
         document.getElementById("mapholder").classList.add("d-none");
     };
    //Insert Current Time into jumbotron
-    currentTime = new Date().toLocaleString();
+    currentTime = new Date().toLocaleString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: '2-digit', hour: '2-digit', minute: 'two-digit' });
     document.getElementById("timePlaceHolder").innerHTML = currentTime;
     //update time after inserting it into place holder
     setInterval(function(){ 
-    currentTime = new Date().toLocaleString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: '2-digit', hour: '2-digit', minute: 'two-digit' });
+    currentTime = new Date().toLocaleString();
     document.getElementById("timePlaceHolder").innerHTML = currentTime; }, 60000);
    
    //Insert Current Location into jumbotron
