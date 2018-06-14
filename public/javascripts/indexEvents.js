@@ -1,3 +1,6 @@
+//global variables
+var currentLocation;
+
 $(document).ready(function () {
     //show device map when button is clicked
     document.getElementById("mapButton").onclick = function() {
@@ -17,10 +20,10 @@ $(document).ready(function () {
     })(); 
    
     //Insert Current Location into jumbotron
-    var currentLocation;
+    
     navigator.geolocation.getCurrentPosition(locationFound, locationNotFound);
     function locationFound(position) {
-        currentLocation = position;
+        currentLocation = position.coords.latitude;
     }
 
     function locationNotFound() {
