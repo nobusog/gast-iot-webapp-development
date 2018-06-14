@@ -59,7 +59,7 @@ $(document).ready(function () {
 
     //Toggle quick stats when button is clicked
     document.getElementById("quickStatsButton").onclick = function() {
-        if (document.getElementById("quickStatsContainer".classList.contains("d-none"))) {
+        if (document.getElementById("quickStatsContainer").classList.contains("d-none")) {
             document.getElementById("quickStatsContainer").classList.remove("d-none");
         }
         else  {
