@@ -87,10 +87,10 @@ $(document).ready(function () {
     ws.onmessage = function (message) {
         try {
         var obj = JSON.parse(message.data);
+        document.getElementById("lastam2302temperature").innerHTML= +obj.am2302temperature.toFixed(2);
         }
         catch (err) {
             console.error(err);
         }
-        document.getElementById("lastam2302temperature").innerHTML=obj.am2302temperature;
     };
 });
