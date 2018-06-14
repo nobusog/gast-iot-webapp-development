@@ -17,7 +17,16 @@ $(document).ready(function () {
     })(); 
    
     //Insert Current Location into jumbotron
-    document.getElementById("locationPlaceHolder").innerHTML = "Current Location";
+    var currentLocation;
+    navigator.geolocation.getCurrentPosition(locationFound, locationNotFound);
+    function locationFound(position) {
+        currentLocation = position;
+    }
+
+    function locationNotFound() {
+        currentLocation = "Location not Found" ;
+    }
+    document.getElementById("locationPlaceHolder").innerHTML = currentLocation;
 
     //Insert greeting into jumbotron and update every 30 mins
     (function updateGreeting() {
