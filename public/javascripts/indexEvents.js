@@ -1,7 +1,7 @@
 $(document).ready(function () {
     //initialize map in index when bodt loads
     function GetMap(){    
-        var map = new Microsoft.Maps.Map(getElementById("bingmap"), {credentials: "AqEFqPxl34dV_2oT5xxennb5A-kS1yj_9CwTJlZzKj5s21nIcAs3wCEno8wSJvYj"})
+        var map = new Microsoft.Maps.Map(getElementById("bingmap"))
     };
 
 
