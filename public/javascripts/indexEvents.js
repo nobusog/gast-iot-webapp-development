@@ -1,5 +1,5 @@
 function GetMap(){    
-    var map = new Microsoft.Maps.Map(getElementById("bingmap"))
+    var map = new Microsoft.Maps.Map(document.getElementById("bingmap"), {credentials: 'AqEFqPxl34dV_2oT5xxennb5A-kS1yj_9CwTJlZzKj5s21nIcAs3wCEno8wSJvYj'})
 };
 
 $(document).ready(function () {
