@@ -1,7 +1,3 @@
-function GetMap(){    
-    var map = new Microsoft.Maps.Map(document.getElementById("bingmap"), {credentials: 'AqEFqPxl34dV_2oT5xxennb5A-kS1yj_9CwTJlZzKj5s21nIcAs3wCEno8wSJvYj'})
-};
-
 $(document).ready(function () {
     //show device map when button is clicked
     document.getElementById("mapButton").onclick = function() {
@@ -13,11 +9,9 @@ $(document).ready(function () {
         document.getElementById("mapholder").classList.add("d-none");
     };
    //Insert Current Time into jumbotron
-   var timeCounter = 0 ;
-   while (timeCounter >= 0) {
-        currentTime = new Date().toLocaleString();
-        document.getElementById("timePlaceHolder").innerHTML = currentTime;
-   }
+   setInterval(function(){ 
+    currentTime = new Date().toLocaleString();
+    document.getElementById("timePlaceHolder").innerHTML = currentTime; }, 60000);
    
    //Insert Current Location into jumbotron
    document.getElementById("locationPlaceHolder").innerHTML = "Current Location";
