@@ -1,18 +1,16 @@
+function GetMap(){    
+    var map = new Microsoft.Maps.Map(getElementById("bingmap"))
+};
+
 $(document).ready(function () {
-    //initialize map in index when bodt loads
-    function GetMap(){    
-        var map = new Microsoft.Maps.Map(getElementById("bingmap"))
-    };
-
-
     //show device map when button is clicked
     document.getElementById("mapButton").onclick = function() {
-        document.getElementById("map").classList.remove("d-none");
+        document.getElementById("mapholder").classList.remove("d-none");
     }; 
 
     //close map when close button is clicked 
     document.getElementById("mapCloseButton").onclick = function() {
-        document.getElementById("map").classList.add("d-none");
+        document.getElementById("mapholder").classList.add("d-none");
     };
    //Insert Current Time into jumbotron
    var currentTime =   new Date().toLocaleString();
