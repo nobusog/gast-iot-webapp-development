@@ -78,4 +78,19 @@ $(document).ready(function () {
             document.getElementById("quickStatsContainer").classList.add("d-none");
         }
     };
+
+    //store last recorded data points
+    var ws = new WebSocket('wss://' + location.host);
+    ws.onopen = function () {
+      console.log('Successfully connect 2nd WebSocket');
+    }
+    ws.onmessage = function (message) {
+        try {
+        var obj = JSON.parse(message.data);
+        }
+        catch (err) {
+            console.error(err);
+        }
+    };
+    document.getElementById("lastam2302temperature").innerHTML=obj.am2302temperature;
 });
