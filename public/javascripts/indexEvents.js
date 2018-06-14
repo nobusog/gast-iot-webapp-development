@@ -20,13 +20,11 @@ $(document).ready(function () {
     })(); 
    
     //Insert Current Location into jumbotron
-    
     navigator.geolocation.getCurrentPosition(locationFound, locationNotFound);
-    function locationFound(position) {
+    function locationNotFound(position) {
         currentLocation = position.coords.latitude;
     }
-
-    function locationNotFound() {
+    function locationFound() {
         currentLocation = "Location not Found" ;
     }
     document.getElementById("locationPlaceHolder").innerHTML = currentLocation;
