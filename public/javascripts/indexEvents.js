@@ -10,17 +10,17 @@ $(document).ready(function () {
     };
    
     //insert time into place holder
-    function updateTime(){ 
+    (function updateTime(){ 
         currentTime = new Date().toLocaleString([], { weekday: 'long', year: 'numeric', month: 'long', day: '2-digit', hour: '2-digit', minute: '2-digit' });
         document.getElementById("timePlaceHolder").innerHTML = currentTime; 
         setTimeout(updateTime, 60000)
-    };
+    })(); 
    
     //Insert Current Location into jumbotron
     document.getElementById("locationPlaceHolder").innerHTML = "Current Location";
 
     //Insert greeting into jumbotron and update every 30 mins
-    function updateGreeting() {
+    (function updateGreeting() {
         var currentTimeHours = new Date().getHours();
         if (currentTimeHours < 12 & currentTimeHours >= 0) {
             greeting = "Good Morning, ";
@@ -35,7 +35,7 @@ $(document).ready(function () {
         document.getElementById("greeting").innerHTML = greeting;
         
         setTimeout(updateGreeting,1800000)
-    };
+    })();
     
     //Show charts when button is clicked
     document.getElementById("bme280Button").onclick = function() {
