@@ -13,9 +13,12 @@ $(document).ready(function () {
         document.getElementById("mapholder").classList.add("d-none");
     };
    //Insert Current Time into jumbotron
-   var currentTime =   new Date().toLocaleString();
-   document.getElementById("timePlaceHolder").innerHTML = currentTime;
-
+   var timeCounter = 0 ;
+   while (timeCounter >= 0) {
+        currentTime = new Date().toLocaleString();
+        document.getElementById("timePlaceHolder").innerHTML = currentTime;
+   }
+   
    //Insert Current Location into jumbotron
    document.getElementById("locationPlaceHolder").innerHTML = "Current Location";
 
