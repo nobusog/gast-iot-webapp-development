@@ -1,8 +1,9 @@
 $(document).ready(function () {
-    //initialize map in index when button is clicked
-    function GetMap(){    
+    //initialize map in index when bodt loads
+    document.body.onload = function GetMap(){    
         var map = new Microsoft.Maps.Map('#bingmap')
     };
+
 
     //show device map when button is clicked
     document.getElementById("mapButton").onclick = function() {
