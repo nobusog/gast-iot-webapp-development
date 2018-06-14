@@ -91,6 +91,6 @@ $(document).ready(function () {
         catch (err) {
             console.error(err);
         }
+        document.getElementById("lastam2302temperature").innerHTML=obj.am2302temperature;
     };
-    document.getElementById("lastam2302temperature").innerHTML=obj.am2302temperature;
 });
