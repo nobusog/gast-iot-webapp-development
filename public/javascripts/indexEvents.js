@@ -106,7 +106,8 @@ $(document).ready(function () {
             activeList[i].classList.remove("active")
         }
         document.getElementById("jun-airSelectButton").classList.add("active");
-   
+    }
+    
     document.getElementById("nitrogenSelectButton").onclick = function(){
         if (this.classList.contains("active")){
             document.getElementById("deviceAlert").classList.remove("d-none");
@@ -118,7 +119,7 @@ $(document).ready(function () {
         }
             document.getElementById("nitrogenSelectButton").classList.add("active");
         }}
-    }}
+    }
     //close alert whenever button is pressed 
     document.getElementById("deviceAlertCloseButton").onclick = function(){
         document.getElementById("deviceAlert").classList.add("d-none");
