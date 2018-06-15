@@ -7,21 +7,28 @@ $(document).ready(function () {
     am2302TemperatureData = [],
     am2302HumidityData = [],
     pressureTransmitterData = [] ; 
+
+    class dataset {
+      constructor(label, yAxisID, data) {
+          this.fill = false,
+          this.label = label,
+          this.yAxisID = yAxisID,
+          this.borderColor = "rgba(255, 204, 0, 1)",
+          this.pointBoarderColor = "rgba(255, 204, 0, 1)",
+          this.backgroundColor = "rgba(255, 204, 0, 0.4)",
+          this.pointHoverBackgroundColor = "rgba(255, 204, 0, 1)",
+          this.pointHoverBorderColor = "rgba(255, 204, 0, 1)",
+          this.data = data
+      }
+    };
+    var test = new dataset('Temperature','Temperature',bme280TemperatureData);
   
   //datasets for the bme280 sensor chart 
   var bme280Dataset = {
     labels: timeData,
     datasets: [
       {
-        fill: false,
-        label: 'Temperature',
-        yAxisID: 'Temperature',
-        borderColor: "rgba(255, 204, 0, 1)",
-        pointBoarderColor: "rgba(255, 204, 0, 1)",
-        backgroundColor: "rgba(255, 204, 0, 0.4)",
-        pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
-        pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-        data: bme280TemperatureData 
+       test 
       },
       {
         fill: false,
