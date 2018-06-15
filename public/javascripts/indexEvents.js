@@ -101,7 +101,7 @@ $(document).ready(function () {
         document.getElementById("deviceAlert").classList.remove("d-none");
     }
     else {
-        var activeList = document.getElementById("deviceSelectContainer").getgetElementsByClassName("active");
+        var activeList = document.getElementById("deviceSelectContainer").getElementsByClassName("nav-link");
         for (var i=0; i<activeList.length; i++){
             activeList[i].classList.remove("active")
         }
@@ -113,7 +113,7 @@ $(document).ready(function () {
             document.getElementById("deviceAlert").classList.remove("d-none");
         }
         else {
-            var activeList = document.getElementById("deviceSelectContainer").getgetElementsByClassName("active");
+            var activeList = document.getElementById("deviceSelectContainer").getElementsByClassName("nav-link");
             for (var i=0; i<activeList.length; i++){
                 activeList[i].classList.remove("active")
             }
