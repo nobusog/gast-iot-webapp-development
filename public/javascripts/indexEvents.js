@@ -94,4 +94,15 @@ $(document).ready(function () {
             console.error(err);
         }
     };
+
+    //show which compressor is active 
+    document.getElementById("jun-airSelectButton").onclick( function(){
+    if (this.classList.contains("active")){
+        document.getElementById("deviceAlert").alert();
+    }
+    else {
+        document.getElementById("deviceSelectContainer").getElementsByClassName("active").classList.remove("active")
+        document.getElementById("jun-airSelectButton").classList.add("active")
+    }
+})
 });
