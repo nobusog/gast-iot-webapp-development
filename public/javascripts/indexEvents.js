@@ -101,7 +101,7 @@ $(document).ready(function () {
         document.getElementById("deviceAlert").classList.remove("d-none");
     }
     else {
-        document.getElementById("deviceSelectContainer").getElementsByClassName("active").classList.remove("active");
+        document.getElementById("nitrogenSelectButton").classList.remove("active");
         document.getElementById("jun-airSelectButton").classList.add("active");
    
     document.getElementById("nitrogenSelectButton").onclick = function(){
@@ -109,7 +109,7 @@ $(document).ready(function () {
             document.getElementById("deviceAlert").classList.remove("d-none");
         }
         else {
-            document.getElementById("deviceSelectContainer").getElementsByClassName("active").classList.remove("active");
+            document.getElementById("jun-airSelectButton").classList.remove("active");
             document.getElementById("nitrogenSelectButton").classList.add("active");
         }}
     }}
