@@ -21,7 +21,7 @@ $(document).ready(function () {
           this.data = data
       }
     };
-    var test = new dataset('Temperature','Temperature',bme280TemperatureData);
+    var test = new dataset(Temperature,'Temperature',bme280TemperatureData);
   
   //datasets for the bme280 sensor chart 
   var bme280Dataset = {
