@@ -107,16 +107,16 @@ $(document).ready(function () {
         }
         document.getElementById("jun-airSelectButton").classList.add("active");
     }
-    
+
     document.getElementById("nitrogenSelectButton").onclick = function(){
         if (this.classList.contains("active")){
             document.getElementById("deviceAlert").classList.remove("d-none");
         }
         else {
             var activeList = document.getElementById("deviceSelectContainer").getgetElementsByClassName("active");
-        for (var i=0; i<activeList.length; i++){
-            activeList[i].classList.remove("active")
-        }
+            for (var i=0; i<activeList.length; i++){
+                activeList[i].classList.remove("active")
+            }
             document.getElementById("nitrogenSelectButton").classList.add("active");
         }}
     }
