@@ -10,19 +10,18 @@ $(document).ready(function () {
 
     class dataset {
       constructor(label, yAxisID, data) {
-          this.fill = false,
-          this.label = label,
-          this.yAxisID = yAxisID,
-          this.borderColor = "rgba(255, 204, 0, 1)",
-          this.pointBoarderColor = "rgba(255, 204, 0, 1)",
-          this.backgroundColor = "rgba(255, 204, 0, 0.4)",
-          this.pointHoverBackgroundColor = "rgba(255, 204, 0, 1)",
-          this.pointHoverBorderColor = "rgba(255, 204, 0, 1)",
-          this.data = data
+          this[0] = false,
+          this[1] = label,
+          this[2] = yAxisID,
+          this[3] = "rgba(255, 204, 0, 1)",
+          this[4] = "rgba(255, 204, 0, 1)",
+          this[5] = "rgba(255, 204, 0, 0.4)",
+          this[6] = "rgba(255, 204, 0, 1)",
+          this[7] = "rgba(255, 204, 0, 1)",
+          this[8] = data
       }
     };
     var test = new dataset('Temperature','Temperature',bme280TemperatureData);
-  console.log(test.yAxisID);
   //datasets for the bme280 sensor chart 
   var bme280Dataset = {
     labels: timeData,
