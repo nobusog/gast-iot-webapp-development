@@ -98,7 +98,7 @@ $(document).ready(function () {
     //show which compressor is active 
     document.getElementById("jun-airSelectButton").onclick( function(){
     if (this.classList.contains("active")){
-        document.getElementById("deviceAlert").alert();
+        document.getElementById("deviceAlert").
     }
     else {
         document.getElementById("deviceSelectContainer").getElementsByClassName("active").classList.remove("active")
