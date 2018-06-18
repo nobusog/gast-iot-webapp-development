@@ -56,6 +56,12 @@ $(document).ready(function () {
     document.getElementById("pressureTransmitterButton").onclick = function() {
         document.getElementById("pressureTransmitterContainer").classList.remove("d-none");
     };
+    document.getElementById("thermocoupleButton").onclick = function() {
+        document.getElementById("thermocoupleContainer").classList.remove("d-none");
+    };
+    document.getElementById("sht20Button").onclick = function() {
+        document.getElementById("sht20Container").classList.remove("d-none");
+    };
 
 
     //close charts when button is clicked
@@ -67,6 +73,12 @@ $(document).ready(function () {
     };
     document.getElementById("pressureTransmitterCloseButton").onclick = function() {
         document.getElementById("pressureTransmitterContainer").classList.add("d-none");
+    };
+    document.getElementById("thermocoupleCloseButton").onclick = function() {
+        document.getElementById("thermocoupleContainer").classList.add("d-none");
+    };
+    document.getElementById("sht20CloseButton").onclick = function() {
+        document.getElementById("sht20Container").classList.add("d-none");
     };
 
     //Toggle quick stats when button is clicked
@@ -87,11 +99,51 @@ $(document).ready(function () {
     ws.onmessage = function (message) {
         try {
         var obj = JSON.parse(message.data);
-        document.getElementById("lastam2302temperature").innerHTML= +obj.am2302temperature.toFixed(2)+"°C";
-        document.getElementById("lastam2302humidity").innerHTML = +obj.am2302humidity.toFixed(2)+"%";
+        document.getElementById("lastam2302temperature").innerHTML= +obj.am2302Temperature.toFixed(2)+"°C";
+        document.getElementById("lastam2302humidity").innerHTML = +obj.am2302Humidity.toFixed(2)+"%";
         }
         catch (err) {
             console.error(err);
         }
     };
+
+    //show which compressor is active 
+    document.getElementById("jun-airSelectButton").onclick = function(){
+    if (this.classList.contains("active")){
+        document.getElementById("deviceAlert").classList.remove("d-none");
+    }
+    else {
+        var activeList = document.getElementById("deviceSelectContainer").getElementsByClassName("nav-link");
+        for (var i=0; i<activeList.length; i++){
+            activeList[i].classList.remove("active")
+        }
+        document.getElementById("jun-airSelectButton").classList.add("active");
+    }
+
+    document.getElementById("nitrogenSelectButton").onclick = function(){
+        if (this.classList.contains("active")){
+            document.getElementById("deviceAlert").classList.remove("d-none");
+        }
+        else {
+            var activeList = document.getElementById("deviceSelectContainer").getElementsByClassName("nav-link");
+            for (var i=0; i<activeList.length; i++){
+                activeList[i].classList.remove("active")
+            }
+            document.getElementById("nitrogenSelectButton").classList.add("active");
+        }}
+    }
+    //close alert whenever button is pressed 
+    document.getElementById("deviceAlertCloseButton").onclick = function(){
+        document.getElementById("deviceAlert").classList.add("d-none");
+    }
+
+    //check if device is selected before letting user select charts
+    document.getElementById("chartSelector").onclick = function(){
+        if (!document.getElementById("jun-airSelectButton").classList.contains("active") || !document.getElementById("nitrogenSelectButton").classList.contains("active") ) {
+            document.getElementById("deviceSelectAlert").classList.remove("d-none")
+        }
+    }
+    document.getElementById("deviceSelectCloseButton").onclick = function(){
+        document.getElementById("deviceSelectAlert").classList.add("d-none")
+    } 
 });
