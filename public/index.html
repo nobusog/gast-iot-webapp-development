@@ -29,7 +29,7 @@
                 </button>
            
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" id="chartSelector" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Charts
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -46,6 +46,12 @@
             </ul>
         </div>
     </nav>
+    <div id="deviceSelectAlert" class="alert alert-danger alert-dismissible fade show d-none mb-0" role="alert">
+        <strong>Please Select a Device!</strong> 
+        <button type="button" class="close" id="deviceSelectCloseButton" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
     <div class="jumbotron mt-4 mb-0">
         <h1 class="display-3" id="greeting"></h1>
         <p> <button type="button" class="btn btn-outline-dark" id="quickStatsButton">Quick Stats</button> </p>

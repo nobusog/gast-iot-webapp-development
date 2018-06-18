@@ -124,4 +124,14 @@ $(document).ready(function () {
     document.getElementById("deviceAlertCloseButton").onclick = function(){
         document.getElementById("deviceAlert").classList.add("d-none");
     }
+
+    //check if device is selected before letting user select charts
+    document.getElementById("chartSelector").onclick = function(){
+        if (!document.getElementById("jun-airSelectButton").classList.contains("active") || !document.getElementById("nitrogenSelectButton").classList.contains("active") ) {
+            document.getElementById("deviceSelectAlert").classList.remove("d-none")
+        }
+    }
+    document.getElementById("deviceSelectCloseButton").onclick = function(){
+        document.getElementById("deviceSelectAlert").classList.add("d-none")
+    } 
 });
