@@ -16,7 +16,7 @@ $(document).ready(function () {
     (function updateTime(){ 
         currentTime = new Date().toLocaleString([], { weekday: 'long', year: 'numeric', month: 'long', day: '2-digit', hour: '2-digit', minute: '2-digit' });
         document.getElementById("timePlaceHolder").innerHTML = currentTime; 
-        setTimeout(updateTime, 60000)
+        setTimeout(updateTime, 1000)
     })(); 
    
     //Insert Current Location into jumbotron
