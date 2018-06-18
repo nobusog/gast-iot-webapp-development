@@ -141,13 +141,6 @@ $(document).ready(function () {
     
     /*Device Select Alerts
     */
-    //if select device alert is out then disable chart button
-    if (!document.getElementById("deviceSelectAlert").classList.contains("d-none")) {
-        document.getElementById("chartSelector").classList.add("disabled")
-    }
-    else {
-        document.getElementById("chartSelector").classList.remove("disabled")
-    }
     //close button for device alerts
     document.getElementById("deviceSelectCloseButton").onclick = function(){
         document.getElementById("deviceSelectAlert").classList.add("d-none")
@@ -157,6 +150,11 @@ $(document).ready(function () {
     document.getElementById("chartSelector").onclick = function(){
         if ( (!document.getElementById("jun-airSelectButton").classList.contains("active")) || (!document.getElementById("nitrogenSelectButton").classList.contains("active")) ) {
             document.getElementById("deviceSelectAlert").classList.remove("d-none")
+            document.getElementById("chartSelector").classList.add("disabled")
+            
+        }
+        else {
+        document.getElementById("chartSelector").classList.remove("disabled")
         }
     }
     
