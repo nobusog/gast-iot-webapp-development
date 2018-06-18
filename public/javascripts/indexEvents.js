@@ -118,6 +118,7 @@ $(document).ready(function () {
             activeList[i].classList.remove("active")
         }
         document.getElementById("jun-airSelectButton").classList.add("active");
+        document.getElementById("chartSelector").classList.remove("disabled")
     }
 
     document.getElementById("nitrogenSelectButton").onclick = function(){
@@ -130,6 +131,7 @@ $(document).ready(function () {
                 activeList[i].classList.remove("active")
             }
             document.getElementById("nitrogenSelectButton").classList.add("active");
+            document.getElementById("chartSelector").classList.remove("disabled")
         }}
     }
     //close alert whenever button is pressed 
