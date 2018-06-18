@@ -224,11 +224,11 @@ $(document).ready(function () {
     console.log('receive message' + message.data);
     try {
       var obj = JSON.parse(message.data);
-      if(!obj.time || !obj.temperature) {
+      if(!obj.time || !obj.bme280Temperature) {
         return;
       }
       timeData.push(obj.time);
-      bme280TemperatureData.push(obj.temperature);
+      bme280TemperatureData.push(obj.bme280Temperature);
 
       // only keep no more than 50 points in the line chart
       const maxLen = 50;
@@ -239,40 +239,40 @@ $(document).ready(function () {
       }
 
       //push the bme280 humiduty data if it exists and keep only 50 points in the line chart
-      if (obj.humidity) {
-        bme280HumidityData.push(obj.humidity);
+      if (obj.bme280Humidity) {
+        bme280HumidityData.push(obj.bme280Humidity);
       }
       if (bme280HumidityData.length > maxLen) {
         bme280HumidityData.shift();
       }
       
       //push the bme280 humiduty data if it exists and keep only 50 points in the line chart
-      if (obj.pressure) {
-        bme280PressureData.push(obj.pressure);
+      if (obj.bme280Pressure) {
+        bme280PressureData.push(obj.bme280Pressure);
       }
       if (bme280PressureData.length > maxLen) {
         bme280PressureData.shift();
       }
 
       //push the am2302 humiduty data if it exists and keep only 50 points in the line chart
-      if (obj.am2302humidity) {
-        am2302HumidityData.push(obj.am2302humidity);
+      if (obj.am2302Humidity) {
+        am2302HumidityData.push(obj.am2302Humidity);
       }
       if (am2302HumidityData.length > maxLen) {
         am2302HumidityData.shift();
       }
 
       //push the am2302 temperature data if it exists and keep only 50 points in the line chart
-      if (obj.am2302temperature) {
-        am2302TemperatureData.push(obj.am2302temperature);
+      if (obj.am2302Temperature) {
+        am2302TemperatureData.push(obj.am2302Temperature);
       }
       if (am2302TemperatureData.length > maxLen) {
         am2302TemperatureData.shift();
       }
 
       //push the pressure transmitter data if it exists and keep only 50 points in the line chart
-      if (obj.adc_pressure) {
-        pressureTransmitterData.push(obj.adc_pressure);
+      if (obj.transducerPressure) {
+        pressureTransmitterData.push(obj.transducerPressure);
       }
       if (pressureTransmitterData.length > maxLen) {
         pressureTransmitterData.shift();
