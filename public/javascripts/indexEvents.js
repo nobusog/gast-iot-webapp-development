@@ -118,6 +118,7 @@ $(document).ready(function () {
             activeList[i].classList.remove("active")
         }
         document.getElementById("jun-airSelectButton").classList.add("active");
+        //close alert bar and enable selector
         document.getElementById("deviceSelectAlert").classList.add("d-none")
         document.getElementById("chartSelector").classList.remove("disabled")
     }
@@ -132,6 +133,7 @@ $(document).ready(function () {
                 activeList[i].classList.remove("active")
             }
             document.getElementById("nitrogenSelectButton").classList.add("active");
+            //close alert bar and enable chart selection
             document.getElementById("deviceSelectAlert").classList.add("d-none")
             document.getElementById("chartSelector").classList.remove("disabled")
         }}
@@ -143,17 +145,14 @@ $(document).ready(function () {
     
     /*Device Select Alerts
     */
-    //close button for device alerts
-    document.getElementById("deviceSelectCloseButton").onclick = function(){
-        document.getElementById("deviceSelectAlert").classList.add("d-none")
-        document.getElementById("chartSelector").classList.remove("disabled")
-    } 
-
     //check if device is selected before letting user select charts
     document.getElementById("chartSelector").onclick = function(){
-        if ( (!document.getElementById("jun-airSelectButton").classList.contains("active")) || (!document.getElementById("nitrogenSelectButton").classList.contains("active")) ) {
-            document.getElementById("deviceSelectAlert").classList.remove("d-none")
+        if (document.getElementById("jun-airSelectButton").classList.contains("active") || document.getElementById("nitrogenSelectButton").classList.contains("active") ) {
+            document.getElementById("deviceSelectAlert").classList.remove("disabled")
+        }
+        else {
             document.getElementById("chartSelector").classList.add("disabled")
+            document. getElementById("deviceSelectAlert").classList.remove("d-none")
         }
     }
     
