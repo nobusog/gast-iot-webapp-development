@@ -105,7 +105,7 @@ $(document).ready(function () {
         id: 'Temperature',
         type: 'linear',
         scaleLabel: {
-          labelString: 'Temperature(C)...Testing',
+          labelString: 'Temperature(C)...Not Testing',
           display: true
         },
         position: 'left',
@@ -113,7 +113,7 @@ $(document).ready(function () {
           id: 'Humidity',
           type: 'linear',
           scaleLabel: {
-            labelString: 'Humidity(%)...Testing',
+            labelString: 'Humidity(%)...Not Testing',
             display: true
           },
           position: 'right'
