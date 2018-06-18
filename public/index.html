@@ -82,18 +82,37 @@
     <div class = "container">
         <div class="row d-none" id="quickStatsContainer">
             <div class="container-fluid bg-light border shadow rounded m-3 p-3 col" >
-                <p class="lead">Quick Stats,</p>
+                <p class="lead"></p>
                 <p> The Compressor has been on for <ins id="compressor_on_time"></ins> seconds</p>
                 <p> Last Recorded AM2302 Temperature: <button type="button" id="lastam2302temperature" class="btn btn-dark">0°C</button></p>
                 <p> Last Recorded AM2302 Humidity: <span class="badge badge-dark" id="lastam2302humidity">0%</span></p>
             </div>
             <div class= "container-fluid bg-light border shadow rounded m-3 p-3 col">
-                <div class="card " style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <p> First Slide</p>
+                        </div>
+                        <div class="carousel-item">
+                        <p> Second Slide</p>
+                        </div>
+                        <div class="carousel-item">
+                        <p> Third Slide</p>
+                        </div>
                     </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
             </div> 
         </div>
