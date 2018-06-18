@@ -56,6 +56,12 @@ $(document).ready(function () {
     document.getElementById("pressureTransmitterButton").onclick = function() {
         document.getElementById("pressureTransmitterContainer").classList.remove("d-none");
     };
+    document.getElementById("thermocoupleButton").onclick = function() {
+        document.getElementById("thermocoupleContainer").classList.remove("d-none");
+    };
+    document.getElementById("sht20Button").onclick = function() {
+        document.getElementById("sht20Container").classList.remove("d-none");
+    };
 
 
     //close charts when button is clicked
@@ -67,6 +73,12 @@ $(document).ready(function () {
     };
     document.getElementById("pressureTransmitterCloseButton").onclick = function() {
         document.getElementById("pressureTransmitterContainer").classList.add("d-none");
+    };
+    document.getElementById("thermocoupleCloseButton").onclick = function() {
+        document.getElementById("thermocoupleContainer").classList.add("d-none");
+    };
+    document.getElementById("sht20CloseButton").onclick = function() {
+        document.getElementById("sht20Container").classList.add("d-none");
     };
 
     //Toggle quick stats when button is clicked
@@ -87,8 +99,8 @@ $(document).ready(function () {
     ws.onmessage = function (message) {
         try {
         var obj = JSON.parse(message.data);
-        document.getElementById("lastam2302temperature").innerHTML= +obj.am2302temperature.toFixed(2)+"°C";
-        document.getElementById("lastam2302humidity").innerHTML = +obj.am2302humidity.toFixed(2)+"%";
+        document.getElementById("lastam2302temperature").innerHTML= +obj.am2302Temperature.toFixed(2)+"°C";
+        document.getElementById("lastam2302humidity").innerHTML = +obj.am2302Humidity.toFixed(2)+"%";
         }
         catch (err) {
             console.error(err);

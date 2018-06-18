@@ -36,6 +36,8 @@
                 <a class="dropdown-item" href="#" id="am2302Button">AM2302 Sensor</a>
                 <a class="dropdown-item" href="#" id="bme280Button">BME280 Sensor</a>
                 <a class="dropdown-item" href="#" id="pressureTransmitterButton">Pressure Transmitter</a>
+                <a class="dropdown-item" href="#" id="sht20Button">SHT20 Sensor</a>
+                <a class="dropdown-item" href="#" id="thermocoupleButton">Thermocouple</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" id="mapButton">Devices</a>
                 </div>
@@ -109,6 +111,18 @@
         </button>
         <canvas id="pressureTransmitter" width="400" height="150"></canvas>
     </div> 
+    <div class="container-fluid bg-light border d-none shadow rounded my-5" id="thermocoupleContainer">
+        <button type="button" class="close mt-3" aria-label="Close" id="thermocoupleCloseButton">
+                <span aria-hidden="true">&times;</span>
+        </button>
+        <canvas id="thermocoupleChart" width="400" height="150"></canvas>
+    </div>
+    <div class="container-fluid bg-light border d-none shadow rounded my-5" id="sht20Container">
+        <button type="button" class="close mt-3" aria-label="Close" id="sht20CloseButton">
+                <span aria-hidden="true">&times;</span>
+        </button>
+        <canvas id="sht20Chart" width="400" height="150"></canvas>
+    </div>
     <!--from bootstrap-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
