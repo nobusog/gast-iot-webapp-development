@@ -141,7 +141,10 @@ $(document).ready(function () {
 
     //check if device is selected before letting user select charts
     document.getElementById("chartSelector").onclick = function(){
-        if (!document.getElementById("jun-airSelectButton").classList.contains("active") || !document.getElementById("nitrogenSelectButton").classList.contains("active") ) {
+        if (document.getElementById("jun-airSelectButton").classList.contains("active") || document.getElementById("nitrogenSelectButton").classList.contains("active") ) {
+            document.getElementById("chartSelector").classList.remove("disabled")
+        }
+        else{
             document.getElementById("deviceSelectAlert").classList.remove("d-none")
             document.getElementById("chartSelector").classList.add("disabled")
         }
