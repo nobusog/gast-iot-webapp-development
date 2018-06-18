@@ -118,6 +118,9 @@ $(document).ready(function () {
             activeList[i].classList.remove("active")
         }
         document.getElementById("jun-airSelectButton").classList.add("active");
+        //close alert bar and enable selector
+        document.getElementById("chartDeviceSelectAlert").classList.add("d-none")
+        document.getElementById("chartSelector").classList.remove("disabled")
     }
 
     document.getElementById("nitrogenSelectButton").onclick = function(){
@@ -125,25 +128,32 @@ $(document).ready(function () {
             document.getElementById("deviceAlert").classList.remove("d-none");
         }
         else {
-            var activeList = document.getElementById("deviceSelectContainer").getElementsByClassName("nav-link");
-            for (var i=0; i<activeList.length; i++){
-                activeList[i].classList.remove("active")
+            var activeListNitro = document.getElementById("deviceSelectContainer").getElementsByClassName("nav-link");
+            for (var i=0; i<activeListNitro.length; i++){
+                activeListNitro[i].classList.remove("active")
             }
             document.getElementById("nitrogenSelectButton").classList.add("active");
+            //close alert bar and enable chart selection
+            document.getElementById("chartDeviceSelectAlert").classList.add("d-none")
+            document.getElementById("chartSelector").classList.remove("disabled")
         }}
     }
     //close alert whenever button is pressed 
     document.getElementById("deviceAlertCloseButton").onclick = function(){
         document.getElementById("deviceAlert").classList.add("d-none");
     }
-
+    
+    /*Device Select Alerts
+    */
     //check if device is selected before letting user select charts
     document.getElementById("chartSelector").onclick = function(){
-        if (!document.getElementById("jun-airSelectButton").classList.contains("active") || !document.getElementById("nitrogenSelectButton").classList.contains("active") ) {
-            document.getElementById("deviceSelectAlert").classList.remove("d-none")
+        if (document.getElementById("jun-airSelectButton").classList.contains("active") || document.getElementById("nitrogenSelectButton").classList.contains("active") ) {
+            document.getElementById("chartDeviceSelectAlert").classList.remove("disabled")
+        }
+        else {
+            document.getElementById("chartSelector").classList.add("disabled")
+            document. getElementById("chartDeviceSelectAlert").classList.remove("d-none")
         }
     }
-    document.getElementById("deviceSelectCloseButton").onclick = function(){
-        document.getElementById("deviceSelectAlert").classList.add("d-none")
-    } 
+    
 });
