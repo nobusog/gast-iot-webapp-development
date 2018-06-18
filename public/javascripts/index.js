@@ -256,7 +256,7 @@ $(document).ready(function () {
 
       //push the am2302 humiduty data if it exists and keep only 50 points in the line chart
       if (obj.am2302humidity) {
-        am2302HumidityData.push(obj.am2302humidity);
+        am2302HumidityData.push(obj.am2302Humidity);
       }
       if (am2302HumidityData.length > maxLen) {
         am2302HumidityData.shift();
@@ -264,7 +264,7 @@ $(document).ready(function () {
 
       //push the am2302 temperature data if it exists and keep only 50 points in the line chart
       if (obj.am2302temperature) {
-        am2302TemperatureData.push(obj.am2302temperature);
+        am2302TemperatureData.push(obj.am2302Temperature);
       }
       if (am2302TemperatureData.length > maxLen) {
         am2302TemperatureData.shift();
@@ -272,7 +272,7 @@ $(document).ready(function () {
 
       //push the pressure transmitter data if it exists and keep only 50 points in the line chart
       if (obj.adc_pressure) {
-        pressureTransmitterData.push(obj.adc_pressure);
+        pressureTransmitterData.push(obj.transducerPressure);
       }
       if (pressureTransmitterData.length > maxLen) {
         pressureTransmitterData.shift();
