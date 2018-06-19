@@ -163,7 +163,7 @@ $(document).ready(function () {
         divList = document.getElementsByTagName("div");
         for (var i=0; i<divList.length; i++) {
             if (divList[i].classList.contains("chartContainer")) {
-                divList.classList.add("d-none");
+                divList[i].classList.add("d-none");
             }
         }
     }
