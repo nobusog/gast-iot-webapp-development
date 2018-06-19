@@ -2,16 +2,6 @@
 var currentLocation;
 
 $(document).ready(function () {
-    //show device map when button is clicked
-    document.getElementById("mapButton").onclick = function() {
-        document.getElementById("mapholder").classList.remove("d-none");
-    }; 
-
-    //close map when close button is clicked 
-    document.getElementById("mapCloseButton").onclick = function() {
-        document.getElementById("mapholder").classList.add("d-none");
-    };
-   
     //insert time into place holder
     (function updateTime(){ 
         currentTime = new Date().toLocaleString([], { weekday: 'long', year: 'numeric', month: 'long', day: '2-digit', hour: '2-digit', minute: '2-digit' });
