@@ -121,8 +121,9 @@ $(document).ready(function () {
         //close alert bar and enable selector
         document.getElementById("chartDeviceSelectAlert").classList.add("d-none")
         document.getElementById("chartSelector").classList.remove("disabled")
+        }   
     }
-
+    
     document.getElementById("nitrogenSelectButton").onclick = function(){
         if (this.classList.contains("active")){
             document.getElementById("deviceAlert").classList.remove("d-none");
@@ -136,8 +137,9 @@ $(document).ready(function () {
             //close alert bar and enable chart selection
             document.getElementById("chartDeviceSelectAlert").classList.add("d-none")
             document.getElementById("chartSelector").classList.remove("disabled")
-        }}
+        }
     }
+
     //close alert whenever button is pressed 
     document.getElementById("deviceAlertCloseButton").onclick = function(){
         document.getElementById("deviceAlert").classList.add("d-none");
@@ -156,4 +158,5 @@ $(document).ready(function () {
         }
     }
     
+
 });

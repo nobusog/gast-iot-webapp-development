@@ -346,8 +346,24 @@ $(document).ready(function () {
   ws.onmessage = function (message) {
     console.log('receive message' + message.data);
     try {
-      var obj = JSON.parse(message.data);
-      if(!obj.time || !obj.bme280Temperature) {
+      var objReceived = JSON.parse(message.data);
+
+      if (objReceived.deviceId = "Raspberry Pi - Python") {
+        obj1 = objReceived;
+      }
+
+      else {
+        obj2 = objReceived;
+      }
+
+      if (document.getElementById("jun-airSelectButton").classList.contains("active")){
+        obj = obj1;
+      }
+      else if (document.getElementById("nitrogenSelectButton").classList.contains("active")) {
+        obj = obj2;
+      }
+
+      if (!obj.time || !obj.bme280Temperature) {
         return;
       }
       timeData.push(obj.time);
