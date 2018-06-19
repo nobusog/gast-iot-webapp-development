@@ -53,8 +53,10 @@
     </div>
     <div class="jumbotron bg-secondary mt-4 mb-0">
         <h1 class="display-3" id="greeting"></h1>
-        <p> <button type="button" class="btn btn-outline-light" id="quickStatsButton">Quick Stats</button> </p>
-        <p> <button type="button" class="btn btn-outline-light" id="closeAllChartsButton">Close All Charts</button> </p>
+        <p> <button type="button" class="btn btn-outline-light" id="quickStatsButton">Quick Stats</button> 
+            <button type="button" class="btn btn-outline-light" id="closeAllChartsButton">Close All Charts</button> 
+        </p>
+    
         <hr class="my-4">
         <div class="row">
             <div class="text-left col" id="timePlaceHolder"></div>
@@ -122,31 +124,31 @@
                 <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="container-fluid bg-light border d-none shadow rounded my-5" id="am2302Container" >
+    <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer" id="am2302Container" >
             <button type="button" class="close mt-3" aria-label="Close" id="am2302CloseButton">
                     <span aria-hidden="true">&times;</span>
             </button>
             <canvas id="am2302Chart" width="400" height="150"></canvas>
         </div>
-    <div class="container-fluid bg-light d-none border shadow rounded my-5" id="bmeContainer">
+    <div class="container-fluid bg-light d-none border shadow rounded my-5 chartContainer" id="bmeContainer">
         <button type="button" class="close mt-3" aria-label="Close" id="bme280CloseButton">
                 <span aria-hidden="true">&times;</span>
         </button>
         <canvas id="bme280Chart" width="400" height="150"></canvas>
     </div>
-    <div class="container-fluid bg-light border d-none shadow rounded my-5" id="pressureTransmitterContainer">
+    <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer" id="pressureTransmitterContainer">
         <button type="button" class="close mt-3" aria-label="Close" id="pressureTransmitterCloseButton">
                 <span aria-hidden="true">&times;</span>
         </button>
         <canvas id="pressureTransmitter" width="400" height="150"></canvas>
     </div> 
-    <div class="container-fluid bg-light border d-none shadow rounded my-5" id="thermocoupleContainer">
+    <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer" id="thermocoupleContainer">
         <button type="button" class="close mt-3" aria-label="Close" id="thermocoupleCloseButton">
                 <span aria-hidden="true">&times;</span>
         </button>
         <canvas id="thermocoupleChart" width="400" height="150"></canvas>
     </div>
-    <div class="container-fluid bg-light border d-none shadow rounded my-5" id="sht20Container">
+    <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer" id="sht20Container">
         <button type="button" class="close mt-3" aria-label="Close" id="sht20CloseButton" >
                 <span aria-hidden="true">&times;</span>
         </button>

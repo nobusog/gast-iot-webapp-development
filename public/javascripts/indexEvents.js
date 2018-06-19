@@ -158,5 +158,13 @@ $(document).ready(function () {
         }
     }
     
-
+    //close all charts when button is pressed 
+    document.getElementById("closeAllChartsButton").onclick = function () {
+        divList = document.getElementsByTagName("div");
+        for (var i=0; i<divList.length; i++) {
+            if (divList[i].classList.contains("chartContainer")) {
+                divList.classList.add("d-none");
+            }
+        }
+    }
 });
