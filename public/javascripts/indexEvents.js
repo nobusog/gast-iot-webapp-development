@@ -167,4 +167,13 @@ $(document).ready(function () {
             }
         }
     }
+    //open all charts when button is pressed 
+    document.getElementById("openAllChartsButton").onclick = function () {
+        divList = document.getElementsByTagName("div");
+        for (var i=0; i<divList.length; i++) {
+            if (divList[i].classList.contains("chartContainer")) {
+                divList[i].classList.remove("d-none");
+            }
+        }
+    }
 });
