@@ -352,7 +352,7 @@ $(document).ready(function () {
         obj1 = objReceived;
       }
 
-      else {
+      else if(objReceived.deviceId = "Raspberry Pi Web Client") {
         obj2 = objReceived;
       }
 
