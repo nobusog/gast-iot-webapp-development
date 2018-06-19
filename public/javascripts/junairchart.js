@@ -356,13 +356,6 @@ $(document).ready(function () {
         obj2 = objReceived;
       }
 
-      if (document.getElementById("jun-airSelectButton").classList.contains("active")){
-        obj = obj1;
-      }
-      else if (document.getElementById("nitrogenSelectButton").classList.contains("active")) {
-        obj = obj2;
-      }
-
       if (!obj.time || !obj.bme280Temperature) {
         return;
       }
