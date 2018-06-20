@@ -155,6 +155,7 @@ $(document).ready(function () {
         document.getElementById("deviceAlert").classList.remove("d-none");
     }
     else {
+        bringBackOpenedCharts("junair")
         var activeList = document.getElementById("deviceSelectContainer").getElementsByClassName("nav-link");
         for (var i=0; i<activeList.length; i++){
             activeList[i].classList.remove("active")
@@ -172,6 +173,7 @@ $(document).ready(function () {
             document.getElementById("deviceAlert").classList.remove("d-none");
         }
         else {
+            bringBackOpenedCharts("nitrogen")
             var activeListNitro = document.getElementById("deviceSelectContainer").getElementsByClassName("nav-link");
             for (var i=0; i<activeListNitro.length; i++){
                 activeListNitro[i].classList.remove("active")
@@ -230,6 +232,17 @@ $(document).ready(function () {
                 if (openCharts[i].classList.contains("nitrogen")){
                     openCharts[i].classList.add("d-none");
                 }
+            }
+        }
+    }
+
+    function bringBackOpenedCharts (chart) {
+        for (i=0; i<openCharts.length; i++) {
+            if (openCharts[i].classList.contains(chart)){
+                openCharts[i].classList.remove("d-none");
+            }
+            else if (openCharts[i].classList.contains(chart)){
+                openCharts[i].classList.remove("d-none");
             }
         }
     }
