@@ -22,11 +22,11 @@ $(document).ready(function () {
     //Insert greeting into jumbotron and update every 30 mins
     (function updateGreeting() {
         var currentTimeHours = new Date().getHours();
-        if (currentTimeHours < 12 & currentTimeHours >= 0) {
+        if (currentTimeHours < 12 && currentTimeHours >= 0) {
             greeting = "Good Morning, ";
         }
 
-        else if (currentTimeHours >= 12 & currentTimeHours <= 17) {
+        else if (currentTimeHours >= 12 && currentTimeHours <= 17) {
             greeting = "Good Afternoon, ";
         }
         else {
@@ -206,10 +206,10 @@ $(document).ready(function () {
     
     //close all charts when button is pressed 
     function closeAllCharts (selected) {
-        if (selected == "junair") {
+        if (selected === "junair") {
             divList = document.getElementById("junair").getElementsByTagName("div"); 
         }
-        else if (selected == "nitrogen") {
+        else if (selected === "nitrogen") {
             divList = document.getElementById("nitrogen").getElementsByTagName("div"); 
         }
         for (var i=0; i<divList.length; i++) {
@@ -221,25 +221,26 @@ $(document).ready(function () {
         
     }
     document.getElementById("closeAllChartsButton").onclick = function (chartType) {
-        if (document.getElementById("jun-airSelectButton").classList.contains("active") & chartType == "junair"){
+        if (document.getElementById("jun-airSelectButton").classList.contains("active") && chartType === "junair"){
             closeAllCharts("junair");
             for (i=0; i<openCharts.length; i++){
                 if (openCharts[i].classList.contains("jun-air")){
-                    delete openCharts[i]
+                    delete openCharts[i];
                 }
             }
         }
 
-        else if (document.getElementById("nitrogenSelectButton").classList.contains("active") & chartType == "nitrogen"){
+        else if (document.getElementById("nitrogenSelectButton").classList.contains("active") && chartType === "nitrogen"){
             closeAllCharts("nitrogen");
             for (i=0; i<openCharts.length; i++){
                 if (openCharts[i].classList.contains("nitrogen")){
-                    delete openCharts[i]
+                    delete openCharts[i];
                 }
             }
         }
     }
 
+    //function that resores open charts from the open charts array
     function bringBackOpenedCharts (chart) {
         for (i=0; i<openCharts.length; i++) {
             if (openCharts[i].classList.contains(chart)){
