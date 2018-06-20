@@ -255,6 +255,19 @@ $(document).ready(function () {
         }
     }
 
+    //removes specific chart from open charts array and closes chart
+    function removeChart (chart) {
+        var i=0;
+        var selectedChart = false;
+        document.getElementById(chart).classList.add("d-none");
+        while (selectedChart == false) {
+            if (openCharts[i] === document.getElementById(chart)) {
+                delete openCharts[i];
+                selectedChart = true;
+            }
+        }
+    }
+
     //open all charts when button is pressed 
     document.getElementById("openAllChartsButton").onclick = function () {
         if(document.getElementById("jun-airSelectButton").classList.contains("active")) {
