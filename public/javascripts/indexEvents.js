@@ -220,8 +220,8 @@ $(document).ready(function () {
 
         
     }
-    document.getElementById("closeAllChartsButton").onclick = function (chartType) {
-        if (document.getElementById("jun-airSelectButton").classList.contains("active") && chartType === "junair"){
+    document.getElementById("closeAllChartsButton").onclick = function () {
+        if (document.getElementById("jun-airSelectButton").classList.contains("active") && document.getElementById("jun-airSelectButton").classList.contains("active")){
             closeAllCharts("junair");
             for (i=0; i<openCharts.length; i++){
                 if (openCharts[i].classList.contains("jun-air")){
@@ -230,7 +230,7 @@ $(document).ready(function () {
             }
         }
 
-        else if (document.getElementById("nitrogenSelectButton").classList.contains("active") && chartType === "nitrogen"){
+        else if (document.getElementById("nitrogenSelectButton").classList.contains("active") && document.getElementById("nitrogenSelectButton").classList.contains("active")){
             closeAllCharts("nitrogen");
             for (i=0; i<openCharts.length; i++){
                 if (openCharts[i].classList.contains("nitrogen")){
