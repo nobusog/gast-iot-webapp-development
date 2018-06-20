@@ -348,12 +348,8 @@ $(document).ready(function () {
       try {
         var objReceived = JSON.parse(message.data);
   
-        if (objReceived.deviceId = "Raspberry Pi - Python") {
-          obj1 = objReceived;
-        }
-  
-        else if(objReceived.deviceId = "Raspberry Pi Web Client") {
-          obj2 = objReceived;
+        if(objReceived.deviceId = "Raspberry Pi Web Client") {
+          obj = objReceived;
         }
   
         if (!obj.time || !obj.bme280Temperature) {
