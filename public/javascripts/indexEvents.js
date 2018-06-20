@@ -37,7 +37,7 @@ $(document).ready(function () {
         setTimeout(updateGreeting,1800000)
     })();
     
-    //Show charts when button is clicked
+    //Show charts when button is clicked only for the slected elements 
     document.getElementById("bme280Button").onclick = function() {
         if (document.getElementById("jun-airSelectButton").classList.contains("active")) {
             document.getElementById("bme280ContainerJunair").classList.remove("d-none");
@@ -163,6 +163,7 @@ $(document).ready(function () {
         //close alert bar and enable selector
         document.getElementById("chartDeviceSelectAlert").classList.add("d-none")
         document.getElementById("chartSelector").classList.remove("disabled")
+        closeAllCharts("nitrogen")
         }   
     }
     
@@ -179,6 +180,7 @@ $(document).ready(function () {
             //close alert bar and enable chart selection
             document.getElementById("chartDeviceSelectAlert").classList.add("d-none")
             document.getElementById("chartSelector").classList.remove("disabled")
+            closeAllCharts("junair");
         }
     }
 

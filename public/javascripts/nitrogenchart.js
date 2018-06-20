@@ -146,7 +146,7 @@ $(document).ready(function () {
     var bme280SensorOptions = {
       title: {
         display: true,
-        text: 'BME280 Sensor Real-time Data',
+        text: ' nitro BME280 Sensor Real-time Data',
         fontSize: 30
       },
       scales: {
@@ -183,7 +183,7 @@ $(document).ready(function () {
     var am2302SensorOptions = {
       title: {
         display: true,
-        text: 'AM2302 Sensor Real-time Data',
+        text: 'nitro AM2302 Sensor Real-time Data',
         fontSize: 30
       },
       scales: {
@@ -212,7 +212,7 @@ $(document).ready(function () {
     var pressureTransmitterOptions = {
       title: {
         display: true,
-        text: 'Pressure Transmitter Real-time Data',
+        text: 'nitro Pressure Transmitter Real-time Data',
         fontSize: 30
       },
       scales: {
@@ -240,7 +240,7 @@ $(document).ready(function () {
     var thermocoupleOptions = {
       title: {
         display: true,
-        text: 'Thermocouple Real-time Data',
+        text: 'nitro Thermocouple Real-time Data',
         fontSize: 30
       },
       scales: {
@@ -269,7 +269,7 @@ $(document).ready(function () {
     var sht20Options = {
       title: {
         display: true,
-        text: 'SHT Sensor Real-time Data',
+        text: 'nitro SHT Sensor Real-time Data',
         fontSize: 30
       },
       scales: {
