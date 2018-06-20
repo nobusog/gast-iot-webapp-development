@@ -371,7 +371,7 @@ $(document).ready(function () {
         if (obj.bme280Humidity) {
           nitrobme280HumidityData.push(obj.bme280Humidity);
         }
-        if (bme280HumidityData.length > maxLen) {
+        if (nitrobme280HumidityData.length > maxLen) {
           nitrobme280HumidityData.shift();
         }
         
@@ -379,7 +379,7 @@ $(document).ready(function () {
         if (obj.bme280Pressure) {
           nitrobme280PressureData.push(obj.bme280Pressure);
         }
-        if (bme280PressureData.length > maxLen) {
+        if (nitrobme280PressureData.length > maxLen) {
           nitrobme280PressureData.shift();
         }
   
@@ -387,7 +387,7 @@ $(document).ready(function () {
         if (obj.am2302Humidity) {
           nitroam2302HumidityData.push(obj.am2302Humidity);
         }
-        if (am2302HumidityData.length > maxLen) {
+        if (nitroam2302HumidityData.length > maxLen) {
           nitroam2302HumidityData.shift();
         }
   
@@ -395,7 +395,7 @@ $(document).ready(function () {
         if (obj.am2302Temperature) {
           nitroam2302TemperatureData.push(obj.am2302Temperature);
         }
-        if (am2302TemperatureData.length > maxLen) {
+        if (nitroam2302TemperatureData.length > maxLen) {
           nitroam2302TemperatureData.shift();
         }
   
