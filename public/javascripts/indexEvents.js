@@ -263,6 +263,7 @@ $(document).ready(function () {
             if (openCharts[i] === document.getElementById(chart)) {
                 openCharts.splice(i,1);
                 selectedChart = 1;
+                i++;
             }
 
             if (openCharts[i] === openCharts[-1]){
