@@ -259,7 +259,6 @@ $(document).ready(function () {
     function removeChart (chart) {
         var i=0;
         var selectedChart = 0;
-        document.getElementById(chart).classList.add("d-none");
         while (selectedChart == 0) {
             if (openCharts[i] === document.getElementById(chart)) {
                 openCharts.splice(i,1);
@@ -270,6 +269,7 @@ $(document).ready(function () {
                 selectedChart = 1;
             }
         }
+        document.getElementById(chart).classList.add("d-none");
     }
 
     //open all charts when button is pressed 
