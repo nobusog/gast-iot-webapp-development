@@ -224,8 +224,10 @@ $(document).ready(function () {
         if (document.getElementById("jun-airSelectButton").classList.contains("active") && document.getElementById("jun-airSelectButton").classList.contains("active")){
             closeAllCharts("junair");
             for (i=0; i<openCharts.length; i++){
-                if (openCharts[i].classList.contains("junair")){
-                    delete openCharts[i];
+                if (openCharts[i]) {
+                    if (openCharts[i].classList.contains("junair")){
+                        delete openCharts[i];
+                    }
                 }
             }
         }
@@ -233,8 +235,10 @@ $(document).ready(function () {
         else if (document.getElementById("nitrogenSelectButton").classList.contains("active") && document.getElementById("nitrogenSelectButton").classList.contains("active")){
             closeAllCharts("nitrogen");
             for (i=0; i<openCharts.length; i++){
-                if (openCharts[i].classList.contains("nitrogen")){
-                    delete openCharts[i];
+                if (openCharts[i]) {
+                    if (openCharts[i].classList.contains("nitrogen")){
+                        delete openCharts[i];
+                    }
                 }
             }
         }
