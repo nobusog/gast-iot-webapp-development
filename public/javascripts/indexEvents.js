@@ -204,8 +204,12 @@ $(document).ready(function () {
     
     //close all charts when button is pressed 
     function closeAllCharts (selected) {
-        var selectedString = toString(selected);
-        divList = document.getElementById(selectedString).getElementsByTagName("div"); 
+        if (selected == "junair") {
+            divList = document.getElementById("junair").getElementsByTagName("div"); 
+        }
+        else if (selected == "nitrogen") {
+            divList = document.getElementById("nitrogen").getElementsByTagName("div"); 
+        }
         for (var i=0; i<divList.length; i++) {
             if (divList[i].classList.contains("chartContainer")) {
                 divList[i].classList.add("d-none");
