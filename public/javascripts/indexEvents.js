@@ -217,20 +217,24 @@ $(document).ready(function () {
                 divList[i].classList.add("d-none");
             }
         }
+
+        
     }
     document.getElementById("closeAllChartsButton").onclick = function (chartType) {
         if (document.getElementById("jun-airSelectButton").classList.contains("active") & chartType == "junair"){
+            closeAllCharts("junair");
             for (i=0; i<openCharts.length; i++){
                 if (openCharts[i].classList.contains("jun-air")){
-                    openCharts[i].classList.add("d-none");
+                    delete openCharts[i]
                 }
             }
         }
 
         else if (document.getElementById("nitrogenSelectButton").classList.contains("active") & chartType == "nitrogen"){
+            closeAllCharts("nitrogen");
             for (i=0; i<openCharts.length; i++){
                 if (openCharts[i].classList.contains("nitrogen")){
-                    openCharts[i].classList.add("d-none");
+                    delete openCharts[i]
                 }
             }
         }
