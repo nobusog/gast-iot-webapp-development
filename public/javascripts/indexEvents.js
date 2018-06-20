@@ -1,5 +1,6 @@
 //global variables
 var currentLocation;
+var openCharts = [];
 
 $(document).ready(function () {
     //insert time into place holder
@@ -38,37 +39,88 @@ $(document).ready(function () {
     
     //Show charts when button is clicked
     document.getElementById("bme280Button").onclick = function() {
-        document.getElementById("junair").getElementById("bmeContainer").classList.remove("d-none");
+        if (document.getElementById("jun-airSelectButton").classList.contains("active")) {
+            document.getElementById("bme280ContainerJunair").classList.remove("d-none");
+            openCharts.push(document.getElementById("bme280ContainerJunair"));
+        } 
+        else if (document.getElementById("nitrogenSelectButton").classList.contains("active")) {
+            document.getElementById("bme280ContainerNitrogen").classList.remove("d-none");
+            openCharts.push(document.getElementById("bme280ContainerNitrogen"));
+        }
     };
     document.getElementById("am2302Button").onclick = function() {
-        document.getElementById("junair").getElementById("am2302Container").classList.remove("d-none");
+        if (document.getElementById("jun-airSelectButton").classList.contains("active")) {
+            document.getElementById("am2302ContainerJunair").classList.remove("d-none");
+            openCharts.push(document.getElementById("am2302ContainerJunair"));
+        } 
+        else if (document.getElementById("nitrogenSelectButton").classList.contains("active")) {
+            document.getElementById("am2302ContainerNitrogen").classList.remove("d-none");
+            openCharts.push(document.getElementById("am2302ContainerNitrogen"));
+        }
     };
     document.getElementById("pressureTransmitterButton").onclick = function() {
-        document.getElementById("junair").getElementById("pressureTransmitterContainer").classList.remove("d-none");
+        if (document.getElementById("jun-airSelectButton").classList.contains("active")) {
+            document.getElementById("pressureTransmitterContainerJunair").classList.remove("d-none");
+            openCharts.push(document.getElementById("pressureTransmitterContainerJunair"));
+        } 
+        else if (document.getElementById("nitrogenSelectButton").classList.contains("active")) {
+            document.getElementById("pressureTransmitterContainerNitrogen").classList.remove("d-none");
+            openCharts.push(document.getElementById("pressureTransmitterContainerNitrogen"));
+        }
     };
     document.getElementById("thermocoupleButton").onclick = function() {
-        document.getElementById("junair").getElementById("thermocoupleContainer").classList.remove("d-none");
+        if (document.getElementById("jun-airSelectButton").classList.contains("active")) {
+            document.getElementById("thermocoupleContainerJunair").classList.remove("d-none");
+            openCharts.push(document.getElementById("thermocoupleContainerJunair"));
+        } 
+        else if (document.getElementById("nitrogenSelectButton").classList.contains("active")) {
+            document.getElementById("thermocoupleContainerNitrogen").classList.remove("d-none");
+            openCharts.push(document.getElementById("thermocoupleContainerNitrogen"));
+        }
     };
     document.getElementById("sht20Button").onclick = function() {
-        document.getElementById("junair").getElementById("sht20Container").classList.remove("d-none");
+        if (document.getElementById("jun-airSelectButton").classList.contains("active")) {
+            document.getElementById("sht20ContainerJunair").classList.remove("d-none");
+            openCharts.push(document.getElementById("sht20ContainerJunair"));
+        } 
+        else if (document.getElementById("nitrogenSelectButton").classList.contains("active")) {
+            document.getElementById("sht20ContainerNitrogen").classList.remove("d-none");
+            openCharts.push(document.getElementById("sht20ContainerNitrogen"));
+        }
     };
 
+    //close jun air charts when button is clicked    
+    document.getElementById("bme280CloseButtonJunair").onclick = function() {
+        document.getElementById("bme280ContainerJunair").classList.add("d-none");
+    };
+    document.getElementById("am2302CloseButtonJunair").onclick = function() {
+        document.getElementById("am2302ContainerJunair").classList.add("d-none");
+    };
+    document.getElementById("pressureTransmitterCloseButtonJunair").onclick = function() {
+        document.getElementById("pressureTransmitterContainerJunair").classList.add("d-none");
+    };
+    document.getElementById("thermocoupleCloseButtonJunair").onclick = function() {
+        document.getElementById("thermocoupleContainerJunair").classList.add("d-none");
+    };
+    document.getElementById("sht20CloseButtonJunair").onclick = function() {
+        document.getElementById("sht20ContainerJunair").classList.add("d-none");
+    };
 
-    //close charts when button is clicked
-    document.getElementById("bme280CloseButton").onclick = function() {
-        document.getElementById("junair").getElementById("bmeContainer").classList.add("d-none");
+    //close nitrogen charts when button is clicked
+    document.getElementById("bme280CloseButtonNitrogen").onclick = function() {
+        document.getElementById("bme280ContainerNitrogen").classList.add("d-none");
     };
-    document.getElementById("am2302CloseButton").onclick = function() {
-        document.getElementById("junair").getElementById("am2302Container").classList.add("d-none");
+    document.getElementById("am2302CloseButtonNitrogen").onclick = function() {
+        document.getElementById("am2302ContainerNitrogen").classList.add("d-none");
     };
-    document.getElementById("pressureTransmitterCloseButton").onclick = function() {
-        document.getElementById("junair").getElementById("pressureTransmitterContainer").classList.add("d-none");
+    document.getElementById("pressureTransmitterCloseButtonNitrogen").onclick = function() {
+        document.getElementById("pressureTransmitterContainerNitrogen").classList.add("d-none");
     };
-    document.getElementById("thermocoupleCloseButton").onclick = function() {
-        document.getElementById("junair").getElementById("thermocoupleContainer").classList.add("d-none");
+    document.getElementById("thermocoupleCloseButtonNitrogen").onclick = function() {
+        document.getElementById("thermocoupleContainerNitrogen").classList.add("d-none");
     };
-    document.getElementById("sht20CloseButton").onclick = function() {
-        document.getElementById("junair").getElementById("sht20Container").classList.add("d-none");
+    document.getElementById("sht20CloseButtonNitrogen").onclick = function() {
+        document.getElementById("sht20ContainerNitrogen").classList.add("d-none");
     };
 
     //Toggle quick stats when button is clicked
@@ -99,7 +151,6 @@ $(document).ready(function () {
 
     //show which compressor is active 
     document.getElementById("jun-airSelectButton").onclick = function(){
-        selected = "junair";
     if (this.classList.contains("active")){
         document.getElementById("deviceAlert").classList.remove("d-none");
     }
@@ -116,7 +167,6 @@ $(document).ready(function () {
     }
     
     document.getElementById("nitrogenSelectButton").onclick = function(){
-        selected = "nitrogen";
         if (this.classList.contains("active")){
             document.getElementById("deviceAlert").classList.remove("d-none");
         }
@@ -151,17 +201,27 @@ $(document).ready(function () {
     }
     
     //close all charts when button is pressed 
-    document.getElementById("closeAllChartsButton").onclick = function () {
-        divList = document.getElementsByTagName("div");
+    function closeAllCharts (selected) {
+        var selectedString = toString(selected);
+        divList = document.getElementById(selectedString).getElementsByTagName("div"); 
         for (var i=0; i<divList.length; i++) {
             if (divList[i].classList.contains("chartContainer")) {
                 divList[i].classList.add("d-none");
             }
         }
     }
+    document.getElementById("closeAllChartsButton").onclick = function () {
+        
+    }
+
     //open all charts when button is pressed 
     document.getElementById("openAllChartsButton").onclick = function () {
-        divList = document.getElementsByTagName("div");
+        if(document.getElementById("jun-airSelectButton").classList.contains("active")) {
+            divList = document.getElementById("junair").getElementsByTagName("div");
+        } 
+        else if (document.getElementById("nitrogenSelectButton").classList.contains("active")) {
+            divList = document.getElementById("nitrogen").getElementsByTagName("div"); 
+        }
         for (var i=0; i<divList.length; i++) {
             if (divList[i].classList.contains("chartContainer")) {
                 divList[i].classList.remove("d-none");

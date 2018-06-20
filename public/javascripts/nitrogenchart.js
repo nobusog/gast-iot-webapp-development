@@ -295,7 +295,7 @@ $(document).ready(function () {
     
       
     //Get the context of the BME280  sensor chart canvas element.
-    var bme280ctx = document.getElementById("bme280Chart").getContext("2d");
+    var bme280ctx = document.getElementById("bme280ChartNitrogen").getContext("2d");
     var optionsNoAnimation = { animation: false }
     var bme280Chart = new Chart(bme280ctx, {
       type: 'line',
@@ -304,7 +304,7 @@ $(document).ready(function () {
     });
   
     //Get the context of the AM2302 sensor chart canvas element.
-    var am2302ctx = document.getElementById("am2302Chart").getContext("2d");
+    var am2302ctx = document.getElementById("am2302ChartNitrogen").getContext("2d");
     var optionsNoAnimation = { animation: false }
     var am2302Chart = new Chart(am2302ctx, {
       type: 'line',
@@ -313,7 +313,7 @@ $(document).ready(function () {
     });
   
     //Get the context of the Pressure transmitter chart canvas element.
-    var pressuretransmitterctx = document.getElementById("pressureTransmitter").getContext("2d");
+    var pressuretransmitterctx = document.getElementById("pressureTransmitterNitrogen").getContext("2d");
     var optionsNoAnimation = { animation: false }
     var pressureTransmitterChart = new Chart(pressuretransmitterctx, {
       type: 'line',
@@ -322,7 +322,7 @@ $(document).ready(function () {
     });
   
     //Get the context of the Pressure transmitter chart canvas element.
-    var thermocouplectx = document.getElementById("thermocoupleChart").getContext("2d");
+    var thermocouplectx = document.getElementById("thermocoupleChartNitrogen").getContext("2d");
     var optionsNoAnimation = { animation: false }
     var thermocoupleChart = new Chart(thermocouplectx, {
       type: 'line',
@@ -331,7 +331,7 @@ $(document).ready(function () {
     });
   
     //Get the context of the Pressure transmitter chart canvas element.
-    var sht20ctx = document.getElementById("sht20Chart").getContext("2d");
+    var sht20ctx = document.getElementById("sht20ChartNitrogen").getContext("2d");
     var optionsNoAnimation = { animation: false }
     var sht20Chart = new Chart(sht20ctx, {
       type: 'line',
