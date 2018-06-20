@@ -243,12 +243,11 @@ $(document).ready(function () {
     //function that resores open charts from the open charts array
     function bringBackOpenedCharts (chart) {
         for (i=0; i<openCharts.length; i++) {
-            if (openCharts[i].classList.contains(chart)){
-                openCharts[i].classList.remove("d-none");
-            }
-            else if (openCharts[i].classList.contains(chart)){
-                openCharts[i].classList.remove("d-none");
-            }
+            if (openCharts[i]) {
+                if (openCharts[i].classList.contains(chart)){
+                    openCharts[i].classList.remove("d-none");
+                }
+            } 
         }
     }
 
