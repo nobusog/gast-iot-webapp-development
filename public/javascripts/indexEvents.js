@@ -38,37 +38,37 @@ $(document).ready(function () {
     
     //Show charts when button is clicked
     document.getElementById("bme280Button").onclick = function() {
-        document.getElementById(selected).getElementById("bmeContainer").classList.remove("d-none");
+        document.getElementById("junair").getElementById("bmeContainer").classList.remove("d-none");
     };
     document.getElementById("am2302Button").onclick = function() {
-        document.getElementById(selected).getElementById("am2302Container").classList.remove("d-none");
+        document.getElementById("junair").getElementById("am2302Container").classList.remove("d-none");
     };
     document.getElementById("pressureTransmitterButton").onclick = function() {
-        document.getElementById(selected).getElementById("pressureTransmitterContainer").classList.remove("d-none");
+        document.getElementById("junair").getElementById("pressureTransmitterContainer").classList.remove("d-none");
     };
     document.getElementById("thermocoupleButton").onclick = function() {
-        document.getElementById(selected).getElementById("thermocoupleContainer").classList.remove("d-none");
+        document.getElementById("junair").getElementById("thermocoupleContainer").classList.remove("d-none");
     };
     document.getElementById("sht20Button").onclick = function() {
-        document.getElementById(selected).getElementById("sht20Container").classList.remove("d-none");
+        document.getElementById("junair").getElementById("sht20Container").classList.remove("d-none");
     };
 
 
     //close charts when button is clicked
     document.getElementById("bme280CloseButton").onclick = function() {
-        document.getElementById(selected).getElementById("bmeContainer").classList.add("d-none");
+        document.getElementById("junair").getElementById("bmeContainer").classList.add("d-none");
     };
     document.getElementById("am2302CloseButton").onclick = function() {
-        document.getElementById(selected).getElementById("am2302Container").classList.add("d-none");
+        document.getElementById("junair").getElementById("am2302Container").classList.add("d-none");
     };
     document.getElementById("pressureTransmitterCloseButton").onclick = function() {
-        document.getElementById(selected).getElementById("pressureTransmitterContainer").classList.add("d-none");
+        document.getElementById("junair").getElementById("pressureTransmitterContainer").classList.add("d-none");
     };
     document.getElementById("thermocoupleCloseButton").onclick = function() {
-        document.getElementById(selected).getElementById("thermocoupleContainer").classList.add("d-none");
+        document.getElementById("junair").getElementById("thermocoupleContainer").classList.add("d-none");
     };
     document.getElementById("sht20CloseButton").onclick = function() {
-        document.getElementById(selected).getElementById("sht20Container").classList.add("d-none");
+        document.getElementById("junair").getElementById("sht20Container").classList.add("d-none");
     };
 
     //Toggle quick stats when button is clicked
