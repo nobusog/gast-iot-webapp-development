@@ -224,7 +224,7 @@ $(document).ready(function () {
         if (document.getElementById("jun-airSelectButton").classList.contains("active") && document.getElementById("jun-airSelectButton").classList.contains("active")){
             closeAllCharts("junair");
             for (i=0; i<openCharts.length; i++){
-                if (openCharts[i].classList.contains("jun-air")){
+                if (openCharts[i].classList.contains("junair")){
                     delete openCharts[i];
                 }
             }
