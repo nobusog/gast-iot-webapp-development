@@ -262,6 +262,7 @@ $(document).ready(function () {
         for (var i=0; i<divList.length; i++) {
             if (divList[i].classList.contains("chartContainer")) {
                 divList[i].classList.remove("d-none");
+                openCharts.push(divList[i]);
             }
         }
     }
