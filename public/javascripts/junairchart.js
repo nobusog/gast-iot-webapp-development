@@ -350,6 +350,7 @@ $(document).ready(function () {
 
       if (objReceived.deviceId == "Raspberry Pi - Python") {
         obj = objReceived;
+        console.log("we also have contact??")
       }
 
       if (!obj.time || !obj.bme280Temperature) {
