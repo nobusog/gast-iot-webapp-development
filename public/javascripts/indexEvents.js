@@ -259,10 +259,8 @@ $(document).ready(function () {
     function removeChart (chart) {
         var i=0;
         var selectedChart = 0; 
-        console.log(openCharts[1])
-        console.log(document.getElementById(chart))
         while (selectedChart == 0) {
-            if (openCharts[i] == document.getElementById(chart)) {
+            if (openCharts[i] != document.getElementById(chart)) {
                 openCharts.splice(i,1);
                 selectedChart = 1;
             }
