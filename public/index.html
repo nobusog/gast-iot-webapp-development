@@ -65,7 +65,7 @@
         </div>
     </div>
     <div id="deviceAlert" class="alert alert-danger alert-dismissible fade show d-none mb-0" role="alert">
-        <strong>This device is already active!</strong> 
+        <strong id="deviceAlertText">This device is already active!</strong> 
         <button type="button" class="close" id="deviceAlertCloseButton" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -126,31 +126,31 @@
         </button>
     </div>
     <div id="junair"> <!--charts for jun-air-->
-        <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer" id="am2302ContainerJunair" >
+        <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer junair" id="am2302ContainerJunair" >
                 <button type="button" class="close mt-3" aria-label="Close" id="am2302CloseButtonJunair">
                         <span aria-hidden="true">&times;</span>
                 </button>
                 <canvas id="am2302ChartJunair" width="400" height="150"></canvas>
             </div>
-        <div class="container-fluid bg-light d-none border shadow rounded my-5 chartContainer" id="bme280ContainerJunair">
+        <div class="container-fluid bg-light d-none border shadow rounded my-5 chartContainer junair" id="bme280ContainerJunair">
             <button type="button" class="close mt-3" aria-label="Close" id="bme280CloseButtonJunair">
                     <span aria-hidden="true">&times;</span>
             </button>
             <canvas id="bme280ChartJunair" width="400" height="150"></canvas>
         </div>
-        <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer" id="pressureTransmitterContainerJunair">
+        <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer junair" id="pressureTransmitterContainerJunair">
             <button type="button" class="close mt-3" aria-label="Close" id="pressureTransmitterCloseButtonJunair">
                     <span aria-hidden="true">&times;</span>
             </button>
             <canvas id="pressureTransmitterJunair" width="400" height="150"></canvas>
         </div> 
-        <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer" id="thermocoupleContainerJunair">
+        <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer junair" id="thermocoupleContainerJunair">
             <button type="button" class="close mt-3" aria-label="Close" id="thermocoupleCloseButtonJunair">
                     <span aria-hidden="true">&times;</span>
             </button>
             <canvas id="thermocoupleChartJunair" width="400" height="150"></canvas>
         </div>
-        <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer" id="sht20ContainerJunair">
+        <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer junair" id="sht20ContainerJunair">
             <button type="button" class="close mt-3" aria-label="Close" id="sht20CloseButtonJunair" >
                     <span aria-hidden="true">&times;</span>
             </button>
@@ -158,31 +158,31 @@
         </div>
     </div>
     <div id="nitrogen"> <!--charts for nitrogen-->
-        <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer" id="am2302ContainerNitrogen" >
+        <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer nitrogen" id="am2302ContainerNitrogen" >
                 <button type="button" class="close mt-3" aria-label="Close" id="am2302CloseButtonNitrogen">
                         <span aria-hidden="true">&times;</span>
                 </button>
                 <canvas id="am2302ChartNitrogen" width="400" height="150"></canvas>
             </div>
-        <div class="container-fluid bg-light d-none border shadow rounded my-5 chartContainer" id="bmeContainerNitrogen">
+        <div class="container-fluid bg-light d-none border shadow rounded my-5 chartContainer nitrogen" id="bme280ContainerNitrogen">
             <button type="button" class="close mt-3" aria-label="Close" id="bme280CloseButtonNitrogen">
                     <span aria-hidden="true">&times;</span>
             </button>
             <canvas id="bme280ChartNitrogen" width="400" height="150"></canvas>
         </div>
-        <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer" id="pressureTransmitterContainerNitrogen">
+        <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer nitrogen" id="pressureTransmitterContainerNitrogen">
             <button type="button" class="close mt-3" aria-label="Close" id="pressureTransmitterCloseButtonNitrogen">
                     <span aria-hidden="true">&times;</span>
             </button>
             <canvas id="pressureTransmitterNitrogen" width="400" height="150"></canvas>
         </div> 
-        <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer" id="thermocoupleContainerNitrogen">
+        <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer nitrogen" id="thermocoupleContainerNitrogen">
             <button type="button" class="close mt-3" aria-label="Close" id="thermocoupleCloseButtonNitrogen">
                     <span aria-hidden="true">&times;</span>
             </button>
             <canvas id="thermocoupleChartNitrogen" width="400" height="150"></canvas>
         </div>
-        <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer" id="sht20ContainerNitrogen">
+        <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer nitrogen" id="sht20ContainerNitrogen">
             <button type="button" class="close mt-3" aria-label="Close" id="sht20CloseButtonNitrogen" >
                     <span aria-hidden="true">&times;</span>
             </button>

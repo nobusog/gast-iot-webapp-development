@@ -210,8 +210,22 @@ $(document).ready(function () {
             }
         }
     }
-    document.getElementById("closeAllChartsButton").onclick = function () {
-        
+    document.getElementById("closeAllChartsButton").onclick = function (chartType) {
+        if (document.getElementById("jun-airSelectButton").classList.contains("active") & chartType == "junair"){
+            for (i=0; i<openCharts.length; i++){
+                if (openCharts[i].classList.contains("jun-air")){
+                    openCharts[i].classList.add("d-none");
+                }
+            }
+        }
+
+        else if (document.getElementById("nitrogenSelectButton").classList.contains("active") & chartType == "nitrogen"){
+            for (i=0; i<openCharts.length; i++){
+                if (openCharts[i].classList.contains("nitrogen")){
+                    openCharts[i].classList.add("d-none");
+                }
+            }
+        }
     }
 
     //open all charts when button is pressed 
