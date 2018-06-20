@@ -258,12 +258,16 @@ $(document).ready(function () {
     //removes specific chart from open charts array and closes chart
     function removeChart (chart) {
         var i=0;
-        var selectedChart = false;
+        var selectedChart = 0;
         document.getElementById(chart).classList.add("d-none");
-        while (selectedChart == false) {
+        while (selectedChart == 0) {
             if (openCharts[i] === document.getElementById(chart)) {
-                delete openCharts[i];
-                selectedChart = true;
+                openCharts.splice(i,1);
+                selectedChart = 1;
+            }
+
+            if (openCharts[i] === openCharts[-1]){
+                selectedChart = 1;
             }
         }
     }
