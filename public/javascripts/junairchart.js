@@ -348,7 +348,7 @@ $(document).ready(function () {
     try {
       var objReceived = JSON.parse(message.data);
 
-      if (objReceived.deviceId = "Raspberry Pi - Python") {
+      if (objReceived.deviceId == "Raspberry Pi - Python") {
         obj = objReceived;
       }
 
