@@ -361,7 +361,7 @@ $(document).ready(function () {
   
         // only keep no more than 50 points in the line chart
         const maxLen = 50;
-        var len = timeData.length;
+        var len = nitrotimeData.length;
         if (len > maxLen) {
           nitrotimeData.shift();
           nitrobme280TemperatureData.shift();
