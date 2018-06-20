@@ -258,7 +258,9 @@ $(document).ready(function () {
     //removes specific chart from open charts array and closes chart
     function removeChart (chart) {
         var i=0;
-        var selectedChart = 0;
+        var selectedChart = 0; 
+        console.log(openCharts[1])
+        console.log(document.getElementById(chart))
         while (selectedChart == 0) {
             if (openCharts[i] == document.getElementById(chart)) {
                 openCharts.splice(i,1);
