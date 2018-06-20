@@ -350,6 +350,7 @@ $(document).ready(function () {
   
         if(objReceived.deviceId == "Raspberry Pi Web Client") {
           obj = objReceived;
+          console.log("we have contact")
         }
   
         if (!obj.time || !obj.bme280Temperature) {
