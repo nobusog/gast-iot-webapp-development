@@ -119,7 +119,9 @@ $(document).ready(function () {
     document.getElementById("thermocoupleCloseButtonNitrogen").onclick = function() {
         document.getElementById("thermocoupleContainerNitrogen").classList.add("d-none");
     };
-    document.getElementById("sht20CloseButtonNitrogen").onclick = removeChart("sht20ContainerNitrogen");
+    document.getElementById("sht20CloseButtonNitrogen").onclick = function() {
+        document.getElementById("sht20ContainerNitrogen").classList.add("d-none");
+    };
 
     //Toggle quick stats when button is clicked
     document.getElementById("quickStatsButton").onclick = function() {
@@ -250,19 +252,6 @@ $(document).ready(function () {
                     openCharts[i].classList.remove("d-none");
                 }
             } 
-        }
-    }
-
-    //removes specific chart from open charts array and closes chart
-    function removeChart (chart) {
-        var i=0;
-        var selectedChart = false;
-        document.getElementById(chart).classList.add("d-none");
-        while (selectedChart == false) {
-            if (openCharts[i] === document.getElementById(chart)) {
-                delete openCharts[i];
-                selectedChart = true;
-            }
         }
     }
 
