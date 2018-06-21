@@ -10,4 +10,6 @@ $(document).ready(function () {
         document.getElementById("chartSelector").classList.remove("d-none");
         document.getElementById("settingsPage").classList.add("d-none");
     }
+
+    
 });
