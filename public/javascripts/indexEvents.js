@@ -141,6 +141,9 @@ $(document).ready(function () {
                 document.getElementById("quickStatsContainerNitrogen").classList.add("d-none");
             }
         }
+        else {
+            document. getElementById("chartDeviceSelectAlert").classList.remove("d-none")
+        }
     };
 
     //store last recorded data points
