@@ -125,11 +125,21 @@ $(document).ready(function () {
 
     //Toggle quick stats when button is clicked
     document.getElementById("quickStatsButton").onclick = function() {
-        if (document.getElementById("quickStatsContainer").classList.contains("d-none")) {
-            document.getElementById("quickStatsContainer").classList.remove("d-none");
+        if (document.getElementById("jun-airSelectButton").classList.contains("active")) {
+            if (document.getElementById("quickStatsContainerJunair").classList.contains("d-none")) {
+                document.getElementById("quickStatsContainerJunair").classList.remove("d-none");
+            }
+            else  {
+                document.getElementById("quickStatsContainerJunair").classList.add("d-none");
+            }
         }
-        else  {
-            document.getElementById("quickStatsContainer").classList.add("d-none");
+        else if (document.getElementById("nitrogenSelectButton").classList.contains("active")) {
+            if (document.getElementById("quickStatsContainerNitrogen").classList.contains("d-none")) {
+                document.getElementById("quickStatsContainerNitrogen").classList.remove("d-none");
+            }
+            else  {
+                document.getElementById("quickStatsContainerNitrogen").classList.add("d-none");
+            }
         }
     };
 
@@ -195,7 +205,7 @@ $(document).ready(function () {
     */
     //check if device is selected before letting user select charts
     document.getElementById("chartSelector").onclick = function(){
-        if (document.getElementById("jun-airSelectButton").classList.contains("active") || document.getElementById("nitrogenSelectButton").classList.contains("active") ) {
+        if (document.getElementById("jun-airSelectButton").classList.contains("active") || document.getElementById("nitrogenSelectButton").classList.contains("active")) {
             document.getElementById("chartDeviceSelectAlert").classList.remove("disabled")
         }
         else {

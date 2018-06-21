@@ -84,7 +84,7 @@
         </ul>
     </div>
     <div class = "container">
-        <div class="row d-none" id="quickStatsContainer">
+        <div class="row d-none" id="quickStatsContainerJunair">
             <div class="container-fluid bg-secondary border shadow rounded m-3 p-3 col" >
                 <p class="lead"></p>
                 <p> Compressor On Time: <ins id="compressor_on_time"></ins> seconds</p>
@@ -106,6 +106,41 @@
                         </div>
                         <div class="carousel-item">
                         <p class="text-center p-5"> Qucik Stat </p>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div> 
+        </div>
+        <div class="row d-none" id="quickStatsContainerNitrogen">
+            <div class="container-fluid bg-secondary border shadow rounded m-3 p-3 col" >
+                <p class="lead"></p>
+                <p> Compressor On Time: <ins id="compressor_on_time"></ins> seconds</p>
+                <p> System Duty Cycle: <button type="button" id="lastam2302temperature" class="btn btn-dark">0°C</button></p>
+            </div>
+            <div class= "container-fluid bg-secondary border shadow rounded m-3 p-3 col">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <p class="text-center p-5"> Compressor Temperature </p>
+                        </div>
+                        <div class="carousel-item">
+                        <p class="text-center p-5"> Duty Cycle </p>
+                        </div>
+                        <div class="carousel-item">
+                        <p class="text-center p-5"> Nitogen Concentration </p>
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
