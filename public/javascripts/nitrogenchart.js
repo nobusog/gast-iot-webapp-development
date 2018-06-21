@@ -346,97 +346,95 @@ $(document).ready(function () {
     ws.onmessage = function (message) {
       console.log('receive message' + message.data);
       try {
-        var objReceived = JSON.parse(message.data);
+        var obj = JSON.parse(message.data);
   
-        if(objReceived.deviceId == "Raspberry Pi Web Client") {
-          obj = objReceived;
-          console.log("we have contact")
+        if(obj.deviceId == "Raspberry Pi Web Client") {
+          console.log("we have contact for nitrogen")
+          if (!obj.time || !obj.bme280Temperature) {
+            return;
+          }
+          nitrotimeData.push(obj.time);
+          nitrobme280TemperatureData.push(obj.bme280Temperature);
+    
+          // only keep no more than 50 points in the line chart
+          const maxLen = 50;
+          var len = nitrotimeData.length;
+          if (len > maxLen) {
+            nitrotimeData.shift();
+            nitrobme280TemperatureData.shift();
+          }
+    
+          //push the bme280 humiduty data if it exists and keep only 50 points in the line chart
+          if (obj.bme280Humidity) {
+            nitrobme280HumidityData.push(obj.bme280Humidity);
+          }
+          if (nitrobme280HumidityData.length > maxLen) {
+            nitrobme280HumidityData.shift();
+          }
+          
+          //push the bme280 humiduty data if it exists and keep only 50 points in the line chart
+          if (obj.bme280Pressure) {
+            nitrobme280PressureData.push(obj.bme280Pressure);
+          }
+          if (nitrobme280PressureData.length > maxLen) {
+            nitrobme280PressureData.shift();
+          }
+    
+          //push the am2302 humiduty data if it exists and keep only 50 points in the line chart
+          if (obj.am2302Humidity) {
+            nitroam2302HumidityData.push(obj.am2302Humidity);
+          }
+          if (nitroam2302HumidityData.length > maxLen) {
+            nitroam2302HumidityData.shift();
+          }
+    
+          //push the am2302 temperature data if it exists and keep only 50 points in the line chart
+          if (obj.am2302Temperature) {
+            nitroam2302TemperatureData.push(obj.am2302Temperature);
+          }
+          if (nitroam2302TemperatureData.length > maxLen) {
+            nitroam2302TemperatureData.shift();
+          }
+    
+          //push the pressure transmitter data if it exists and keep only 50 points in the line chart
+          if (obj.transducerPressure) {
+            pressureTransmitterData.push(obj.transducerPressure);
+          }
+          if (pressureTransmitterData.length > maxLen) {
+            pressureTransmitterData.shift();
+          }
+    
+          //push the pressure transmitter data if it exists and keep only 50 points in the line chart
+          if (obj.thermocoupleTemperature) {
+            thermocoupleData.push(obj.thermocoupleTemperature);
+          }
+          if (thermocoupleData.length > maxLen) {
+            thermocoupleData.shift();
+          }
+    
+          //push the sht temperature data if it exists and keep only 50 points in the line chart
+          if (obj.sht20Temperature) {
+            sht20TemperatureData.push(obj.sht20Temperature);
+          }
+          if (sht20TemperatureData.length > maxLen) {
+            sht20TemperatureData.shift();
+          }
+    
+          //push the pressure transmitter data if it exists and keep only 50 points in the line chart
+          if (obj.sht20Humidity) {
+            sht20HumidityData.push(obj.sht20Humidity);
+          }
+          if (sht20HumidityData.length > maxLen) {
+            sht20HumidityData.shift();
+          }
+    
+          //update charts with new points
+          bme280Chart.update();
+          am2302Chart.update();
+          pressureTransmitterChart.update();
+          thermocoupleChart.update();
+          sht20Chart.update();
         }
-  
-        if (!obj.time || !obj.bme280Temperature) {
-          return;
-        }
-        nitrotimeData.push(obj.time);
-        nitrobme280TemperatureData.push(obj.bme280Temperature);
-  
-        // only keep no more than 50 points in the line chart
-        const maxLen = 50;
-        var len = nitrotimeData.length;
-        if (len > maxLen) {
-          nitrotimeData.shift();
-          nitrobme280TemperatureData.shift();
-        }
-  
-        //push the bme280 humiduty data if it exists and keep only 50 points in the line chart
-        if (obj.bme280Humidity) {
-          nitrobme280HumidityData.push(obj.bme280Humidity);
-        }
-        if (nitrobme280HumidityData.length > maxLen) {
-          nitrobme280HumidityData.shift();
-        }
-        
-        //push the bme280 humiduty data if it exists and keep only 50 points in the line chart
-        if (obj.bme280Pressure) {
-          nitrobme280PressureData.push(obj.bme280Pressure);
-        }
-        if (nitrobme280PressureData.length > maxLen) {
-          nitrobme280PressureData.shift();
-        }
-  
-        //push the am2302 humiduty data if it exists and keep only 50 points in the line chart
-        if (obj.am2302Humidity) {
-          nitroam2302HumidityData.push(obj.am2302Humidity);
-        }
-        if (nitroam2302HumidityData.length > maxLen) {
-          nitroam2302HumidityData.shift();
-        }
-  
-        //push the am2302 temperature data if it exists and keep only 50 points in the line chart
-        if (obj.am2302Temperature) {
-          nitroam2302TemperatureData.push(obj.am2302Temperature);
-        }
-        if (nitroam2302TemperatureData.length > maxLen) {
-          nitroam2302TemperatureData.shift();
-        }
-  
-        //push the pressure transmitter data if it exists and keep only 50 points in the line chart
-        if (obj.transducerPressure) {
-          pressureTransmitterData.push(obj.transducerPressure);
-        }
-        if (pressureTransmitterData.length > maxLen) {
-          pressureTransmitterData.shift();
-        }
-  
-        //push the pressure transmitter data if it exists and keep only 50 points in the line chart
-        if (obj.thermocoupleTemperature) {
-          thermocoupleData.push(obj.thermocoupleTemperature);
-        }
-        if (thermocoupleData.length > maxLen) {
-          thermocoupleData.shift();
-        }
-  
-        //push the sht temperature data if it exists and keep only 50 points in the line chart
-        if (obj.sht20Temperature) {
-          sht20TemperatureData.push(obj.sht20Temperature);
-        }
-        if (sht20TemperatureData.length > maxLen) {
-          sht20TemperatureData.shift();
-        }
-  
-        //push the pressure transmitter data if it exists and keep only 50 points in the line chart
-        if (obj.sht20Humidity) {
-          sht20HumidityData.push(obj.sht20Humidity);
-        }
-        if (sht20HumidityData.length > maxLen) {
-          sht20HumidityData.shift();
-        }
-  
-        //update charts with new points
-        bme280Chart.update();
-        am2302Chart.update();
-        pressureTransmitterChart.update();
-        thermocoupleChart.update();
-        sht20Chart.update();
       } 
       catch (err) {
         console.error(err);
