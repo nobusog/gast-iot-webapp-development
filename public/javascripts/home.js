@@ -7,8 +7,8 @@ $(document).ready(function () {
         document.getElementById("homePage").classList.remove("d-none");
         document.getElementById("chartSelector").classList.remove("d-none");
         document.getElementById("settingsPage").classList.add("d-none");
-        document.getElementById("settingsButtonContainer").remove("active");
-        document.getElementById("homeButtonContainer").add("active");
+        document.getElementById("settingsButtonContainer").classList.remove("active");
+        document.getElementById("homeButtonContainer").classList.add("active");
     }
 
     //insert time into place holder
