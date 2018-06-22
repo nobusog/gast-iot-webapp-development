@@ -255,66 +255,68 @@
             <div id="quickStatsSettings" class="settingsTab">
                 <p class="text-center"><font size="24">Quick Stat Options!</font></p>
                 <hr class="my-4">
-                <form class="row" id="quickStatsCustomizer">
-                    <div class="col">
-                        <div class="form-check m-3">
-                            <input class="form-check-input" type="checkbox" value="" id="lastBme280TemperatureCheck">
-                            <label class="form-check-label" for="lastBme280TemperatureCheck">
-                            Last BME280 Temperature
-                            </label>
+                <form id="quickStatsCustomizer">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-check m-3">
+                                <input class="form-check-input" type="checkbox" value="" id="lastBme280TemperatureCheck">
+                                <label class="form-check-label" for="lastBme280TemperatureCheck">
+                                Last BME280 Temperature
+                                </label>
+                            </div>   
+                            <div class="form-check m-3">
+                                <input class="form-check-input" type="checkbox" value="" id="lastBme280PressureCheck" >
+                                <label class="form-check-label" for="lastBme280PressureCheck">
+                                Last BME280 Pressure
+                                </label>
+                            </div>
+                            <div class="form-check m-3">
+                                <input class="form-check-input" type="checkbox" value="" id="lastBme280HumidityCheck" >
+                                <label class="form-check-label" for="lastBme280HumidityCheck">
+                                Last BME280 Humidity
+                                </label>
+                            </div>
+                            <div class="form-check m-3">
+                                <input class="form-check-input" type="checkbox" value="" id="lastAm2302TemperatureCheck" >
+                                <label class="form-check-label" for="lastAm2302TemperatureCheck">
+                                Last AM2302 Temperature
+                                </label>
+                            </div>
+                            <div class="form-check m-3">
+                                <input class="form-check-input" type="checkbox" value="" id="lastAm2302HumidityCheck" >
+                                <label class="form-check-label" for="lastAm2302HumidityCheck">
+                                Last AM2302 Humidity
+                                </label>
+                            </div>
                         </div>   
-                        <div class="form-check m-3">
-                            <input class="form-check-input" type="checkbox" value="" id="lastBme280PressureCheck" >
-                            <label class="form-check-label" for="lastBme280PressureCheck">
-                            Last BME280 Pressure
-                            </label>
-                        </div>
-                        <div class="form-check m-3">
-                            <input class="form-check-input" type="checkbox" value="" id="lastBme280HumidityCheck" >
-                            <label class="form-check-label" for="lastBme280HumidityCheck">
-                            Last BME280 Humidity
-                            </label>
-                        </div>
-                        <div class="form-check m-3">
-                            <input class="form-check-input" type="checkbox" value="" id="lastAm2302TemperatureCheck" >
-                            <label class="form-check-label" for="lastAm2302TemperatureCheck">
-                            Last AM2302 Temperature
-                            </label>
-                        </div>
-                        <div class="form-check m-3">
-                            <input class="form-check-input" type="checkbox" value="" id="lastAm2302HumidityCheck" >
-                            <label class="form-check-label" for="lastAm2302HumidityCheck">
-                            Last AM2302 Humidity
-                            </label>
-                        </div>
-                    </div>   
-                    <div class="col"> 
-                        <div class="form-check m-3">
-                                <input class="form-check-input" type="checkbox" value="" id="lastPressureTransmitterCheck" >
-                                <label class="form-check-label" for="lastPressureTransmitterCheck">
-                                Last Pressure (Pressure Transmitter)
-                                </label>
+                        <div class="col"> 
+                            <div class="form-check m-3">
+                                    <input class="form-check-input" type="checkbox" value="" id="lastPressureTransmitterCheck" >
+                                    <label class="form-check-label" for="lastPressureTransmitterCheck">
+                                    Last Pressure (Pressure Transmitter)
+                                    </label>
 
+                            </div>
+                            <div class="form-check m-3">
+                                    <input class="form-check-input" type="checkbox" value="" id="lastThermocoupleCheck" >
+                                    <label class="form-check-label" for="lastThermocoupleCheck">
+                                    Last Temperature (themocouple)
+                                    </label>
+                            </div>
+                            <div class="form-check m-3">
+                                    <input class="form-check-input" type="checkbox" value="" id="lastSht20Temperature" >
+                                    <label class="form-check-label" for="lastSht20Temperature">
+                                    Last SHT20 Temperature
+                                    </label>
+                            </div>
+                            <div class="form-check m-3">
+                                    <input class="form-check-input" type="checkbox" value="" id="lastSht20Humidity" >
+                                    <label class="form-check-label" for="lastSht20Humidity">
+                                    Last SHT20 Humidity
+                                    </label>
+                            </div>
                         </div>
-                        <div class="form-check m-3">
-                                <input class="form-check-input" type="checkbox" value="" id="lastThermocoupleCheck" >
-                                <label class="form-check-label" for="lastThermocoupleCheck">
-                                Last Temperature (themocouple)
-                                </label>
-                        </div>
-                        <div class="form-check m-3">
-                                <input class="form-check-input" type="checkbox" value="" id="lastSht20Temperature" >
-                                <label class="form-check-label" for="lastSht20Temperature">
-                                Last SHT20 Temperature
-                                </label>
-                        </div>
-                        <div class="form-check m-3">
-                                <input class="form-check-input" type="checkbox" value="" id="lastSht20Humidity" >
-                                <label class="form-check-label" for="lastSht20Humidity">
-                                Last SHT20 Humidity
-                                </label>
-                        </div>
-                    </div>
+                    </div>    
                     <div class="row">
                         <button type="submit" class="btn btn-primary my-1 mx-3">Submit</button>
                     </div>
