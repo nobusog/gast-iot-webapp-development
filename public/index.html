@@ -8,7 +8,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="javascripts/junairchart.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/nitrogenchart.js" type="text/javascript" charset="utf-8"></script>
-    <script src="javascripts/indexEvents.js" type="text/javascript" charset="utf-8"></script>
+    <script src="javascripts/home.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/settings.js" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link href="stylesheets/style.css" rel="stylesheet" /> 
@@ -23,7 +23,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-            <li class="nav-item active ">
+            <li class="nav-item active " id="homeButtonContainer">
                 <a class="nav-link" id="homeButton" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,7 +44,7 @@
                 <a class="dropdown-item" href="#" id="openAllChartsButton">All Charts</a>
                 </div>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="settingsButtonContainer">
                     <a class="nav-link" id="settingsButton" href="#">Settings</a>
             </li>
             </ul>
@@ -228,7 +228,7 @@
         </div>
     </div>    
     <div id="settingsPage" class="d-none" >
-        <ul class="nav nav-pills mt-5 mb-0.5" id="pills-tab" role="tablist">
+        <ul class="nav nav-pills mt-5 mb-1" id="pills-tab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="quickStatSettingsTab" data-toggle="pill" href="#pills-home" role="tab" >Home</a>
                 </li>

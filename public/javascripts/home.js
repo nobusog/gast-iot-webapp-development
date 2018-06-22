@@ -3,6 +3,14 @@ var currentLocation;
 var openCharts = [];
 
 $(document).ready(function () {
+    document.getElementById("homeButton").onclick = function () {
+        document.getElementById("homePage").classList.remove("d-none");
+        document.getElementById("chartSelector").classList.remove("d-none");
+        document.getElementById("settingsPage").classList.add("d-none");
+        document.getElementById("settingsButtonContainer").remove("active");
+        document.getElementById("homeButtonContainer").add("active");
+    }
+
     //insert time into place holder
     (function updateTime(){ 
         currentTime = new Date().toLocaleString([], { weekday: 'long', year: 'numeric', month: 'long', day: '2-digit', hour: '2-digit', minute: '2-digit' });
