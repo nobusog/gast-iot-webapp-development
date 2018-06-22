@@ -9,13 +9,13 @@ $(document).ready(function () {
         document.getElementById("settingsPage").classList.add("d-none");
         document.getElementById("settingsButtonContainer").classList.remove("active");
         document.getElementById("homeButtonContainer").classList.add("active");
-    }
+    };
 
     //insert time into place holder
     (function updateTime(){ 
         currentTime = new Date().toLocaleString([], { weekday: 'long', year: 'numeric', month: 'long', day: '2-digit', hour: '2-digit', minute: '2-digit' });
         document.getElementById("timePlaceHolder").innerHTML = currentTime; 
-        setTimeout(updateTime, 900)
+        setTimeout(updateTime, 900);
     })(); 
    
     //Insert Current Location into jumbotron
