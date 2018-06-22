@@ -8,6 +8,16 @@ $(document).ready(function () {
         document.getElementById("settingsButtonContainer").classList.add("active"); 
     }
 
+    document.getElementById("settingsJunairSelectButton").onclick = function() {
+        document.getElementById("settingsJunairSelectButton").classList.replace("btn-secondary", "btn-primary");
+        document.getElementById("settingsNitrogenSelectButton").classList.replace("btn-primary", "btn-secondary");
+    }
+
+    document.getElementById("settingsNitrogenSelectButton").onclick = function() {
+        document.getElementById("settingsNitrogenSelectButton").classList.replace("btn-secondary", "btn-primary");
+        document.getElementById("settingsJunairSelectButton").classList.replace("btn-primary", "btn-secondary");
+    }
+
     document.getElementById("quickStatSettingsTab").onclick = function() {
         hideAllTabs ();
         document.getElementById("quickStatsSettings").classList.remove("d-none");
