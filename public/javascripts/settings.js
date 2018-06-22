@@ -47,12 +47,18 @@ $(document).ready(function () {
         var XHR = new XMLHttpRequest();
     
         // Bind the FormData object and the form element
-        var FD = new FormData(form);
+        var FD = new FormData();
+        var email = document.getElementById("reportEmailInput").value
+        var reportLength = document.getElementById("reportLengthOptions").options[e.selectedIndex].value 
+        
+        FD.append("reportLength","")
+        FD.append("email",email)
+
         if  (document.getElementById("settingsJunairSelectButton").classList.contains("active")) {
-            FD.append("Junair") 
+            FD.append("deviceId","Junair") 
         }
         else if (document.getElementById("settingsNitrogenSelectButton").classList.contains("active")){
-            FD.append("Nitrogen") 
+            FD.append("deviceId","Nitrogen") 
         }
         // Define what happens on successful data submission
         XHR.addEventListener("load", function(event) {
