@@ -51,7 +51,7 @@ $(document).ready(function () {
         var email = document.getElementById("reportEmailInput").value
         var reportLength = document.getElementById("reportLengthOptions").options[document.getElementById("reportLengthOptions").selectedIndex].value 
         
-        FD.append("reportLength","")
+        FD.append("reportLength",reportLength)
         FD.append("email",email)
 
         if  (document.getElementById("settingsJunairSelectButton").classList.contains("active")) {
