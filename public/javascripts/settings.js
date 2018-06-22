@@ -40,7 +40,7 @@ $(document).ready(function () {
         document.getElementById("settingsSuccessfulAlert").classList.remove("d-none")
         setTimeout(function() {
             document.getElementById("settingsSuccessfulAlert").classList.add("d-none")
-        },3000)
+        },5000)
     }
 
     function sendData() {
@@ -65,7 +65,7 @@ $(document).ready(function () {
         });
     
         // Set up our request
-        XHR.open("POST", "https://rasberrysensorapp.azurewebsites.net/");
+        XHR.open("POST", "https://prod-12.northcentralus.logic.azure.com:443/workflows/187c76b9f18f48dab7a84882ca8eb0ea/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=sKpeLDmUbUw2xmdEls2ZDec-QNv6jwHTCnzUea9ahxs");
     
         // The data sent is what the user provided in the form
         XHR.send(FD);
