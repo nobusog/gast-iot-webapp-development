@@ -77,8 +77,9 @@ $(document).ready(function () {
         // ...and take over its submit event.
         form.addEventListener("submit", function (event) {
         event.preventDefault();
-    
+        });
+
         sendData();
-    });
+    };
 
 });
