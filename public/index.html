@@ -44,7 +44,7 @@
                 <a class="dropdown-item" href="#" id="openAllChartsButton">All Charts</a>
                 </div>
             </li>
-            <li class="nav-item" id="settingsButtonContainer">
+            <li class="nav-item" id="settingsButtonContainer" data-toggle="modal" data-target="#settingsDeviceSelectModalCenter">
                     <a class="nav-link" id="settingsButton" href="#">Settings</a>
             </li>
             </ul>
@@ -236,6 +236,25 @@
                     <a class="nav-link" id="reportsSettingsTab" data-toggle="pill" href="#pills-profile" role="tab" >Reports</a>
                 </li>
         </ul>
+        <div class="modal fade" id="settingsDeviceSelectModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+                </div>
+            </div>
+        </div>
         <div class="container-fluid bg-light border shadow rounded mb-5 p-5" >
             <div id="quickStatsSettings" class="settingsTab">
                 <p class="text-center"><font size="24">Quick Stat Options!</font></p>
@@ -282,7 +301,7 @@
             <div id="reportsSettings" class="d-none settingsTab">
                 <p class="text-center"><font size="24">Report Options!</font></p>
                 <hr class="my-4">
-                <p><strong>Get an Emailed Report</strong>></p>
+                <p><strong>Get an Emailed Report</strong></p>
                 <form class="form-inline">
                         <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Report Length</label>
                         <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
@@ -297,34 +316,23 @@
                 </form>
                 <p class="mt-5"><strong>Report Logs</strong></p>
                 <table class="table table-hover">
-                        <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Device</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <th scope="row"></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

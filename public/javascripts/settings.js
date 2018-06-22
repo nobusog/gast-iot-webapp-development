@@ -1,3 +1,4 @@
+var activeDevice
 $(document).ready(function () {
     document.getElementById("settingsButton").onclick = function () {
         document.getElementById("homePage").classList.add("d-none");
