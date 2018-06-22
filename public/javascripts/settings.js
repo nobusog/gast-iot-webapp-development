@@ -45,21 +45,10 @@ $(document).ready(function () {
 
     function sendData() {
         var XHR = new XMLHttpRequest();
-    
-        // Bind the FormData object and the form element
-        var FD = new FormData();
+
         var email = document.getElementById("reportEmailInput").value
         var reportLength = document.getElementById("reportLengthOptions").options[document.getElementById("reportLengthOptions").selectedIndex].value 
-        
-        FD.append("reportLength",reportLength)
-        FD.append("email",email)
-
-        if  (document.getElementById("settingsJunairSelectButton").classList.contains("active")) {
-            FD.append("deviceId","Junair") 
-        }
-        else if (document.getElementById("settingsNitrogenSelectButton").classList.contains("active")){
-            FD.append("deviceId","Nitrogen") 
-        }
+    
         // Define what happens on successful data submission
         XHR.addEventListener("load", function(event) {
             successfulAlert("Request Sent Successfully");
@@ -73,9 +62,14 @@ $(document).ready(function () {
         // Set up our request
         XHR.open("POST", "https://prod-12.northcentralus.logic.azure.com:443/workflows/187c76b9f18f48dab7a84882ca8eb0ea/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=sKpeLDmUbUw2xmdEls2ZDec-QNv6jwHTCnzUea9ahxs");
     
-        // The data sent is what the user provided in the form
-        XHR.send("hi");
+        if  (document.getElementById("settingsJunairSelectButton").classList.contains("active")) {
+            XHR.send("junair",email, reportLength);
         }
+        else if (document.getElementById("settingsNitrogenSelectButton").classList.contains("active")){
+            XHR.send("nitrogen",email, reportLength);
+        }
+        // The data sent is what the user provided in the form
+       
     
         // Access the form element...
         var form = document.getElementById("reportRequestForm");
