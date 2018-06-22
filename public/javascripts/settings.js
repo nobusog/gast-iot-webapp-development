@@ -49,7 +49,7 @@ $(document).ready(function () {
         // Bind the FormData object and the form element
         var FD = new FormData();
         var email = document.getElementById("reportEmailInput").value
-        var reportLength = document.getElementById("reportLengthOptions").options[e.selectedIndex].value 
+        var reportLength = document.getElementById("reportLengthOptions").options[document.getElementById("reportLengthOptions").selectedIndex].value 
         
         FD.append("reportLength","")
         FD.append("email",email)
