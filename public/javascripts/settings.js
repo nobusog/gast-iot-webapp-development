@@ -49,8 +49,7 @@ $(document).ready(function () {
             }
             // Define what happens on successful data submission
             XHR.addEventListener("load", function(event) {
-                alert(event.target.responseText);
-                console.log("sent")
+                alert("Request Sent Successfully");
             });
         
             // Define what happens in case of error
