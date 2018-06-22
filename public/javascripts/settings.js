@@ -18,7 +18,7 @@ $(document).ready(function () {
     }
 
     function hideAllTabs () {
-        tabList = getElementsByClassName("settingsTab");
+        tabList = document.getElementsByClassName("settingsTab");
         for (var i=0; i<tabList.length; i++) {
             tabList[i].classList.add("d-none")
         }
