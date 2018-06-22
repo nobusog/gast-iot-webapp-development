@@ -34,4 +34,44 @@ $(document).ready(function () {
             tabList[i].classList.add("d-none")
         }
     }
+
+
+        function sendData() {
+            var XHR = new XMLHttpRequest();
+      
+            // Bind the FormData object and the form element
+            var FD = new FormData(form);
+            if  (document.getElementById("settingsJunairSelectButton").classList.contains("active")) {
+                FD.append("Junair") 
+            }
+            else if (document.getElementById("settingsNitrogenSelectButton").classList.contains("active")){
+                FD.append("Nitrogen") 
+            }
+            // Define what happens on successful data submission
+            XHR.addEventListener("load", function(event) {
+                alert(event.target.responseText);
+            });
+        
+            // Define what happens in case of error
+            XHR.addEventListener("error", function(event) {
+                alert('Oops! Something went wrong.');
+            });
+        
+            // Set up our request
+            XHR.open("POST", "https://rasberrysensorapp.azurewebsites.net/");
+        
+            // The data sent is what the user provided in the form
+            XHR.send(FD);
+            }
+        
+            // Access the form element...
+            var form = document.getElementById("reportRequestForm");
+        
+            // ...and take over its submit event.
+            form.addEventListener("submit", function (event) {
+            event.preventDefault();
+        
+            sendData();
+        });
+
 });

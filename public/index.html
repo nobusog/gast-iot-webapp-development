@@ -106,7 +106,7 @@
                             <p class="text-center p-5"> Duty Cycle </p>
                             </div>
                             <div class="carousel-item">
-                            <p class="text-center p-5"> Qucik Stat </p>
+                            <p class="text-center p-5"> Quick Stat </p>
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -255,83 +255,74 @@
             <div id="quickStatsSettings" class="settingsTab">
                 <p class="text-center"><font size="24">Quick Stat Options!</font></p>
                 <hr class="my-4">
-                <form class="row">
+                <form class="row" id="quickStatsCustomizer">
                     <div class="col">
-                        <div class="container">
-                            <div class="form-check m-3">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Last Temperature
-                                </label>
-                            </div>
-                            <p class="align-self-end">Description</p>
-                        </div>    
                         <div class="form-check m-3">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
-                            <label class="form-check-label" for="defaultCheck2">
-                            Last Pressure
+                            <input class="form-check-input" type="checkbox" value="" id="lastBme280TemperatureCheck">
+                            <label class="form-check-label" for="lastBme280TemperatureCheck">
+                            Last BME280 Temperature
+                            </label>
+                        </div>   
+                        <div class="form-check m-3">
+                            <input class="form-check-input" type="checkbox" value="" id="lastBme280PressureCheck" >
+                            <label class="form-check-label" for="lastBme280PressureCheck">
+                            Last BME280 Pressure
                             </label>
                         </div>
-                        <p>Description</p>
                         <div class="form-check m-3">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
-                                <label class="form-check-label" for="defaultCheck2">
-                                Last Pressure
-                                </label>
+                            <input class="form-check-input" type="checkbox" value="" id="lastBme280HumidityCheck" >
+                            <label class="form-check-label" for="lastBme280HumidityCheck">
+                            Last BME280 Humidity
+                            </label>
                         </div>
                         <div class="form-check m-3">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
-                                <label class="form-check-label" for="defaultCheck2">
-                                Last Pressure
-                                </label>
+                            <input class="form-check-input" type="checkbox" value="" id="lastAm2302TemperatureCheck" >
+                            <label class="form-check-label" for="lastAm2302TemperatureCheck">
+                            Last AM2302 Temperature
+                            </label>
                         </div>
                         <div class="form-check m-3">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
-                                <label class="form-check-label" for="defaultCheck2">
-                                Last Pressure
-                                </label>
+                            <input class="form-check-input" type="checkbox" value="" id="lastAm2302HumidityCheck" >
+                            <label class="form-check-label" for="lastAm2302HumidityCheck">
+                            Last AM2302 Humidity
+                            </label>
                         </div>
                     </div>   
                     <div class="col"> 
                         <div class="form-check m-3">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
-                                <label class="form-check-label" for="defaultCheck2">
-                                Last Pressure
+                                <input class="form-check-input" type="checkbox" value="" id="lastPressureTransmitterCheck" >
+                                <label class="form-check-label" for="lastPressureTransmitterCheck">
+                                Last Pressure (Pressure Transmitter)
                                 </label>
 
                         </div>
                         <div class="form-check m-3">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
-                                <label class="form-check-label" for="defaultCheck2">
-                                Last Pressure
+                                <input class="form-check-input" type="checkbox" value="" id="lastThermocoupleCheck" >
+                                <label class="form-check-label" for="lastThermocoupleCheck">
+                                Last Temperature (themocouple)
                                 </label>
                         </div>
                         <div class="form-check m-3">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
-                                <label class="form-check-label" for="defaultCheck2">
-                                Last Pressure
+                                <input class="form-check-input" type="checkbox" value="" id="lastSht20Temperature" >
+                                <label class="form-check-label" for="lastSht20Temperature">
+                                Last SHT20 Temperature
                                 </label>
                         </div>
                         <div class="form-check m-3">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
-                                <label class="form-check-label" for="defaultCheck2">
-                                Last Pressure
-                                </label>
-                        </div>
-                        <div class="form-check m-3">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
-                                <label class="form-check-label" for="defaultCheck2">
-                                Last Pressure
+                                <input class="form-check-input" type="checkbox" value="" id="lastSht20Humidity" >
+                                <label class="form-check-label" for="lastSht20Humidity">
+                                Last SHT20 Humidity
                                 </label>
                         </div>
                     </div>
+                    <button type="submit" class="btn btn-primary my-1 mx-3">Submit</button>
                 </form>
             </div>
             <div id="reportsSettings" class="d-none settingsTab">
                 <p class="text-center"><font size="24">Report Options!</font></p>
                 <hr class="my-4">
                 <p><strong>Get an Emailed Report</strong></p>
-                <form class="form-inline">
+                <form class="form-inline" id="reportRequestForm">
                         <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Report Length</label>
                         <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                             <option selected>Last Hour</option>
@@ -341,7 +332,7 @@
                         </select>
                         <label for="reportEmailInput">Enter your Email address</label>
                         <input type="email" class="form-control ml-1" id="reportEmailInput" aria-describedby="emailHelp" placeholder="Enter email...">   
-                        <button type="submit" class="btn btn-primary my-1 mx-3">Submit</button>
+                        <button type="submit" class="btn btn-primary my-1 mx-3" id="sendReportButton">Submit</button>
                 </form>
                 <p class="mt-5"><strong>Report Logs</strong></p>
                 <table class="table table-hover">
