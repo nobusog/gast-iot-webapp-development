@@ -206,23 +206,23 @@ $(document).ready(function () {
         var intial1 = document.getElementById("junairCompressorOnTimeContainer").innerHTML
             setTimeout(function () {
                 end1 = document.getElementById("junairCompressorOnTimeContainer").innerHTML
+                if (intial1 == end1) {
+                    return true 
+                }else  {
+                    return false 
+                }
             }, time)
-            if (intial1 == end1) {
-                return true 
-            }else  {
-                return false 
-            }
         }
         else if (system == "nitrogen") {
             var intial1 = document.getElementById("nitrogenCompressorOnTimeContainer").innerHTML
             setTimeout(function () {
                 end1 = document.getElementById("nitrogenCompressorOnTimeContainer").innerHTML
+                if (intial1 == end1) {
+                    return true 
+                }else  {
+                    return false 
+                }
             }, time)
-            if (intial1 == end1) {
-                return true 
-            }else  {
-                return false 
-            }
         }    
     }
     setInterval(function () {
