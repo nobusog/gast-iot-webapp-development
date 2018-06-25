@@ -204,25 +204,27 @@ $(document).ready(function () {
     function checkCompOff (system, time) {
         if (system == "junair") {
         var intial1 = document.getElementById("junairCompressorOnTimeContainer").innerHTML
-            setTimeout(function () {
+            (function checkjunair() {
                 end1 = document.getElementById("junairCompressorOnTimeContainer").innerHTML
                 if (intial1 == end1) {
                     return true 
                 }else  {
                     return false 
                 }
-            }, time)
+                setTimeout(checkjunair, time)
+            })();
         }
         else if (system == "nitrogen") {
             var intial1 = document.getElementById("nitrogenCompressorOnTimeContainer").innerHTML
-            setTimeout(function () {
+            (function checknitrogen () {
                 end1 = document.getElementById("nitrogenCompressorOnTimeContainer").innerHTML
                 if (intial1 == end1) {
                     return true 
                 }else  {
                     return false 
                 }
-            }, time)
+                setTimeout(checknitrogen, time)
+            })();
         }    
     }
    (function compoffstate () {
