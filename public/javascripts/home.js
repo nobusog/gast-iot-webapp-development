@@ -234,6 +234,7 @@ $(document).ready(function () {
         if (lastCompStateNitrogen != true) {
             document.getElementById("junairStateDisplay").classList.replace("btn-outline-success", "btn-outline-light")
         };   
+    });
     
 
     
