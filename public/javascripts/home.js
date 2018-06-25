@@ -226,8 +226,8 @@ $(document).ready(function () {
         }    
     }
     setInterval(function () {
-        var lastCompStateJunair = checkCompOff("junair", 5000)
-        var ;lastCompStateNitrogen = checkCompOff("nitrogen", 5000)
+        var lastCompStateJunair = checkCompOff("junair", 5000);
+        var lastCompStateNitrogen = checkCompOff("nitrogen", 5000);
         if (lastCompStateJunair != true) { 
             document.getElementById("nitrogenStateDisplay").classList.replace("btn-outline-success", "btn-outline-light")
         }
