@@ -158,8 +158,8 @@ $(document).ready(function () {
       console.log('Successfully connect 2nd WebSocket');
     }
 
-    var timeOnJunair = 0 
-    var timeOnNitro = 0
+    timeOnJunair = 0 
+    timeOnNitro = 0
     var NitroConsumption = 0;
     ws.onmessage = function (message) {
         try {
@@ -209,7 +209,7 @@ $(document).ready(function () {
                 end1 = timeOnJunair
                 if (intial1 == end1) {
                     return true 
-                }else  {
+                } else  {
                     return false 
                 }
                 setTimeout(checkjunair, time)
