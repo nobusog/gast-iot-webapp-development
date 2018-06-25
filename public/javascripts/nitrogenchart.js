@@ -348,7 +348,7 @@ $(document).ready(function () {
       try {
         var obj = JSON.parse(message.data);
   
-        if(obj.deviceId == "Raspberry Pi Web Client") {
+        if(obj.deviceId == "NitroGen Pi - Python") {
           console.log("we have contact for nitrogen")
           if (!obj.time || !obj.bme280Temperature) {
             return;

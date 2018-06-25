@@ -348,7 +348,7 @@ $(document).ready(function () {
     try {
       var obj = JSON.parse(message.data);
 
-      if (obj.deviceId == "Raspberry Pi - Python") {
+      if (obj.deviceId == "JunAir Pi - Python") {
         console.log("we also have contact for junair")
         if (!obj.time || !obj.bme280Temperature) {
           return;

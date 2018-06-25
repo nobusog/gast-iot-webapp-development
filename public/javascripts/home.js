@@ -154,16 +154,27 @@ $(document).ready(function () {
         }
     };
 
-    //store last recorded data points
+    //open new websocket 
     var ws = new WebSocket('wss://' + location.host);
     ws.onopen = function () {
       console.log('Successfully connect 2nd WebSocket');
     }
+
+    var timeOnJunair, timeOnNitro = 0;
     ws.onmessage = function (message) {
         try {
-        var obj = JSON.parse(message.data);
-        document.getElementById("lastam2302temperature").innerHTML= +obj.am2302Temperature.toFixed(2)+"°C";
-        document.getElementById("lastam2302humidity").innerHTML = +obj.am2302Humidity.toFixed(2)+"%";
+            var obj = JSON.parse(message.data);
+            if (obj.deviceId == "JunAir Pi - Python") {
+                timeOnJunair = timeOnJunair + obj.globalTimeOn
+                document.getElementById("junairCompressorOnTimeContainer").innerHTML= +timeOnJunair.toFixed(2)+"s";
+                document.getElementById("junairDutyCycleContainer").innerHTML = +obj.dutyCycle.toFixed(2)+"%";
+               
+            } else if  (obj.deviceId == "NitroGen Pi - Python") {
+                timeOnNitro = timeOnNitro + obj.globalTimeOn
+                document.getElementById("nitrogenCompressorOnTimeContainer").innerHTML= +timeOnNitro.toFixed(2)+"s";
+                document.getElementById("nitrogenDutyCycleContainer").innerHTML = +obj.dutyCycle.toFixed(2)+"%";
+                document.getElementById("nitrogenConsumptionContainer").innerHTML = +obj.NitroConsumption.toFixed(2)+"scf";
+            }
         }
         catch (err) {
             console.error(err);
