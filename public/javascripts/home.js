@@ -202,6 +202,7 @@ $(document).ready(function () {
     };
 
     function checkCompOff (system, time) {
+        console.log("we called checkcompoff")
         if (system == "junair") {
         var intial1 = document.getElementById("junairCompressorOnTimeContainer").innerHTML
             (function checkjunair() {
@@ -220,8 +221,10 @@ $(document).ready(function () {
                 end1 = document.getElementById("nitrogenCompressorOnTimeContainer").innerHTML
                 if (intial1 == end1) {
                     return true 
+                    console.log("initial = end")
                 }else  {
                     return false 
+                    console.log("initial not eqaul end")
                 }
                 setTimeout(checknitrogen, time)
             })();
@@ -237,6 +240,7 @@ $(document).ready(function () {
             document.getElementById("junairStateDisplay").classList.replace("btn-outline-success", "btn-outline-light")
         };   
         setTimeout(compoffstate, 5000)
+        console.log("we called compoff state")
     })();
     
 
