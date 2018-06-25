@@ -205,7 +205,7 @@ $(document).ready(function () {
         if (system == "junair") {
         var intial1 = document.getElementById("junairCompressorOnTimeContainer").innerHTML
             setTimeout(function () {
-                var end1 = document.getElementById("junairCompressorOnTimeContainer").innerHTML
+                end1 = document.getElementById("junairCompressorOnTimeContainer").innerHTML
             }, time)
             if (intial1 == end1) {
                 return true 
@@ -216,7 +216,7 @@ $(document).ready(function () {
         else if (system == "nitrogen") {
             var intial1 = document.getElementById("nitrogenCompressorOnTimeContainer").innerHTML
             setTimeout(function () {
-                var end1 = document.getElementById("nitrogenCompressorOnTimeContainer").innerHTML
+                end1 = document.getElementById("nitrogenCompressorOnTimeContainer").innerHTML
             }, time)
             if (intial1 == end1) {
                 return true 
