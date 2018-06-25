@@ -205,9 +205,9 @@ $(document).ready(function () {
         console.log("we called checkcompoff")
         var initial, end =0;
         if (system == "junair") {
-        intial = timeOnJunair
+        intial = timeOnJunair;
             (function checkjunair() {
-                end = timeOnJunair
+                end = timeOnJunair;
                 if (intial == end) {
                     return true 
                 } else  {
@@ -217,9 +217,9 @@ $(document).ready(function () {
             })();
         }
         else if (system == "nitrogen") {
-            intial = timeOnNitro
+            intial = timeOnNitro;
             (function checknitrogen () {
-                end = timeOnNitro
+                end = timeOnNitro;
                 if (intial == end) {
                     return true 
                     console.log("initial = end")
