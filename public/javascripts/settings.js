@@ -70,15 +70,7 @@ $(document).ready(function () {
         json_object = JSON.parse(object);
         XHR.send("json_object");
     
-        // Access the form element...
-        var form = document.getElementById("reportRequestForm");
-    
-        // ...and take over its submit event.
-        form.addEventListener("submit", function (event) {
-        event.preventDefault();
-        });
-
-        sendData();
     };
 
+    document.getElementById("sendReportButton").onclick = sendData(); 
 });
