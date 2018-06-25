@@ -203,12 +203,12 @@ $(document).ready(function () {
 
     function checkCompOff (system, time) {
         console.log("we called checkcompoff")
-        var initial1, end1 =0;
+        var initial, end =0;
         if (system == "junair") {
-        intial1 = timeOnJunair
+        intial = timeOnJunair
             (function checkjunair() {
-                end1 = timeOnJunair
-                if (intial1 == end1) {
+                end = timeOnJunair
+                if (intial == end) {
                     return true 
                 } else  {
                     return false 
@@ -217,10 +217,10 @@ $(document).ready(function () {
             })();
         }
         else if (system == "nitrogen") {
-            intial1 = timeOnNitro
+            intial = timeOnNitro
             (function checknitrogen () {
-                end1 = timeOnNitro
-                if (intial1 == end1) {
+                end = timeOnNitro
+                if (intial == end) {
                     return true 
                     console.log("initial = end")
                 }else  {
