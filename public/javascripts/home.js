@@ -225,7 +225,7 @@ $(document).ready(function () {
             }, time)
         }    
     }
-    document.body.onclick = (function () {
+   (function compoffstate () {
         var lastCompStateJunair = checkCompOff("junair", 5000);
         var lastCompStateNitrogen = checkCompOff("nitrogen", 5000);
         if (lastCompStateJunair != true) { 
@@ -234,7 +234,8 @@ $(document).ready(function () {
         if (lastCompStateNitrogen != true) {
             document.getElementById("junairStateDisplay").classList.replace("btn-outline-success", "btn-outline-light")
         };   
-    });
+        setTimeout(compoffstate, 5000)
+    })();
     
 
     
