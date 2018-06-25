@@ -203,7 +203,7 @@ $(document).ready(function () {
 
     function checkCompOff (system, time) {
         if (system == "junair") {
-       var intial = timeOnJunair;
+            var intial = timeOnJunair;
             (function checkjunair() {
                 var end = timeOnJunair;
                 if (intial == end) {
@@ -234,10 +234,12 @@ $(document).ready(function () {
    (function compoffstate () {
         var lastCompStateJunair = checkCompOff("junair", 5000);
         var lastCompStateNitrogen = checkCompOff("nitrogen", 5000);
-        if (lastCompStateJunair != true) { 
+        if (lastCompStateJunair == true) { 
+            console.log("checked compstate")
             document.getElementById("nitrogenStateDisplay").classList.replace("btn-outline-success", "btn-outline-light");
         }
-        if (lastCompStateNitrogen != true) {
+        if (lastCompStateNitrogen == true) {
+            console.log("checked compstatenitro")
             document.getElementById("junairStateDisplay").classList.replace("btn-outline-success", "btn-outline-light");
         }
         setTimeout(compoffstate, 5000);
