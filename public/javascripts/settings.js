@@ -45,7 +45,7 @@ $(document).ready(function () {
 
     function sendData() {
         var XHR = new XMLHttpRequest();
-        var deviceId ;
+        var deviceId;
         var email = document.getElementById("reportEmailInput").value;
         var reportLength = document.getElementById("reportLengthOptions").options[document.getElementById("reportLengthOptions").selectedIndex].value ;
         if (document.getElementById("settingsJunairSelectButton").classList.contains("active")) {
@@ -67,8 +67,7 @@ $(document).ready(function () {
         // Set up our request
         XHR.open("POST", "https://prod-12.northcentralus.logic.azure.com:443/workflows/187c76b9f18f48dab7a84882ca8eb0ea/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=sKpeLDmUbUw2xmdEls2ZDec-QNv6jwHTCnzUea9ahxs");
         object = "{email: " +email +", reportLength: "+reportLength+",deviceId: "+deviceId+ "}" ;
-        json_object = JSON.parse(object);
-        XHR.send("json_object");
+        XHR.send(object);
     
     };
 
