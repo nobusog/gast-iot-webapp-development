@@ -25,8 +25,6 @@ $(document).ready(function () {
         currentLocation = "Location not Found" ;
     });
     
-    document.getElementById("locationPlaceHolder").innerHTML = currentLocation;
-
     //Insert greeting into jumbotron and update every 30 mins
     (function updateGreeting() {
         var currentTimeHours = new Date().getHours();
