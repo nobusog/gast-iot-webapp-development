@@ -45,7 +45,7 @@ $(document).ready(function () {
 
     function sendData() {
         var XHR = new XMLHttpRequest();
-
+        var deviceId ;
         var email = document.getElementById("reportEmailInput").value;
         var reportLength = document.getElementById("reportLengthOptions").options[document.getElementById("reportLengthOptions").selectedIndex].value ;
         if (document.getElementById("settingsJunairSelectButton").classList.contains("active")) {
