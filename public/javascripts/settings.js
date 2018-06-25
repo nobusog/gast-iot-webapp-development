@@ -77,7 +77,7 @@ $(document).ready(function () {
     });
 ;
     // send the collected data as JSON
-    xhr.send(JSON.stringify({"devicdeId": deviceIdVal, "email": emailVal, "reportLength": reportLengthVal}));
+    xhr.send(JSON.stringify({"devicdeId": "junair", "email": emailVal, "reportLength": reportLengthVal}));
 
     xhr.onloadend = function () {
         // done
