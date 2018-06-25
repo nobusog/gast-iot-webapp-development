@@ -158,8 +158,8 @@ $(document).ready(function () {
       console.log('Successfully connect 2nd WebSocket');
     }
 
-    timeOnJunair = 0 
-    timeOnNitro = 0
+    var timeOnJunair = 0 
+    var timeOnNitro = 0
     var NitroConsumption = 0;
     ws.onmessage = function (message) {
         try {
@@ -203,8 +203,9 @@ $(document).ready(function () {
 
     function checkCompOff (system, time) {
         console.log("we called checkcompoff")
+        var initial1, end1
         if (system == "junair") {
-        var intial1 = timeOnJunair
+        intial1 = timeOnJunair
             (function checkjunair() {
                 end1 = timeOnJunair
                 if (intial1 == end1) {
@@ -216,7 +217,7 @@ $(document).ready(function () {
             })();
         }
         else if (system == "nitrogen") {
-            var intial1 = timeOnNitro
+            intial1 = timeOnNitro
             (function checknitrogen () {
                 end1 = timeOnNitro
                 if (intial1 == end1) {
