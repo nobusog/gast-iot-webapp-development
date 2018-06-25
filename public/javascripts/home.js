@@ -203,7 +203,7 @@ $(document).ready(function () {
 
     function checkCompOff (system, time) {
         console.log("we called checkcompoff")
-        var initial1, end1
+        var initial1, end1 =0;
         if (system == "junair") {
         intial1 = timeOnJunair
             (function checkjunair() {
