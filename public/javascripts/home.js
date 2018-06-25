@@ -204,9 +204,9 @@ $(document).ready(function () {
     function checkCompOff (system, time) {
         console.log("we called checkcompoff")
         if (system == "junair") {
-        var intial1 = document.getElementById("junairCompressorOnTimeContainer").innerHTML
+        var intial1 = timeOnJunair
             (function checkjunair() {
-                end1 = document.getElementById("junairCompressorOnTimeContainer").innerHTML
+                end1 = timeOnJunair
                 if (intial1 == end1) {
                     return true 
                 }else  {
@@ -216,9 +216,9 @@ $(document).ready(function () {
             })();
         }
         else if (system == "nitrogen") {
-            var intial1 = document.getElementById("nitrogenCompressorOnTimeContainer").innerHTML
+            var intial1 = timeOnNitro
             (function checknitrogen () {
-                end1 = document.getElementById("nitrogenCompressorOnTimeContainer").innerHTML
+                end1 = timeOnNitro
                 if (intial1 == end1) {
                     return true 
                     console.log("initial = end")
