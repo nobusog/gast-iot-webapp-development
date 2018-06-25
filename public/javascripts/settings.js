@@ -31,24 +31,29 @@ $(document).ready(function () {
     function hideAllTabs () {
         tabList = document.getElementsByClassName("settingsTab");
         for (var i=0; i<tabList.length; i++) {
-            tabList[i].classList.add("d-none")
+            tabList[i].classList.add("d-none");
         }
     }
 
     function successfulAlert (words) {
-        document.getElementById("settingsSuccessfulAlertText").innerHTML = words
-        document.getElementById("settingsSuccessfulAlert").classList.remove("d-none")
+        document.getElementById("settingsSuccessfulAlertText").innerHTML = words;
+        document.getElementById("settingsSuccessfulAlert").classList.remove("d-none");
         setTimeout(function() {
-            document.getElementById("settingsSuccessfulAlert").classList.add("d-none")
+            document.getElementById("settingsSuccessfulAlert").classList.add("d-none");
         },5000)
     }
 
     function sendData() {
         var XHR = new XMLHttpRequest();
 
-        var email = document.getElementById("reportEmailInput").value
-        var reportLength = document.getElementById("reportLengthOptions").options[document.getElementById("reportLengthOptions").selectedIndex].value 
-    
+        var email = document.getElementById("reportEmailInput").value;
+        var reportLength = document.getElementById("reportLengthOptions").options[document.getElementById("reportLengthOptions").selectedIndex].value ;
+        if (document.getElementById("settingsJunairSelectButton").classList.contains("active")) {
+            deviceId = "junair";
+        }
+        else if (document.getElementById("settingsNitrogenSelectButton").classList.contains("active")) {
+            deviceId = "nitrogen";
+        }
         // Define what happens on successful data submission
         XHR.addEventListener("load", function(event) {
             successfulAlert("Request Sent Successfully");
@@ -61,15 +66,9 @@ $(document).ready(function () {
     
         // Set up our request
         XHR.open("POST", "https://prod-12.northcentralus.logic.azure.com:443/workflows/187c76b9f18f48dab7a84882ca8eb0ea/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=sKpeLDmUbUw2xmdEls2ZDec-QNv6jwHTCnzUea9ahxs");
-    
-        if  (document.getElementById("settingsJunairSelectButton").classList.contains("active")) {
-            XHR.send("junair",email, reportLength);
-        }
-        else if (document.getElementById("settingsNitrogenSelectButton").classList.contains("active")){
-            XHR.send("nitrogen",email, reportLength);
-        }
-        // The data sent is what the user provided in the form
-       
+        object = "{email: " +email +", reportLength: "+reportLength+",deviceId: "+deviceId+ "}" ;
+        json_object = JSON.parse(object);
+        XHR.send(json_object);
     
         // Access the form element...
         var form = document.getElementById("reportRequestForm");
