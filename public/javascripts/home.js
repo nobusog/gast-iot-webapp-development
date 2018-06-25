@@ -171,9 +171,11 @@ $(document).ready(function () {
 
                 if(obj.compState == 1) {
                     document.getElementById("junairStateDisplay").classList.replace("btn-outline-light", "btn-success") 
+                    document.getElementById("junairStateDisplay").disabled = false;
                 }
                 else if (obj.compState != 1) {
                     document.getElementById("junairStateDisplay").classList.replace("btn-success", "btn-outline-light")
+                    document.getElementById("junairStateDisplay").disabled = true;
                 }
                
             } else if  (obj.deviceId == "NitroGen Pi - Python") {
@@ -185,9 +187,11 @@ $(document).ready(function () {
 
                 if(obj.compState == 1) {
                     document.getElementById("nitrogenStateDisplay").classList.replace("btn-outline-light", "btn-success") 
+                    document.getElementById("nitrogenStateDisplay").disabled = false;
                 }
                 else if (obj.compState != 1) {
                     document.getElementById("nitrogenStateDisplay").classList.replace("btn-success", "btn-outline-light")
+                    document.getElementById("nitrogenStateDisplay").disabled = true;
                 }
                
             }
