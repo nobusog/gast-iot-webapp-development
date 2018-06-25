@@ -160,7 +160,7 @@ $(document).ready(function () {
       console.log('Successfully connect 2nd WebSocket');
     }
 
-    var timeOnJunair, timeOnNitro, NitroConsumption = 0;
+    timeOnJunair, timeOnNitro, NitroConsumption = 0;
     ws.onmessage = function (message) {
         try {
             var obj = JSON.parse(message.data);
