@@ -170,6 +170,15 @@ $(document).ready(function () {
                 timeOnJunair = timeOnJunair + obj.globalTimeOn
                 document.getElementById("junairCompressorOnTimeContainer").innerHTML= +timeOnJunair.toFixed(2)+"s";
                 document.getElementById("junairDutyCycleContainer").innerHTML = +obj.dutyCycle.toFixed(2)+"%";
+
+                if(obj.compState == 1) {
+                    document.getElementById("junairStateDisplay").classList.remove("btn-outline-secondary") 
+                    document.getElementById("junairStateDisplay").classList.add("btn-outline-success")
+                }
+                else if (obj.compState != 1) {
+                    document.getElementById("junairStateDisplay").classList.remove("btn-outline-success")
+                    document.getElementById("junairStateDisplay").classList.add("btn-outline-secondary") 
+                }
                
             } else if  (obj.deviceId == "NitroGen Pi - Python") {
                 timeOnNitro = timeOnNitro + obj.globalTimeOn
@@ -177,6 +186,15 @@ $(document).ready(function () {
                 document.getElementById("nitrogenCompressorOnTimeContainer").innerHTML= +timeOnNitro.toFixed(2) +"s";
                 document.getElementById("nitrogenDutyCycleContainer").innerHTML = +obj.dutyCycle.toFixed(2)+"%";
                 document.getElementById("nitrogenConsumptionContainer").innerHTML = +NitroConsumption.toFixed(2)+"scf";
+
+                if(obj.compState == 1) {
+                    document.getElementById("nitrogenStateDisplay").classList.remove("btn-outline-secondary") 
+                    document.getElementById("nitrogenStateDisplay").classList.add("btn-outline-success")
+                }
+                else if (obj.compState != 1) {
+                    document.getElementById("nitrogenStateDisplay").classList.remove("btn-outline-success")
+                    document.getElementById("nitrogenStateDisplay").classList.add("btn-outline-secondary") 
+                }
             }
         }
         catch (err) {
