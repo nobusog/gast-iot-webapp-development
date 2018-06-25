@@ -161,9 +161,10 @@ $(document).ready(function () {
     var timeOnJunair = 0 
     var timeOnNitro = 0
     var NitroConsumption = 0;
+    var lastCompState = 0;
     ws.onmessage = function (message) {
         try {
-            var obj = JSON.parse(message.data);
+            obj = JSON.parse(message.data);
             if (obj.deviceId == "JunAir Pi - Python") {
                 timeOnJunair = timeOnJunair + obj.globalTimeOn
                 document.getElementById("junairCompressorOnTimeContainer").innerHTML= +timeOnJunair.toFixed(2)+"s";
@@ -200,12 +201,22 @@ $(document).ready(function () {
             console.error(err);
         }
     };
-
+    setInterval (function () {
+        if (obj.compState){ 
+            lastCompState = obj.compState;
+        }
+        else  {
+            lastCompState = 0;
+        }
+    }, 5000)
+    
     setInterval(function () {
-        if (!ws.onmessage) { 
+        if (lastCompState != 1) { 
             document.getElementById("nitrogenStateDisplay").classList.replace("btn-outline-success", "btn-outline-light")
             document.getElementById("junairStateDisplay").classList.replace("btn-outline-success", "btn-outline-light")
         }} ,5000 );
+
+    
     //show which compressor is active 
     document.getElementById("jun-airSelectButton").onclick = function(){
     if (this.classList.contains("active")){
