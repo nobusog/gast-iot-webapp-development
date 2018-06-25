@@ -161,10 +161,9 @@ $(document).ready(function () {
     var timeOnJunair = 0 
     var timeOnNitro = 0
     var NitroConsumption = 0;
-    var lastCompState = 0;
     ws.onmessage = function (message) {
         try {
-            obj = JSON.parse(message.data);
+            var obj = JSON.parse(message.data);
             if (obj.deviceId == "JunAir Pi - Python") {
                 timeOnJunair = timeOnJunair + obj.globalTimeOn
                 document.getElementById("junairCompressorOnTimeContainer").innerHTML= +timeOnJunair.toFixed(2)+"s";
@@ -201,20 +200,41 @@ $(document).ready(function () {
             console.error(err);
         }
     };
-    setInterval (function () {
-        if (obj.compState){ 
-            lastCompState = obj.compState;
+
+    function checkCompOff (system, time) {
+        if (system == "junair") {
+        var intial1 = document.getElementById("junairCompressorOnTimeContainer").innerHTML
+            setTimeout(function () {
+                var end1 = document.getElementById("junairCompressorOnTimeContainer").innerHTML
+            }, time)
+            if (intial1 == end1) {
+                return true 
+            }else  {
+                return false 
+            }
         }
-        else  {
-            lastCompState = 0;
-        }
-    }, 5000)
-    
+        else if (system == "nitrogen") {
+            var intial1 = document.getElementById("nitrogenCompressorOnTimeContainer").innerHTML
+            setTimeout(function () {
+                var end1 = document.getElementById("nitrogenCompressorOnTimeContainer").innerHTML
+            }, time)
+            if (intial1 == end1) {
+                return true 
+            }else  {
+                return false 
+            }
+        }    
+    }
     setInterval(function () {
-        if (lastCompState != 1) { 
+        var lastCompStateJunair = checkCompOff("junair", 5000)
+        var ;lastCompStateNitrogen = checkCompOff("nitrogen", 5000)
+        if (lastCompStateJunair != true) { 
             document.getElementById("nitrogenStateDisplay").classList.replace("btn-outline-success", "btn-outline-light")
+        }
+        if (lastCompStateNitrogen != true) {
             document.getElementById("junairStateDisplay").classList.replace("btn-outline-success", "btn-outline-light")
-        }} ,5000 );
+        }   
+        } ,5000 );
 
     
     //show which compressor is active 
