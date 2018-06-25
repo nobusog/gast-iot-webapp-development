@@ -43,32 +43,33 @@ $(document).ready(function () {
         },5000)
     }
 
-    function sendData() {
-        var XHR = new XMLHttpRequest();
-        var deviceIdVal
-        var emailVal = document.getElementById("reportEmailInput").value;
-        var reportLengthVal = document.getElementById("reportLengthOptions").options[document.getElementById("reportLengthOptions").selectedIndex].value ;
-        if (document.getElementById("settingsJunairSelectButton").classList.contains("active")) {
-            deviceIdVal = "junair";
-        }
-        else if (document.getElementById("settingsNitrogenSelectButton").classList.contains("active")) {
-            deviceIdVal = "nitrogen";
-        }
-        // Define what happens on successful data submission
-        XHR.addEventListener("load", function(event) {
-            successfulAlert("Request Sent Successfully");
-        });
-    
-        // Define what happens in case of error
-        XHR.addEventListener("error", function(event) {
-            alert('Oops! Something went wrong.');
-        });
-    
-        // Set up our request
-        XHR.open("POST", "https://prod-12.northcentralus.logic.azure.com:443/workflows/187c76b9f18f48dab7a84882ca8eb0ea/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=sKpeLDmUbUw2xmdEls2ZDec-QNv6jwHTCnzUea9ahxs");
-        XHR.send("hi");
-    
-    };
+    var form = document.getElementById("reportRequestForm");
 
-    document.getElementById("sendReportButton").onclick = sendData(); 
+    form.onsubmit = function (e) {
+    // stop the regular form submission
+    e.preventDefault();
+
+    var deviceIdVal
+    var emailVal = document.getElementById("reportEmailInput").value;
+    var reportLengthVal = document.getElementById("reportLengthOptions").options[document.getElementById("reportLengthOptions").selectedIndex].value ;
+    if (document.getElementById("settingsJunairSelectButton").classList.contains("active")) {
+        deviceIdVal = "junair";
+    }
+    else if (document.getElementById("settingsNitrogenSelectButton").classList.contains("active")) {
+        deviceIdVal = "nitrogen";
+    }
+
+    // construct an HTTP request
+    var xhr = new XMLHttpRequest();
+    xhr.open(form.method, form.action, true);
+    xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+
+;
+    // send the collected data as JSON
+    xhr.send(JSON.stringify({"devicdeId": deviceIdVal, "email": emailVal, "reportLength": reportLengthVal}));
+
+    xhr.onloadend = function () {
+        // done
+    };
+    }; 
 });
