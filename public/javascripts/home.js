@@ -170,9 +170,9 @@ $(document).ready(function () {
                 document.getElementById("junairDutyCycleContainer").innerHTML = +obj.dutyCycle.toFixed(2)+"%";
                
             } else if  (obj.deviceId == "NitroGen Pi - Python") {
-                timeOnNitro = timeOnNitro + obj.globalTimeOn
+                timeOnNitro = obj.globalTimeOn
                 NitroConsumption = NitroConsumption + obj.NitroConsumption
-                document.getElementById("nitrogenCompressorOnTimeContainer").innerHTML= +timeOnNitro +"s";
+                document.getElementById("nitrogenCompressorOnTimeContainer").innerHTML= +timeOnNitro.toFixed(2) +"s";
                 document.getElementById("nitrogenDutyCycleContainer").innerHTML = +obj.dutyCycle.toFixed(2)+"%";
                 document.getElementById("nitrogenConsumptionContainer").innerHTML = +NitroConsumption.toFixed(2)+"scf";
             }
