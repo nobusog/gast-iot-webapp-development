@@ -170,12 +170,10 @@ $(document).ready(function () {
                 document.getElementById("junairDutyCycleContainer").innerHTML = +obj.dutyCycle.toFixed(2)+"%";
 
                 if(obj.compState == 1) {
-                    document.getElementById("junairStateDisplay").classList.remove("btn-outline-secondary") 
-                    document.getElementById("junairStateDisplay").classList.add("btn-outline-success")
+                    document.getElementById("junairStateDisplay").classList.replace("btn-outline-light", "btn-outline-success") 
                 }
                 else if (obj.compState != 1) {
-                    document.getElementById("junairStateDisplay").classList.remove("btn-outline-success")
-                    document.getElementById("junairStateDisplay").classList.add("btn-outline-secondary") 
+                    document.getElementById("junairStateDisplay").classList.replace("btn-outline-success", "btn-outline-light")
                 }
                
             } else if  (obj.deviceId == "NitroGen Pi - Python") {
@@ -186,13 +184,12 @@ $(document).ready(function () {
                 document.getElementById("nitrogenConsumptionContainer").innerHTML = +NitroConsumption.toFixed(2)+"scf";
 
                 if(obj.compState == 1) {
-                    document.getElementById("nitrogenStateDisplay").classList.remove("btn-outline-secondary") 
-                    document.getElementById("nitrogenStateDisplay").classList.add("btn-outline-success")
+                    document.getElementById("nitrogenStateDisplay").classList.replace("btn-outline-light", "btn-outline-success") 
                 }
                 else if (obj.compState != 1) {
-                    document.getElementById("nitrogenStateDisplay").classList.remove("btn-outline-success")
-                    document.getElementById("nitrogenStateDisplay").classList.add("btn-outline-secondary") 
+                    document.getElementById("nitrogenStateDisplay").classList.replace("btn-outline-success", "btn-outline-light")
                 }
+               
             }
         }
         catch (err) {
