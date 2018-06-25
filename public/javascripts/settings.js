@@ -75,7 +75,7 @@ $(document).ready(function () {
     xhr.addEventListener("error", function(event) {
         alert('Oops! Something went wrong.');
     });
-;
+    console.log(JSON.stringify({"devicdeId": "junair", "email": emailVal, "reportLength": reportLengthVal}));
     // send the collected data as JSON
     xhr.send(JSON.stringify({"devicdeId": "junair", "email": emailVal, "reportLength": reportLengthVal}));
 
