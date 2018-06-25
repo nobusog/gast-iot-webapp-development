@@ -65,12 +65,12 @@ $(document).ready(function () {
     xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
 
     // Define what happens on successful data submission
-    XHR.addEventListener("load", function(event) {
+    xhr.addEventListener("load", function(event) {
         successfulAlert("Request Sent Successfully");
     });
 
     // Define what happens in case of error
-    XHR.addEventListener("error", function(event) {
+    xhr.addEventListener("error", function(event) {
         alert('Oops! Something went wrong.');
     });
 ;
