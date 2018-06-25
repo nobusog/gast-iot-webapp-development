@@ -170,10 +170,10 @@ $(document).ready(function () {
                 document.getElementById("junairDutyCycleContainer").innerHTML = +obj.dutyCycle.toFixed(2)+"%";
 
                 if(obj.compState == 1) {
-                    document.getElementById("junairStateDisplay").classList.replace("btn-outline-light", "btn-outline-success") 
+                    document.getElementById("junairStateDisplay").classList.replace("btn-outline-light", "btn-success") 
                 }
                 else if (obj.compState != 1) {
-                    document.getElementById("junairStateDisplay").classList.replace("btn-outline-success", "btn-outline-light")
+                    document.getElementById("junairStateDisplay").classList.replace("btn-success", "btn-outline-light")
                 }
                
             } else if  (obj.deviceId == "NitroGen Pi - Python") {
@@ -184,10 +184,10 @@ $(document).ready(function () {
                 document.getElementById("nitrogenConsumptionContainer").innerHTML = +NitroConsumption.toFixed(2)+"scf";
 
                 if(obj.compState == 1) {
-                    document.getElementById("nitrogenStateDisplay").classList.replace("btn-outline-light", "btn-outline-success") 
+                    document.getElementById("nitrogenStateDisplay").classList.replace("btn-outline-light", "btn-success") 
                 }
                 else if (obj.compState != 1) {
-                    document.getElementById("nitrogenStateDisplay").classList.replace("btn-outline-success", "btn-outline-light")
+                    document.getElementById("nitrogenStateDisplay").classList.replace("btn-success", "btn-outline-light")
                 }
                
             }
@@ -197,6 +197,11 @@ $(document).ready(function () {
         }
     };
 
+    setInterval(function () {
+        if (!ws.onmessage) { 
+            document.getElementById("nitrogenStateDisplay").classList.replace("btn-outline-success", "btn-outline-light")
+            document.getElementById("junairStateDisplay").classList.replace("btn-outline-success", "btn-outline-light")
+        }} ,5000 );
     //show which compressor is active 
     document.getElementById("jun-airSelectButton").onclick = function(){
     if (this.classList.contains("active")){
