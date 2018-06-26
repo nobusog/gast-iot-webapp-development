@@ -3,13 +3,12 @@ $(document).ready(function () {
   //create array of last stored data points and keep them in charts
   function cookify(array) {
     var newArray = array.slice(); //copy array
-    console.log(newArray);
     var newArrayJSON = JSON.stringify(newArray);
     document.cookie = array+"="+newArrayJSON
   }
   
   function checkCookies(array) {
-    cookies = JSON.parse(decodeURIComponent(document.cookie).split(';'));
+    cookies = JSON.parse(document.cookie).split(';');
     try {
       for (var i=0; i<cookies.length; i++) {
         var element = cookies[i].splice("=");
