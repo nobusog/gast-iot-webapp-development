@@ -344,7 +344,7 @@ $(document).ready(function () {
     console.log('Successfully connect WebSocket');
   }
   ws.onmessage = function (message) {
-    console.log('receive message' + message.data);
+    console.log("messageeeee");
     try {
       var obj = JSON.parse(message.data);
 
