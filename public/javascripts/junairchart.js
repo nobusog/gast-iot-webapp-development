@@ -4,7 +4,26 @@ $(document).ready(function () {
   function cookify(array) {
     var newArray = array.slice();
     var newArrayJSON = JSON.stringify(newArray);
-    document.cookie = newArrayJSON
+    document.cookie = array+"="+newArrayJSON
+  }
+  
+  function checkCookies(array) {
+    cookies = JSON.parse(decodeURIComponent(document.cookie).split(';'));
+    try {
+      for (var i=0; i<cookies.length; i++) {
+        var element = cookies[i].splice("=");
+        if (element[0] == array & element[1]) {
+          return true
+          console.log("cookies")
+        } else {
+          console.log("we have none")
+          return false
+        }
+      }
+    }
+    catch (err) {
+      console.log(err);
+    } 
   }
   //creating variable names for the different data streams
   var timeData = [],
@@ -436,6 +455,7 @@ $(document).ready(function () {
         }
 
         //save arrays
+        checkCookies(am2302HumidityData)
         cookify(am2302HumidityData);
         //update charts with new points
         bme280Chart.update();
