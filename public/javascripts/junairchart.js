@@ -2,7 +2,8 @@ $(document).ready(function () {
 
   //create array of last stored data points and keep them in charts
   function cookify(array) {
-    var newArray = array.slice();
+    var newArray = array.slice(); //copy array
+    console.log(newArray);
     var newArrayJSON = JSON.stringify(newArray);
     document.cookie = array+"="+newArrayJSON
   }
