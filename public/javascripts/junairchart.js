@@ -1,29 +1,5 @@
 $(document).ready(function () {
 
-  //create array of last stored data points and keep them in charts
-  function cookify(array) {
-    var newArray = array.slice(); //copy array
-    document.cookie = array+"="+newArray
-  }
-  
-  function checkCookies(array) {
-    cookies = document.cookie.split(';');
-    try {
-      for (var i=0; i<cookies.length; i++) {
-        var element = cookies[i].slice("=");
-        if (element[0] == array & element[1]) {
-          return true
-          console.log("cookies")
-        } else {
-          console.log("we have none")
-          return false
-        }
-      }
-    }
-    catch (err) {
-      console.log(err);
-    } 
-  }
   //creating variable names for the different data streams
   var timeData = [],
     bme280TemperatureData = [],

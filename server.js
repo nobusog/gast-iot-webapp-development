@@ -16,16 +16,6 @@ const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
 // Broadcast to all.
-
-
-//
-//make an array to store the "data" values that will be broadcast
-//if the length of the array gets larger than 100 values, concatenate into a 50 item array
-//
-//
-//
-//
-
 wss.broadcast = function broadcast(data) {
   wss.clients.forEach(function each(client) {
     if (client.readyState === WebSocket.OPEN) {
@@ -45,11 +35,27 @@ iotHubReader.startReadMessage(function (obj, date) {
     console.log(date);
     date = date || Date.now()
     wss.broadcast(JSON.stringify(Object.assign(obj, { time: moment.utc(date).format('YYYY:MM:DD[T]hh:mm:ss') })));
+    am2302HumidityData.push(obj.am2302Temperature);
   } catch (err) {
     console.log(obj);
     console.error(err);
   }
 });
+
+//broadcarst history 
+wss.broadcast(JSON.stringify(Object.assign(am2302HumidityData, {id: "history"})));
+//history of data
+var timeData = [],
+    bme280TemperatureData = [],
+    bme280HumidityData = [],
+    bme280PressureData = [],
+    am2302TemperatureData = [],
+    am2302HumidityData = [],
+    pressureTransmitterData = [] ; 
+    thermocoupleData = [];
+    sht20TemperatureData = [];
+    sht20HumidityData = [];
+
 
 var port = normalizePort(process.env.PORT || '3000');
 server.listen(port, function listening() {
