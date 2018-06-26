@@ -42,21 +42,6 @@ iotHubReader.startReadMessage(function (obj, date) {
   }
 });
 
-//broadcarst history 
-wss.broadcast(JSON.stringify({"hi": am2302HumidityData[0], "id": "history"}));
-//history of data
-var timeData = [],
-    bme280TemperatureData = [],
-    bme280HumidityData = [],
-    bme280PressureData = [],
-    am2302TemperatureData = [],
-    am2302HumidityData = [],
-    pressureTransmitterData = [] ; 
-    thermocoupleData = [];
-    sht20TemperatureData = [];
-    sht20HumidityData = [];
-
-
 var port = normalizePort(process.env.PORT || '3000');
 server.listen(port, function listening() {
   console.log('Listening on %d', server.address().port);
