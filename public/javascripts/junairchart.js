@@ -10,7 +10,7 @@ $(document).ready(function () {
     cookies = document.cookie.split(';');
     try {
       for (var i=0; i<cookies.length; i++) {
-        var element = cookies[i].splice("=");
+        var element = cookies[i].slice("=");
         if (element[0] == array & element[1]) {
           return true
           console.log("cookies")
