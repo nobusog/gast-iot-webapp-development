@@ -8,7 +8,7 @@ $(document).ready(function () {
   }
   
   function checkCookies(array) {
-    cookies = JSON.parse(document.cookie).split(';');
+    cookies = JSON.parse(document.cookie.split(';'));
     try {
       for (var i=0; i<cookies.length; i++) {
         var element = cookies[i].splice("=");
