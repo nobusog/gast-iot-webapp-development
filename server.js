@@ -16,6 +16,16 @@ const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
 // Broadcast to all.
+
+
+//
+//make an array to store the "data" values that will be broadcast
+//if the length of the array gets larger than 100 values, concatenate into a 50 item array
+//
+//
+//
+//
+
 wss.broadcast = function broadcast(data) {
   wss.clients.forEach(function each(client) {
     if (client.readyState === WebSocket.OPEN) {

@@ -1,4 +1,11 @@
 $(document).ready(function () {
+
+  //create array of last stored data points and keep them in charts
+  function cookify(array) {
+    var newArray = array.slice();
+    var newArrayJSON = JSON.stringify(newArray);
+    document.cookie = newArrayJSON
+  }
   //creating variable names for the different data streams
   var timeData = [],
     bme280TemperatureData = [],
@@ -428,6 +435,8 @@ $(document).ready(function () {
           sht20HumidityData.shift();
         }
 
+        //save arrays
+        cookify(am2302HumidityData);
         //update charts with new points
         bme280Chart.update();
         am2302Chart.update();
