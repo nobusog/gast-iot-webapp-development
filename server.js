@@ -43,7 +43,7 @@ iotHubReader.startReadMessage(function (obj, date) {
 });
 
 //broadcarst history 
-wss.broadcast(JSON.stringify(Object.assign(am2302HumidityData, {id: "history"})));
+wss.broadcast(JSON.stringify(Object.assign(am2302HumidityData[0], {id: "history"})));
 //history of data
 var timeData = [],
     bme280TemperatureData = [],
