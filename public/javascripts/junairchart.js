@@ -26,6 +26,7 @@ $(document).ready(function () {
     console.log("retrieved")
     chartDumper(am2302HumidityData,"am2302HumidityData");
     chartDumper(am2302TemperatureData,"am2302TemperatureData");
+    chartDumper(bme280TemperatureData,"bme280TemperatureData");
   })();
   
   //clears local storage after retrieving contents
@@ -477,5 +478,6 @@ $(document).ready(function () {
     console.log("saved");
     chartSaver(am2302HumidityData,"am2302HumidityData");
     chartSaver(am2302TemperatureData,"am2302TemperatureData");
+    chartSaver(bme280TemperatureData,"bme280TemperatureData"); 
   }
 })
