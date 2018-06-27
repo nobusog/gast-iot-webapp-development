@@ -1,38 +1,21 @@
-function chartDumper(array, str) {
-    for (var i=0; i<array.length; i++) {
-        var arry = JSON.parse(window.localStorage.getItem(str[i]));
-        console.log(window.localStorage.getItem(str[i]));
-        if (arry != null){
-            if (arry.length <= 50) {
-                for (var n=0; n<arry.length; n++) {
-                array[i].push(arry[n]);
-                }
-            } else {
-                for (var n=0; n<=50; n++) {
-                array[i].push(arry[n]);
-                }
-            } 
+   function chartDumper(array, str) {
+    var arry = JSON.parse(window.localStorage.getItem(str));
+    console.log(window.localStorage.getItem(str))
+    if (arry != null){
+    if (array.length <= 50) {
+        for (var n=0; n<arry.length; n++) {
+        array.push(arry[n]);
         }
-    }
-}
-
-function chartSaver (array,str) {
-    for (var i=0; i<array.length; i++){
-        var newArray =array[i].slice();
-        var arrayString = JSON.stringify(newArray);
-        console.log(arrayString)
-        if (arrayString != null) {
-            window.localStorage.setItem(str[i], arrayString);
+    } else {
+        for (var n=0; n<=50; n++) {
+        array.push(arry[n]);
         }
-    }
-    console.log("saved");
-}
-
-function updateAllCharts (array){
-    for (var i=0; i<array.length; i++) {
-      array[i].update();
+    } 
     }
 }
 
-
-
+function chartSaver (array, str) {
+    var arrayString = JSON.stringify(array);
+    console.log(arrayString);
+    window.localStorage.setItem(str, arrayString);
+}
