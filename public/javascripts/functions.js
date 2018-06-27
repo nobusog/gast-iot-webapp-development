@@ -1,7 +1,6 @@
 function chartDumper(array, str) {
     for (var i=0; i<array.length; i++) {
         var arry = JSON.parse(window.localStorage.getItem(str[i]));
-        console.log(window.localStorage.getItem(str[i]))
         if (arry != null){
             if (arry.length <= 50) {
                 for (var n=0; n<arry.length; n++) {
@@ -19,7 +18,6 @@ function chartDumper(array, str) {
 function chartSaver (array,str) {
     for (var i=0; i<array.length; i++){
         var arrayString = JSON.stringify(array[i]);
-        console.log(arrayString);
         window.localStorage.setItem(str[i], arrayString);
     }
 }

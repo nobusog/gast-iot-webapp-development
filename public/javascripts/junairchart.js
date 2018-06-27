@@ -13,7 +13,6 @@ $(document).ready(function () {
     sht20HumidityData = [];
   
   (function chartDump (){
-    console.log("retrieved")
     chartDumper([timeData,am2302HumidityData,am2302TemperatureData,bme280TemperatureData,bme280HumidityData,bme280PressureData,
       pressureTransmitterData,thermocoupleData,sht20TemperatureData,sht20HumidityData], ["timeData","am2302HumidityData",
       "am2302TemperatureData","bme280TemperatureData","bme280HumidityData","bme280PressureData","pressureTransmitterData",
@@ -453,7 +452,6 @@ $(document).ready(function () {
   }
 
   window.onbeforeunload = function() {
-    console.log("saved");
     chartSaver([timeData,am2302HumidityData,am2302TemperatureData,bme280TemperatureData,bme280HumidityData,bme280PressureData,
       pressureTransmitterData,thermocoupleData,sht20TemperatureData,sht20HumidityData], ["timeData","am2302HumidityData",
       "am2302TemperatureData","bme280TemperatureData","bme280HumidityData","bme280PressureData","pressureTransmitterData",
