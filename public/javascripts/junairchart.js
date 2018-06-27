@@ -12,13 +12,13 @@ $(document).ready(function () {
     sht20TemperatureData = [],
     sht20HumidityData = [];
 
-  document.getElementById("chartSelector").onclick = function(){
-    console.log("retrieved")
-    var arry = JSON.parse(this.window.localStorage.getItem("am2302Humidity"));
-    for (var n=0; n<arry.length; n++) {
-      am2302HumidityData.push(arry[n]);
-    }
-  }
+    (function chartDump (){
+      console.log("retrieved")
+      var arry = JSON.parse(this.window.localStorage.getItem("am2302Humidity"));
+      for (var n=0; n<arry.length; n++) {
+        am2302HumidityData.push(arry[n]);
+      }
+    })();
 
   //datasets for the bme280 sensor chart 
   var bme280Dataset = {
