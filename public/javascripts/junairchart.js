@@ -23,7 +23,8 @@ $(document).ready(function () {
   
   (function chartDump (){
     console.log("retrieved")
-    chartDumper(am2302HumidityData,"am2302HumidityData")
+    chartDumper(am2302HumidityData,"am2302HumidityData");
+    chartDumper(am2302TemperatureData,"am2302TemperatureData")
   })();
 
   //clears local storage after retrieving contents
@@ -467,5 +468,6 @@ $(document).ready(function () {
   window.onbeforeunload = function() {
     console.log("saved");
     chartSaver(am2302HumidityData,"am2302HumidityData");
+    chartSaver(am2302TemperatureData,"am2302TemperatureData");
   }
 })
