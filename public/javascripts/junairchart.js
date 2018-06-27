@@ -458,17 +458,6 @@ $(document).ready(function () {
     }
   }
   
-  function chartSaver (array, str) {
-    console.log(array)
-    if (array != null) {
-        arrayObject = Object.assign({}, array.slice())
-        console.log(arrayObject)
-        var arrayString = JSON.stringify(arrayObject);
-        console.log(arrayString);
-        window.localStorage.setItem(str, arrayString);
-    }
-}
-
   window.onbeforeunload = function() {
     console.log("saved");
     chartSaver(timeData, "timeData")
