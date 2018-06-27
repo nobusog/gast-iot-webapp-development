@@ -43,6 +43,7 @@ function chartSaver (array, str) {
 function setCompOff () {
     sessionStorage.setItem("junairCompState", "0");
     sessionStorage.setItem("nitrogenCompState", "0");
+    console.log("set to off")
 }
 
 function readCompState() {
@@ -52,4 +53,5 @@ function readCompState() {
     else if (sessionStorage.getItem("nitrogenCompState") == 0) {
         document.getElementById("nitrogenStateDisplay").classList.replace("btn-success", "btn-outline-light")
     }
+    console.log("read the stuff")
 }
