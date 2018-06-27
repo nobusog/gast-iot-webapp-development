@@ -12,13 +12,15 @@ $(document).ready(function () {
     sht20TemperatureData = [],
     sht20HumidityData = [];
 
-  if (window.localStorage) {
-    for (var i=0; i<window.localStorage.length; i++) {
-      iStr = i.toString(); 
-      am2302HumidityData[i] = window.localStorage.getItem(iStr);
+  window.onload = function(){
+    if (window.localStorage) {
+      for (var i=0; i<window.localStorage.length; i++) {
+        console.log("checked")
+        iStr = i.toString(); 
+        am2302HumidityData[i] = window.localStorage.getItem(iStr);
+      }
     }
   }
-
 
   //datasets for the bme280 sensor chart 
   var bme280Dataset = {
@@ -454,6 +456,7 @@ $(document).ready(function () {
   {
     if (am2302HumidityData){
       for (var i=0; i<am2302HumidityData.length; i++) {
+        console.log("stored")
         var key = i.toString;
         var value = am2302HumidityData.toString;
         window.localStorage.setItem(key, value)
