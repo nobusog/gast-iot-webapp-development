@@ -6,16 +6,16 @@ $(document).ready(function () {
     nitrobme280PressureData = [],
     nitroam2302TemperatureData = [],
     nitroam2302HumidityData = [],
-    pressureTransmitterData = [] ; 
-    thermocoupleData = [];
-    sht20TemperatureData = [];
-    sht20HumidityData = [];
+    nitropressureTransmitterData = [] ; 
+    nitrothermocoupleData = [];
+    nitrosht20TemperatureData = [];
+    nitrosht20HumidityData = [];
 
   (function chartDump (){
     chartDumper([nitrotimeData,nitroam2302HumidityData,nitroam2302TemperatureData,nitrobme280TemperatureData,nitrobme280HumidityData,
-      nitrobme280PressureData,pressureTransmitterData,thermocoupleData,sht20TemperatureData,sht20HumidityData], 
+      nitrobme280PressureData,nitropressureTransmitterData,nitrothermocoupleData,nitrosht20TemperatureData,nitrosht20HumidityData], 
       ["nitrotimeData","nitroam2302HumidityData","nitroam2302TemperatureData","nitrobme280TemperatureData","nitrobme280HumidityData",
-      "nitrobme280PressureData","pressureTransmitterData","thermocoupleData","sht20TemperatureData","sht20HumidityData"])
+      "nitrobme280PressureData","nitropressureTransmitterData","nitrothermocoupleData","nitrosht20TemperatureData","nitrosht20HumidityData"])
   })();
 
   //datasets for the bme280 sensor chart 
@@ -87,7 +87,7 @@ $(document).ready(function () {
   }
 
   //datasets for the pressure transmitter chart 
-  var pressureTransmitterDataset = {
+  var nitropressureTransmitterDataset = {
     labels: nitrotimeData,
     datasets: [
       {
@@ -99,12 +99,12 @@ $(document).ready(function () {
       backgroundColor: "rgba(255, 204, 0, 0.4)",
       pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
       pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-      data: pressureTransmitterData 
+      data: nitropressureTransmitterData 
     }]
   }
 
   //datasets for the thermomocouple chart 
-  var thermocoupleDataset = {
+  var nitrothermocoupleDataset = {
     labels: nitrotimeData,
     datasets: [
       {
@@ -116,7 +116,7 @@ $(document).ready(function () {
       backgroundColor: "rgba(255, 204, 0, 0.4)",
       pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
       pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-      data: thermocoupleData 
+      data: nitrothermocoupleData 
     }]
   }
 
@@ -133,7 +133,7 @@ $(document).ready(function () {
       backgroundColor: "rgba(255, 204, 0, 0.4)",
       pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
       pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-      data: sht20TemperatureData 
+      data: nitrosht20TemperatureData 
     },
     {
       fill: false,
@@ -144,7 +144,7 @@ $(document).ready(function () {
       backgroundColor: "rgba(24, 120, 240, 0.4)",
       pointHoverBackgroundColor: "rgba(24, 120, 240, 1)",
       pointHoverBorderColor: "rgba(24, 120, 240, 1)",
-      data: sht20HumidityData
+      data: nitrosht20HumidityData
     }]
   }
 
@@ -324,7 +324,7 @@ $(document).ready(function () {
   var optionsNoAnimation = { animation: false }
   var pressureTransmitterChart = new Chart(pressuretransmitterctx, {
     type: 'line',
-    data: pressureTransmitterDataset,
+    data: nitropressureTransmitterDataset,
     options: pressureTransmitterOptions
   });
 
@@ -333,7 +333,7 @@ $(document).ready(function () {
   var optionsNoAnimation = { animation: false }
   var thermocoupleChart = new Chart(thermocouplectx, {
     type: 'line',
-    data: thermocoupleDataset,
+    data: nitrothermocoupleDataset,
     options: thermocoupleOptions
   });
 
@@ -407,34 +407,34 @@ $(document).ready(function () {
   
         //push the pressure transmitter data if it exists and keep only 50 points in the line chart
         if (obj.transducerPressure) {
-          pressureTransmitterData.push(obj.transducerPressure);
+          nitropressureTransmitterData.push(obj.transducerPressure);
         }
-        if (pressureTransmitterData.length > maxLen) {
-          pressureTransmitterData.shift();
+        if (nitropressureTransmitterData.length > maxLen) {
+          nitropressureTransmitterData.shift();
         }
   
         //push the pressure transmitter data if it exists and keep only 50 points in the line chart
         if (obj.thermocoupleTemperature) {
-          thermocoupleData.push(obj.thermocoupleTemperature);
+          nitrothermocoupleData.push(obj.thermocoupleTemperature);
         }
-        if (thermocoupleData.length > maxLen) {
-          thermocoupleData.shift();
+        if (nitrothermocoupleData.length > maxLen) {
+          nitrothermocoupleData.shift();
         }
   
         //push the sht temperature data if it exists and keep only 50 points in the line chart
         if (obj.sht20Temperature) {
-          sht20TemperatureData.push(obj.sht20Temperature);
+          nitrosht20TemperatureData.push(obj.sht20Temperature);
         }
-        if (sht20TemperatureData.length > maxLen) {
-          sht20TemperatureData.shift();
+        if (nitrosht20TemperatureData.length > maxLen) {
+          nitrosht20TemperatureData.shift();
         }
   
         //push the pressure transmitter data if it exists and keep only 50 points in the line chart
         if (obj.sht20Humidity) {
-          sht20HumidityData.push(obj.sht20Humidity);
+          nitrosht20HumidityData.push(obj.sht20Humidity);
         }
-        if (sht20HumidityData.length > maxLen) {
-          sht20HumidityData.shift();
+        if (nitrosht20HumidityData.length > maxLen) {
+          nitrosht20HumidityData.shift();
         }
   
         //update charts with new points
@@ -447,9 +447,9 @@ $(document).ready(function () {
   } 
   window.onbeforeunload = function() {  
     chartSaver([nitrotimeData,nitroam2302HumidityData,nitroam2302TemperatureData,nitrobme280TemperatureData,nitrobme280HumidityData,
-      nitrobme280PressureData,pressureTransmitterData,thermocoupleData,sht20TemperatureData,sht20HumidityData], 
+      nitrobme280PressureData,nitropressureTransmitterData,nitrothermocoupleData,nitrosht20TemperatureData,nitrosht20HumidityData], 
       ["nitrotimeData","nitroam2302HumidityData","nitroam2302TemperatureData","nitrobme280TemperatureData","nitrobme280HumidityData",
-      "nitrobme280PressureData","pressureTransmitterData","thermocoupleData","sht20TemperatureData","sht20HumidityData"])
+      "nitrobme280PressureData","nitropressureTransmitterData","nitrothermocoupleData","nitrosht20TemperatureData","nitrosht20HumidityData"])
   }
 })
   
