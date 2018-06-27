@@ -14,7 +14,7 @@ $(document).ready(function () {
   
   (function chartDump (){
     console.log("retrieved")
-    chartDumper(timeData, "timeData")
+    chartDumper(timeData,"timeData")
     chartDumper(am2302HumidityData,"am2302HumidityData");
     chartDumper(am2302TemperatureData,"am2302TemperatureData");
     chartDumper(bme280HumidityData,"bme280HumidityData");
@@ -460,8 +460,7 @@ $(document).ready(function () {
     }
   }
   
-  window.onbeforeunload = function() {
-    console.log("saved");
+  window.onunload = function() {
     chartSaver(timeData,"timeData")
     chartSaver(am2302HumidityData,"am2302HumidityData");
     chartSaver(am2302TemperatureData,"am2302TemperatureData");
@@ -472,5 +471,6 @@ $(document).ready(function () {
     chartSaver(sht20TemperatureData,"sht20TemperatureData");
     chartSaver(sht20HumidityData,"sht20HumidityData");
     chartSaver(pressureTransmitterData,"pressureTransmitterData");
+    console.log("saved");
   }
 })
