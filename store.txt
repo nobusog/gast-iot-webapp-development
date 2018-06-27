@@ -37,3 +37,8 @@
         XHR.send(JSON.stringify({email:emailVal, reportLengthVal:reportLengthVal, deviceId:deviceIdVal}));
     
     };
+
+
+
+    arrayObject = Object.assign({}, array.slice())
+        console.log(arrayObject)

@@ -21,11 +21,9 @@ function updateAllCharts (array){
   }
 
   function chartSaver (array, str) {
-    console.log(array[0])
+    console.log(array)
     if (array != null) {
-        arrayObject = Object.assign({}, array.slice())
-        console.log(arrayObject)
-        var arrayString = JSON.stringify(arrayObject);
+        var arrayString = JSON.stringify(array);
         console.log(arrayString);
         window.localStorage.setItem(str, arrayString);
     }
