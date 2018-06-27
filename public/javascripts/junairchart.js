@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  
+
   //creating arrays for the different data streams
     timeData = [],
     bme280TemperatureData = [],
@@ -352,7 +352,7 @@ $(document).ready(function () {
   });
   
   function updateAllCharts (array){
-    for (arr in array) {
+    for (var arr in array) {
       arr.update();
     }
   }
