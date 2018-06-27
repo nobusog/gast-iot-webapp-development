@@ -1,15 +1,15 @@
 $(document).ready(function () {
   //creating variable names for the different data streams
-  var nitrotimeData = [],
-    nitrobme280TemperatureData = [],
-    nitrobme280HumidityData = [],
-    nitrobme280PressureData = [],
-    nitroam2302TemperatureData = [],
-    nitroam2302HumidityData = [],
-    nitropressureTransmitterData = [],
-    nitrothermocoupleData = [],
-    nitrosht20TemperatureData = [],
-    nitrosht20HumidityData = [];
+  nitrotimeData = [],
+  nitrobme280TemperatureData = [],
+  nitrobme280HumidityData = [],
+  nitrobme280PressureData = [],
+  nitroam2302TemperatureData = [],
+  nitroam2302HumidityData = [],
+  nitropressureTransmitterData = [],
+  nitrothermocoupleData = [],
+  nitrosht20TemperatureData = [],
+  nitrosht20HumidityData = [];
 
   (function chartDump (){
     chartDumper(nitrotimeData, "nitrotimeData")
@@ -456,7 +456,7 @@ $(document).ready(function () {
   function chartSaver (array, str) {
     console.log(array) 
     if (array != null) {
-         arrayObject = Object.assign({}, array.slice())
+         arrayObject = Object.assign({}, (array.slice()))
         console.log(arrayObject)
         var arrayString = JSON.stringify(arrayObject);
         console.log(arrayString);
