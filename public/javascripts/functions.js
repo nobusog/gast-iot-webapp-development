@@ -1,16 +1,18 @@
 function chartDumper(array, str) {
-    var arry = window.localStorage.getItem(str);
-    console.log(str)
-    if (arry != null){
-        if (array.length <= 50) {
-            for (var n=0; n<arry.length; n++) {
-            array.push(arry[n]);
-            }
-        } else {
-            for (var n=0; n<=50; n++) {
-            array.push(arry[n]);
-            }
-        } 
+    if (typeof str == "string") {
+        var arry = window.localStorage.getItem(str);
+        console.log(str)
+        if (arry != null){
+            if (array.length <= 50) {
+                for (var n=0; n<arry.length; n++) {
+                array.push(arry[n]);
+                }
+            } else {
+                for (var n=0; n<=50; n++) {
+                array.push(arry[n]);
+                }
+            } 
+        }
     }
 }
 
