@@ -4,8 +4,13 @@ function chartDumper(array, str) {
     var arrayString = storage.getItem(str);
     var arrayOfStrings = arrayString.split(",:");
     console.log(arrayOfStrings)
+    var n =0;
     for (var i=0; i<arrayOfStrings.length; i++) {
-        array[i] =parseInt(escapeHtml(arrayOfStrings[i]),10);
+        var number =parseInt(escapeHtml(arrayOfStrings[i]),10);
+        if (typeof number == "number") {
+            array[n] == number;
+            n++;
+        }
     }
 }
 
