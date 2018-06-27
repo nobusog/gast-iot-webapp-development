@@ -12,10 +12,12 @@ $(document).ready(function () {
     sht20TemperatureData = [],
     sht20HumidityData = [];
 
-  window.onload = function(){
+  document.getElementById("chartSelector").onclick = function(){
     this.console.log("retrieved")
     var arry = JSON.parse(this.window.localStorage.getItem("am2302Humidity"));
-    am2302HumidityData = arry.slice();
+    for (var n=0; n<arry.length; n++) {
+      am2302HumidityData.push(arry[n]);
+    }
   }
 
   //datasets for the bme280 sensor chart 
