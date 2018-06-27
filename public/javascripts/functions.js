@@ -1,6 +1,8 @@
+var storage = window.localStorage;
+
 function chartDumper(array, str) {
     if (typeof str == "string") {
-        var arry = window.localStorage.getItem(str);
+        var arry = storage.getItem(str);
         console.log(arry)
         if (arry != null){
             if (array.length <= 50) {
@@ -26,7 +28,7 @@ function updateAllCharts (array){
     if (array != null) {
         var arrayString = JSON.stringify(array);
         console.log(arrayString);
-        window.localStorage.setItem(str, arrayString);
+        storage.setItem(str, arrayString);
     }
 }
 

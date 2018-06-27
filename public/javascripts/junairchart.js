@@ -26,9 +26,6 @@ $(document).ready(function () {
     chartDumper(pressureTransmitterData,"pressureTransmitterData");
   })();
   
-  //clears local storage after retrieving contents
-  window.localStorage.clear();
-
   //datasets for the bme280 sensor chart 
   var bme280Dataset = {
     labels: timeData,
