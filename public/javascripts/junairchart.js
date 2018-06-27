@@ -16,14 +16,21 @@ $(document).ready(function () {
     var arry = JSON.parse(window.localStorage.getItem(str));
     console.log(window.localStorage.getItem(str))
     if (arry != null){
-      for (var n=0; n<arry.length; n++) {
-        array.push(arry[n]);
-      }
+      if (array.length <= 50) {
+        for (var n=0; n<arry.length; n++) {
+          array.push(arry[n]);
+        }
+      } else {
+        for (var n=0; n<=50; n++) {
+          array.push(arry[n]);
+        }
+      } 
     }
   }
   
   (function chartDump (){
     console.log("retrieved")
+    chartDumper(timeData, "timeData")
     chartDumper(am2302HumidityData,"am2302HumidityData");
     chartDumper(am2302TemperatureData,"am2302TemperatureData");
     chartDumper(bme280TemperatureData,"bme280TemperatureData");
@@ -361,8 +368,7 @@ $(document).ready(function () {
   });
   
   function updateAllCharts (){
-    bme280Chart.update({
-      duration: 1000});
+    bme280Chart.update();
     am2302Chart.update();
     pressureTransmitterChart.update();
     thermocoupleChart.update();
@@ -477,6 +483,7 @@ $(document).ready(function () {
 
   window.onbeforeunload = function() {
     console.log("saved");
+    chartSaver(timeData, "timeData")
     chartSaver(am2302HumidityData,"am2302HumidityData");
     chartSaver(am2302TemperatureData,"am2302TemperatureData");
     chartSaver(bme280TemperatureData,"bme280TemperatureData"); 
