@@ -13,7 +13,7 @@ $(document).ready(function () {
     sht20HumidityData = [];
 
   document.getElementById("chartSelector").onclick = function(){
-    this.console.log("retrieved")
+    console.log("retrieved")
     var arry = JSON.parse(this.window.localStorage.getItem("am2302Humidity"));
     for (var n=0; n<arry.length; n++) {
       am2302HumidityData.push(arry[n]);
