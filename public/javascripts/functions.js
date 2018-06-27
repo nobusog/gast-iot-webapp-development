@@ -22,7 +22,7 @@ function updateAllCharts (array){
 
 function chartSaver (array, str) {
     if (array != null) {
-        arrayObject = Object.assign({}, array)
+        arrayObject = Object.assign({}, array.slice())
         var arrayString = JSON.stringify(arrayObject);
         console.log(arrayString);
         window.localStorage.setItem(str, arrayString);
