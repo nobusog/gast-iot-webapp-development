@@ -205,8 +205,8 @@ $(document).ready(function () {
     };
 
     //makesure if compressor is off, buttons dont say otherwise
-    setInterval(setCompOff(),1000);
-    setInterval(readCompState(),5000);
+    setInterval(setCompOff,1000);
+    setInterval(readCompState,5000);
     
     //show which compressor is active 
     document.getElementById("jun-airSelectButton").onclick = function(){
