@@ -4,11 +4,11 @@ console.log(window.localStorage.getItem(str))
 if (arry != null){
 if (array.length <= 50) {
     for (var n=0; n<arry.length; n++) {
-    array.push(arry[n]);
+    array.push(arry.n);
     }
 } else {
     for (var n=0; n<=50; n++) {
-    array.push(arry[n]);
+    array.push(arry.n);
     }
 } 
 }
@@ -22,7 +22,8 @@ function updateAllCharts (array){
 
 function chartSaver (array, str) {
     if (array != null) {
-        var arrayString = JSON.stringify(array);
+        arrayObject = Object.assign({}, array)
+        var arrayString = JSON.stringify(arrayObject);
         console.log(arrayString);
         window.localStorage.setItem(str, arrayString);
     }
