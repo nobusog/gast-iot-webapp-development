@@ -454,7 +454,7 @@ $(document).ready(function () {
   } 
 
   window.onbeforeunload = function() {
-    chartSaver(nitrotimeData, "nitrotimeData");
+    chartSaver(nitrotimeData,"nitrotimeData");
     chartSaver(nitroam2302HumidityData,"nitroam2302HumidityData");
     chartSaver(nitroam2302TemperatureData,"nitroam2302TemperatureData");
     chartSaver(nitrobme280HumidityData,"nitrobme280HumidityData");

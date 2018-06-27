@@ -25,7 +25,7 @@ $(document).ready(function () {
     chartDumper(sht20HumidityData,"sht20HumidityData");
     chartDumper(pressureTransmitterData,"pressureTransmitterData");
   })();
-  
+
   //datasets for the bme280 sensor chart 
   var bme280Dataset = {
     labels: timeData,
@@ -457,7 +457,7 @@ $(document).ready(function () {
   
   window.onbeforeunload = function() {
     console.log("saved");
-    chartSaver(timeData, "timeData")
+    chartSaver(timeData,"timeData")
     chartSaver(am2302HumidityData,"am2302HumidityData");
     chartSaver(am2302TemperatureData,"am2302TemperatureData");
     chartSaver(bme280HumidityData,"bme280HumidityData");

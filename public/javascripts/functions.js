@@ -28,7 +28,7 @@ function updateAllCharts (array){
     if (array != null) {
         var arrayString = JSON.stringify(array);
         console.log(arrayString);
-        storage.setItem(str, arrayString);
+        storage.setItem(str, array);
     }
 }
 
