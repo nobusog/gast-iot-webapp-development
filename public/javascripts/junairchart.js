@@ -361,7 +361,8 @@ $(document).ready(function () {
   });
   
   function updateAllCharts (){
-    bme280Chart.update();
+    bme280Chart.update({
+      duration: 1000});
     am2302Chart.update();
     pressureTransmitterChart.update();
     thermocoupleChart.update();
