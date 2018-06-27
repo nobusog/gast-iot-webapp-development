@@ -452,12 +452,6 @@ $(document).ready(function () {
     }
   }
 
-  function chartSaver (array, str) {
-    var arrayString = JSON.stringify(array);
-    console.log(arrayString);
-    window.localStorage.setItem(str, arrayString);
-  }
-
   window.onbeforeunload = function() {
     console.log("saved");
     chartSaver([timeData,am2302HumidityData,am2302TemperatureData,bme280TemperatureData,bme280HumidityData,bme280PressureData,
