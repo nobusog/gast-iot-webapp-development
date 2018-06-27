@@ -449,7 +449,7 @@ $(document).ready(function () {
         }
 
         //update charts with new points
-        updateAllCharts();
+        updateAllCharts([bme280Chart, am2302Chart, thermocoupleChart, sht20Chart, pressureTransmitterChart]);
       } 
     }
     catch (err) {
