@@ -1,6 +1,6 @@
 function chartDumper(array, str) {
     var arry = window.localStorage.getItem(str);
-    console.log(window.localStorage.getItem(str))
+    console.log(str)
     if (arry != null){
         if (array.length <= 50) {
             for (var n=0; n<arry.length; n++) {
