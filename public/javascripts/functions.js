@@ -6,11 +6,10 @@ function chartDumper(array, str) {
     console.log(arrayOfStrings)
     var n =0;
     for (var i=0; i<arrayOfStrings.length; i++) {
-        var number =parseInt(escapeHtml(arrayOfStrings[i]),10);
-        if (number != NaN || number != "") {
-            array[n] == number;
-            n++;
-        }
+        if (arrayOfStrings != "NaN" || arrayOfStrings != "") {
+            array[n] =parseInt(escapeHtml(arrayOfStrings[i]),10);
+            n++ ;
+        }   
     }
 }
 
