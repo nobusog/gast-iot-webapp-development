@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
-  //creating variable names for the different data streams
-  var timeData = [],
+  //creating arrays for the different data streams
+    timeData = [],
     bme280TemperatureData = [],
     bme280HumidityData = [],
     bme280PressureData = [],
@@ -12,13 +12,20 @@ $(document).ready(function () {
     sht20TemperatureData = [],
     sht20HumidityData = [];
 
-    (function chartDump (){
-      console.log("retrieved")
-      var arry = JSON.parse(this.window.localStorage.getItem("am2302Humidity"));
-      for (var n=0; n<arry.length; n++) {
-        am2302HumidityData.push(arry[n]);
-      }
-    })();
+  function chartDumper(array, str) {
+    var arry = JSON.parse(this.window.localStorage.getItem(str));
+    for (var n=0; n<arry.length; n++) {
+      array.push(arry[n]);
+    }
+  }
+  
+  (function chartDump (){
+    console.log("retrieved")
+    chartDumper(am2302HumidityData,"am2302HumidityData")
+  })();
+
+  //clears local storage after retrieving contents
+  window.localStorage.clear();
 
   //datasets for the bme280 sensor chart 
   var bme280Dataset = {
@@ -450,10 +457,13 @@ $(document).ready(function () {
     }
   }
 
-  window.onbeforeunload = function(event)
-  {
-    console.log("saved")
-    str = JSON.stringify(am2302HumidityData);
-    window.localStorage.setItem("am2302Humidity", str);
+  function chartSaver (array, str) {
+    var arrayString = JSON.stringify(array);
+    window.localStorage.setItem(str, arrayString);
+  }
+
+  window.onbeforeunload = function() {
+    console.log("saved");
+    chartSaver(am2302HumidityData,"am2302HumidityData");
   }
 })
