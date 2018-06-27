@@ -14,8 +14,10 @@ $(document).ready(function () {
 
   function chartDumper(array, str) {
     var arry = JSON.parse(this.window.localStorage.getItem(str));
-    for (var n=0; n<arry.length; n++) {
-      array.push(arry[n]);
+    if (arry != null){
+      for (var n=0; n<arry.length; n++) {
+        array.push(arry[n]);
+      }
     }
   }
   
