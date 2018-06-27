@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+  
   //creating arrays for the different data streams
     timeData = [],
     bme280TemperatureData = [],

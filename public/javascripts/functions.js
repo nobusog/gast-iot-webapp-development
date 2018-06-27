@@ -1,4 +1,4 @@
-$(document).ready(function () {    
+   
     function chartDumper(array, str) {
         var arry = JSON.parse(window.localStorage.getItem(str));
         console.log(window.localStorage.getItem(str))
@@ -20,4 +20,3 @@ $(document).ready(function () {
         console.log(arrayString);
         window.localStorage.setItem(str, arrayString);
     }
-})
