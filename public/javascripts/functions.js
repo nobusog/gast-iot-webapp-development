@@ -2,7 +2,7 @@ var storage = window.localStorage;
 
 function chartDumper(array, str) {
     var arrayString = storage.getItem(str);
-    var arrayOfStrings = split(",");
+    var arrayOfStrings = arrayString.split(",");
     console.log(arrayOfStrings)
     for (var i=0; i<arrayOfStrings.length; i++) {
         array[i] =parseInt(arrayOfStrings[i],10);
