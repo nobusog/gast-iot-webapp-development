@@ -23,7 +23,7 @@ function chartSaver (array,str) {
             window.localStorage.setItem(str[i], arrayString);
         }
     }
-    console.log(saved);
+    console.log("saved");
 }
 
 function updateAllCharts (array){
