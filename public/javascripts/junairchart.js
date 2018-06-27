@@ -31,6 +31,10 @@ $(document).ready(function () {
   //clears local storage after retrieving contents
   window.localStorage.clear();
 
+  for (var i=0; i<am2302HumidityData.length; i++){
+    console.log(am2302HumidityData[i]);
+    }
+
   //datasets for the bme280 sensor chart 
   var bme280Dataset = {
     labels: timeData,
