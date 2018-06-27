@@ -450,7 +450,7 @@ $(document).ready(function () {
     }
   }
 
-  window.onunload = function(event)
+  window.onbeforeunload = function(event)
   {
     console.log("saved")
     str = JSON.stringify(am2302HumidityData);
