@@ -20,13 +20,4 @@ function updateAllCharts (array){
     }
   }
 
-function chartSaver (array, str) {
-    console.log(array)
-    if (array != null) {
-        arrayObject = Object.assign({}, array.slice())
-        console.log(arrayObject)
-        var arrayString = JSON.stringify(arrayObject);
-        console.log(arrayString);
-        window.localStorage.setItem(str, arrayString);
-    }
-}
+
