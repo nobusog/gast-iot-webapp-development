@@ -6,9 +6,9 @@ $(document).ready(function () {
     nitrobme280PressureData = [],
     nitroam2302TemperatureData = [],
     nitroam2302HumidityData = [],
-    nitropressureTransmitterData = [] ; 
-    nitrothermocoupleData = [];
-    nitrosht20TemperatureData = [];
+    nitropressureTransmitterData = [],
+    nitrothermocoupleData = [],
+    nitrosht20TemperatureData = [],
     nitrosht20HumidityData = [];
 
   (function chartDump (){
