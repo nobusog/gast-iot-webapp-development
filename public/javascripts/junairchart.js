@@ -12,14 +12,6 @@ $(document).ready(function () {
     sht20TemperatureData = [],
     sht20HumidityData = [];
 
-  function updateAllCharts (){
-    bme280Chart.update();
-    am2302Chart.update();
-    pressureTransmitterChart.update();
-    thermocoupleChart.update();
-    sht20Chart.update();
-  }
-
   function chartDumper(array, str) {
     var arry = JSON.parse(window.localStorage.getItem(str));
     console.log(window.localStorage.getItem(str))
@@ -34,9 +26,8 @@ $(document).ready(function () {
     console.log("retrieved")
     chartDumper(am2302HumidityData,"am2302HumidityData");
     chartDumper(am2302TemperatureData,"am2302TemperatureData");
-    updateAllCharts();
   })();
-
+  
   //clears local storage after retrieving contents
   window.localStorage.clear();
 
@@ -367,6 +358,16 @@ $(document).ready(function () {
     data: sht20Dataset,
     options: sht20Options
   });
+  
+  function updateAllCharts (){
+    bme280Chart.update();
+    am2302Chart.update();
+    pressureTransmitterChart.update();
+    thermocoupleChart.update();
+    sht20Chart.update();
+  }
+
+  updateAllCharts();
 
   var ws = new WebSocket('wss://' + location.host);
   ws.onopen = function () {
