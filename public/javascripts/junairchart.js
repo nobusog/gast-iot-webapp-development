@@ -21,9 +21,9 @@ $(document).ready(function () {
     chartDumper(bme280PressureData,"bme280PressureData");
     chartDumper(thermocoupleData,"thermocoupleData");
     chartDumper(bme280TemperatureData,"bme280TemperatureData");
-    chartDumper(sht20TemperatureData,"bme280TemperatureData");
-    chartDumper(sht20HumidityData,"bme280TemperatureData");
-    chartDumper(pressureTransmitterData,"bme280TemperatureData");
+    chartDumper(sht20TemperatureData,"sht20TemperatureData");
+    chartDumper(sht20HumidityData,"sht20HumidityData");
+    chartDumper(pressureTransmitterData,"pressureTransmitterData");
   })();
   
   //clears local storage after retrieving contents
@@ -467,8 +467,8 @@ $(document).ready(function () {
     chartSaver(bme280PressureData,"bme280PressureData");
     chartSaver(thermocoupleData,"thermocoupleData");
     chartSaver(bme280TemperatureData,"bme280TemperatureData");
-    chartSaver(sht20TemperatureData,"bme280TemperatureData");
-    chartSaver(sht20HumidityData,"bme280TemperatureData");
-    chartSaver(pressureTransmitterData,"bme280TemperatureData");
+    chartSaver(sht20TemperatureData,"sht20TemperatureData");
+    chartSaver(sht20HumidityData,"sht20HumidityData");
+    chartSaver(pressureTransmitterData,"pressureTransmitterData");
   }
 })
