@@ -1,7 +1,8 @@
-var storage = window.localStorage;
+var localStorage = window.localStorage;
+var sessionStorage = window.sessionStorage;
 
 function chartDumper(array, str) {
-    var arrayString = storage.getItem(str);
+    var arrayString = localStorage.getItem(str);
     var arrayOfStrings = arrayString.split(",:");
     console.log(arrayOfStrings)
     var n =0;
@@ -35,7 +36,20 @@ function chartSaver (array, str) {
             arrayString = arrayString +",:"+ array[i];
         }
         console.log(arrayString)
-        storage.setItem(str, arrayString);
+        localStorage.setItem(str, arrayString);
     }
 }
 
+function setCompOff () {
+    sessionStorage.setItem("junairCompState", "0");
+    sessionStorage.setItem("nitrogenCompState", "0");
+}
+
+function readCompState() {
+    if (sessionStorage.getItem("junairCompState") == 0) {
+        document.getElementById("junairStateDisplay").classList.replace("btn-success", "btn-outline-light");
+    }
+    else if (sessionStorage.getItem("nitrogenCompState") == 0) {
+        document.getElementById("nitrogenStateDisplay").classList.replace("btn-success", "btn-outline-light")
+    }
+}

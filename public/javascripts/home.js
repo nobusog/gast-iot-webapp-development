@@ -173,6 +173,7 @@ $(document).ready(function () {
                 if(obj.compState == 1) {
                     document.getElementById("junairStateDisplay").classList.replace("btn-outline-light", "btn-success") 
                     document.getElementById("junairStateDisplay").disabled = false;
+                    sessionStorage.setItem("junairCompState", "1");
                 }
                 else if (obj.compState != 1) {
                     document.getElementById("junairStateDisplay").classList.replace("btn-success", "btn-outline-light")
@@ -189,6 +190,7 @@ $(document).ready(function () {
                 if(obj.compState == 1) {
                     document.getElementById("nitrogenStateDisplay").classList.replace("btn-outline-light", "btn-success") 
                     document.getElementById("nitrogenStateDisplay").disabled = false;
+                    sessionStorage.setItem("nitrogenCompState", "1");
                 }
                 else if (obj.compState != 1) {
                     document.getElementById("nitrogenStateDisplay").classList.replace("btn-success", "btn-outline-light")
@@ -202,51 +204,9 @@ $(document).ready(function () {
         }
     };
 
-    function checkCompOff (system, time) {
-        if (system == "junair") {
-            var intial = timeOnJunair;
-            (function checkjunair() {
-                var end = timeOnJunair;
-                if (intial == end) {
-                    return true;
-                    console.log("initial = end"); 
-                } else  {
-                    return false;
-                    console.log("initial not eqaul end");
-                }
-                setTimeout(checkjunair, time);
-            })();
-        }
-        else if (system == "nitrogen") {
-            var intial = timeOnNitro;
-            (function checknitrogen () {
-                var end = timeOnNitro;
-                if (intial == end) {
-                    return true;
-                    console.log("initial = end");
-                }else  {
-                    return false;
-                    console.log("initial not eqaul end");
-                }
-                setTimeout(checknitrogen, time);
-            })();
-        }    
-    }
-   (function compoffstate () {
-        var lastCompStateJunair = checkCompOff("junair", 5000);
-        var lastCompStateNitrogen = checkCompOff("nitrogen", 5000);
-        if (lastCompStateJunair == true) { 
-            console.log("checked compstate")
-            document.getElementById("nitrogenStateDisplay").classList.replace("btn-outline-success", "btn-outline-light");
-        }
-        if (lastCompStateNitrogen == true) {
-            console.log("checked compstatenitro")
-            document.getElementById("junairStateDisplay").classList.replace("btn-outline-success", "btn-outline-light");
-        }
-        setTimeout(compoffstate, 5000);
-    })();
-    
-
+    //makesure if compressor is off, buttons dont say otherwise
+    setTimeout(setCompOff(),100);
+    setTimeout(readCompState(),5000);
     
     //show which compressor is active 
     document.getElementById("jun-airSelectButton").onclick = function(){
