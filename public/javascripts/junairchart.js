@@ -13,7 +13,8 @@ $(document).ready(function () {
     sht20HumidityData = [];
 
   function chartDumper(array, str) {
-    var arry = JSON.parse(this.window.localStorage.getItem(str));
+    var arry = JSON.parse(window.localStorage.getItem(str));
+    console.log(window.localStorage.getItem(str))
     if (arry != null){
       for (var n=0; n<arry.length; n++) {
         array.push(arry[n]);
@@ -462,6 +463,7 @@ $(document).ready(function () {
 
   function chartSaver (array, str) {
     var arrayString = JSON.stringify(array);
+    console.log(arrayString);
     window.localStorage.setItem(str, arrayString);
   }
 
