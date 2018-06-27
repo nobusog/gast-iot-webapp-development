@@ -1,20 +1,22 @@
 var storage = window.localStorage;
 
 function chartDumper(array, str) {
-    var arrayStrineg = "";
-    if (array[0] != null & typeof str == "string") {
-        for (var i=0; i<array.length; i++) {
-            arrayStrineg = arrayStrineg +","+ array[i];
-        }
-        console.log(arrayStrineg)
-    }
     var arrayString = storage.getItem(str);
-    var arrayOfStrings = arrayString.split(",");
+    var arrayOfStrings = arrayString.split(",:");
     console.log(arrayOfStrings)
     for (var i=0; i<arrayOfStrings.length; i++) {
-        array[i] =parseInt(arrayOfStrings[i],10);
+        array[i] =parseInt(escapeHtml(arrayOfStrings[i]),10);
     }
 }
+
+function escapeHtml(unsafe) {
+    return unsafe
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+ }
 
 function updateAllCharts (array){
     for (var i=0; i<array.length; i++) {
@@ -26,7 +28,7 @@ function chartSaver (array, str) {
     var arrayString = "";
     if (array[0] != null & typeof str == "string") {
         for (var i=0; i<array.length; i++) {
-            arrayString = arrayString +","+ array[i];
+            arrayString = arrayString +",:"+ array[i];
         }
         console.log(arrayString)
         storage.setItem(str, arrayString);
