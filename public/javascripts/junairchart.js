@@ -352,8 +352,8 @@ $(document).ready(function () {
   });
   
   function updateAllCharts (array){
-    for (var arr in array) {
-      arr.update();
+    for (var i=0; i<array.length; i++) {
+      array[i].update();
     }
   }
 
