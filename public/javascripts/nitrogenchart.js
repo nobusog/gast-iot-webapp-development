@@ -11,13 +11,6 @@ $(document).ready(function () {
     nitrosht20TemperatureData = [];
     nitrosht20HumidityData = [];
 
-  (function chartDump (){
-    chartDumper([nitrotimeData,nitroam2302HumidityData,nitroam2302TemperatureData,nitrobme280TemperatureData,nitrobme280HumidityData,
-      nitrobme280PressureData,nitropressureTransmitterData,nitrothermocoupleData,nitrosht20TemperatureData,nitrosht20HumidityData], 
-      ["nitrotimeData","nitroam2302HumidityData","nitroam2302TemperatureData","nitrobme280TemperatureData","nitrobme280HumidityData",
-      "nitrobme280PressureData","nitropressureTransmitterData","nitrothermocoupleData","nitrosht20TemperatureData","nitrosht20HumidityData"])
-  })();
-
   //datasets for the bme280 sensor chart 
   var bme280Dataset = {
     labels: nitrotimeData,
@@ -445,11 +438,6 @@ $(document).ready(function () {
       console.error(err);
     }
   } 
-  window.onbeforeunload = function() {  
-    chartSaver([nitrotimeData,nitroam2302HumidityData,nitroam2302TemperatureData,nitrobme280TemperatureData,nitrobme280HumidityData,
-      nitrobme280PressureData,nitropressureTransmitterData,nitrothermocoupleData,nitrosht20TemperatureData,nitrosht20HumidityData], 
-      ["nitrotimeData","nitroam2302HumidityData","nitroam2302TemperatureData","nitrobme280TemperatureData","nitrobme280HumidityData",
-      "nitrobme280PressureData","nitropressureTransmitterData","nitrothermocoupleData","nitrosht20TemperatureData","nitrosht20HumidityData"])
-  }
+
 })
   

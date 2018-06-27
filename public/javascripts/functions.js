@@ -14,6 +14,12 @@
     }
 }
 
+function updateAllCharts (array){
+    for (var i=0; i<array.length; i++) {
+      array[i].update();
+    }
+  }
+
 function chartSaver (array, str) {
     var arrayString = JSON.stringify(array);
     console.log(arrayString);

@@ -350,12 +350,7 @@ $(document).ready(function () {
     data: sht20Dataset,
     options: sht20Options
   });
-  
-  function updateAllCharts (array){
-    for (var i=0; i<array.length; i++) {
-      array[i].update();
-    }
-  }
+
 
   updateAllCharts([bme280Chart, am2302Chart, thermocoupleChart, sht20Chart, pressureTransmitterChart]);
 
