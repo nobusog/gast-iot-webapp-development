@@ -3,7 +3,7 @@ function chartDumper(array, str) {
         var arry = JSON.parse(window.localStorage.getItem(str[i]));
         console.log(window.localStorage.getItem(str[i]))
         if (arry != null){
-            if (arry[i].length <= 50) {
+            if (arry.length <= 50) {
                 for (var n=0; n<arry.length; n++) {
                 array[i].push(arry[n]);
                 }
