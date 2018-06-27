@@ -1,5 +1,5 @@
 function chartDumper(array, str) {
-    var arry = JSON.parse(window.localStorage.getItem(str));
+    var arry = window.localStorage.getItem(str);
     console.log(window.localStorage.getItem(str))
     if (arry != null){
         if (array.length <= 50) {
