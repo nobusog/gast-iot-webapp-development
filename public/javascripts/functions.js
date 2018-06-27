@@ -50,7 +50,7 @@ function readCompState() {
     if (sessionStorage.getItem("junairCompState") == 0) {
         document.getElementById("junairStateDisplay").classList.replace("btn-success", "btn-outline-light");
     }
-    else if (sessionStorage.getItem("nitrogenCompState") == 0) {
+    if (sessionStorage.getItem("nitrogenCompState") == 0) {
         document.getElementById("nitrogenStateDisplay").classList.replace("btn-success", "btn-outline-light")
     }
     console.log("read the stuff")
