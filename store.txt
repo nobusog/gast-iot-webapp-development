@@ -40,5 +40,4 @@
 
 
 
-    arrayObject = Object.assign({}, array.slice())
-        console.log(arrayObject)
+    
