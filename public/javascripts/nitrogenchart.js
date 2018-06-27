@@ -25,13 +25,6 @@ $(document).ready(function () {
     console.log("retrieved")
   })();
 
-  (function chartDump (){
-    chartDumper([nitrotimeData,nitroam2302HumidityData,nitroam2302TemperatureData,nitrobme280TemperatureData,nitrobme280HumidityData,
-      nitrobme280PressureData,nitropressureTransmitterData,nitrothermocoupleData,nitrosht20TemperatureData,nitrosht20HumidityData], 
-      ["nitrotimeData","nitroam2302HumidityData","nitroam2302TemperatureData","nitrobme280TemperatureData","nitrobme280HumidityData",
-      "nitrobme280PressureData","nitropressureTransmitterData","nitrothermocoupleData","nitrosht20TemperatureData","nitrosht20HumidityData"])
-  })();
-
   //datasets for the bme280 sensor chart 
   var bme280Dataset = {
     labels: nitrotimeData,

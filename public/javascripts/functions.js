@@ -1,24 +1,11 @@
 var storage = window.localStorage;
 
 function chartDumper(array, str) {
-    if (typeof str == "string") {
-        var arry = JSON.parse(storage.getItem(str));
-        if (arry != null){    
-            var newArray =[];
-            for(var i=0; i<arry.length; i++) {
-                newArray[i] = arry[i]
-            }
-            console.log(newArray)
-            if (array.length <= 50) {
-                for (var n=0; n<newArray.length; n++) {
-                array.push(newArray[n]);
-                }
-            } else {
-                for (var n=0; n<=50; n++) {
-                array.push(newArray[n]);
-                }
-            } 
-        }
+    var arrayString = storage.getItem(str);
+    var arrayOfStrings = split(",");
+    console.log(arrayOfStrings)
+    for (var i=0; i<arrayOfStrings.length; i++) {
+        array[i] =parseInt(arrayOfStrings[i],10);
     }
 }
 
@@ -28,13 +15,12 @@ function updateAllCharts (array){
     }
   }
 
-  function chartSaver (array, str) {
-    if (array != null) {
-        arrayObject = Object.assign({}, array)
-        console.log(arrayObject)
-        var arrayString = JSON.stringify(arrayObject);
-        console.log(arrayString);
-        storage.setItem(str, arrayString);
+function chartSaver (array, str) {
+    var arrayString = "";
+    for (var i=0; i<array.length; i++) {
+        arrayString = arrayString +","+ array[i];
     }
+    console.log(arrayString)
+    storage.setItem(str, arrayString);
 }
 
