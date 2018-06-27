@@ -19,7 +19,9 @@ function chartDumper(array, str) {
 function chartSaver (array,str) {
     for (var i=0; i<array.length; i++){
         var arrayString = JSON.stringify(array[i]);
-        window.localStorage.setItem(str[i], arrayString);
+        if (arrayString != null) {
+            window.localStorage.setItem(str[i], arrayString);
+        }
     }
     console.log(saved);
 }
