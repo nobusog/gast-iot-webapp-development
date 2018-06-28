@@ -63,7 +63,7 @@ $(document).ready(function () {
 
         // construct an HTTP request
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "https://prod-12.northcentralus.logic.azure.com:443/workflows/187c76b9f18f48dab7a84882ca8eb0ea/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=sKpeLDmUbUw2xmdEls2ZDec-QNv6jwHTCnzUea9ahxs", true);
+        xhr.open("POST", "https://prod-07.centralus.logic.azure.com:443/workflows/788b169d20d44be5a51d369c420c7a0a/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=PxYwwSMdUouEGwRUhaeP48BcJwSPX_2d9sO2vBeUWlU", true);
         xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
 
         // Define what happens on successful data submission
