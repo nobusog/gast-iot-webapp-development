@@ -57,11 +57,9 @@ $(document).ready(function () {
         var emailVal = document.getElementById("reportEmailInput").value;
         var reportLengthVal = document.getElementById("reportLengthOptions").options[document.getElementById("reportLengthOptions").selectedIndex].value ;
         if (document.getElementById("settingsJunairSelectButton").classList.contains("active")) {
-            console.log("i see junair");
             deviceIdVal = "junair";
         }
         else if (document.getElementById("settingsNitrogenSelectButton").classList.contains("active")) {
-            console.log("i see nitrogen");
             deviceIdVal = "nitrogen";
         }
 
