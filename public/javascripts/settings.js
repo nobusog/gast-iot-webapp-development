@@ -11,11 +11,15 @@ $(document).ready(function () {
     document.getElementById("settingsJunairSelectButton").onclick = function() {
         document.getElementById("settingsJunairSelectButton").classList.replace("btn-secondary", "btn-primary");
         document.getElementById("settingsNitrogenSelectButton").classList.replace("btn-primary", "btn-secondary");
-
+        document.getElementById("settingsJunairSelectButton").classList.add("active");
+        document.getElementById("settingsNitrogenSelectButton").classList.remove("active");
     }
 
     document.getElementById("settingsNitrogenSelectButton").onclick = function() {
         document.getElementById("settingsNitrogenSelectButton").classList.add("active");
+        document.getElementById("settingsJunairSelectButton").classList.remove("active");
+        document.getElementById("settingsNitrogenSelectButton").classList.replace("btn-secondary", "btn-primary");
+        document.getElementById("settingsJunairSelectButton").classList.replace("btn-primary", "btn-secondary");
     }
 
     document.getElementById("quickStatSettingsTab").onclick = function() {
