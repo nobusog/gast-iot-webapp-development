@@ -51,7 +51,7 @@ $(document).ready(function () {
 
         var deviceIdVal
         var emailVal = document.getElementById("reportEmailInput").value;
-        var reportLengthVal = document.getElementById("reportLengthOptions").options[document.getElementById("reportLengthOptions").selectedIndex].value ;
+        var reportLengthVal = parseInt(document.getElementById("reportLengthOptions").options[document.getElementById("reportLengthOptions").selectedIndex].value) ;
         if (document.getElementById("settingsJunairSelectButton").classList.contains("active")) {
             console.log("i see junair");
             deviceIdVal = "junair";
@@ -75,9 +75,9 @@ $(document).ready(function () {
         xhr.addEventListener("error", function(event) {
             alert('Oops! Something went wrong.');
         });
-        console.log(JSON.stringify({"devicdeId": "junair", "email": emailVal, "reportLength": reportLengthVal}));
+        console.log(JSON.stringify({"devicdeId": deviceIdVal, "email": emailVal, "reportLength": reportLengthVal}));
         // send the collected data as JSON
-        xhr.send(JSON.stringify({"devicdeId": "junair", "email": emailVal, "reportLength": reportLengthVal}));
+        xhr.send(JSON.stringify({"devicdeId": deviceIdVal, "email": emailVal, "reportLength": reportLengthVal}));
 
         xhr.onloadend = function () {
             // done
