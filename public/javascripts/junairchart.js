@@ -376,7 +376,7 @@ $(document).ready(function () {
         if (!obj.time || !obj.bme280Temperature) {
           return;
         }
-        timeData.push(obj.time);
+        timeData.push(obj.displayTime);
         bme280TemperatureData.push(obj.bme280Temperature);
 
         // only keep no more than 50 points in the line chart

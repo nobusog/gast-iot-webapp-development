@@ -55,3 +55,7 @@ function readCompState() {
     }
     console.log("read the stuff")
 }
+
+function truncateTime(time){
+    
+}

@@ -34,7 +34,7 @@ iotHubReader.startReadMessage(function (obj, date) {
   try {
     console.log(date);
     date = date || Date.now()
-    wss.broadcast(JSON.stringify(Object.assign(obj, { time: moment.utc(date).format('YYYY:MM:DD[T]hh:mm:ss') })));
+    wss.broadcast(JSON.stringify(Object.assign(obj, { time: moment.utc(date).format('YYYY:MM:DD[T]hh:mm:ss'), displayTime: moment.utc(date).format('mm:ss') })));
     am2302HumidityData.push(obj.am2302Temperature);
   } catch (err) {
     console.log(obj);
