@@ -11,11 +11,11 @@ $(document).ready(function () {
     document.getElementById("settingsJunairSelectButton").onclick = function() {
         document.getElementById("settingsJunairSelectButton").classList.replace("btn-secondary", "btn-primary");
         document.getElementById("settingsNitrogenSelectButton").classList.replace("btn-primary", "btn-secondary");
+
     }
 
     document.getElementById("settingsNitrogenSelectButton").onclick = function() {
-        document.getElementById("settingsNitrogenSelectButton").classList.replace("btn-secondary", "btn-primary");
-        document.getElementById("settingsJunairSelectButton").classList.replace("btn-primary", "btn-secondary");
+        document.getElementById("settingsNitrogenSelectButton").classList.add("active");
     }
 
     document.getElementById("quickStatSettingsTab").onclick = function() {
@@ -51,7 +51,7 @@ $(document).ready(function () {
 
         var deviceIdVal
         var emailVal = document.getElementById("reportEmailInput").value;
-        var reportLengthVal = parseInt(document.getElementById("reportLengthOptions").options[document.getElementById("reportLengthOptions").selectedIndex].value) ;
+        var reportLengthVal = document.getElementById("reportLengthOptions").options[document.getElementById("reportLengthOptions").selectedIndex].value ;
         if (document.getElementById("settingsJunairSelectButton").classList.contains("active")) {
             console.log("i see junair");
             deviceIdVal = "junair";
