@@ -369,7 +369,7 @@ $(document).ready(function () {
         if (!obj.time || !obj.bme280Temperature) {
           return;
         }
-        nitrotimeData.push(obj.time);
+        nitrotimeData.push(obj.displayTime);
         nitrobme280TemperatureData.push(obj.bme280Temperature);
   
         // only keep no more than 50 points in the line chart
