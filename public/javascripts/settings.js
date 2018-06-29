@@ -47,9 +47,9 @@ $(document).ready(function () {
         },5000)
     }
 
-    var form = document.getElementById("reportRequestForm");
 
-    form.onsubmit = function (e) {
+
+    document.getElementById("reportRequestForm").onsubmit = function (e) {
         // stop the regular form submission
         e.preventDefault();
 
@@ -61,6 +61,24 @@ $(document).ready(function () {
         }
         else if (document.getElementById("settingsNitrogenSelectButton").classList.contains("active")) {
             deviceIdVal = "nitrogen";
+        }
+
+        //check the report length and provide a time variable for search purposes
+        var currentTime, startTime;
+        currentTime = Date.now();
+        switch (reportLength) {
+            case 0: 
+                startTime = currentTime - 3600000;
+                break;
+            case 1:
+                startTime = currentTime - 86400000 ;
+                break;
+            case 2:
+                startTime = currentTime - 604800000 ;
+                break;
+            default:
+                startTime = 0;
+            
         }
 
         // construct an HTTP request
@@ -77,7 +95,7 @@ $(document).ready(function () {
         xhr.addEventListener("error", function(event) {
             alert('Oops! Something went wrong.');
         });
-        console.log(JSON.stringify({"devicdeId": deviceIdVal, "email": emailVal, "reportLength": reportLengthVal}));
+        console.log(JSON.stringify({"devicdeId": deviceIdVal, "email": emailVal, "reportLength": reportLengthVal, "currentTime": currentTime, "startTime": startTime}));
         // send the collected data as JSON
         xhr.send(JSON.stringify({"devicdeId": deviceIdVal, "email": emailVal, "reportLength": reportLengthVal}));
 
