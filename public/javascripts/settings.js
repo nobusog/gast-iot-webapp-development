@@ -67,13 +67,13 @@ $(document).ready(function () {
         var currentTime, startTime;
         currentTime = Date.now();
         switch (reportLengthVal) {
-            case 0: 
+            case "0": 
                 startTime = currentTime - 3600000;
                 break;
-            case 1:
+            case "1":
                 startTime = currentTime - 86400000 ;
                 break;
-            case 2:
+            case "2":
                 startTime = currentTime - 604800000 ;
                 break;
             default:
