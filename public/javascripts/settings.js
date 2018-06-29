@@ -53,7 +53,7 @@ $(document).ready(function () {
         // stop the regular form submission
         e.preventDefault();
 
-        var deviceIdVal
+        var deviceIdVal, reportLengthStr
         var emailVal = document.getElementById("reportEmailInput").value;
         var reportLengthVal = document.getElementById("reportLengthOptions").options[document.getElementById("reportLengthOptions").selectedIndex].value ;
         if (document.getElementById("settingsJunairSelectButton").classList.contains("active")) {
@@ -69,15 +69,19 @@ $(document).ready(function () {
         switch (reportLengthVal) {
             case "0": 
                 startTime = currentTime - 3600000;
+                reportLengthStr = "Last Hour"
                 break;
             case "1":
                 startTime = currentTime - 86400000 ;
+                reportLengthStr = "Last 24 Hours"
                 break;
             case "2":
                 startTime = currentTime - 604800000 ;
+                reportLengthStr = "Last Week"
                 break;
             default:
                 startTime = 0;
+                reportLengthStr = "Entire History"
             
         }
 
@@ -95,9 +99,9 @@ $(document).ready(function () {
         xhr.addEventListener("error", function(event) {
             alert('Oops! Something went wrong.');
         });
-        console.log(JSON.stringify({"devicdeId": deviceIdVal, "email": emailVal, "reportLength": reportLengthVal, "currentTime": currentTime, "startTime": startTime}));
+        console.log(JSON.stringify({"devicdeId": deviceIdVal, "email": emailVal, "reportLength": reportLengthVal, "currentTime": currentTime, "startTime": startTime, "reportLengthStr": reportLengthStr}));
         // send the collected data as JSON
-        xhr.send(JSON.stringify({"devicdeId": deviceIdVal, "email": emailVal, "reportLength": reportLengthVal, "currentTime": currentTime, "startTime": startTime}));
+        xhr.send(JSON.stringify({"devicdeId": deviceIdVal, "email": emailVal, "reportLength": reportLengthVal, "currentTime": currentTime, "startTime": startTime, "reportLengthStr": reportLengthStr}));
 
         xhr.onloadend = function () {
             // done
