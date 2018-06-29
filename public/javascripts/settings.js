@@ -66,7 +66,7 @@ $(document).ready(function () {
         //check the report length and provide a time variable for search purposes
         var currentTime, startTime;
         currentTime = Date.now();
-        switch (reportLength) {
+        switch (reportLengthVal) {
             case 0: 
                 startTime = currentTime - 3600000;
                 break;
