@@ -13,7 +13,6 @@ $(document).ready(function () {
     sht20HumidityData = [];
   
   (function chartDump (){
-    console.log("retrieved")
     chartDumper(timeData,"timeData")
     chartDumper(am2302HumidityData,"am2302HumidityData");
     chartDumper(am2302TemperatureData,"am2302TemperatureData");
@@ -24,7 +23,10 @@ $(document).ready(function () {
     chartDumper(sht20TemperatureData,"sht20TemperatureData");
     chartDumper(sht20HumidityData,"sht20HumidityData");
     chartDumper(pressureTransmitterData,"pressureTransmitterData");
+    localStorage.clear();
   })();
+
+  
 
   //datasets for the bme280 sensor chart 
   var bme280Dataset = {

@@ -1,43 +1,34 @@
- fill: false,
-        label: 'Temperature',
-        yAxisID: 'Temperature',
-        borderColor: "rgba(255, 204, 0, 1)",
-        pointBoarderColor: "rgba(255, 204, 0, 1)",
-        backgroundColor: "rgba(255, 204, 0, 0.4)",
-        pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
-        pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-        data: bme280TemperatureData 
-      },
+function chartDumper(array, str) {
+    var arrayString = localStorage.getItem(str);
+    var arrayOfStrings = arrayString.split(",:");
+    console.log(arrayOfStrings)
+    var n =0;
+    for (var i=0; i<arrayOfStrings.length; i++) {
+        if (arrayOfStrings != "NaN" || arrayOfStrings != "") {
+            array[n] =parseInt(arrayOfStrings[i],10);
+            n++ ;
+        }   
+    }
+}
+
+function escapeHtml(unsafe) {
+    return unsafe
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+ }
 
 
-
-      function sendData() {
-        var XHR = new XMLHttpRequest();
-        var deviceIdVal
-        var emailVal = document.getElementById("reportEmailInput").value;
-        var reportLengthVal = document.getElementById("reportLengthOptions").options[document.getElementById("reportLengthOptions").selectedIndex].value ;
-        if (document.getElementById("settingsJunairSelectButton").classList.contains("active")) {
-            deviceIdVal = "junair";
+ function chartSaver (array, str) {
+    var arrayString;
+    if (array[0] != null & typeof str == "string") {
+        for (var i=0; i<array.length; i++) {
+            arrayString = arrayString +",:"+ array[i];
         }
-        else if (document.getElementById("settingsNitrogenSelectButton").classList.contains("active")) {
-            deviceIdVal = "nitrogen";
-        }
-        // Define what happens on successful data submission
-        XHR.addEventListener("load", function(event) {
-            successfulAlert("Request Sent Successfully");
-        });
-    
-        // Define what happens in case of error
-        XHR.addEventListener("error", function(event) {
-            alert('Oops! Something went wrong.');
-        });
-    
-        // Set up our request
-        XHR.open("POST", "https://prod-12.northcentralus.logic.azure.com:443/workflows/187c76b9f18f48dab7a84882ca8eb0ea/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=sKpeLDmUbUw2xmdEls2ZDec-QNv6jwHTCnzUea9ahxs");
-        XHR.send(JSON.stringify({email:emailVal, reportLengthVal:reportLengthVal, deviceId:deviceIdVal}));
-    
-    };
+        console.log(arrayString)
+        localStorage.setItem(str, arrayString);
+    }
+}
 
-
-
-    
