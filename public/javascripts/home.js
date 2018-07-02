@@ -166,6 +166,7 @@ $(document).ready(function () {
         try {
             var obj = JSON.parse(message.data);
             if (obj.deviceId == "JunAir Pi - Python") {
+                sessionStorage.setItem("junairCompOnTimer", Date.now())
                 timeOnJunair = timeOnJunair + obj.globalTimeOn;
                 document.getElementById("junairCompressorOnTimeContainer").innerHTML= +timeOnJunair.toFixed(2)+"s";
                 document.getElementById("junairDutyCycleContainer").innerHTML = +obj.dutyCycle.toFixed(2)+"%";
@@ -181,6 +182,7 @@ $(document).ready(function () {
                 }
                
             } else if  (obj.deviceId == "NitroGen Pi - Python") {
+                sessionStorage.setItem("nitrogenCompOnTimer", Date.now())
                 timeOnNitro = timeOnNitro + obj.globalTimeOn;
                 NitroConsumption = NitroConsumption + obj.NitroConsumption;
                 document.getElementById("nitrogenCompressorOnTimeContainer").innerHTML= +timeOnNitro.toFixed(2) +"s";
@@ -206,7 +208,7 @@ $(document).ready(function () {
 
     //makesure if compressor is off, buttons dont say otherwise
     setInterval(setCompOff,100);
-    setInterval(readCompState,5000);
+    setInterval(readCompState,100);
     
     //show which compressor is active 
     document.getElementById("jun-airSelectButton").onclick = function(){

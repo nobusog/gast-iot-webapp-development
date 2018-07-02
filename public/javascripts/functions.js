@@ -8,15 +8,6 @@ function chartDumper(array, str) {
     }
 }
 
-function escapeHtml(unsafe) {
-    return unsafe
-         .replace(/&/g, "&amp;")
-         .replace(/</g, "&lt;")
-         .replace(/>/g, "&gt;")
-         .replace(/"/g, "&quot;")
-         .replace(/'/g, "&#039;");
- }
-
 function updateAllCharts (array){
     for (var i=0; i<array.length; i++) {
       array[i].update();
@@ -31,8 +22,11 @@ function chartSaver (array, str) {
 }
 
 function setCompOff () {
-    sessionStorage.setItem("junairCompState", "0");
-    sessionStorage.setItem("nitrogenCompState", "0");
+    var currentTime = Date.now();
+    var junairLastTime = sessionStorage.getItem("junairCompOnTimer");
+    if ((currentTime - junairLastTime) > 5000) {
+        sessionStorage.setItem("junairCompState", 0);
+    }
 }
 
 function readCompState() {
