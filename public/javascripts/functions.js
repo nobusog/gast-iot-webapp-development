@@ -30,7 +30,7 @@ function updateAllCharts (array){
   }
 
 function chartSaver (array, str) {
-    var arrayString = "";
+    var arrayString;
     if (array[0] != null & typeof str == "string") {
         for (var i=0; i<array.length; i++) {
             arrayString = arrayString +",:"+ array[i];
@@ -60,3 +60,4 @@ function reportLogUpdate (email, deviceId) {
     document.getElementById("reportLogTableBody").appendChild(newRow);
     newRow.innerHTML = "<th scope='row'></th><td>" +email+"</td><td>" +currentTime+ "</td><td>" +deviceId+ "</td>"                      
 }
+
