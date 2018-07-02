@@ -8,7 +8,7 @@ function chartDumper(array, str) {
     var n =0;
     for (var i=0; i<arrayOfStrings.length; i++) {
         if (arrayOfStrings != "NaN" || arrayOfStrings != "") {
-            array[n] =parseInt(escapeHtml(arrayOfStrings[i]),10);
+            array[n] =parseInt(arrayOfStrings[i],10);
             n++ ;
         }   
     }
