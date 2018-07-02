@@ -5,7 +5,6 @@ function chartDumper(array, str) {
     var arrayString = localStorage.getItem(str);
     if (arrayString){
         var arrayOfStrings = arrayString.split(",:");
-        console.log(arrayOfStrings)
         var n =0;
         for (var i=0; i<arrayOfStrings.length; i++) {
             if (arrayOfStrings != "NaN" && arrayOfStrings != "" && arrayOfStrings != null) {
@@ -14,6 +13,7 @@ function chartDumper(array, str) {
             }   
         }
     }
+    console.log(array)
 }
 
 function escapeHtml(unsafe) {
