@@ -4,7 +4,7 @@ var sessionStorage = window.sessionStorage;
 function chartDumper(array, str) {
     var arrayString = localStorage.getItem(str);
     if (arrayString){
-        var arrayOfStrings = arrayString.split(",:");
+        var arrayOfStrings = arrayString.split(",%:");
         var n =0;
         for (var i=0; i<arrayOfStrings.length; i++) {
             if (parseInt(arrayOfStrings[i]) != NaN && arrayOfStrings[i] != "" && arrayOfStrings[i] != null) {
@@ -35,9 +35,9 @@ function chartSaver (array, str) {
     var arrayString;
     if (array[0] != null & typeof str == "string") {
         for (var i=0; i<array.length; i++) {
-            arrayString = arrayString +",:"+ array[i];
+            if (array[i] != NaN && array[i] != null && typeof array[i] == "number")
+            arrayString = arrayString +",%:"+ array[i];
         }
-        console.log(arrayString)
         localStorage.setItem(str, arrayString);
     }
 }
