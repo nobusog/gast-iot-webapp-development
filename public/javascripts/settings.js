@@ -108,8 +108,16 @@ $(document).ready(function () {
         };
     }; 
 
-    
+    document.getElementById("quickStatsCustomizer").onchange = function() {
+        var maxSelected = 5;
+        var selectedElements = this.querySelectorAll('input[type="checkbox"]:checked');
+        var unSelectedElements = this.querySelectorAll('input[type="checkbox"]:not(:checked)');
 
-
+        if (selectedElements.length >= 5) {
+            for (var i=0; i<selectedElements.length; i++){
+                unSelectedElements[i].disabled = true;
+            }
+        }
+    }
 
 });
