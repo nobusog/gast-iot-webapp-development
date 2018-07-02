@@ -8,7 +8,7 @@ function chartDumper(array, str) {
         console.log(arrayOfStrings)
         var n =0;
         for (var i=0; i<arrayOfStrings.length; i++) {
-            if (arrayOfStrings != "NaN" || arrayOfStrings != "") {
+            if (arrayOfStrings != "NaN" & arrayOfStrings != "" & arrayOfStrings != null) {
                 array[n] =parseInt(arrayOfStrings[i],10);
                 n++ ;
             }   
