@@ -130,7 +130,14 @@ $(document).ready(function () {
         e.preventDefault();
 
         var selectedElements = this.querySelectorAll('input[type="checkbox"]:checked');
-        var carouselElemnts = document.getElementById("junairCarouselContainer").getElementsByTagName("p")
+        if (document.getElementById("settingsJunairSelectButton").classList.contains("active")) {
+            var carouselElemnts = document.getElementById("junairCarouselContainer").getElementsByTagName("p");
+        }
+        else if (document.getElementById("settingsNitrogenSelectButton").classList.contains("active")){
+            var carouselElemnts = document.getElementById("nitrogenCarouselContainer").getElementsByTagName("p");
+        }
+        
+        
         for (var i=0; i<selectedElements.length; i++) {
             carouselElemnts[i].innerHTML = selectedElements[i].value;
         }
