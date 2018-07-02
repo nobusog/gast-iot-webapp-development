@@ -110,14 +110,20 @@ $(document).ready(function () {
 
     document.getElementById("quickStatsCustomizer").onchange = function() {
         var maxSelected = 5;
+        var allElements = this.querySelectorAll('input[type="checkbox"]')
         var selectedElements = this.querySelectorAll('input[type="checkbox"]:checked');
         var unSelectedElements = this.querySelectorAll('input[type="checkbox"]:not(:checked)');
 
         if (selectedElements.length >= 5) {
-            for (var i=0; i<selectedElements.length; i++){
-                unSelectedElements[i].disabled = true;
-            }
-        }
+            for (var i=0; i<unSelectedElements.length; i++){
+                if (unSelectedElements[i]) {
+                    unSelectedElements[i].disabled = true;
+        }}}
+        else {
+            for (var i=0; i<allElements.length; i++){
+                if (allElements[i]) {
+                    allElements[i].disabled = false;
+        }}}
     }
 
 });
