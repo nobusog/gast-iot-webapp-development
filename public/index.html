@@ -249,6 +249,9 @@
         <div id="settingsSuccessfulAlert" class="alert alert-success alert-dismissible fade show d-none my-1" role="alert">
                 <strong id="settingsSuccessfulAlertText"></strong> 
         </div>
+        <div id="settingsUnsuccessfulAlert" class="alert alert-danger alert-dismissible fade show d-none my-1" role="alert">
+            <strong id="settingsUnsuccessfulAlertText"></strong> 
+        </div>
         <ul class="nav nav-pills mt-5 mb-1" id="pills-tab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="quickStatSettingsTab" data-toggle="pill" href="#pills-home" role="tab" >Quick Stats</a>
@@ -359,6 +362,12 @@
                         <label for="reportEmailInput">Enter your Email address</label>
                         <input type="email" class="form-control ml-1" id="reportEmailInput" aria-describedby="emailHelp" placeholder="Enter email...">   
                         <button type="submit" class="btn btn-primary my-1 mx-3" id="sendReportButton">Submit</button>
+                </form>
+                <p><strong>Get an Full Report Log</strong></p>
+                <form class="form-inline" id="reportLogRequestForm">
+                    <label for="reportLogEmailInput">Enter your Email address</label>
+                    <input type="email" class="form-control ml-1" id="reportLogEmailInput" aria-describedby="emailHelp" placeholder="Enter email...">   
+                    <button type="submit" class="btn btn-primary my-1 mx-3" id="sendReportLogButton">Submit</button>
                 </form>
                 <p class="mt-5"><strong>Report Logs For This Session</strong></p>
                 <table class="table table-hover">

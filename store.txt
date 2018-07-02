@@ -1,37 +1,29 @@
-function chartDumper(array, str) {
-   var arrayString = localStorage.getItem(str);
-    if (arrayString){
-        var arrayOfStrings = arrayString.split("%");
-        var n =0;
-        for (var i=0; i<arrayOfStrings.length; i++) {
-            if (parseInt(arrayOfStrings[i],10) != NaN && arrayOfStrings[i] != "" && arrayOfStrings[i] != null && arrayOfStrings[i] != NaN) {
-                array[n] =parseInt(arrayOfStrings[i],10);
-                n++ ;
-            }   
+
+
+//affix values to the carousels
+    function carouselAffixer () {
+        var elementLibrary= ["bme280Temperature", "bme280Humidity", "bme280Pressure", "am2302Humidity", "am2302Temperature", "transducerPressure", 
+                            "thermocoupleTemperature", "sht20Temperature", "sht20Humidity"];
+
+        var elementList = document.getElementById("junairCarouselContainer").getElementsByTagName("p");
+        for (var i=0; elementList.length; i++){
+            var content = (elementList[i].textContent).split(":");
+            var n=0;
+            var index;
+            while (n != 1) {
+                var j=0;
+                if (content[0] == elementLibrary[j]) {
+                    n=1;
+                    index =j;
+                }else {
+                    j++
+                    if (j>=15){
+                        console.log("stopped");
+                        n=1
+                    }
+                } 
+            }
+            this.innerHTML = elementLibrary[index]+": "+obj[elementLibrary[index]]
+            
         }
     }
-    console.log(str)
-    console.log(array
-}
-
-function escapeHtml(unsafe) {
-    return unsafe
-         .replace(/&/g, "&amp;")
-         .replace(/</g, "&lt;")
-         .replace(/>/g, "&gt;")
-         .replace(/"/g, "&quot;")
-         .replace(/'/g, "&#039;");
- }
-
-
- function chartSaver (array, str) {
-    var arrayString;
-    if (array[0] != null & typeof str == "string") {
-        for (var i=0; i<array.length; i++) {
-            if (array[i] != NaN && array[i] != null && typeof array[i] == "number")
-            arrayString = arrayString +"%"+ array[i];
-        }
-        localStorage.setItem(str, arrayString);
-    }
-}
-

@@ -349,32 +349,4 @@ $(document).ready(function () {
             }
         }
     }
-
-    //affix values to the carousels
-    function carouselAffixer () {
-        var elementLibrary= ["bme280Temperature", "bme280Humidity", "bme280Pressure", "am2302Humidity", "am2302Temperature", "transducerPressure", 
-                            "thermocoupleTemperature", "sht20Temperature", "sht20Humidity"];
-
-        var elementList = document.getElementById("junairCarouselContainer").getElementsByTagName("p");
-        for (var i=0; elementList.length; i++){
-            var content = (elementList[i].textContent).split(":");
-            var n=0;
-            var index;
-            while (n != 1) {
-                var j=0;
-                if (content[0] == elementLibrary[j]) {
-                    n=1;
-                    index =j;
-                }else {
-                    j++
-                    if (j>=15){
-                        console.log("stopped");
-                        n=1
-                    }
-                } 
-            }
-            this.innerHTML = elementLibrary[index]+": "+obj[elementLibrary[index]]
-            
-        }
-    }
 });
