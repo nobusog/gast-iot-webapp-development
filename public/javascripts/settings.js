@@ -132,7 +132,7 @@ $(document).ready(function () {
         var selectedElements = this.querySelectorAll('input[type="checkbox"]:checked');
         var carouselElemnts = document.getElementById("junairCarouselContainer").getElementsByTagName("p")
         for (var i=0; i<selectedElements.length; i++) {
-            carouselElemnts[i].innerHTML = selectedElements[i].nodeName;
+            carouselElemnts[i].innerHTML = selectedElements[i].nodeValue;
         }
     }
 
