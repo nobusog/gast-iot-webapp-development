@@ -3,14 +3,16 @@ var sessionStorage = window.sessionStorage;
 
 function chartDumper(array, str) {
     var arrayString = localStorage.getItem(str);
-    var arrayOfStrings = arrayString.split(",:");
-    console.log(arrayOfStrings)
-    var n =0;
-    for (var i=0; i<arrayOfStrings.length; i++) {
-        if (arrayOfStrings != "NaN" || arrayOfStrings != "") {
-            array[n] =parseInt(arrayOfStrings[i],10);
-            n++ ;
-        }   
+    if (arrayString){
+        var arrayOfStrings = arrayString.split(",:");
+        console.log(arrayOfStrings)
+        var n =0;
+        for (var i=0; i<arrayOfStrings.length; i++) {
+            if (arrayOfStrings != "NaN" || arrayOfStrings != "") {
+                array[n] =parseInt(arrayOfStrings[i],10);
+                n++ ;
+            }   
+        }
     }
 }
 
