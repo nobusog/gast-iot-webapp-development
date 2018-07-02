@@ -137,7 +137,6 @@ $(document).ready(function () {
             var carouselElemnts = document.getElementById("nitrogenCarouselContainer").getElementsByTagName("p");
         }
         
-        
         for (var i=0; i<selectedElements.length; i++) {
             carouselElemnts[i].innerHTML = selectedElements[i].value;
         }

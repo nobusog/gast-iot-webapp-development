@@ -199,6 +199,7 @@ $(document).ready(function () {
                 }
                
             }
+            carouselAffixer();
         }
         catch (err) {
             console.error(err);
@@ -347,6 +348,30 @@ $(document).ready(function () {
                 divList[i].classList.remove("d-none");
                 openCharts.push(divList[i]);
             }
+        }
+    }
+
+    //affix values to the carousels
+    function carouselAffixer () {
+        var elementLibrary= ["bme280Temperature", "bme280Humidity", "bme280Pressure", "am2302Humidity", "am2302Temperature", "transducerPressure", 
+                            "thermocoupleTemperature", "sht20Temperature", "sht20Humidity"];
+
+        var elementList = document.getElementById("junairCarouselContainer").getElementsByTagName("p");
+        for (var i=0; elementList.length; i++){
+            var content = (elementList[i].textContent).split(":");
+            var n=0;
+            var index;
+            while (n != 1) {
+                var j=0;
+                if (content[0] == elementLibrary[j]) {
+                    n=1;
+                    index =j;
+                }else {
+                    j++
+                }
+            }
+            this.innerHTML = elementLibrary[index]+": "+obj[elementLibrary[index]]
+            
         }
     }
 });
