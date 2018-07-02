@@ -22,7 +22,6 @@ $(document).ready(function () {
     chartDumper(nitrosht20TemperatureData,"nitrosht20TemperatureData");
     chartDumper(nitrosht20HumidityData,"nitrosht20HumidityData");
     chartDumper(nitropressureTransmitterData,"nitropressureTransmitterData");
-    localStorage.clear();
   })();
 
   //datasets for the bme280 sensor chart 

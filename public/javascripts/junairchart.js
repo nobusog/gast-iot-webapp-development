@@ -23,7 +23,6 @@ $(document).ready(function () {
     chartDumper(sht20TemperatureData,"sht20TemperatureData");
     chartDumper(sht20HumidityData,"sht20HumidityData");
     chartDumper(pressureTransmitterData,"pressureTransmitterData");
-    localStorage.clear();
   })();
 
   
