@@ -148,7 +148,7 @@ $(document).ready(function () {
             }
         }
         else {
-            document. getElementById("chartDeviceSelectAlert").classList.remove("d-none");
+            unsuccessfulAlert("Please Select A Device!")
         }
     };
 
@@ -223,7 +223,7 @@ $(document).ready(function () {
         }
         document.getElementById("jun-airSelectButton").classList.add("active");
         //close alert bar and enable selector
-        document.getElementById("chartDeviceSelectAlert").classList.add("d-none");
+        unsuccessfulAlert("Please Select A Device!");
         document.getElementById("chartSelector").classList.remove("disabled");
         closeAllCharts("nitrogen");
         }   
@@ -242,7 +242,7 @@ $(document).ready(function () {
             }
             document.getElementById("nitrogenSelectButton").classList.add("active");
             //close alert bar and enable chart selection
-            document.getElementById("chartDeviceSelectAlert").classList.add("d-none");
+            unsuccessfulAlert("Please Select A Device!");
             document.getElementById("chartSelector").classList.remove("disabled");
             closeAllCharts("junair");
         }
@@ -258,11 +258,11 @@ $(document).ready(function () {
     //check if device is selected before letting user select charts
     document.getElementById("chartSelector").onclick = function(){
         if (document.getElementById("jun-airSelectButton").classList.contains("active") || document.getElementById("nitrogenSelectButton").classList.contains("active")) {
-            document.getElementById("chartDeviceSelectAlert").classList.remove("disabled");
+            document.getElementById("chartSelector").classList.remove("disabled");
         }
         else {
             document.getElementById("chartSelector").classList.add("disabled");
-            document. getElementById("chartDeviceSelectAlert").classList.remove("d-none");
+            unsuccessfulAlert("Please Select A Device!")
         }
     }
     

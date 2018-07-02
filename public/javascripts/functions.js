@@ -51,3 +51,18 @@ function reportLogUpdate (email, deviceId) {
     newRow.innerHTML = "<th scope='row'></th><td>" +email+"</td><td>" +currentTime+ "</td><td>" +deviceId+ "</td>"                      
 }
 
+function successfulAlert (words) {
+    document.getElementById("successfulAlertText").innerHTML = words;
+    document.getElementById("successfulAlert").classList.remove("d-none");
+    setTimeout(function() {
+        document.getElementById("successfulAlert").classList.add("d-none");
+    },5000)
+}
+
+function unsuccessfulAlert (words) {
+    document.getElementById("unsuccessfulAlertText").innerHTML = words;
+    document.getElementById("unsuccessfulAlert").classList.remove("d-none");
+    setTimeout(function() {
+        document.getElementById("unsuccessfulAlert").classList.add("d-none");
+    },5000)
+}

@@ -39,21 +39,7 @@ $(document).ready(function () {
         }
     }
 
-    function successfulAlert (words) {
-        document.getElementById("settingsSuccessfulAlertText").innerHTML = words;
-        document.getElementById("settingsSuccessfulAlert").classList.remove("d-none");
-        setTimeout(function() {
-            document.getElementById("settingsSuccessfulAlert").classList.add("d-none");
-        },5000)
-    }
-
-    function unsuccessfulAlert (words) {
-        document.getElementById("settingsUnsuccessfulAlertText").innerHTML = words;
-        document.getElementById("settingsUnsuccessfulAlert").classList.remove("d-none");
-        setTimeout(function() {
-            document.getElementById("settingsUnsuccessfulAlert").classList.add("d-none");
-        },5000)
-    }
+   
 
 
 
