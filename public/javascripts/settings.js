@@ -93,6 +93,7 @@ $(document).ready(function () {
         // Define what happens on successful data submission
         xhr.addEventListener("load", function(event) {
             successfulAlert("Request Sent Successfully");
+            reportLogUpdate(emailVal, deviceIdVal)
         });
 
         // Define what happens in case of error

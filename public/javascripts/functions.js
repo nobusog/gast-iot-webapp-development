@@ -53,3 +53,10 @@ function readCompState() {
         document.getElementById("nitrogenStateDisplay").classList.replace("btn-success", "btn-outline-light")
     }
 }
+
+function reportLogUpdate (email, deviceId) {
+    var newRow = document.createElement(tr);
+    var currentTime =  new Date().toLocaleString();
+    document.getElementById("reportLogTableBody").appendChild(newRow);
+    newRow.innerHTML = "<th scope='row'></th><td>" +email+"</td><td>" +currentTime+ "</td><td>" +deviceId+ "</td>"                      
+}
