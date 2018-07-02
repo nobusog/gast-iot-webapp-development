@@ -27,6 +27,10 @@ function setCompOff () {
     if ((currentTime - junairLastTime) > 5000) {
         sessionStorage.setItem("junairCompState", 0);
     }
+    var nitrogenLastTime = sessionStorage.getItem("nitrogenCompOnTimer");
+    if ((currentTime - nitrogenLastTime) > 5000) {
+        sessionStorage.setItem("nitrogenCompState", 0);
+    }
 }
 
 function readCompState() {
