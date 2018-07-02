@@ -3,8 +3,10 @@ var sessionStorage = window.sessionStorage;
 
 function chartDumper(array, str) {
     savedArray = JSON.parse(localStorage.getItem(str));
-    for (var i=0; i<savedArray.length; i++){
-        array[i] = savedArray[i]
+    if (savedArray) {
+        for (var i=0; i<savedArray.length; i++){
+            array[i] = savedArray[i]
+        }
     }
 }
 
