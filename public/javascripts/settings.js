@@ -126,4 +126,14 @@ $(document).ready(function () {
         }}}
     }
 
+    document.getElementById("quickStatsCustomizer").onsubmit = function(e) {
+        e.preventDefault();
+
+        var selectedElements = this.querySelectorAll('input[type="checkbox"]:checked');
+        var carouselElemnts = document.getElementById("junairCarouselContainer").getElementsByTagName("p")
+        for (var i=0; i<selectedElements.length; i++) {
+            carouselElemnts[i].innerHTML = selectedElements[i].nodeName;
+        }
+    }
+
 });
