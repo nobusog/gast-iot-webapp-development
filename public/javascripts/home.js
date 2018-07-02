@@ -368,7 +368,11 @@ $(document).ready(function () {
                     index =j;
                 }else {
                     j++
-                }
+                    if (j>=15){
+                        console.log("stopped");
+                        n=1
+                    }
+                } 
             }
             this.innerHTML = elementLibrary[index]+": "+obj[elementLibrary[index]]
             
