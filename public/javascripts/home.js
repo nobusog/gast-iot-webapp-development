@@ -222,8 +222,7 @@ $(document).ready(function () {
             activeList[i].classList.remove("active");
         }
         document.getElementById("jun-airSelectButton").classList.add("active");
-        //close alert bar and enable selector
-        unsuccessfulAlert("Please Select A Device!");
+        //enable selector
         document.getElementById("chartSelector").classList.remove("disabled");
         closeAllCharts("nitrogen");
         }   
@@ -241,8 +240,7 @@ $(document).ready(function () {
                 activeListNitro[i].classList.remove("active");
             }
             document.getElementById("nitrogenSelectButton").classList.add("active");
-            //close alert bar and enable chart selection
-            unsuccessfulAlert("Please Select A Device!");
+            //enable chart selection
             document.getElementById("chartSelector").classList.remove("disabled");
             closeAllCharts("junair");
         }
