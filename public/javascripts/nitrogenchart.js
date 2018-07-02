@@ -359,12 +359,10 @@ $(document).ready(function () {
     console.log('Successfully connect WebSocket');
   }
   ws.onmessage = function (message) {
-    console.log("messageeeee");
     try {
       var obj = JSON.parse(message.data);
 
       if(obj.deviceId == "NitroGen Pi - Python") {
-        console.log("we have contact for nitrogen")
         if (!obj.time || !obj.bme280Temperature) {
           return;
         }
@@ -463,7 +461,6 @@ $(document).ready(function () {
     chartSaver(nitrosht20TemperatureData,"nitrosht20TemperatureData");
     chartSaver(nitrosht20HumidityData,"nitrosht20HumidityData");
     chartSaver(nitropressureTransmitterData,"nitropressureTransmitterData");
-    console.log("saved");
   }
 })
   

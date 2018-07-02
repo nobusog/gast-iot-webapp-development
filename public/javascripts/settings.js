@@ -100,7 +100,6 @@ $(document).ready(function () {
         xhr.addEventListener("error", function(event) {
             alert('Oops! Something went wrong.');
         });
-        console.log(JSON.stringify({"devicdeId": deviceIdVal, "email": emailVal, "reportLength": reportLengthVal, "currentTime": currentTime, "startTime": startTime, "reportLengthStr": reportLengthStr}));
         // send the collected data as JSON
         xhr.send(JSON.stringify({"devicdeId": deviceIdVal, "email": emailVal, "reportLength": reportLengthVal, "currentTime": currentTime, "startTime": startTime, "reportLengthStr": reportLengthStr}));
 

@@ -368,12 +368,10 @@ $(document).ready(function () {
     console.log('Successfully connect WebSocket');
   }
   ws.onmessage = function (message) {
-    console.log("messageeeee");
     try {
       var obj = JSON.parse(message.data);
 
       if (obj.deviceId == "JunAir Pi - Python") {
-        console.log("we also have contact for junair")
         if (!obj.time || !obj.bme280Temperature) {
           return;
         }
@@ -472,6 +470,5 @@ $(document).ready(function () {
     chartSaver(sht20TemperatureData,"sht20TemperatureData");
     chartSaver(sht20HumidityData,"sht20HumidityData");
     chartSaver(pressureTransmitterData,"pressureTransmitterData");
-    console.log("saved");
   }
 })

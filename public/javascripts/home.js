@@ -162,7 +162,6 @@ $(document).ready(function () {
     var timeOnNitro = 0;
     var NitroConsumption = 0;
     ws.onmessage = function (message) {
-        console.log(message)
         try {
             var obj = JSON.parse(message.data);
             if (obj.deviceId == "JunAir Pi - Python") {
