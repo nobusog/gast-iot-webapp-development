@@ -199,7 +199,6 @@ $(document).ready(function () {
                 }
                
             }
-            carouselAffixer();
         }
         catch (err) {
             console.error(err);
