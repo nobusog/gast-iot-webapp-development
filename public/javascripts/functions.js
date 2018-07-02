@@ -13,6 +13,7 @@ function chartDumper(array, str) {
             }   
         }
     }
+    console.log(str)
     console.log(array)
 }
 
