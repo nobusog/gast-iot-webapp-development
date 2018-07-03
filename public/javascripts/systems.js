@@ -17,4 +17,8 @@ $(document).ready(function () {
         document.getElementById("nitrogenSystemContainer").classList.remove("d-none");
         document.getElementById("junairSystemContainer").classList.add("d-none");
     }
+
+    var displayStateObserver = new MutationObserver(systemsCompStateUpdate);
+    var displayStateConfig = { attributes: true, childList: true, subtree: true };
+    displayStateObserver.observe((document.getElementById("stateDisplayContainer")), config);
 })
