@@ -23,14 +23,6 @@ function chartSaver (array, str) {
     }
 }
 
-function setCompOff () {
-    if (isCompOff("junair")) {
-        sessionStorage.setItem("junairCompState", 0);
-    }
-    if (isCompOff("nitrogen")) {
-        sessionStorage.setItem("nitrogenCompState", 0);
-}}
-
 function isCompOff (system) {
     var currentTime = Date.now();
     switch (system) {
@@ -50,6 +42,24 @@ function isCompOff (system) {
             return false;
 }}
 
+function setCompOff () {
+    if (isCompOff("junair")) {
+        sessionStorage.setItem("junairCompState", 0);
+    }
+    if (isCompOff("nitrogen")) {
+        sessionStorage.setItem("nitrogenCompState", 0);
+}}
+
+function systemsCompStateUpdate() {
+    if (isCompOff("junair")) {
+        document.getElementById("junairSystemContainer").classList.add("d-none");
+    }
+    if (isCompOff("nitrogen")) {
+        document.getElementById("nitrogenSystemContainer").classList.add("d-none");
+    }
+    if (isCompOff("junair") && isCompOff("nitrogen")){
+        document.getElementById("systemsPage").classList.add("d-none");
+}}
 
 function readCompState() {
     if (sessionStorage.getItem("junairCompState") == 0) {
@@ -60,10 +70,7 @@ function readCompState() {
         document.getElementById("nitrogenStateDisplay").classList.replace("btn-success", "btn-outline-light");
         document.getElementById("nitrogenStateDisplay").disabled = true;
     }
-}
-
-function systemsCompStateUpdate() {
-
+    systemsCompStateUpdate();
 }
 
 function reportLogUpdate (email, deviceId) {
