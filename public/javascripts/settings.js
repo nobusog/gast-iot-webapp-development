@@ -7,6 +7,7 @@ $(document).ready(function () {
         document.getElementById("settingsPage").classList.remove("d-none");
         document.getElementById("homeButtonContainer").classList.remove("active");
         document.getElementById("settingsButtonContainer").classList.add("active"); 
+        setHeadersSettings("junair");
     }
 
     document.getElementById("settingsJunairSelectButton").onclick = function() {
