@@ -7,7 +7,12 @@ $(document).ready(function () {
         document.getElementById("settingsPage").classList.remove("d-none");
         document.getElementById("homeButtonContainer").classList.remove("active");
         document.getElementById("settingsButtonContainer").classList.add("active"); 
-        setHeadersSettings("junair");
+        if (document.getElementById("settingsJunairSelectButton").contains("active")) {
+            setHeadersSettings("junair");
+        }    
+        else if (document.getElementById("settingsNitrogenSelectButton").contains("active")) {
+            setHeadersSettings("nitrogen");
+        }
     }
 
     document.getElementById("settingsJunairSelectButton").onclick = function() {
