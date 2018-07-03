@@ -59,6 +59,7 @@ function systemsCompStateUpdate() {
     }
     if (isCompOff("junair") && isCompOff("nitrogen")){
         document.getElementById("systemsPage").classList.add("d-none");
+        document.getElementById("homePage").classList.remove("d-none");
 }}
 
 function readCompState() {
