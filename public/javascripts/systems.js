@@ -20,15 +20,6 @@ $(document).ready(function () {
         document.getElementById("nitrogenSystemContainer").classList.remove("d-none");
         document.getElementById("junairSystemContainer").classList.add("d-none");
     }
-    /**
-     * wait for either compressor to go off then call systemsCompStateUpdate[@functions.js]
-     */
-    var junairDisplayStateObserver = new MutationObserver(systemsCompStateUpdate);
-    var nitrogenDisplayStateObserver = new MutationObserver(systemsCompStateUpdate);
-    var displayStateConfig = {attributes: true};
-    var junairObserverTarget= document.getElementById("junairStateDisplay");
-    var nitrogenObserverTarget = document.getElementById("nitrogenStateDisplay");
-    junairDisplayStateObserver.observe(junairObserverTarget, displayStateConfig);
-    nitrogenDisplayStateObserver.observe(nitrogenObserverTarget, displayStateConfig);
+  
 
 })
