@@ -20,9 +20,13 @@ $(document).ready(function () {
         document.getElementById("nitrogenSystemContainer").classList.remove("d-none");
         document.getElementById("junairSystemContainer").classList.add("d-none");
     }
+    /**
+     * wait for either compressor to go off then call systemsCompStateUpdate[@functions.js]
+     */
+    var junairDisplayStateObserver = new MutationObserver(systemsCompStateUpdate);
+    var nitrogenDisplayStateObserver = new MutationObserver(systemsCompStateUpdate);
+    var displayStateConfig = { attributes: true};
+    junairDisplayStateObserver.observe((document.getElementById("junairStateDisplay")), displayStateConfig);
+    nitrogenDisplayStateObserver.observe((document.getElementById("nitrogenStateDisplay")), displayStateConfig);
 
-    //wait for either compressor to go off then call systemsCompStateUpdate[@functions.js]
-    var displayStateObserver = new MutationObserver(systemsCompStateUpdate);
-    var displayStateConfig = { attributes: true, childList: true, subtree: true };
-    displayStateObserver.observe((document.getElementById("stateDisplayContainer")), displayStateConfig);
 })
