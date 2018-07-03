@@ -38,8 +38,16 @@ $(document).ready(function () {
             tabList[i].classList.add("d-none");
         }
     }
+    
+    //Find out and save which device is selected into the deviceIdVal variavble.
+    var deviceIdVal
+    if (document.getElementById("settingsJunairSelectButton").classList.contains("active")) {
+        deviceIdVal = "junair";
+    }
+    else if (document.getElementById("settingsNitrogenSelectButton").classList.contains("active")) {
+        deviceIdVal = "nitrogen";
+    }
 
-   
 
 
 
@@ -48,16 +56,10 @@ $(document).ready(function () {
         // stop the regular form submission
         e.preventDefault();
 
-        var deviceIdVal, reportLengthStr
+        var reportLengthStr;
         var emailVal = document.getElementById("reportEmailInput").value;
         var reportLengthVal = document.getElementById("reportLengthOptions").options[document.getElementById("reportLengthOptions").selectedIndex].value ;
-        if (document.getElementById("settingsJunairSelectButton").classList.contains("active")) {
-            deviceIdVal = "junair";
-        }
-        else if (document.getElementById("settingsNitrogenSelectButton").classList.contains("active")) {
-            deviceIdVal = "nitrogen";
-        }
-
+        
         //check the report length and provide a time variable for search purposes
         var currentTime, startTime;
         currentTime = Date.now();
