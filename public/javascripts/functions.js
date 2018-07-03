@@ -104,3 +104,16 @@ function removeChart (chart) {
     }
     document.getElementById(chart).classList.add("d-none");
 }
+
+//sets headers for the quickstats and reports tabs on the sttings page
+function setHeadersSettings (system) {
+    switch (system) {
+        case "junair":
+            document.getElementById("settingsQuickStatsHeader").innerText = "Jun-Air Quick Stat Settings"
+            document.getElementById("settingsReportsHeader").innerText = "Jun-Air Report Settings" 
+        case "nitrogen":
+            document.getElementById("settingsQuickStatsHeader").innerText = "NitroGen Quick Stat Settings"
+            document.getElementById("settingsReportsHeader").innerText = "NitroGen Report Settings"
+        default:
+    }
+}

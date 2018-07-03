@@ -15,8 +15,7 @@ $(document).ready(function () {
         document.getElementById("settingsJunairSelectButton").classList.add("active");
         document.getElementById("settingsNitrogenSelectButton").classList.remove("active");
         deviceIdVal = "junair";
-        document.getElementById("settingsQuickStatsHeader").innerText = "Jun-Air Quick Stat Settings"
-        document.getElementById("settingsReportsHeader").innerText = "Jun-Air Report Settings"
+        setHeadersSettings("junair");
     }
 
     document.getElementById("settingsNitrogenSelectButton").onclick = function() {
@@ -25,8 +24,7 @@ $(document).ready(function () {
         document.getElementById("settingsNitrogenSelectButton").classList.replace("btn-secondary", "btn-primary");
         document.getElementById("settingsJunairSelectButton").classList.replace("btn-primary", "btn-secondary");
         deviceIdVal = "nitrogen";
-        document.getElementById("settingsQuickStatsHeader").innerText = "NitroGen Quick Stat Settings"
-        document.getElementById("settingsReportsHeader").innerText = "NitroGen Report Settings"
+        setHeadersSettings("nitrogen");   
     }
 
     document.getElementById("quickStatSettingsTab").onclick = function() {
