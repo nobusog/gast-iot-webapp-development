@@ -53,9 +53,11 @@ function setCompOff () {
 function systemsCompStateUpdate() {
     if (isCompOff("junair")) {
         document.getElementById("junairSystemContainer").classList.add("d-none");
+        document.getElementById("homePage").classList.remove("d-none");
     }
     if (isCompOff("nitrogen")) {
         document.getElementById("nitrogenSystemContainer").classList.add("d-none");
+        document.getElementById("homePage").classList.remove("d-none");
     }
     if (isCompOff("junair") && isCompOff("nitrogen")){
         document.getElementById("systemsPage").classList.add("d-none");
