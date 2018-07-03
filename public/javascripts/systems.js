@@ -20,5 +20,5 @@ $(document).ready(function () {
 
     var displayStateObserver = new MutationObserver(systemsCompStateUpdate);
     var displayStateConfig = { attributes: true, childList: true, subtree: true };
-    displayStateObserver.observe((document.getElementById("stateDisplayContainer")), config);
+    displayStateObserver.observe((document.getElementById("stateDisplayContainer")), displayStateConfig);
 })
