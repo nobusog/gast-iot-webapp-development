@@ -157,7 +157,9 @@ $(document).ready(function () {
     ws.onopen = function () {
       console.log('Successfully connect 2nd WebSocket');
     }
-
+    ws.onerror = function () {
+        unsuccessfulAlert("Please reload page, websocket failed to load ")
+    }
     var timeOnJunair = 0; 
     var timeOnNitro = 0;
     var NitroConsumption = 0;

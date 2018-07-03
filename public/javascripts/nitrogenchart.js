@@ -358,6 +358,9 @@ $(document).ready(function () {
   ws.onopen = function () {
     console.log('Successfully connect WebSocket');
   }
+  ws.onerror = function () {
+    unsuccessfulAlert("Please reload page, websocket failed to load ")
+  }
   ws.onmessage = function (message) {
     try {
       var obj = JSON.parse(message.data);
