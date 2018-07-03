@@ -51,13 +51,13 @@ function setCompOff () {
 }}
 
 function systemsCompStateUpdate() {
-    if (isCompOff("junair")) {
+    if (isCompOff("junair") && !isCompOff("nitrogen")) {
         document.getElementById("junairSystemContainer").classList.add("d-none");
-        document.getElementById("homeButton").click();
+        document.getElementById("nitrogenSystemContainer").classList.remove("d-none");
     }
-    if (isCompOff("nitrogen")) {
+    if (isCompOff("nitrogen") && !isCompOff("junair")) {
         document.getElementById("nitrogenSystemContainer").classList.add("d-none");
-        document.getElementById("homeButton").click();
+        document.getElementById("junairSystemContainer").classList.remove("d-none");
     }
     if (isCompOff("junair") && isCompOff("nitrogen")){
         document.getElementById("homeButton").click();
