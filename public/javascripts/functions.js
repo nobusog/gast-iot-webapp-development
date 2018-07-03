@@ -117,6 +117,6 @@ function setHeadersSettings (system) {
             document.getElementById("settingsQuickStatsHeader").innerText = "NitroGen Quick Stat Settings";
             document.getElementById("settingsReportsHeader").innerText = "NitroGen Report Settings";
         default:
-            unsuccessfulAlert("errorr in selecting system")
+            unsuccessfulAlert("errorr in selecting system");
     }
 }
