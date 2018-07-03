@@ -123,6 +123,7 @@ $(document).ready(function () {
             unsuccessfulAlert('Oops! Something went wrong.');
         });
 
+        console.log(JSON.stringify({"devicdeId": deviceIdVal, "email": emailVal}));
         // send the collected data as JSON
         xhr.send(JSON.stringify({"devicdeId": deviceIdVal, "email": emailVal}));
 
