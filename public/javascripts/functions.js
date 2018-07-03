@@ -109,11 +109,13 @@ function removeChart (chart) {
 function setHeadersSettings (system) {
     switch (system) {
         case "junair":
-            document.getElementById("settingsQuickStatsHeader").innerText = "Jun-Air Quick Stat Settings"
-            document.getElementById("settingsReportsHeader").innerText = "Jun-Air Report Settings" 
+        console.log("got junair yayyy");
+            document.getElementById("settingsQuickStatsHeader").innerText = "Jun-Air Quick Stat Settings";
+            document.getElementById("settingsReportsHeader").innerText = "Jun-Air Report Settings";
         case "nitrogen":
-            document.getElementById("settingsQuickStatsHeader").innerText = "NitroGen Quick Stat Settings"
-            document.getElementById("settingsReportsHeader").innerText = "NitroGen Report Settings"
+        console.log("got nitrogen yayyyy");
+            document.getElementById("settingsQuickStatsHeader").innerText = "NitroGen Quick Stat Settings";
+            document.getElementById("settingsReportsHeader").innerText = "NitroGen Report Settings";
         default:
     }
 }
