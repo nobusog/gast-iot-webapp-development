@@ -53,15 +53,15 @@ function setCompOff () {
 function systemsCompStateUpdate() {
     if (isCompOff("junair")) {
         document.getElementById("junairSystemContainer").classList.add("d-none");
-        document.getElementById("homePage").classList.remove("d-none");
+        document.getElementById("homeButton").click();
     }
     if (isCompOff("nitrogen")) {
         document.getElementById("nitrogenSystemContainer").classList.add("d-none");
-        document.getElementById("homePage").classList.remove("d-none");
+        document.getElementById("homeButton").click();
     }
     if (isCompOff("junair") && isCompOff("nitrogen")){
         document.getElementById("systemsPage").classList.add("d-none");
-        document.getElementById("homePage").classList.remove("d-none");
+        document.getElementById("homeButton").click();
 }}
 
 function readCompState() {
@@ -73,7 +73,6 @@ function readCompState() {
         document.getElementById("nitrogenStateDisplay").classList.replace("btn-success", "btn-outline-light");
         document.getElementById("nitrogenStateDisplay").disabled = true;
     }
-    systemsCompStateUpdate();
 }
 
 function reportLogUpdate (email, deviceId) {
