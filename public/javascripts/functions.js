@@ -38,9 +38,11 @@ function setCompOff () {
 function readCompState() {
     if (sessionStorage.getItem("junairCompState") == 0) {
         document.getElementById("junairStateDisplay").classList.replace("btn-success", "btn-outline-light");
+        document.getElementById("junairStateDisplay").disabled = true;
     }
     if (sessionStorage.getItem("nitrogenCompState") == 0) {
-        document.getElementById("nitrogenStateDisplay").classList.replace("btn-success", "btn-outline-light")
+        document.getElementById("nitrogenStateDisplay").classList.replace("btn-success", "btn-outline-light");
+        document.getElementById("nitrogenStateDisplay").disabled = true;
     }
 }
 
