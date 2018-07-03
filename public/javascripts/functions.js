@@ -66,3 +66,41 @@ function unsuccessfulAlert (words) {
         document.getElementById("unsuccessfulAlert").classList.add("d-none");
     },5000)
 }
+
+//close all charts when button is pressed 
+function closeAllCharts (selected) {
+    if (selected === "junair") {
+        divList = document.getElementById("junair").getElementsByTagName("div"); 
+    }
+    else if (selected === "nitrogen") {
+        divList = document.getElementById("nitrogen").getElementsByTagName("div"); 
+    }
+    for (var i=0; i<divList.length; i++) {
+        if (divList[i].classList.contains("chartContainer")) {
+            divList[i].classList.add("d-none");
+}}}
+
+//function that resores open charts from the open charts array
+function bringBackOpenedCharts (chart) {
+    for (i=0; i<openCharts.length; i++) {
+        if (openCharts[i]) {
+            if (openCharts[i].classList.contains(chart)){
+                openCharts[i].classList.remove("d-none");
+}}}}
+
+//removes specific chart from open charts array and closes chart
+function removeChart (chart) {
+    var i=0;
+    var selectedChart = 0; 
+    while (selectedChart == 0) {
+        if (openCharts[i] == document.getElementById(chart)) {
+            openCharts.splice(i,1);
+            selectedChart = 1;
+        }
+        if (openCharts[i] == openCharts[-1]){
+            selectedChart = 1;
+        }
+        i++;
+    }
+    document.getElementById(chart).classList.add("d-none");
+}
