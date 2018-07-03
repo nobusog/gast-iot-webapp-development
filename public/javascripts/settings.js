@@ -110,7 +110,7 @@ $(document).ready(function () {
         var emailVal = document.getElementById("reportLogEmailInput").value;
         // construct an HTTP request
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "https://prod-07.centralus.logic.azure.com:443/workflows/788b169d20d44be5a51d369c420c7a0a/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=PxYwwSMdUouEGwRUhaeP48BcJwSPX_2d9sO2vBeUWlU", true);
+        xhr.open("POST", "https://prod-29.centralus.logic.azure.com:443/workflows/d705e2f89c714802bec1090086029f44/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Fq2zUaQlmDRsY3aPj5MQo0BQM4hA73QRuBBizDBoOac", true);
         xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
 
         // Define what happens on successful data submission
