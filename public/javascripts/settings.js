@@ -7,10 +7,10 @@ $(document).ready(function () {
         document.getElementById("settingsPage").classList.remove("d-none");
         document.getElementById("homeButtonContainer").classList.remove("active");
         document.getElementById("settingsButtonContainer").classList.add("active"); 
-        if (document.getElementById("settingsJunairSelectButton").contains("active")) {
+        if (document.getElementById("settingsJunairSelectButton").classList.contains("active")) {
             setHeadersSettings("junair");
         }    
-        else if (document.getElementById("settingsNitrogenSelectButton").contains("active")) {
+        else if (document.getElementById("settingsNitrogenSelectButton").classList.contains("active")) {
             setHeadersSettings("nitrogen");
         }
     }
