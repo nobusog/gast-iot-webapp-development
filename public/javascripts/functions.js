@@ -1,6 +1,33 @@
+/**
+ * In this file you'll find functions that called in the rest of the webapp
+ * i put them here for ease of location. Every function will have a short 
+ * description of what it does of course.
+ */
+
 var localStorage = window.localStorage;
 var sessionStorage = window.sessionStorage;
 
+
+/**
+ * This function takes the specified array (by the first parameter) converts it to a string 
+ * then saves it to the users local storage under the key specified by the second
+ * parameter
+ * @param {array} array 
+ * @param {string} str 
+ */
+function chartSaver (array, str) {
+    if (array) {
+        arrayJSON = JSON.stringify(array);
+        localStorage.setItem(str, arrayJSON)
+    }
+}
+/**
+ * This function gets the saved array from the last session (stored by chartSaver) 
+ * specified by the second parameter and passess them into the array specified 
+ * by the first parameter.
+ * @param {array} array 
+ * @param {string} str 
+ */
 function chartDumper(array, str) {
     savedArray = JSON.parse(localStorage.getItem(str));
     if (savedArray) {
@@ -9,20 +36,19 @@ function chartDumper(array, str) {
         }
     }
 }
-
+/**
+ * This function takes an array of charts and updates them using the "update function" from chart.js
+ * @param {array} array 
+ */
 function updateAllCharts (array){
     for (var i=0; i<array.length; i++) {
       array[i].update();
     }
   }
-
-function chartSaver (array, str) {
-    if (array) {
-        arrayJSON = JSON.stringify(array);
-        localStorage.setItem(str, arrayJSON)
-    }
-}
-
+/**
+ * This functionchecks if a specified system is off and if so returns true, else it will return false.
+ * @param {string} system 
+ */
 function isCompOff (system) {
     var currentTime = Date.now();
     switch (system) {
@@ -41,7 +67,10 @@ function isCompOff (system) {
         default:
             return false;
 }}
-
+/**
+ * This function checks if the system is off and if so sets a compstate variable 
+ * in the users session storage to 0.
+ */
 function setCompOff () {
     if (isCompOff("junair")) {
         sessionStorage.setItem("junairCompState", 0);
@@ -49,7 +78,10 @@ function setCompOff () {
     if (isCompOff("nitrogen")) {
         sessionStorage.setItem("nitrogenCompState", 0);
 }}
-
+/**
+ * This function updates the users screen when any of the systems turn off by sending them to another 
+ * more relevant page.
+ */
 function systemsCompStateUpdate() {
     if (isCompOff("junair") && !isCompOff("nitrogen")) {
         document.getElementById("junairSystemContainer").classList.add("d-none");
@@ -62,7 +94,10 @@ function systemsCompStateUpdate() {
     if (isCompOff("junair") && isCompOff("nitrogen")){
         document.getElementById("homeButton").click();
 }}
-
+/**
+ * This function checks the session storage to see if a compressor is off and if so, 
+ * turns off and dsiabled the display button located on the main navbar.
+ */
 function readCompState() {
     if (sessionStorage.getItem("junairCompState") == 0) {
         document.getElementById("junairStateDisplay").classList.replace("btn-success", "btn-outline-light");
@@ -73,14 +108,21 @@ function readCompState() {
         document.getElementById("nitrogenStateDisplay").disabled = true;
     }
 }
-
+/**
+ * This function updates the report log whenever a request for system reporyt is made
+ * @param {string} email 
+ * @param {string} deviceId 
+ */
 function reportLogUpdate (email, deviceId) {
     var newRow = document.createElement("tr");
     var currentTime =  new Date().toLocaleString();
     document.getElementById("reportLogTableBody").appendChild(newRow);
     newRow.innerHTML = "<th scope='row'></th><td>" +email+"</td><td>" +currentTime+ "</td><td>" +deviceId+ "</td>"                      
 }
-
+/**
+ * Generic alert bar colored green for showing positive alerts. Fades after 5 seconds
+ * @param {string} words 
+ */
 function successfulAlert (words) {
     document.getElementById("successfulAlertText").innerHTML = words;
     document.getElementById("successfulAlert").classList.remove("d-none");
@@ -88,7 +130,10 @@ function successfulAlert (words) {
         document.getElementById("successfulAlert").classList.add("d-none");
     },5000)
 }
-
+/**
+ * Generic alert bar colored red for showing negative alerts. Fades after 5 seconds
+ * @param {string} words 
+ */
 function unsuccessfulAlert (words) {
     document.getElementById("unsuccessfulAlertText").innerHTML = words;
     document.getElementById("unsuccessfulAlert").classList.remove("d-none");
@@ -96,8 +141,10 @@ function unsuccessfulAlert (words) {
         document.getElementById("unsuccessfulAlert").classList.add("d-none");
     },5000)
 }
-
-//close all charts when button is pressed 
+/**
+ * This function closes any open charts for the selected system
+ * @param {string} selected 
+ */
 function closeAllCharts (selected) {
     if (selected === "junair") {
         divList = document.getElementById("junair").getElementsByTagName("div"); 
@@ -110,15 +157,20 @@ function closeAllCharts (selected) {
             divList[i].classList.add("d-none");
 }}}
 
-//function that resores open charts from the open charts array
+/**
+ * This function restores any opened charts that where closed when user switched between system tabs(on the home page).
+ * @param {string} chart 
+ */
 function bringBackOpenedCharts (chart) {
     for (i=0; i<openCharts.length; i++) {
         if (openCharts[i]) {
             if (openCharts[i].classList.contains(chart)){
                 openCharts[i].classList.remove("d-none");
 }}}}
-
-//removes specific chart from open charts array and closes chart
+/**
+ * Removes a specific chart from the open charts list and closes it.
+ * @param {string} chart 
+ */
 function removeChart (chart) {
     var i=0;
     var selectedChart = 0; 
@@ -135,7 +187,11 @@ function removeChart (chart) {
     document.getElementById(chart).classList.add("d-none");
 }
 
-//sets headers for the quickstats and reports tabs on the sttings page
+/**
+ * Sets the headers on the reports and quickstats pages (within the settings page) so that the user always know which 
+ * device is selected.
+ * @param {string} system 
+ */
 function setHeadersSettings (system) {
     switch (system) {
         case "junair":
