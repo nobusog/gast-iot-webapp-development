@@ -23,10 +23,6 @@ $(document).ready(function () {
     /**
      * wait for either compressor to go off then call systemsCompStateUpdate[@functions.js]
      */
-    var junairDisplayStateObserver = new MutationObserver(systemsCompStateUpdate);
-    var nitrogenDisplayStateObserver = new MutationObserver(systemsCompStateUpdate);
-    var displayStateConfig = { attributes: true};
-    junairDisplayStateObserver.observe((document.getElementById("junairStateDisplay")), displayStateConfig);
-    nitrogenDisplayStateObserver.observe((document.getElementById("nitrogenStateDisplay")), displayStateConfig);
+    
 
 })
