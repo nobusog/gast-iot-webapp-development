@@ -371,7 +371,7 @@ $(document).ready(function () {
       
       var obj = JSON.parse(message.data);
       if(obj.deviceId == "NitroGen Pi - Python") {
-        if (!obj.time || !obj.bme280Temperature) {
+        if (!obj.time || !obj.thermocoupleTemperature) {
           console.log('we are in the messages method...before return');
           return;
         }
