@@ -370,7 +370,6 @@ $(document).ready(function () {
     try {
       
       var obj = JSON.parse(message.data);
-      console.log('we are in the messages method');
       if(obj.deviceId == "NitroGen Pi - Python") {
         if (!obj.time || !obj.bme280Temperature) {
           return;
@@ -404,6 +403,7 @@ $(document).ready(function () {
   
         //push the am2302 humiduty data if it exists and keep only 50 points in the line chart
         if (obj.am2302Humidity) {
+          console.log('we are in the messages method...am2302');
           nitroam2302HumidityData.push(obj.am2302Humidity);
         }
         if (nitroam2302HumidityData.length > maxLen) {
