@@ -354,7 +354,12 @@ $(document).ready(function () {
 
   updateAllCharts([bme280Chart, am2302Chart, thermocoupleChart, sht20Chart, pressureTransmitterChart]);
 
-  var ws = new WebSocket('wss://' + location.host);
+  var loc = window.location;
+  if (loc.protocol === "https:"){
+	var ws = new WebSocket('wss://' + location.host); 
+  } else {
+	var ws = new WebSocket('ws://' + location.host); 	
+  }
   ws.onopen = function () {
     console.log('Successfully connect WebSocket');
   }
@@ -363,6 +368,7 @@ $(document).ready(function () {
   }
   ws.onmessage = function (message) {
     try {
+      console.log('we are in the messages method');
       var obj = JSON.parse(message.data);
 
       if(obj.deviceId == "NitroGen Pi - Python") {
