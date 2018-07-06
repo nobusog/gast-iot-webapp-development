@@ -372,10 +372,13 @@ $(document).ready(function () {
       var obj = JSON.parse(message.data);
       if(obj.deviceId == "NitroGen Pi - Python") {
         if (!obj.time || !obj.bme280Temperature) {
+          console.log('we are in the messages method...before return');
           return;
         }
         nitrotimeData.push(obj.displayTime);
+        console.log('we are in the messages method...timedatapush');
         nitrobme280TemperatureData.push(obj.bme280Temperature);
+        console.log('we are in the messages method...bme280 push');
   
         // only keep no more than 50 points in the line chart
         const maxLen = 50;
