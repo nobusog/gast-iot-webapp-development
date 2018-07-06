@@ -383,19 +383,23 @@ $(document).ready(function () {
         if (len > maxLen) {
           nitrotimeData.shift();
           nitrobme280TemperatureData.shift();
+          console.log('we are in the messages method...first shift time');
         }
   
         //push the bme280 humiduty data if it exists and keep only 50 points in the line chart
         if (obj.bme280Humidity) {
           nitrobme280HumidityData.push(obj.bme280Humidity);
+          console.log('we are in the messages method...bmehum');
         }
         if (nitrobme280HumidityData.length > maxLen) {
           nitrobme280HumidityData.shift();
+          console.log('we are in the messages method...bmehumshift');
         }
         
         //push the bme280 humiduty data if it exists and keep only 50 points in the line chart
         if (obj.bme280Pressure) {
           nitrobme280PressureData.push(obj.bme280Pressure);
+          console.log('we are in the messages method...bmepress');
         }
         if (nitrobme280PressureData.length > maxLen) {
           nitrobme280PressureData.shift();
