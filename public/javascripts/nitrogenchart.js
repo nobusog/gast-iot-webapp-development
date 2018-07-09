@@ -391,7 +391,7 @@ $(document).ready(function () {
 
 
         //push the nitrogen generation if it exists and keep only 50 points in the line chart
-        if (obj.nitrogenGeneration) {
+        if (obj.NitrogenGeneration) {
           console.log("We found some nitrogen!")
           nitroNitrogenGenerationData.push(obj.NitrogenGeneration);
         }
