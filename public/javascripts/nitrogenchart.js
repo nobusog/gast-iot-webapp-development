@@ -1,9 +1,6 @@
 $(document).ready(function () {
   //creating variable names for the different data streams
   nitrotimeData = [],
-  nitrobme280TemperatureData = [],
-  nitrobme280HumidityData = [],
-  nitrobme280PressureData = [],
   nitroam2302TemperatureData = [],
   nitroam2302HumidityData = [],
   nitropressureTransmitterData = [],
@@ -15,54 +12,12 @@ $(document).ready(function () {
     chartDumper(nitrotimeData, "nitrotimeData")
     chartDumper(nitroam2302HumidityData,"nitroam2302HumidityData");
     chartDumper(nitroam2302TemperatureData,"nitroam2302TemperatureData");
-    chartDumper(nitrobme280HumidityData,"nitrobme280HumidityData");
-    chartDumper(nitrobme280PressureData,"nitrobme280PressureData");
     chartDumper(nitrothermocoupleData,"nitrothermocoupleData");
-    chartDumper(nitrobme280TemperatureData,"nitrobme280TemperatureData");
     chartDumper(nitrosht20TemperatureData,"nitrosht20TemperatureData");
     chartDumper(nitrosht20HumidityData,"nitrosht20HumidityData");
     chartDumper(nitropressureTransmitterData,"nitropressureTransmitterData");
   })();
 
-  //datasets for the bme280 sensor chart 
-  var bme280Dataset = {
-    labels: nitrotimeData,
-    datasets: [
-      {
-        fill: false,
-        label: 'Temperature',
-        yAxisID: 'Temperature',
-        borderColor: "rgba(255, 204, 0, 1)",
-        pointBoarderColor: "rgba(255, 204, 0, 1)",
-        backgroundColor: "rgba(255, 204, 0, 0.4)",
-        pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
-        pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-        data: nitrobme280TemperatureData 
-      }, 
-      {
-        fill: false,
-        label: 'Humidity',
-        yAxisID: 'Humidity',
-        borderColor: "rgba(24, 120, 240, 1)",
-        pointBoarderColor: "rgba(24, 120, 240, 1)",
-        backgroundColor: "rgba(24, 120, 240, 0.4)",
-        pointHoverBackgroundColor: "rgba(24, 120, 240, 1)",
-        pointHoverBorderColor: "rgba(24, 120, 240, 1)",
-        data: nitrobme280HumidityData
-      },
-      {
-        fill: false,
-        label: 'Pressure',
-        yAxisID: 'Pressure',
-        borderColor: "rgba(66, 244, 72, 1)",
-        pointBoarderColor: "rgba(66, 244, 72, 1)",
-        backgroundColor: "rgba(66, 244, 72, 0.4)",
-        pointHoverBackgroundColor: "rgba(66, 244, 72, 1)",
-        pointHoverBorderColor: "rgba(66, 244, 72, 1)",
-        data: nitrobme280PressureData
-      }
-    ]
-  }
 
   //datasets for the am2302 sensor chart 
   var am2302Dataset = {
@@ -154,43 +109,6 @@ $(document).ready(function () {
     }]
   }
 
-
-  //define options for the BME280 Sensor Chart
-  var bme280SensorOptions = {
-    title: {
-      display: true,
-      text: 'nitro  BME280 Sensor Real-time Data',
-      fontSize: 30
-    },
-    scales: {
-      yAxes: [{
-        id: 'Temperature',
-        type: 'linear',
-        scaleLabel: {
-          labelString: 'Temperature(C)...testing',
-          display: true
-        },
-        position: 'left',
-      }, {
-          id: 'Humidity',
-          type: 'linear',
-          scaleLabel: {
-            labelString: 'Humidity(%)...testing',
-            display: true
-          },
-          position: 'right'
-        },
-        {
-          id: 'Pressure',
-          type: 'linear',
-          scaleLabel: {
-            labelString: 'Pressure(bar)',
-            display: true
-          },
-          position: 'right'
-        }]
-    }
-  }
 
   //define options for the AM2302 Sensor Chart
   var am2302SensorOptions = {
@@ -307,14 +225,6 @@ $(document).ready(function () {
   }
   
     
-  //Get the context of the BME280  sensor chart canvas element.
-  var bme280ctx = document.getElementById("bme280ChartNitrogen").getContext("2d");
-  var optionsNoAnimation = { animation: false }
-  var bme280Chart = new Chart(bme280ctx, {
-    type: 'line',
-    data: bme280Dataset,
-    options: bme280SensorOptions
-  });
 
   //Get the context of the AM2302 sensor chart canvas element.
   var am2302ctx = document.getElementById("am2302ChartNitrogen").getContext("2d");
@@ -352,7 +262,7 @@ $(document).ready(function () {
     options: sht20Options
   });
 
-  updateAllCharts([bme280Chart, am2302Chart, thermocoupleChart, sht20Chart, pressureTransmitterChart]);
+  updateAllCharts([am2302Chart, thermocoupleChart, sht20Chart, pressureTransmitterChart]);
 
   var loc = window.location;
   if (loc.protocol === "https:"){
@@ -377,35 +287,13 @@ $(document).ready(function () {
         }
         nitrotimeData.push(obj.displayTime);
         console.log('we are in the messages method...timedatapush');
-        nitrobme280TemperatureData.push(obj.bme280Temperature);
-        console.log('we are in the messages method...bme280 push');
   
         // only keep no more than 50 points in the line chart
         const maxLen = 50;
         var len = nitrotimeData.length;
         if (len > maxLen) {
           nitrotimeData.shift();
-          nitrobme280TemperatureData.shift();
           console.log('we are in the messages method...first shift time');
-        }
-  
-        //push the bme280 humiduty data if it exists and keep only 50 points in the line chart
-        if (obj.bme280Humidity) {
-          nitrobme280HumidityData.push(obj.bme280Humidity);
-          console.log('we are in the messages method...bmehum');
-        }
-        if (nitrobme280HumidityData.length > maxLen) {
-          nitrobme280HumidityData.shift();
-          console.log('we are in the messages method...bmehumshift');
-        }
-        
-        //push the bme280 humiduty data if it exists and keep only 50 points in the line chart
-        if (obj.bme280Pressure) {
-          nitrobme280PressureData.push(obj.bme280Pressure);
-          console.log('we are in the messages method...bmepress');
-        }
-        if (nitrobme280PressureData.length > maxLen) {
-          nitrobme280PressureData.shift();
         }
   
         //push the am2302 humiduty data if it exists and keep only 50 points in the line chart
@@ -458,7 +346,7 @@ $(document).ready(function () {
         }
   
         //update charts with new points
-        updateAllCharts([bme280Chart, am2302Chart, thermocoupleChart, sht20Chart, pressureTransmitterChart]);
+        updateAllCharts([am2302Chart, thermocoupleChart, sht20Chart, pressureTransmitterChart]);
       }
     } 
     catch (err) {
@@ -470,10 +358,7 @@ $(document).ready(function () {
     chartSaver(nitrotimeData,"nitrotimeData");
     chartSaver(nitroam2302HumidityData,"nitroam2302HumidityData");
     chartSaver(nitroam2302TemperatureData,"nitroam2302TemperatureData");
-    chartSaver(nitrobme280HumidityData,"nitrobme280HumidityData");
-    chartSaver(nitrobme280PressureData,"nitrobme280PressureData");
     chartSaver(nitrothermocoupleData,"nitrothermocoupleData");
-    chartSaver(nitrobme280TemperatureData,"nitrobme280TemperatureData");
     chartSaver(nitrosht20TemperatureData,"nitrosht20TemperatureData");
     chartSaver(nitrosht20HumidityData,"nitrosht20HumidityData");
     chartSaver(nitropressureTransmitterData,"nitropressureTransmitterData");

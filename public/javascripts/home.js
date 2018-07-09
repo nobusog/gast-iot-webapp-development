@@ -44,16 +44,6 @@ $(document).ready(function () {
     })();
     
     //Show charts when button is clicked only for the slected elements 
-    document.getElementById("bme280Button").onclick = function() {
-        if (document.getElementById("jun-airSelectButton").classList.contains("active")) {
-            document.getElementById("bme280ContainerJunair").classList.remove("d-none");
-            openCharts.push(document.getElementById("bme280ContainerJunair"));
-        } 
-        else if (document.getElementById("nitrogenSelectButton").classList.contains("active")) {
-            document.getElementById("bme280ContainerNitrogen").classList.remove("d-none");
-            openCharts.push(document.getElementById("bme280ContainerNitrogen"));
-        }
-    };
     document.getElementById("am2302Button").onclick = function() {
         if (document.getElementById("jun-airSelectButton").classList.contains("active")) {
             document.getElementById("am2302ContainerJunair").classList.remove("d-none");
@@ -96,9 +86,6 @@ $(document).ready(function () {
     };
 
     //close jun air charts when button is clicked    
-    document.getElementById("bme280CloseButtonJunair").onclick = function() {
-        document.getElementById("bme280ContainerJunair").classList.add("d-none");
-    };
     document.getElementById("am2302CloseButtonJunair").onclick = function() {
         document.getElementById("am2302ContainerJunair").classList.add("d-none");
     };
@@ -113,9 +100,6 @@ $(document).ready(function () {
     };
 
     //close nitrogen charts when button is clicked
-    document.getElementById("bme280CloseButtonNitrogen").onclick = function() {
-        document.getElementById("bme280ContainerNitrogen").classList.add("d-none");
-    };
     document.getElementById("am2302CloseButtonNitrogen").onclick = function() {
         document.getElementById("am2302ContainerNitrogen").classList.add("d-none");
     };
