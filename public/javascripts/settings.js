@@ -128,7 +128,7 @@ $(document).ready(function () {
 
     }
     document.getElementById("quickStatsCustomizer").onchange = function() {
-        var maxSelected = 5;
+        var maxSelected = 6;
         var allElements = this.querySelectorAll('input[type="checkbox"]')
         var selectedElements = this.querySelectorAll('input[type="checkbox"]:checked');
         var unSelectedElements = this.querySelectorAll('input[type="checkbox"]:not(:checked)');
