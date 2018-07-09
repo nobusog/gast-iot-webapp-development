@@ -17,6 +17,7 @@ $(document).ready(function () {
     chartDumper(nitrosht20TemperatureData,"nitrosht20TemperatureData");
     chartDumper(nitrosht20HumidityData,"nitrosht20HumidityData");
     chartDumper(nitropressureTransmitterData,"nitropressureTransmitterData");
+    chartSaver(nitroNitrogenGenerationData,"nitroNitrogenGenerationData");
   })();
 
 
@@ -315,7 +316,7 @@ $(document).ready(function () {
       options: nitrogenGenerationOptions
     });
 
-  updateAllCharts([am2302Chart, thermocoupleChart, sht20Chart, pressureTransmitterChart]);
+  updateAllCharts([am2302Chart, thermocoupleChart, sht20Chart, pressureTransmitterChart, nitrogenGenerationChart ]);
 
   var ws = new WebSocket('wss://' + location.host);
   ws.onopen = function () {
@@ -398,9 +399,9 @@ $(document).ready(function () {
         if (nitrothermocoupleData.length > maxLen) {
           nitroNitrogenGenerationData.shift();
         }
-  
+
         //update charts with new points
-        updateAllCharts([am2302Chart, thermocoupleChart, sht20Chart, pressureTransmitterChart]);
+        updateAllCharts([am2302Chart, thermocoupleChart, sht20Chart, pressureTransmitterChart, nitrogenGenerationChart]);
       }
     } 
     catch (err) {
@@ -416,6 +417,7 @@ $(document).ready(function () {
     chartSaver(nitrosht20TemperatureData,"nitrosht20TemperatureData");
     chartSaver(nitrosht20HumidityData,"nitrosht20HumidityData");
     chartSaver(nitropressureTransmitterData,"nitropressureTransmitterData");
+    chartSaver(nitroNitrogenGenerationData,"nitroNitrogenGenerationData");
   }
 })
   
