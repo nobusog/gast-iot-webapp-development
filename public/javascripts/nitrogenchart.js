@@ -342,6 +342,16 @@ $(document).ready(function () {
           nitrotimeData.shift();
         }
   
+
+        //push the nitrogen generation if it exists and keep only 50 points in the line chart
+        if (obj.nitroGeneration) {
+          console.log("We found some nitrogen!")
+          nitroNitrogenGenerationData.push(obj.nitroGeneration);
+        }
+        if (nitrothermocoupleData.length > maxLen) {
+          nitroNitrogenGenerationData.shift();
+        }
+
         //push the am2302 humiduty data if it exists and keep only 50 points in the line chart
         if (obj.am2302Humidity) {
           nitroam2302HumidityData.push(obj.am2302Humidity);
@@ -389,15 +399,6 @@ $(document).ready(function () {
         }
         if (nitrosht20HumidityData.length > maxLen) {
           nitrosht20HumidityData.shift();
-        }
-
-        //push the nitrogen generation if it exists and keep only 50 points in the line chart
-        if (obj.nitroGeneration) {
-          console.log("We found some nitrogen!")
-          nitroNitrogenGenerationData.push(obj.nitroGeneration);
-        }
-        if (nitrothermocoupleData.length > maxLen) {
-          nitroNitrogenGenerationData.shift();
         }
 
         //update charts with new points
