@@ -81,6 +81,13 @@ $(document).ready(function () {
             openCharts.push(document.getElementById("sht20ContainerJunair"));
         } 
     };
+    document.getElementById("nitrogenGenerationButton").onclick = function() {
+        if (document.getElementById("nitrogenSelectButton").classList.contains("active")) {
+            document.getElementById("nitrogenGenerationNitrogen").classList.remove("d-none");
+            openCharts.push(document.getElementById("nitrogenGenerationContainerNitrogen"));
+        }
+    };
+    
 
     //close jun air charts when button is clicked    
     document.getElementById("am2302CloseButtonJunair").onclick = function() {
