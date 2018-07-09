@@ -138,7 +138,12 @@ $(document).ready(function () {
     };
 
     //open new websocket 
-    var ws = new WebSocket('wss://' + location.host);
+    var loc = window.location;
+    if (loc.protocol === "https:"){
+      var ws = new WebSocket('wss://' + location.host); 
+    } else {
+      var ws = new WebSocket('ws://' + location.host); 	
+    }
     ws.onopen = function () {
       console.log('Successfully connect 2nd WebSocket');
     }

@@ -19,6 +19,11 @@ $(document).ready(function () {
     chartDumper(pressureTransmitterData,"pressureTransmitterData");
   })();
 
+<<<<<<< HEAD
+=======
+  
+
+>>>>>>> master
 
   //datasets for the am2302 sensor chart 
   var am2302Dataset = {
@@ -111,7 +116,10 @@ $(document).ready(function () {
   }
 
 
+<<<<<<< HEAD
   
+=======
+>>>>>>> master
 
   //define options for the AM2302 Sensor Chart
   var am2302SensorOptions = {
@@ -226,6 +234,11 @@ $(document).ready(function () {
       }]
     }
   }
+<<<<<<< HEAD
+=======
+  
+    
+>>>>>>> master
 
   //Get the context of the AM2302 sensor chart canvas element.
   var am2302ctx = document.getElementById("am2302ChartJunair").getContext("2d");
@@ -294,6 +307,11 @@ $(document).ready(function () {
         if (len > maxLen) {
           timeData.shift();
         }
+<<<<<<< HEAD
+=======
+
+        
+>>>>>>> master
 
         //push the am2302 humiduty data if it exists and keep only 50 points in the line chart
         if (obj.am2302Humidity) {
