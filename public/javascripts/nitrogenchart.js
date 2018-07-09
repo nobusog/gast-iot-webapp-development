@@ -390,6 +390,7 @@ $(document).ready(function () {
           nitrosht20HumidityData.shift();
         }
 
+        
         //push the nitrogen generation if it exists and keep only 50 points in the line chart
         if (obj.nitrogenGeneration) {
           nitroNitrogenGenerationData.push(obj.nitrogenGeneration);
