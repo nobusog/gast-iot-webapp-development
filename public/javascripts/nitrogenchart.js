@@ -117,8 +117,8 @@ $(document).ready(function () {
       datasets: [
         {
         fill: false,
-        label: 'Nitrogen Generation',
-        yAxisID: 'Nitrogen Generation',
+        label: 'Temperature',
+        yAxisID: 'Temperature',
         borderColor: "rgba(255, 204, 0, 1)",
         pointBoarderColor: "rgba(255, 204, 0, 1)",
         backgroundColor: "rgba(255, 204, 0, 0.4)",
@@ -259,15 +259,7 @@ $(document).ready(function () {
             display: true
           },
           position: 'right',
-        },{
-          id: 'placeholder1',
-          type: 'linear',
-          scaleLabel: {
-            labelString: 'placeholder1',
-            display: false
-          },
-          position: 'left'
-        }]
+        },]
       }
     }
   
@@ -361,7 +353,6 @@ $(document).ready(function () {
         if (nitroam2302HumidityData.length > maxLen) {
           nitroam2302HumidityData.shift();
         }
-  
         //push the am2302 temperature data if it exists and keep only 50 points in the line chart
         if (obj.am2302Temperature) {
           nitroam2302TemperatureData.push(obj.am2302Temperature);
