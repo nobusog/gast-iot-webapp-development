@@ -79,10 +79,6 @@ $(document).ready(function () {
         if (document.getElementById("jun-airSelectButton").classList.contains("active")) {
             document.getElementById("sht20ContainerJunair").classList.remove("d-none");
             openCharts.push(document.getElementById("sht20ContainerJunair"));
-        } 
-        else if (document.getElementById("nitrogenSelectButton").classList.contains("active")) {
-            document.getElementById("sht20ContainerNitrogen").classList.remove("d-none");
-            openCharts.push(document.getElementById("sht20ContainerNitrogen"));
         }
     };
 
@@ -109,9 +105,6 @@ $(document).ready(function () {
     };
     document.getElementById("thermocoupleCloseButtonNitrogen").onclick = function() {
         document.getElementById("thermocoupleContainerNitrogen").classList.add("d-none");
-    };
-    document.getElementById("sht20CloseButtonNitrogen").onclick = function() {
-        document.getElementById("sht20ContainerNitrogen").classList.add("d-none");
     };
 
     //Toggle quick stats when button is clicked
