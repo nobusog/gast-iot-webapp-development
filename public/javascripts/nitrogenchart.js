@@ -124,7 +124,7 @@ $(document).ready(function () {
         backgroundColor: "rgba(255, 204, 0, 0.4)",
         pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
         pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-        data: nitroNitrogenGenerationData
+        data: nitrothermocoupleData
       }]
     }
 
@@ -304,7 +304,7 @@ $(document).ready(function () {
   var optionsNoAnimation = { animation: false }
   var nitrogenGenerationChart = new Chart(nitrogenGenerationctx, {
     type: 'line',
-    data: nitroNitrogenGenerationDataset,
+    data: nitrothermocoupleDataset,
     options: nitrogenGenerationOptions
   });
 
