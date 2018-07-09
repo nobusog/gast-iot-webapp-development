@@ -260,10 +260,10 @@ $(document).ready(function () {
           },
           position: 'right',
         },{
-          id: 'placeholder',
+          id: 'placeholder1',
           type: 'linear',
           scaleLabel: {
-            labelString: 'placeholder',
+            labelString: 'placeholder1',
             display: false
           },
           position: 'left'
@@ -307,14 +307,14 @@ $(document).ready(function () {
     options: sht20Options
   });
 
-    //Get the context of the nitrogen generation chart canvas element.
-    var nitrogenGenerationctx = document.getElementById("nitrogenGenerationChartNitrogen").getContext("2d");
-    var optionsNoAnimation = { animation: false }
-    var nitrogenGenerationChart = new Chart(nitrogenGenerationctx, {
-      type: 'line',
-      data: nitroNitrogenGenerationDataset,
-      options: nitrogenGenerationOptions
-    });
+  //Get the context of the nitrogen generation chart canvas element.
+  var nitrogenGenerationctx = document.getElementById("nitrogenGenerationChartNitrogen").getContext("2d");
+  var optionsNoAnimation = { animation: false }
+  var nitrogenGenerationChart = new Chart(nitrogenGenerationctx, {
+    type: 'line',
+    data: nitroNitrogenGenerationDataset,
+    options: nitrogenGenerationOptions
+  });
 
   updateAllCharts([am2302Chart, thermocoupleChart, sht20Chart, pressureTransmitterChart, nitrogenGenerationChart ]);
 
@@ -329,6 +329,8 @@ $(document).ready(function () {
     try {
       var obj = JSON.parse(message.data);
       console.log(obj)
+      console.log(typeof obj.nitroGeneration)
+      console.log(typeof obj.thermocoupleTemperature)
       if(obj.deviceId == "NitroGen Pi - Python") {
         if (!obj.time || !obj.thermocoupleTemperature) {
           return;
@@ -344,8 +346,10 @@ $(document).ready(function () {
   
 
         //push the nitrogen generation if it exists and keep only 50 points in the line chart
-        console.log("We found some nitrogen!")
-        nitroNitrogenGenerationData.push(obj.nitroGeneration);
+        if (obj.nitroGeneration) {
+          console.log("We found some nitrogen!")
+          nitroNitrogenGenerationData.push(obj.nitroGeneration);
+        }
         if (nitrothermocoupleData.length > maxLen) {
           nitroNitrogenGenerationData.shift();
         }
