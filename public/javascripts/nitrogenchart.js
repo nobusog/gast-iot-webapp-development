@@ -221,7 +221,6 @@ $(document).ready(function () {
         //push the am2302 humiduty data if it exists and keep only 50 points in the line chart
         if (obj.am2302Humidity) {
           nitroam2302HumidityData.push(obj.am2302Humidity);
-          console.log(nitroNitrogenGenerationData.length)
         }
         if (nitroam2302HumidityData.length > maxLen) {
           nitroam2302HumidityData.shift();
