@@ -83,7 +83,7 @@ $(document).ready(function () {
     };
     document.getElementById("nitrogenGenerationButton").onclick = function() {
         if (document.getElementById("nitrogenSelectButton").classList.contains("active")) {
-            document.getElementById("nitrogenGenerationChartNitrogen").classList.remove("d-none");
+            document.getElementById("nitrogenGenerationContainerNitrogen").classList.remove("d-none");
             openCharts.push(document.getElementById("nitrogenGenerationContainerNitrogen"));
         }
     };
