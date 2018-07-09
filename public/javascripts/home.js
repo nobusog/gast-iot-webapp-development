@@ -114,6 +114,9 @@ $(document).ready(function () {
     document.getElementById("thermocoupleCloseButtonNitrogen").onclick = function() {
         document.getElementById("thermocoupleContainerNitrogen").classList.add("d-none");
     };
+    document.getElementById("nitrogenGenerationCloseButtonNitrogen").onclick = function() {
+        document.getElementById("nitrogenGenerationContainerNitrogen").classList.add("d-none");
+    };
 
     //Toggle quick stats when button is clicked
     document.getElementById("quickStatsButton").onclick = function() {
