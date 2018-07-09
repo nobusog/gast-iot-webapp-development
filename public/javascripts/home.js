@@ -96,7 +96,7 @@ $(document).ready(function () {
         document.getElementById("sht20ContainerJunair").classList.add("d-none");
     };
 
-    //close nitrogen charts when button is clicked
+    //closing nitrogen charts when button is clicked
     document.getElementById("am2302CloseButtonNitrogen").onclick = function() {
         document.getElementById("am2302ContainerNitrogen").classList.add("d-none");
     };
