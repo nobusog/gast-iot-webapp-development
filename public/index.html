@@ -38,7 +38,6 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#" id="am2302Button">AM2302 Sensor</a>
-                <a class="dropdown-item" href="#" id="bme280Button">BME280 Sensor</a>
                 <a class="dropdown-item" href="#" id="pressureTransmitterButton">Pressure Transmitter</a>
                 <a class="dropdown-item" href="#" id="sht20Button">SHT20 Sensor</a>
                 <a class="dropdown-item" href="#" id="thermocoupleButton">Thermocouple</a>
@@ -193,12 +192,6 @@
                     </button>
                     <canvas id="am2302ChartJunair" width="400" height="150"></canvas>
                 </div>
-            <div class="container-fluid bg-light d-none border shadow rounded my-5 chartContainer junair" id="bme280ContainerJunair">
-                <button type="button" class="close mt-3" aria-label="Close" id="bme280CloseButtonJunair">
-                        <span aria-hidden="true">&times;</span>
-                </button>
-                <canvas id="bme280ChartJunair" width="400" height="150"></canvas>
-            </div>
             <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer junair" id="pressureTransmitterContainerJunair">
                 <button type="button" class="close mt-3" aria-label="Close" id="pressureTransmitterCloseButtonJunair">
                         <span aria-hidden="true">&times;</span>
@@ -224,12 +217,6 @@
                             <span aria-hidden="true">&times;</span>
                     </button>
                     <canvas id="am2302ChartNitrogen" width="400" height="150"></canvas>
-                </div>
-            <div class="container-fluid bg-light d-none border shadow rounded my-5 chartContainer nitrogen" id="bme280ContainerNitrogen">
-                <button type="button" class="close mt-3" aria-label="Close" id="bme280CloseButtonNitrogen">
-                        <span aria-hidden="true">&times;</span>
-                </button>
-                <canvas id="bme280ChartNitrogen" width="400" height="150"></canvas>
             </div>
             <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer nitrogen" id="pressureTransmitterContainerNitrogen">
                 <button type="button" class="close mt-3" aria-label="Close" id="pressureTransmitterCloseButtonNitrogen">
@@ -283,24 +270,6 @@
                 <form id="quickStatsCustomizer">
                     <div class="row">
                         <div class="col">
-                            <div class="form-check m-3">
-                                <input class="form-check-input" type="checkbox" value="bme280Temperature" id="lastBme280TemperatureCheck">
-                                <label class="form-check-label" for="lastBme280TemperatureCheck">
-                                Last BME280 Temperature
-                                </label>
-                            </div>   
-                            <div class="form-check m-3">
-                                <input class="form-check-input" type="checkbox" value="bme280Pressure"id="lastBme280PressureCheck" >
-                                <label class="form-check-label" for="lastBme280PressureCheck">
-                                Last BME280 Pressure
-                                </label>
-                            </div>
-                            <div class="form-check m-3">
-                                <input class="form-check-input" type="checkbox" value="bme280Humidity"id="lastBme280HumidityCheck" >
-                                <label class="form-check-label" for="lastBme280HumidityCheck">
-                                Last BME280 Humidity
-                                </label>
-                            </div>
                             <div class="form-check m-3">
                                 <input class="form-check-input" type="checkbox" value="am2302Temperature" id="lastAm2302TemperatureCheck" >
                                 <label class="form-check-label" for="lastAm2302TemperatureCheck">
