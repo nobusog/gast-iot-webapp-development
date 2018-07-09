@@ -249,7 +249,7 @@ $(document).ready(function () {
           nitrothermocoupleData.shift();
         }
         //update charts with new points
-        updateAllCharts([am2302Chart, thermocoupleChart, sht20Chart, pressureTransmitterChart]);
+        updateAllCharts([am2302Chart, thermocoupleChart,pressureTransmitterChart]);
       }
     } 
     catch (err) {
