@@ -101,6 +101,7 @@ $(document).ready(function () {
     };
 
     //close nitrogen charts when button is clicked
+    //Test
     document.getElementById("am2302CloseButtonNitrogen").onclick = function() {
         document.getElementById("am2302ContainerNitrogen").classList.add("d-none");
     };
