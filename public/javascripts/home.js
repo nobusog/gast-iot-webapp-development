@@ -151,7 +151,7 @@ $(document).ready(function () {
     }
     var timeOnJunair = 0; 
     var timeOnNitro = 0;
-    var NitroConsumption = 0;
+    var nitrogenGeneration = 0;
     ws.onmessage = function (message) {
         try {
             var obj = JSON.parse(message.data);
@@ -173,11 +173,11 @@ $(document).ready(function () {
                
             } else if  (obj.deviceId == "NitroGen Pi - Python") {
                 sessionStorage.setItem("nitrogenCompOnTimer", Date.now())
-                timeOnNitro = timeOnNitro + obj.globalTimeOn;
-                NitroConsumption = NitroConsumption + obj.NitroConsumption;
+                timeOnNitro = obj.globalTimeOn;
+                nitroGeneration = obj.NitroConsumption;
                 document.getElementById("nitrogenCompressorOnTimeContainer").innerHTML= +timeOnNitro.toFixed(2) +"s";
                 document.getElementById("nitrogenDutyCycleContainer").innerHTML = +obj.dutyCycle.toFixed(2)+"%";
-                document.getElementById("nitrogenConsumptionContainer").innerHTML = +NitroConsumption.toFixed(2)+"scf";
+                document.getElementById("nitrogenGenerationContainer").innerHTML = +nitrogenGeneration.toFixed(2)+"scf";
 
                 if(obj.compState == 1) {
                     document.getElementById("nitrogenStateDisplay").classList.replace("btn-outline-light", "btn-success") 
