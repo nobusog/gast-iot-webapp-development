@@ -339,7 +339,6 @@ $(document).ready(function () {
         var len = nitrotimeData.length;
         if (len > maxLen) {
           nitrotimeData.shift();
-          nitrobme280TemperatureData.shift();
         }
   
         //push the am2302 humiduty data if it exists and keep only 50 points in the line chart
@@ -390,7 +389,7 @@ $(document).ready(function () {
           nitrosht20HumidityData.shift();
         }
 
-        
+
         //push the nitrogen generation if it exists and keep only 50 points in the line chart
         if (obj.nitrogenGeneration) {
           nitroNitrogenGenerationData.push(obj.nitrogenGeneration);
