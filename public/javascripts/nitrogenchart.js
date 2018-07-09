@@ -306,16 +306,6 @@ $(document).ready(function () {
     }
   }
   
-    
-  //Get the context of the BME280  sensor chart canvas element.
-  var bme280ctx = document.getElementById("bme280ChartNitrogen").getContext("2d");
-  var optionsNoAnimation = { animation: false }
-  var bme280Chart = new Chart(bme280ctx, {
-    type: 'line',
-    data: bme280Dataset,
-    options: bme280SensorOptions
-  });
-
   //Get the context of the AM2302 sensor chart canvas element.
   var am2302ctx = document.getElementById("am2302ChartNitrogen").getContext("2d");
   var optionsNoAnimation = { animation: false }
