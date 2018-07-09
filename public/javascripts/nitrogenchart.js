@@ -392,7 +392,7 @@ $(document).ready(function () {
 
         //push the nitrogen generation if it exists and keep only 50 points in the line chart
         if (obj.nitrogenGeneration) {
-          nitroNitrogenGenerationData.push(obj.nitrogenGeneration);
+          nitroNitrogenGenerationData.push(obj.NitrogenGeneration);
         }
         if (nitrothermocoupleData.length > maxLen) {
           nitroNitrogenGenerationData.shift();
