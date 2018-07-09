@@ -367,6 +367,7 @@ $(document).ready(function () {
   
         //push the thermocouple data if it exists and keep only 50 points in the line chart
         if (obj.thermocoupleTemperature) {
+          console.log("we found thermocouple")
           nitrothermocoupleData.push(obj.thermocoupleTemperature);
         }
         if (nitrothermocoupleData.length > maxLen) {
@@ -388,7 +389,6 @@ $(document).ready(function () {
         if (nitrosht20HumidityData.length > maxLen) {
           nitrosht20HumidityData.shift();
         }
-
 
         //push the nitrogen generation if it exists and keep only 50 points in the line chart
         if (obj.NitrogenGeneration) {
