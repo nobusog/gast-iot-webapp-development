@@ -79,8 +79,15 @@ $(document).ready(function () {
         if (document.getElementById("jun-airSelectButton").classList.contains("active")) {
             document.getElementById("sht20ContainerJunair").classList.remove("d-none");
             openCharts.push(document.getElementById("sht20ContainerJunair"));
+        } 
+    };
+    document.getElementById("nitrogenGenerationButton").onclick = function() {
+        if (document.getElementById("nitrogenSelectButton").classList.contains("active")) {
+            document.getElementById("nitrogenGenerationContainerNitrogen").classList.remove("d-none");
+            openCharts.push(document.getElementById("nitrogenGenerationContainerNitrogen"));
         }
     };
+    
 
     //close jun air charts when button is clicked    
     document.getElementById("am2302CloseButtonJunair").onclick = function() {
@@ -96,7 +103,8 @@ $(document).ready(function () {
         document.getElementById("sht20ContainerJunair").classList.add("d-none");
     };
 
-    //closing nitrogen charts when button is clicked
+    //close nitrogen charts when button is clicked
+    //Test
     document.getElementById("am2302CloseButtonNitrogen").onclick = function() {
         document.getElementById("am2302ContainerNitrogen").classList.add("d-none");
     };
@@ -105,6 +113,9 @@ $(document).ready(function () {
     };
     document.getElementById("thermocoupleCloseButtonNitrogen").onclick = function() {
         document.getElementById("thermocoupleContainerNitrogen").classList.add("d-none");
+    };
+    document.getElementById("nitrogenGenerationCloseButtonNitrogen").onclick = function() {
+        document.getElementById("nitrogenGenerationContainerNitrogen").classList.add("d-none");
     };
 
     //Toggle quick stats when button is clicked
@@ -145,7 +156,7 @@ $(document).ready(function () {
     }
     var timeOnJunair = 0; 
     var timeOnNitro = 0;
-    var NitroConsumption = 0;
+    var nitrogenGeneration = 0;
     ws.onmessage = function (message) {
         try {
             var obj = JSON.parse(message.data);
@@ -167,11 +178,10 @@ $(document).ready(function () {
                
             } else if  (obj.deviceId == "NitroGen Pi - Python") {
                 sessionStorage.setItem("nitrogenCompOnTimer", Date.now())
-                timeOnNitro = timeOnNitro + obj.globalTimeOn;
-                NitroConsumption = NitroConsumption + obj.NitroConsumption;
-                document.getElementById("nitrogenCompressorOnTimeContainer").innerHTML= +timeOnNitro.toFixed(2) +"s";
-                document.getElementById("nitrogenDutyCycleContainer").innerHTML = +obj.dutyCycle.toFixed(2)+"%";
-                document.getElementById("nitrogenConsumptionContainer").innerHTML = +NitroConsumption.toFixed(2)+"scf";
+                timeOnNitro = obj.globalTimeOn;
+                document.getElementById("nitrogenCompressorOnTimeContainer").innerHTML= +timeOnNitro.toFixed(2) +" s";
+                document.getElementById("nitrogenDutyCycleContainer").innerHTML = +obj.dutyCycle.toFixed(2)+" %";
+                document.getElementById("nitrogenGenerationContainer").innerHTML = +obj.nitroGeneration.toFixed(2)+" scf";
 
                 if(obj.compState == 1) {
                     document.getElementById("nitrogenStateDisplay").classList.replace("btn-outline-light", "btn-success") 
@@ -285,8 +295,10 @@ $(document).ready(function () {
         }
         for (var i=0; i<divList.length; i++) {
             if (divList[i].classList.contains("chartContainer")) {
-                divList[i].classList.remove("d-none");
-                openCharts.push(divList[i]);
+                if(!divList[i].classList.contains("shtNitro")){
+                    divList[i].classList.remove("d-none");
+                    openCharts.push(divList[i]);
+                }
             }
         }
     }

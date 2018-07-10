@@ -41,7 +41,7 @@
                 <a class="dropdown-item" href="#" id="pressureTransmitterButton">Pressure Transmitter</a>
                 <a class="dropdown-item" href="#" id="sht20Button">SHT20 Sensor</a>
                 <a class="dropdown-item" href="#" id="thermocoupleButton">Thermocouple</a>
-                <a class="dropdown-item d-none" href="#" id="thermocoupleButton">Thermocouple</a>
+                <a class="dropdown-item" href="#" id="nitrogenGenerationButton">Nitrogen Generation</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" id="openAllChartsButton">All Charts</a>
                 </div>
@@ -81,7 +81,7 @@
             </button>
         </div>
         <div class="border bg-light rounded mt-0 p-3">    
-            <ul class="nav nav-pills" id="deviceSelectContainer">
+            <ul class="nav nav-pills" id="deviceSelectContainer" >
                 <li class="nav-item">
                 <a class="nav-link " id="jun-airSelectButton" href ="#" >Jun-Air OF302</a>
                 </li>
@@ -138,9 +138,9 @@
             </div>
             <div class="row d-none" id="quickStatsContainerNitrogen">
                 <div class="container-fluid bg-secondary border shadow rounded m-3 p-3 col" >
-                    <p class="font-weight-bold"> Compressor On Time: <span id="nitrogenCompressorOnTimeContainer">0s</span></p>
-                    <p class="font-weight-bold"> System Duty Cycle: <span id="nitrogenDutyCycleContainer">0%</span></p>
-                    <p class="font-weight-bold"> Nitrogen Consumption: <span id="nitrogenConsumptionContainer">0scf</span></p>
+                    <p class="font-weight-bold"> Compressor Run Time: <span id="nitrogenCompressorOnTimeContainer">  s</span></p>
+                    <p class="font-weight-bold"> System Duty Cycle: <span id="nitrogenDutyCycleContainer">  %</span></p>
+                    <p class="font-weight-bold"> Nitrogen Generation: <span id="nitrogenGenerationContainer">  scf</span></p>
                 </div>
                 <div class= "container-fluid bg-secondary border shadow rounded m-3 p-3 col">
                     <div id="carouselExampleIndicatorsnitro" class="carousel slide" data-ride="carousel">
@@ -234,6 +234,15 @@
                 </button>
                 <canvas id="thermocoupleChartNitrogen" width="400" height="150"></canvas>
             </div>
+<<<<<<< HEAD
+=======
+            <div class="container-fluid bg-light border d-none shadow rounded my-5 chartContainer nitrogen" id="nitrogenGenerationContainerNitrogen">
+                <button type="button" class="close mt-3" aria-label="Close" id="nitrogenGenerationCloseButtonNitrogen" >
+                        <span aria-hidden="true">&times;</span>
+                </button>
+                <canvas id="nitrogenGenerationChartNitrogen" width="400" height="150"></canvas>
+            </div>
+>>>>>>> master
         </div>
     </div>    
     <div id="settingsPage" class="d-none" >
