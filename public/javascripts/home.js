@@ -174,7 +174,7 @@ $(document).ready(function () {
             } else if  (obj.deviceId == "NitroGen Pi - Python") {
                 sessionStorage.setItem("nitrogenCompOnTimer", Date.now())
                 timeOnNitro = obj.globalTimeOn;
-                nitroGeneration = obj.NitroConsumption;
+                nitroGeneration = obj.nitroGeneration;
                 document.getElementById("nitrogenCompressorOnTimeContainer").innerHTML= +timeOnNitro.toFixed(2) +"s";
                 document.getElementById("nitrogenDutyCycleContainer").innerHTML = +obj.dutyCycle.toFixed(2)+"%";
                 document.getElementById("nitrogenGenerationContainer").innerHTML = +nitrogenGeneration.toFixed(2)+"scf";
