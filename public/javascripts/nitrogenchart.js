@@ -288,7 +288,7 @@ $(document).ready(function () {
         if (nitronitrogenGenerationData.length > maxLen) {
           nitronitrogenGenerationData.shift();
         }
-
+        console.log(nitronitrogenGenerationData)
         //update charts with new points
         updateAllCharts([am2302Chart, thermocoupleChart, pressureTransmitterChart, nitrogenGenerationChart]);
       }
