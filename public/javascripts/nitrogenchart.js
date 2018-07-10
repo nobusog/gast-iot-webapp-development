@@ -4,7 +4,8 @@ $(document).ready(function () {
   nitroam2302TemperatureData = [],
   nitroam2302HumidityData = [],
   nitropressureTransmitterData = [],
-  nitrothermocoupleData = [];
+  nitrothermocoupleData = [],
+  nitronitrogenGenerationData = [];
 
   (function chartDump (){
     chartDumper(nitrotimeData, "nitrotimeData")
@@ -12,6 +13,7 @@ $(document).ready(function () {
     chartDumper(nitroam2302TemperatureData,"nitroam2302TemperatureData");
     chartDumper(nitrothermocoupleData,"nitrothermocoupleData");
     chartDumper(nitropressureTransmitterData,"nitropressureTransmitterData");
+    chartDumper(nitronitrogenGenerationData,"nitronitrogenGenerationData");
   })();
 
 
@@ -77,6 +79,23 @@ $(document).ready(function () {
     }]
   }
 
+    //datasets for the nitrogen generation chart 
+    var nitronitrogenGenerationDataset = {
+      labels: nitrotimeData,
+      datasets: [
+        {
+        fill: false,
+        label: 'Nitrogen',
+        yAxisID: 'Nitrogen',
+        borderColor: "rgba(255, 204, 0, 1)",
+        pointBoarderColor: "rgba(255, 204, 0, 1)",
+        backgroundColor: "rgba(255, 204, 0, 0.4)",
+        pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
+        pointHoverBorderColor: "rgba(255, 204, 0, 1)",
+        data: nitronitrogenGenerationData
+      }]
+    }
+
 
 
   //define options for the AM2302 Sensor Chart
@@ -140,7 +159,7 @@ $(document).ready(function () {
   var thermocoupleOptions = {
     title: {
       display: true,
-      text: 'nitro Thermocouple Real-time Data',
+      text: 'Element 7 Thermocouple Real-time Data',
       fontSize: 30
     },
     scales: {
@@ -160,6 +179,26 @@ $(document).ready(function () {
           display: false
         },
         position: 'left'
+      }]
+    }
+  }
+
+  //define options for the nitrogen generation Chart
+  var nitrogenGenerationOptions = {
+    title: {
+      display: true,
+      text: 'Element 7 Real-time Data',
+      fontSize: 30
+    },
+    scales: {
+      yAxes: [{
+        id: 'Nitrogen',
+        type: 'linear',
+        scaleLabel: {
+          labelString: 'nitrogen',
+          display: true
+        },
+        position: 'right',
       }]
     }
   }
@@ -183,7 +222,7 @@ $(document).ready(function () {
     options: pressureTransmitterOptions
   });
 
-  //Get the context of the Pressure transmitter chart canvas element.
+  //Get the context of the thermocouple chart canvas element.
   var thermocouplectx = document.getElementById("thermocoupleChartNitrogen").getContext("2d");
   var optionsNoAnimation = { animation: false }
   var thermocoupleChart = new Chart(thermocouplectx, {
@@ -192,7 +231,16 @@ $(document).ready(function () {
     options: thermocoupleOptions
   });
 
-  updateAllCharts([am2302Chart, thermocoupleChart, pressureTransmitterChart]);
+  //Get the context of the nitrogen generation chart canvas element.
+  var nitrogenGenerationctx = document.getElementById("nitrogenGenerationChartNitrogen").getContext("2d");
+  var optionsNoAnimation = { animation: false }
+  var nitrogenGenerationChart = new Chart(nitrogenGenerationctx, {
+    type: 'line',
+    data: nitronitrogenGenerationDataset,
+    options: nitrogenGenerationOptions
+  });
+
+  updateAllCharts([am2302Chart, thermocoupleChart, pressureTransmitterChart, nitrogenGenerationChart]);
 
   var ws = new WebSocket('wss://' + location.host);
   ws.onopen = function () {
@@ -248,8 +296,17 @@ $(document).ready(function () {
         if (nitrothermocoupleData.length > maxLen) {
           nitrothermocoupleData.shift();
         }
+
+        //push the nitrogen generation data if it exists and keep only 50 points in the line chart
+        if (obj.nitroGeneration) {
+          nitronitrogenGenerationData.push(obj.nitroGeneration);
+        }
+        if (nitronitrogenGenerationData.length > maxLen) {
+          nitronitrogenGenerationData.shift();
+        }
+
         //update charts with new points
-        updateAllCharts([am2302Chart, thermocoupleChart,pressureTransmitterChart]);
+        updateAllCharts([am2302Chart, thermocoupleChart, pressureTransmitterChart, nitrogenGenerationChart]);
       }
     } 
     catch (err) {
@@ -263,6 +320,7 @@ $(document).ready(function () {
     chartSaver(nitroam2302TemperatureData,"nitroam2302TemperatureData");
     chartSaver(nitrothermocoupleData,"nitrothermocoupleData");
     chartSaver(nitropressureTransmitterData,"nitropressureTransmitterData");
+    chartSaver(nitronitrogenGenerationData,"nitronitrogenGenerationData");
   }
 })
   
