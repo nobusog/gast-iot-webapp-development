@@ -131,7 +131,7 @@ $(document).ready(function () {
   var pressureTransmitterOptions = {
     title: {
       display: true,
-      text: ' nitro Pressure Transmitter Real-time Data',
+      text: 'Element 7 Tank Pressure Real-time Data',
       fontSize: 30
     },
     scales: {
@@ -142,7 +142,7 @@ $(document).ready(function () {
           labelString: 'Pressure (psi)',
           display: true
         },
-        position: 'right',
+        position: 'left',
       }]
     }
   }
@@ -159,10 +159,10 @@ $(document).ready(function () {
         id: 'Temperature',
         type: 'linear',
         scaleLabel: {
-          labelString: 'temperature (Farenheit)',
+          labelString: 'Temperature (F)',
           display: true
         },
-        position: 'right',
+        position: 'left',
       }]
     }
   }
@@ -179,10 +179,10 @@ $(document).ready(function () {
         id: 'Nitrogen',
         type: 'linear',
         scaleLabel: {
-          labelString: 'nitrogen (Standard Cubic Feet) ',
+          labelString: 'Nitrogen Generated (SCF) ',
           display: true
         },
-        position: 'right',
+        position: 'left',
       }]
     }
   }
