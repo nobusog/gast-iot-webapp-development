@@ -177,7 +177,7 @@ $(document).ready(function () {
                 nitroGeneration = obj.NitroConsumption;
                 document.getElementById("nitrogenCompressorOnTimeContainer").innerHTML= +timeOnNitro.toFixed(2) +"s";
                 document.getElementById("nitrogenDutyCycleContainer").innerHTML = +obj.dutyCycle.toFixed(2)+"%";
-                //document.getElementById("nitrogenGenerationContainer").innerHTML = +nitrogenGeneration.toFixed(2)+"scf";
+                document.getElementById("nitrogenGenerationContainer").innerHTML = +nitrogenGeneration.toFixed(2)+"scf";
 
                 if(obj.compState == 1) {
                     document.getElementById("nitrogenStateDisplay").classList.replace("btn-outline-light", "btn-success") 
