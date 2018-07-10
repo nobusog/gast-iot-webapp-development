@@ -151,7 +151,7 @@ $(document).ready(function () {
   var thermocoupleOptions = {
     title: {
       display: true,
-      text: 'Element 7 Thermocouple Real-time Data',
+      text: 'Element 7 Compressor Temperature Real-time Data',
       fontSize: 30
     },
     scales: {
@@ -159,18 +159,10 @@ $(document).ready(function () {
         id: 'Temperature',
         type: 'linear',
         scaleLabel: {
-          labelString: 'temperature',
+          labelString: 'temperature (Farenheit)',
           display: true
         },
         position: 'right',
-      },{
-        id: 'placeholder',
-        type: 'linear',
-        scaleLabel: {
-          labelString: 'placeholder',
-          display: false
-        },
-        position: 'left'
       }]
     }
   }
@@ -179,7 +171,7 @@ $(document).ready(function () {
   var nitrogenGenerationOptions = {
     title: {
       display: true,
-      text: 'Element 7 Real-time Data',
+      text: 'Element 7 Nitrogen Generation Real-time Data',
       fontSize: 30
     },
     scales: {
