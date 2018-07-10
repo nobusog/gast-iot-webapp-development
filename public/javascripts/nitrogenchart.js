@@ -143,14 +143,6 @@ $(document).ready(function () {
           display: true
         },
         position: 'right',
-      },{
-        id: 'placeholder',
-        type: 'linear',
-        scaleLabel: {
-          labelString: 'placeholder',
-          display: false
-        },
-        position: 'left'
       }]
     }
   }
