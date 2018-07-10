@@ -283,12 +283,13 @@ $(document).ready(function () {
 
         //push the nitrogen generation data if it exists and keep only 50 points in the line chart
         if (obj.nitroGeneration) {
+          console.log(nitronitrogenGenerationData)
           nitronitrogenGenerationData.push(obj.nitroGeneration);
         }
         if (nitronitrogenGenerationData.length > maxLen) {
           nitronitrogenGenerationData.shift();
         }
-        console.log(nitronitrogenGenerationData)
+        
         //update charts with new points
         updateAllCharts([am2302Chart, thermocoupleChart, pressureTransmitterChart, nitrogenGenerationChart]);
       }
