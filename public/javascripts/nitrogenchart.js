@@ -179,7 +179,7 @@ $(document).ready(function () {
         id: 'Nitrogen',
         type: 'linear',
         scaleLabel: {
-          labelString: 'nitrogen',
+          labelString: 'nitrogen (Standard Cubic Feet) ',
           display: true
         },
         position: 'right',
