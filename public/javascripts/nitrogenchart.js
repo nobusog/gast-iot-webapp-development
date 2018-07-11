@@ -286,6 +286,10 @@ $(document).ready(function () {
           console.log(nitronitrogenGenerationData)
           nitronitrogenGenerationData.push(obj.nitroGeneration);
         }
+        if (obj.nitroGeneration == 0) {
+          console.log(nitronitrogenGenerationData)
+          nitronitrogenGenerationData.push(0);
+        }
         if (nitronitrogenGenerationData.length > maxLen) {
           nitronitrogenGenerationData.shift();
         }
