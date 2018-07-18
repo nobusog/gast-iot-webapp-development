@@ -197,7 +197,7 @@ $(document).ready(function () {
   }
   
   //Get the context of the ambient conditions chart canvas element and instantiate the chart.
-  var ambientctx = document.getElementById("ambientChartJunair").getContext("2d");
+  var ambientctx = document.getElementById("ambientChartJunair1").getContext("2d");
   var optionsNoAnimation = { animation: false }
   var ambientChart = new Chart(ambientctx, {
     type: 'line',
@@ -206,7 +206,7 @@ $(document).ready(function () {
   });
 
   //Get the context of the compressor temperature chart canvas element and instantiate the chart.
-  var compressorctx = document.getElementById("compressorChartJunair").getContext("2d");
+  var compressorctx = document.getElementById("compressorChartJunair1").getContext("2d");
   var optionsNoAnimation = { animation: false }
   var compressorChart = new Chart(compressorctx, {
     type: 'line',
@@ -215,7 +215,7 @@ $(document).ready(function () {
   });
 
   //Get the context of the Pressure transmitter chart canvas element.
-  var airtankctx = document.getElementById("airtankChartJunair").getContext("2d");
+  var airtankctx = document.getElementById("airtankChartJunair1").getContext("2d");
   var optionsNoAnimation = { animation: false }
   var airtankChart = new Chart(airtankctx, {
     type: 'line',
