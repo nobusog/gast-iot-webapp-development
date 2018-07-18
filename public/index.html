@@ -33,10 +33,10 @@
                 </button>
            
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="chartSelector" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" id="chartSelector" href="#" id="navbarChartsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Charts
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu" aria-labelledby="navbarChartsDropdown">
                 <a class="dropdown-item" href="#" id="ambientButton">Ambient Conditions</a>
                 <a class="dropdown-item" href="#" id="airtankButton">Air Tank</a>
                 <a class="dropdown-item" href="#" id="compressorButton">Compressor</a>
@@ -47,16 +47,20 @@
             <li class="nav-item" id="settingsButtonContainer" data-toggle="modal" data-target="#settingsDeviceSelectModalCenter">
                     <a class="nav-link" id="settingsButton" href="#">Settings</a>
             </li>
-            </ul>
-        </div>
-        <div id="stateDisplayContainer">    
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="stateDisplaySelector" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Acitve Devices
-            </a>
-            <button id="junair1StateDisplay" type="button" class="btn btn-outline-light mx-2" disabled>Jun-Air OF302 1.0</button>
-            <button id="junair2StateDisplay" type="button" class="btn btn-outline-light mx-2" disabled>Jun-Air OF302 2.0</button>
-        </li>
+            </ul> 
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="stateDisplaySelector" href="#" id="navbarSystemsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Acitve Devices
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarSystemsDropdown"  id="stateDisplayContainer">
+                    <a class="dropdown-item" href="#">
+                        <button id="junair1StateDisplay" type="button" class="btn btn-outline-light mx-2" disabled>Jun-Air OF302 1.0</button>
+                    </a>
+                    <a class="dropdown-item" href="#"> 
+                        <button id="junair2StateDisplay" type="button" class="btn btn-outline-light mx-2" disabled>Jun-Air OF302 2.0</button>
+                    </a>    
+                </div>
+            </li>
         </div>
     </nav>
     <div id="successfulAlert" class="alert alert-success alert-dismissible fade show d-none my-1" role="alert">
