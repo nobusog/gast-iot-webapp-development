@@ -205,6 +205,10 @@ function setHeadersSettings (system) {
     }
 }
 
+/**
+ * This function takes either "junair1" or "junair2" and updates the active device dropdown accordingly.
+ * @param {string} string 
+ */
 function setActiveDevice (string) {
     switch (string) {
         case "junair1":
@@ -214,6 +218,7 @@ function setActiveDevice (string) {
             newTag.id = "junair1DisplayTemp"
             newTag.href = "#";
             newTag.innerHTML = "<button id='junair1StateDisplay' type='button' class='btn btn-outline-success mx-2' disabled>Jun-Air OF302 1.0</button>";
+            document.getElementById("navbarSystemsDropdown").disabled = false;
             break;
             
         case "junair2":
@@ -223,6 +228,7 @@ function setActiveDevice (string) {
             newTag.id = "junair2DisplayTemp"
             newTag.href = "#";
             newTag.innerHTML = "<button id='junair1StateDisplay' type='button' class='btn btn-outline-success mx-2' disabled>Jun-Air OF302 2.0</button>";
+            document.getElementById("navbarSystemsDropdown").disabled = false;
             break;
 
         default:

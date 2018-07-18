@@ -134,6 +134,10 @@ $(document).ready(function () {
     ws.onmessage = function (message) {
         try {
             var obj = JSON.parse(message.data);
+            if (document.getElementById("stateDisplayContainer").childElementCount == 0 ){
+                document.getElementById("navbarSystemsDropdown").disabled = true; 
+            }
+            
             if (obj.deviceId == "JunAir 1.0") {
                 sessionStorage.setItem("junair1CompOnTimer", Date.now())
                 timeOnJunair1 = timeOnJunair1 + obj.globalTimeOn;
@@ -143,6 +147,7 @@ $(document).ready(function () {
                 if(obj.compState == 1) {
                     sessionStorage.setItem("junair1CompState", "1");
                     document.getElementById("deviceActiveAlert").classList.remove("d-none");
+                    setActiveDevice("junair1")
                 }
                 else if (obj.compState != 1) {
                     document.getElementById("deviceActiveAlert").classList.add("d-none");
@@ -160,6 +165,7 @@ $(document).ready(function () {
                 if(obj.compState == 1) {
                     sessionStorage.setItem("junair2CompState", "1");
                     document.getElementById("deviceActiveAlert").classList.remove("d-none");
+                    setActiveDevice("junair1")
                 }
                 else if (obj.compState != 1) {
                     document.getElementById("deviceActiveAlert").classList.add("d-none");
@@ -175,7 +181,9 @@ $(document).ready(function () {
         }
     };
     
-    //show which compressor is active 
+    /**
+     * function to run when the junair1 system is clicked
+     */
     document.getElementById("junair1SelectButton").onclick = function(){
     if (this.classList.contains("active")){
         document.getElementById("deviceAlert").classList.remove("d-none");
@@ -194,6 +202,9 @@ $(document).ready(function () {
         }   
     }
     
+    /**
+     * function to run when the junair2 system button is clicked
+     */
     document.getElementById("junair2SelectButton").onclick = function(){
         if (this.classList.contains("active")){
             document.getElementById("deviceAlert").classList.remove("d-none");
