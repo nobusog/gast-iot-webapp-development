@@ -100,11 +100,11 @@ function systemsCompStateUpdate() {
  */
 function readCompState() {
     if (sessionStorage.getItem("junair1CompState") == 0) {
-        document.getElementById("junair1StateDisplay").classList.replace("btn-success", "btn-outline-light");
+        document.getElementById("junair1StateDisplay").classList.replace("btn-success", "btn-outline-secondary");
         document.getElementById("junair1StateDisplay").disabled = true;
     }
     if (sessionStorage.getItem("junair2CompState") == 0) {
-        document.getElementById("junair2StateDisplay").classList.replace("btn-success", "btn-outline-light");
+        document.getElementById("junair2StateDisplay").classList.replace("btn-success", "btn-outline-secondary");
         document.getElementById("junair2StateDisplay").disabled = true;
     }
 }

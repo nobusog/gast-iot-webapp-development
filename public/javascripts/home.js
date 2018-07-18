@@ -141,12 +141,12 @@ $(document).ready(function () {
                 document.getElementById("junair1DutyCycleContainer").innerHTML = +obj.dutyCycle.toFixed(2)+"%";
 
                 if(obj.compState == 1) {
-                    document.getElementById("junair1StateDisplay").classList.replace("btn-outline-light", "btn-success") 
+                    document.getElementById("junair1StateDisplay").classList.replace("btn-outline-secondary", "btn-success") 
                     document.getElementById("junair1StateDisplay").disabled = false;
                     sessionStorage.setItem("junair1CompState", "1");
                 }
                 else if (obj.compState != 1) {
-                    document.getElementById("junair1StateDisplay").classList.replace("btn-success", "btn-outline-light")
+                    document.getElementById("junair1StateDisplay").classList.replace("btn-success", "btn-outline-secondary")
                     document.getElementById("junair1StateDisplay").disabled = true;
                 }
                
@@ -157,12 +157,12 @@ $(document).ready(function () {
                 document.getElementById("junair2DutyCycleContainer").innerHTML = +obj.dutyCycle.toFixed(2)+"%";
 
                 if(obj.compState == 1) {
-                    document.getElementById("junair2StateDisplay").classList.replace("btn-outline-light", "btn-success") 
+                    document.getElementById("junair2StateDisplay").classList.replace("btn-outline-secondary", "btn-success") 
                     document.getElementById("junair2StateDisplay").disabled = false;
                     sessionStorage.setItem("junair2CompState", "1");
                 }
                 else if (obj.compState != 1) {
-                    document.getElementById("junair2StateDisplay").classList.replace("btn-success", "btn-outline-light")
+                    document.getElementById("junair2StateDisplay").classList.replace("btn-success", "btn-outline-secondary")
                     document.getElementById("junair2StateDisplay").disabled = true;
                 }
                
