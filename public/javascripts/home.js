@@ -141,15 +141,14 @@ $(document).ready(function () {
                 document.getElementById("junair1DutyCycleContainer").innerHTML = +obj.dutyCycle.toFixed(2)+"%";
 
                 if(obj.compState == 1) {
-                    document.getElementById("junair1StateDisplay").classList.replace("btn-outline-secondary", "btn-success") 
-                    document.getElementById("junair1StateDisplay").disabled = false;
                     sessionStorage.setItem("junair1CompState", "1");
                     document.getElementById("deviceActiveAlert").classList.remove("d-none");
                 }
                 else if (obj.compState != 1) {
-                    document.getElementById("junair1StateDisplay").classList.replace("btn-success", "btn-outline-secondary")
-                    document.getElementById("junair1StateDisplay").disabled = true;
                     document.getElementById("deviceActiveAlert").classList.add("d-none");
+                    if (document.getElementById("junair1DisplayTemp")) {
+                        document.getElementById("stateDisplayContainer").removeChild(this)
+                    }
                 }
                
             } else if  (obj.deviceId == "JunAir 2.0") {
@@ -159,15 +158,14 @@ $(document).ready(function () {
                 document.getElementById("junair2DutyCycleContainer").innerHTML = +obj.dutyCycle.toFixed(2)+"%";
 
                 if(obj.compState == 1) {
-                    document.getElementById("junair2StateDisplay").classList.replace("btn-outline-secondary", "btn-success") 
-                    document.getElementById("junair2StateDisplay").disabled = false;
                     sessionStorage.setItem("junair2CompState", "1");
                     document.getElementById("deviceActiveAlert").classList.remove("d-none");
                 }
                 else if (obj.compState != 1) {
-                    document.getElementById("junair2StateDisplay").classList.replace("btn-success", "btn-outline-secondary")
-                    document.getElementById("junair2StateDisplay").disabled = true;
                     document.getElementById("deviceActiveAlert").classList.add("d-none");
+                    if (document.getElementById("junair2DisplayTemp")) {
+                        document.getElementById("stateDisplayContainer").removeChild(this)
+                    }
                 }
                
             }
@@ -176,10 +174,6 @@ $(document).ready(function () {
             console.error(err);
         }
     };
-
-    //makesure if compressor is off, buttons dont say otherwise
-    setInterval(setCompOff,100);
-    setInterval(readCompState,100);
     
     //show which compressor is active 
     document.getElementById("junair1SelectButton").onclick = function(){

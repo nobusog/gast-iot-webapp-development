@@ -241,7 +241,6 @@ $(document).ready(function () {
   ws.onmessage = function (message) {
     try {
       var obj = JSON.parse(message.data);
-
       if (obj.deviceId == "JunAir 1.0") {
         if (!obj.time || !obj.thermocoupleTemperature) {
           return;
