@@ -52,15 +52,15 @@ function updateAllCharts (array){
 function isCompOff (system) {
     var currentTime = Date.now();
     switch (system) {
-        case "junair":
-            var junairLastTime = sessionStorage.getItem("junairCompOnTimer");
-            if ((currentTime - junairLastTime) > 5000) {
+        case "junair1":
+            var junair1LastTime = sessionStorage.getItem("junair1CompOnTimer");
+            if ((currentTime - junair1LastTime) > 5000) {
                 return true;
             }
             break;
-        case "nitrogen":
-            var nitrogenLastTime = sessionStorage.getItem("nitrogenCompOnTimer");
-            if ((currentTime - nitrogenLastTime) > 5000) {
+        case "junair2":
+            var junair2LastTime = sessionStorage.getItem("junair2CompOnTimer");
+            if ((currentTime - junair2LastTime) > 5000) {
                 return true;
             }
             break;
@@ -72,26 +72,26 @@ function isCompOff (system) {
  * in the users session storage to 0.
  */
 function setCompOff () {
-    if (isCompOff("junair")) {
-        sessionStorage.setItem("junairCompState", 0);
+    if (isCompOff("junair1")) {
+        sessionStorage.setItem("junair1CompState", 0);
     }
-    if (isCompOff("nitrogen")) {
-        sessionStorage.setItem("nitrogenCompState", 0);
+    if (isCompOff("junair2")) {
+        sessionStorage.setItem("junair2CompState", 0);
 }}
 /**
  * This function updates the users screen when any of the systems turn off by sending them to another 
  * more relevant page.
  */
 function systemsCompStateUpdate() {
-    if (isCompOff("junair") && !isCompOff("nitrogen")) {
-        document.getElementById("junairSystemContainer").classList.add("d-none");
-        document.getElementById("nitrogenSystemContainer").classList.remove("d-none");
+    if (isCompOff("junair1") && !isCompOff("junair2")) {
+        document.getElementById("junair1SystemContainer").classList.add("d-none");
+        document.getElementById("junair2SystemContainer").classList.remove("d-none");
     }
-    if (isCompOff("nitrogen") && !isCompOff("junair")) {
-        document.getElementById("nitrogenSystemContainer").classList.add("d-none");
-        document.getElementById("junairSystemContainer").classList.remove("d-none");
+    if (isCompOff("junair2") && !isCompOff("junair")) {
+        document.getElementById("junair2SystemContainer").classList.add("d-none");
+        document.getElementById("junair1SystemContainer").classList.remove("d-none");
     }
-    if (isCompOff("junair") && isCompOff("nitrogen")){
+    if (isCompOff("junair1") && isCompOff("junair2")){
         document.getElementById("homeButton").click();
 }}
 /**
@@ -99,13 +99,13 @@ function systemsCompStateUpdate() {
  * turns off and dsiabled the display button located on the main navbar.
  */
 function readCompState() {
-    if (sessionStorage.getItem("junairCompState") == 0) {
-        document.getElementById("junairStateDisplay").classList.replace("btn-success", "btn-outline-light");
-        document.getElementById("junairStateDisplay").disabled = true;
+    if (sessionStorage.getItem("junair1CompState") == 0) {
+        document.getElementById("junair1StateDisplay").classList.replace("btn-success", "btn-outline-light");
+        document.getElementById("junair1StateDisplay").disabled = true;
     }
-    if (sessionStorage.getItem("nitrogenCompState") == 0) {
-        document.getElementById("nitrogenStateDisplay").classList.replace("btn-success", "btn-outline-light");
-        document.getElementById("nitrogenStateDisplay").disabled = true;
+    if (sessionStorage.getItem("junair2CompState") == 0) {
+        document.getElementById("junair2StateDisplay").classList.replace("btn-success", "btn-outline-light");
+        document.getElementById("junair2StateDisplay").disabled = true;
     }
 }
 /**
@@ -146,11 +146,11 @@ function unsuccessfulAlert (words) {
  * @param {string} selected 
  */
 function closeAllCharts (selected) {
-    if (selected === "junair") {
-        divList = document.getElementById("junair").getElementsByTagName("div"); 
+    if (selected === "junair1") {
+        divList = document.getElementById("junair1").getElementsByTagName("div"); 
     }
-    else if (selected === "nitrogen") {
-        divList = document.getElementById("nitrogen").getElementsByTagName("div"); 
+    else if (selected === "junair2") {
+        divList = document.getElementById("junair2").getElementsByTagName("div"); 
     }
     for (var i=0; i<divList.length; i++) {
         if (divList[i].classList.contains("chartContainer")) {
@@ -194,13 +194,11 @@ function removeChart (chart) {
  */
 function setHeadersSettings (system) {
     switch (system) {
-        case "junair":
-            document.getElementById("settingsQuickStatsHeader").innerText = "Jun-Air Quick Stat Settings";
-            document.getElementById("settingsReportsHeader").innerText = "Jun-Air Report Settings";
+        case "junair1":
+            document.getElementById("settingsReportsHeader").innerText = "Jun-Air1 Report Settings";
             break;
-        case "nitrogen":
-            document.getElementById("settingsQuickStatsHeader").innerText = "NitroGen Quick Stat Settings";
-            document.getElementById("settingsReportsHeader").innerText = "NitroGen Report Settings";
+        case "junair2":
+            document.getElementById("settingsReportsHeader").innerText = "junair2 Report Settings";
             break;
         default:
             unsuccessfulAlert("errorr in selecting system");

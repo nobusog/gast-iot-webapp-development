@@ -8,30 +8,30 @@ $(document).ready(function () {
         document.getElementById("settingsPage").classList.remove("d-none");
         document.getElementById("homeButtonContainer").classList.remove("active");
         document.getElementById("settingsButtonContainer").classList.add("active"); 
-        if (document.getElementById("settingsJunairSelectButton").classList.contains("active")) {
-            setHeadersSettings("junair");
+        if (document.getElementById("settingsJunair1SelectButton").classList.contains("active")) {
+            setHeadersSettings("junair1");
         }    
-        else if (document.getElementById("settingsNitrogenSelectButton").classList.contains("active")) {
-            setHeadersSettings("nitrogen");
+        else if (document.getElementById("settingsJunair2SelectButton").classList.contains("active")) {
+            setHeadersSettings("junair2");
         }
     }
 
-    document.getElementById("settingsJunairSelectButton").onclick = function() {
-        document.getElementById("settingsJunairSelectButton").classList.replace("btn-secondary", "btn-primary");
-        document.getElementById("settingsNitrogenSelectButton").classList.replace("btn-primary", "btn-secondary");
-        document.getElementById("settingsJunairSelectButton").classList.add("active");
-        document.getElementById("settingsNitrogenSelectButton").classList.remove("active");
-        deviceIdVal = "junair";
-        setHeadersSettings("junair");
+    document.getElementById("settingsJunair1SelectButton").onclick = function() {
+        document.getElementById("settingsJunair1SelectButton").classList.replace("btn-secondary", "btn-primary");
+        document.getElementById("settingsJunair2SelectButton").classList.replace("btn-primary", "btn-secondary");
+        document.getElementById("settingsJunair1SelectButton").classList.add("active");
+        document.getElementById("settingsJunair2SelectButton").classList.remove("active");
+        deviceIdVal = "junair1";
+        setHeadersSettings("junair1");
     }
 
-    document.getElementById("settingsNitrogenSelectButton").onclick = function() {
-        document.getElementById("settingsNitrogenSelectButton").classList.add("active");
-        document.getElementById("settingsJunairSelectButton").classList.remove("active");
-        document.getElementById("settingsNitrogenSelectButton").classList.replace("btn-secondary", "btn-primary");
-        document.getElementById("settingsJunairSelectButton").classList.replace("btn-primary", "btn-secondary");
-        deviceIdVal = "nitrogen";
-        setHeadersSettings("nitrogen");   
+    document.getElementById("settingsJunair2SelectButton").onclick = function() {
+        document.getElementById("settingsJunair2SelectButton").classList.add("active");
+        document.getElementById("settingsJunair1SelectButton").classList.remove("active");
+        document.getElementById("settingsJunair2SelectButton").classList.replace("btn-secondary", "btn-primary");
+        document.getElementById("settingsJunair1SelectButton").classList.replace("btn-primary", "btn-secondary");
+        deviceIdVal = "junair2";
+        setHeadersSettings("junair2");   
     }
 
     document.getElementById("quickStatSettingsTab").onclick = function() {
@@ -127,38 +127,4 @@ $(document).ready(function () {
         xhr.send(JSON.stringify({"devicdeId": deviceIdVal, "email": emailVal}));
 
     }
-    document.getElementById("quickStatsCustomizer").onchange = function() {
-        var maxSelected = 6;
-        var allElements = this.querySelectorAll('input[type="checkbox"]')
-        var selectedElements = this.querySelectorAll('input[type="checkbox"]:checked');
-        var unSelectedElements = this.querySelectorAll('input[type="checkbox"]:not(:checked)');
-
-        if (selectedElements.length >= 5) {
-            for (var i=0; i<unSelectedElements.length; i++){
-                if (unSelectedElements[i]) {
-                    unSelectedElements[i].disabled = true;
-        }}}
-        else {
-            for (var i=0; i<allElements.length; i++){
-                if (allElements[i]) {
-                    allElements[i].disabled = false;
-        }}}
-    }
-
-    document.getElementById("quickStatsCustomizer").onsubmit = function(e) {
-        e.preventDefault();
-
-        var selectedElements = this.querySelectorAll('input[type="checkbox"]:checked');
-        if (document.getElementById("settingsJunairSelectButton").classList.contains("active")) {
-            var carouselElemnts = document.getElementById("junairCarouselContainer").getElementsByTagName("p");
-        }
-        else if (document.getElementById("settingsNitrogenSelectButton").classList.contains("active")){
-            var carouselElemnts = document.getElementById("nitrogenCarouselContainer").getElementsByTagName("p");
-        }
-        
-        for (var i=0; i<selectedElements.length; i++) {
-            carouselElemnts[i].innerHTML = selectedElements[i].value;
-        }
-    }
-
 });

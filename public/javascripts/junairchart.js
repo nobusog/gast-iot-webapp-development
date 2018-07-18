@@ -1,28 +1,28 @@
 $(document).ready(function () {
 
   //creating arrays for the different data streams
-    timeData = [],
-    am2302TemperatureData = [],
-    am2302HumidityData = [],
-    pressureTransmitterData = [], 
-    thermocoupleData = [],
-    sht20TemperatureData = [],
-    sht20HumidityData = [];
+    junair1TimeData = [],
+    junair1Am2302TemperatureData = [],
+    junair1Am2302HumidityData = [],
+    junair1PressureTransmitterData = [], 
+    junair1ThermocoupleData = [],
+    junair1Sht20TemperatureData = [],
+    junair1Sht20HumidityData = [];
   
   (function chartDump (){
-    chartDumper(timeData,"timeData")
-    chartDumper(am2302HumidityData,"am2302HumidityData");
-    chartDumper(am2302TemperatureData,"am2302TemperatureData");
-    chartDumper(thermocoupleData,"thermocoupleData");
-    chartDumper(sht20TemperatureData,"sht20TemperatureData");
-    chartDumper(sht20HumidityData,"sht20HumidityData");
-    chartDumper(pressureTransmitterData,"pressureTransmitterData");
+    chartDumper(junair1TimeData,"junair1TimeData")
+    chartDumper(junair1Am2302HumidityData,"junair1Am2302HumidityData");
+    chartDumper(junair1Am2302TemperatureData,"junair1Am2302TemperatureData");
+    chartDumper(junair1ThermocoupleData,"junair1ThermocoupleData");
+    chartDumper(junair1Sht20TemperatureData,"junair1Sht20TemperatureData");
+    chartDumper(junair1Sht20HumidityData,"junair1Sht20HumidityData");
+    chartDumper(junair1PressureTransmitterData,"junair1PressureTransmitterData");
   })();
 
 
-  //datasets for the am2302 sensor chart 
-  var am2302Dataset = {
-    labels: timeData,
+  //datasets for the ambient conditions chart 
+  var ambientConditionDataset = {
+    labels: junair1TimeData,
     datasets: [
       {
       fill: false,
@@ -33,7 +33,7 @@ $(document).ready(function () {
       backgroundColor: "rgba(255, 204, 0, 0.4)",
       pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
       pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-      data: am2302TemperatureData 
+      data: junair1Am2302TemperatureData 
     },
     {
       fill: false,
@@ -44,15 +44,25 @@ $(document).ready(function () {
       backgroundColor: "rgba(24, 120, 240, 0.4)",
       pointHoverBackgroundColor: "rgba(24, 120, 240, 1)",
       pointHoverBorderColor: "rgba(24, 120, 240, 1)",
-      data: am2302HumidityData
+      data: junair1Am2302HumidityData
     }]
   }
-
-  //datasets for the pressure transmitter chart 
-  var pressureTransmitterDataset = {
-    labels: timeData,
+  //datasets for the airtank conditions chart 
+  var airTankConditionDataset = {
+    labels: junair1TimeData,
     datasets: [
       {
+      fill: false,
+      label: 'Temperature',
+      yAxisID: 'Temperature',
+      borderColor: "rgba(255, 204, 0, 1)",
+      pointBoarderColor: "rgba(255, 204, 0, 1)",
+      backgroundColor: "rgba(255, 204, 0, 0.4)",
+      pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
+      pointHoverBorderColor: "rgba(255, 204, 0, 1)",
+      data: junair1Sht20TemperatureData 
+    },
+    {
       fill: false,
       label: 'Pressure',
       yAxisID: 'Pressure',
@@ -61,41 +71,7 @@ $(document).ready(function () {
       backgroundColor: "rgba(255, 204, 0, 0.4)",
       pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
       pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-      data: pressureTransmitterData 
-    }]
-  }
-
-  //datasets for the thermomocouple chart 
-  var thermocoupleDataset = {
-    labels: timeData,
-    datasets: [
-      {
-      fill: false,
-      label: 'Temperature',
-      yAxisID: 'Temperature',
-      borderColor: "rgba(255, 204, 0, 1)",
-      pointBoarderColor: "rgba(255, 204, 0, 1)",
-      backgroundColor: "rgba(255, 204, 0, 0.4)",
-      pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
-      pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-      data: thermocoupleData 
-    }]
-  }
-
-  //datasets for the sht sensor chart 
-  var sht20Dataset = {
-    labels: timeData,
-    datasets: [
-      {
-      fill: false,
-      label: 'Temperature',
-      yAxisID: 'Temperature',
-      borderColor: "rgba(255, 204, 0, 1)",
-      pointBoarderColor: "rgba(255, 204, 0, 1)",
-      backgroundColor: "rgba(255, 204, 0, 0.4)",
-      pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
-      pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-      data: sht20TemperatureData 
+      data: junair1PressureTransmitterData 
     },
     {
       fill: false,
@@ -106,18 +82,32 @@ $(document).ready(function () {
       backgroundColor: "rgba(24, 120, 240, 0.4)",
       pointHoverBackgroundColor: "rgba(24, 120, 240, 1)",
       pointHoverBorderColor: "rgba(24, 120, 240, 1)",
-      data: sht20HumidityData
+      data: junair1Sht20HumidityData
     }]
   }
 
+  //datasets for the compressor chart 
+  var compressorTemperatureDataset = {
+    labels: junair1TimeData,
+    datasets: [
+      {
+      fill: false,
+      label: 'Temperature',
+      yAxisID: 'Temperature',
+      borderColor: "rgba(255, 204, 0, 1)",
+      pointBoarderColor: "rgba(255, 204, 0, 1)",
+      backgroundColor: "rgba(255, 204, 0, 0.4)",
+      pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
+      pointHoverBorderColor: "rgba(255, 204, 0, 1)",
+      data: junair1ThermocoupleData 
+    }]
+  }
 
-  
-
-  //define options for the AM2302 Sensor Chart
-  var am2302SensorOptions = {
+  //define options for the ambient conditions Chart
+  var ambientConditionOptions = {
     title: {
       display: true,
-      text: 'AM2302 Sensor Real-time Data',
+      text: 'Ambient Conditions',
       fontSize: 30
     },
     scales: {
@@ -142,76 +132,27 @@ $(document).ready(function () {
     }
   }
 
-  //define options for the Pressure Transmitter Chart
-  var pressureTransmitterOptions = {
+  //define options for the air tank conditions Chart
+  var airTankConditionOptions = {
     title: {
       display: true,
-      text: 'Pressure Transmitter Real-time Data',
+      text: 'Air Tank Conditions',
       fontSize: 30
     },
     scales: {
       yAxes: [{
+        id: 'Temperature',
+        type: 'linear',
+        scaleLabel: {
+          labelString: 'temperature',
+          display: true
+        },
+        position: 'right',
+      },{
         id: 'Pressure',
         type: 'linear',
         scaleLabel: {
           labelString: 'Pressure (psi)',
-          display: true
-        },
-        position: 'right',
-      },{
-        id: 'placeholder',
-        type: 'linear',
-        scaleLabel: {
-          labelString: 'placeholder',
-          display: false
-        },
-        position: 'left'
-      }]
-    }
-  }
-
-  //define options for the Thermocouple Chart
-  var thermocoupleOptions = {
-    title: {
-      display: true,
-      text: 'Thermocouple Real-time Data',
-      fontSize: 30
-    },
-    scales: {
-      yAxes: [{
-        id: 'Temperature',
-        type: 'linear',
-        scaleLabel: {
-          labelString: 'temperature',
-          display: true
-        },
-        position: 'right',
-      },{
-        id: 'placeholder',
-        type: 'linear',
-        scaleLabel: {
-          labelString: 'placeholder',
-          display: false
-        },
-        position: 'left'
-      }]
-    }
-  }
-  
-  
-  //define options for the sht Chart
-  var sht20Options = {
-    title: {
-      display: true,
-      text: 'SHT Sensor Real-time Data',
-      fontSize: 30
-    },
-    scales: {
-      yAxes: [{
-        id: 'Temperature',
-        type: 'linear',
-        scaleLabel: {
-          labelString: 'temperature',
           display: true
         },
         position: 'right',
@@ -226,41 +167,60 @@ $(document).ready(function () {
       }]
     }
   }
-
-  //Get the context of the AM2302 sensor chart canvas element.
-  var am2302ctx = document.getElementById("am2302ChartJunair").getContext("2d");
+  
+  //define options for the compressor temperature Chart
+  var compressorTemperatureOptions = {
+    title: {
+      display: true,
+      text: 'Compressor Temperature',
+      fontSize: 30
+    },
+    scales: {
+      yAxes: [{
+        id: 'Temperature',
+        type: 'linear',
+        scaleLabel: {
+          labelString: 'temperature',
+          display: true
+        },
+        position: 'right',
+      },{
+        id: 'placeholder',
+        type: 'linear',
+        scaleLabel: {
+          labelString: 'placeholder',
+          display: false
+        },
+        position: 'left'
+      }]
+    }
+  }
+  
+  //Get the context of the ambient conditions chart canvas element and instantiate the chart.
+  var ambientctx = document.getElementById("ambientChartJunair").getContext("2d");
   var optionsNoAnimation = { animation: false }
-  var am2302Chart = new Chart(am2302ctx, {
+  var ambientChart = new Chart(ambientctx, {
     type: 'line',
-    data: am2302Dataset,
-    options: am2302SensorOptions
+    data: ambientConditionDataset,
+    options: ambientConditionOptions
+  });
+
+  //Get the context of the compressor temperature chart canvas element and instantiate the chart.
+  var compressorctx = document.getElementById("compressorChartJunair").getContext("2d");
+  var optionsNoAnimation = { animation: false }
+  var compressorChart = new Chart(compressorctx, {
+    type: 'line',
+    data: compressorTemperatureDataset,
+    options: compressorTemperatureOptions
   });
 
   //Get the context of the Pressure transmitter chart canvas element.
-  var pressuretransmitterctx = document.getElementById("pressureTransmitterJunair").getContext("2d");
+  var airtankctx = document.getElementById("airtankChartJunair").getContext("2d");
   var optionsNoAnimation = { animation: false }
-  var pressureTransmitterChart = new Chart(pressuretransmitterctx, {
+  var airtankChart = new Chart(airtankctx, {
     type: 'line',
-    data: pressureTransmitterDataset,
-    options: pressureTransmitterOptions
-  });
-
-  //Get the context of the Pressure transmitter chart canvas element.
-  var thermocouplectx = document.getElementById("thermocoupleChartJunair").getContext("2d");
-  var optionsNoAnimation = { animation: false }
-  var thermocoupleChart = new Chart(thermocouplectx, {
-    type: 'line',
-    data: thermocoupleDataset,
-    options: thermocoupleOptions
-  });
-
-  //Get the context of the Pressure transmitter chart canvas element.
-  var sht20ctx = document.getElementById("sht20ChartJunair").getContext("2d");
-  var optionsNoAnimation = { animation: false }
-  var sht20Chart = new Chart(sht20ctx, {
-    type: 'line',
-    data: sht20Dataset,
-    options: sht20Options
+    data: airTankConditionDataset,
+    options: airTankConditionOptions
   });
   
   function updateAllCharts (array){
@@ -269,7 +229,7 @@ $(document).ready(function () {
     }
   }
 
-  updateAllCharts([am2302Chart, thermocoupleChart, sht20Chart, pressureTransmitterChart]);
+  updateAllCharts([ambientChart,compressorChart,airtankChart]);
 
   var ws = new WebSocket('wss://' + location.host);
   ws.onopen = function () {
@@ -282,69 +242,69 @@ $(document).ready(function () {
     try {
       var obj = JSON.parse(message.data);
 
-      if (obj.deviceId == "JunAir Pi - Python") {
+      if (obj.deviceId == "JunAir 1.0") {
         if (!obj.time || !obj.thermocoupleTemperature) {
           return;
         }
-        timeData.push(obj.displayTime);
+        junair1TimeData.push(obj.displayTime);
 
         // only keep no more than 50 points in the line chart
         const maxLen = 50;
-        var len = timeData.length;
+        var len = junair1TimeData.length;
         if (len > maxLen) {
-          timeData.shift();
+          junair1TimeData.shift();
         }
 
         //push the am2302 humiduty data if it exists and keep only 50 points in the line chart
         if (obj.am2302Humidity) {
-          am2302HumidityData.push(obj.am2302Humidity);
+          junair1Am2302HumidityData.push(obj.am2302Humidity);
         }
-        if (am2302HumidityData.length > maxLen) {
-          am2302HumidityData.shift();
+        if (junair1Am2302HumidityData.length > maxLen) {
+          junair1Am2302HumidityData.shift();
         }
 
         //push the am2302 temperature data if it exists and keep only 50 points in the line chart
         if (obj.am2302Temperature) {
-          am2302TemperatureData.push(obj.am2302Temperature);
+          junair1Am2302TemperatureData.push(obj.am2302Temperature);
         }
-        if (am2302TemperatureData.length > maxLen) {
-          am2302TemperatureData.shift();
+        if (junair1Am2302TemperatureData.length > maxLen) {
+          junair1Am2302TemperatureData.shift();
         }
 
         //push the pressure transmitter data if it exists and keep only 50 points in the line chart
         if (obj.transducerPressure) {
-          pressureTransmitterData.push(obj.transducerPressure);
+          junair1PressureTransmitterData.push(obj.transducerPressure);
         }
-        if (pressureTransmitterData.length > maxLen) {
-          pressureTransmitterData.shift();
+        if (junair1PressureTransmitterData.length > maxLen) {
+          junair1PressureTransmitterData.shift();
         }
 
         //push the pressure transmitter data if it exists and keep only 50 points in the line chart
         if (obj.thermocoupleTemperature) {
-          thermocoupleData.push(obj.thermocoupleTemperature);
+          junair1ThermocoupleData.push(obj.thermocoupleTemperature);
         }
-        if (thermocoupleData.length > maxLen) {
-          thermocoupleData.shift();
+        if (junair1ThermocoupleData.length > maxLen) {
+          junair1ThermocoupleData.shift();
         }
 
         //push the sht temperature data if it exists and keep only 50 points in the line chart
         if (obj.sht20Temperature) {
-          sht20TemperatureData.push(obj.sht20Temperature);
+          junair1Sht20TemperatureData.push(obj.sht20Temperature);
         }
-        if (sht20TemperatureData.length > maxLen) {
-          sht20TemperatureData.shift();
+        if (junair1Sht20TemperatureData.length > maxLen) {
+          junair1Sht20TemperatureData.shift();
         }
 
         //push the pressure transmitter data if it exists and keep only 50 points in the line chart
         if (obj.sht20Humidity) {
-          sht20HumidityData.push(obj.sht20Humidity);
+          junair1Sht20HumidityData.push(obj.sht20Humidity);
         }
-        if (sht20HumidityData.length > maxLen) {
-          sht20HumidityData.shift();
+        if (junair1Sht20HumidityData.length > maxLen) {
+          junair1Sht20HumidityData.shift();
         }
 
         //update charts with new points
-        updateAllCharts([am2302Chart, thermocoupleChart, sht20Chart, pressureTransmitterChart]);
+        updateAllCharts([ambientChart,compressorChart,airtankChart]);
       } 
     }
     catch (err) {
@@ -353,12 +313,12 @@ $(document).ready(function () {
   }
   
   window.onunload = function() {
-    chartSaver(timeData,"timeData")
-    chartSaver(am2302HumidityData,"am2302HumidityData");
-    chartSaver(am2302TemperatureData,"am2302TemperatureData");
-    chartSaver(thermocoupleData,"thermocoupleData");
-    chartSaver(sht20TemperatureData,"sht20TemperatureData");
-    chartSaver(sht20HumidityData,"sht20HumidityData");
-    chartSaver(pressureTransmitterData,"pressureTransmitterData");
+    chartSaver(junair1TimeData,"junair1TimeData")
+    chartSaver(junair1Am2302HumidityData,"junair1Am2302HumidityData");
+    chartSaver(junair1Am2302TemperatureData,"junair1Am2302TemperatureData");
+    chartSaver(junair1ThermocoupleData,"junair1ThermocoupleData");
+    chartSaver(junair1Sht20TemperatureData,"junair1Sht20TemperatureData");
+    chartSaver(junair1Sht20HumidityData,"junair1Sht20HumidityData");
+    chartSaver(junair1PressureTransmitterData,"junair1PressureTransmitterData");
   }
 })
