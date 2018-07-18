@@ -144,10 +144,12 @@ $(document).ready(function () {
                     document.getElementById("junair1StateDisplay").classList.replace("btn-outline-secondary", "btn-success") 
                     document.getElementById("junair1StateDisplay").disabled = false;
                     sessionStorage.setItem("junair1CompState", "1");
+                    document.getElementById("deviceActiveAlert").classList.remove("d-none");
                 }
                 else if (obj.compState != 1) {
                     document.getElementById("junair1StateDisplay").classList.replace("btn-success", "btn-outline-secondary")
                     document.getElementById("junair1StateDisplay").disabled = true;
+                    document.getElementById("deviceActiveAlert").classList.add("d-none");
                 }
                
             } else if  (obj.deviceId == "JunAir 2.0") {
@@ -160,10 +162,12 @@ $(document).ready(function () {
                     document.getElementById("junair2StateDisplay").classList.replace("btn-outline-secondary", "btn-success") 
                     document.getElementById("junair2StateDisplay").disabled = false;
                     sessionStorage.setItem("junair2CompState", "1");
+                    document.getElementById("deviceActiveAlert").classList.remove("d-none");
                 }
                 else if (obj.compState != 1) {
                     document.getElementById("junair2StateDisplay").classList.replace("btn-success", "btn-outline-secondary")
                     document.getElementById("junair2StateDisplay").disabled = true;
+                    document.getElementById("deviceActiveAlert").classList.add("d-none");
                 }
                
             }
