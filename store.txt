@@ -38,3 +38,16 @@
     var nitrogenObserverTarget = document.getElementById("nitrogenStateDisplay");
     junairDisplayStateObserver.observe(junairObserverTarget, displayStateConfig);
     nitrogenDisplayStateObserver.observe(nitrogenObserverTarget, displayStateConfig);
+
+
+
+
+
+
+
+    <a class="dropdown-item" href="#">
+                        <button id="junair1StateDisplay" type="button" class="btn btn-outline-light mx-2" disabled>Jun-Air OF302 1.0</button>
+                    </a>
+                    <a class="dropdown-item" href="#"> 
+                        <button id="junair2StateDisplay" type="button" class="btn btn-outline-light mx-2" disabled>Jun-Air OF302 2.0</button>
+                    </a>    

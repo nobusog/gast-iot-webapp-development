@@ -33,12 +33,7 @@ $(document).ready(function () {
         deviceIdVal = "junair2";
         setHeadersSettings("junair2");   
     }
-
-    document.getElementById("quickStatSettingsTab").onclick = function() {
-        hideAllTabs ();
-        document.getElementById("quickStatsSettings").classList.remove("d-none");
-    }
-
+    
     document.getElementById("reportsSettingsTab").onclick = function() {
         hideAllTabs ();
         document.getElementById("reportsSettings").classList.remove("d-none");
