@@ -147,7 +147,9 @@ $(document).ready(function () {
                 if(obj.compState == 1) {
                     sessionStorage.setItem("junair1CompState", "1");
                     document.getElementById("deviceActiveAlert").classList.remove("d-none");
-                    setActiveDevice("junair1")
+                    if (!document.getElementById("junair1StateDisplay")) {
+                        setActiveDevice("junair1")
+                    }    
                 }
                 else if (obj.compState != 1) {
                     document.getElementById("deviceActiveAlert").classList.add("d-none");
@@ -165,7 +167,9 @@ $(document).ready(function () {
                 if(obj.compState == 1) {
                     sessionStorage.setItem("junair2CompState", "1");
                     document.getElementById("deviceActiveAlert").classList.remove("d-none");
-                    setActiveDevice("junair1")
+                    if (!document.getElementById("junair2StateDisplay")) {
+                        setActiveDevice("junair2")
+                    }
                 }
                 else if (obj.compState != 1) {
                     document.getElementById("deviceActiveAlert").classList.add("d-none");
