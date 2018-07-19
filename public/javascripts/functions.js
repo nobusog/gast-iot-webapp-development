@@ -215,20 +215,20 @@ function setActiveDevice (string) {
             var newTag = document.createElement("a");
             document.getElementById("stateDisplayContainer").appendChild(newTag);
             newTag.classList.add("dropdown-item");
-            newTag.id = "junair1DisplayTemp"
+            newTag.id = "junair1DisplayTemp";
             newTag.href = "#";
             newTag.innerHTML = "<button id='junair1StateDisplay' type='button' class='btn btn-outline-success mx-2' disabled>Jun-Air OF302 1.0</button>";
-            document.getElementById("navbarSystemsDropdown").disabled = false;
+            document.getElementById("navbarSystemsDropdown").classList.remove("disabled");
             break;
             
         case "junair2":
             var newTag = document.createElement("a");
             document.getElementById("stateDisplayContainer").appendChild(newTag);
             newTag.classList.add("dropdown-item");
-            newTag.id = "junair2DisplayTemp"
+            newTag.id = "junair2DisplayTemp";
             newTag.href = "#";
             newTag.innerHTML = "<button id='junair1StateDisplay' type='button' class='btn btn-outline-success mx-2' disabled>Jun-Air OF302 2.0</button>";
-            document.getElementById("navbarSystemsDropdown").disabled = false;
+            document.getElementById("navbarSystemsDropdown").classList.remove("disabled");
             break;
 
         default:

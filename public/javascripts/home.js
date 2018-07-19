@@ -135,7 +135,7 @@ $(document).ready(function () {
         try {
             var obj = JSON.parse(message.data);
             if (document.getElementById("stateDisplayContainer").childElementCount == 0 ){
-                document.getElementById("navbarSystemsDropdown").disabled = true; 
+                document.getElementById("navbarSystemsDropdown").classList.add("disabled");
             }
             
             if (obj.deviceId == "JunAir 1.0") {
