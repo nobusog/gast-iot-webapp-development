@@ -154,7 +154,7 @@ $(document).ready(function () {
                 else if (obj.compState != 1) {
                     document.getElementById("deviceActiveAlert").classList.add("d-none");
                     if (document.getElementById("junair1DisplayTemp")) {
-                        document.getElementById("stateDisplayContainer").removeChild(this)
+                        document.getElementById("stateDisplayContainer").removeChild(document.getElementById("junair1DisplayTemp"))
                     }
                 }
                
@@ -174,7 +174,7 @@ $(document).ready(function () {
                 else if (obj.compState != 1) {
                     document.getElementById("deviceActiveAlert").classList.add("d-none");
                     if (document.getElementById("junair2DisplayTemp")) {
-                        document.getElementById("stateDisplayContainer").removeChild(this)
+                        document.getElementById("stateDisplayContainer").removeChild(document.getElementById("junair2DisplayTemp"))
                     }
                 }
                
