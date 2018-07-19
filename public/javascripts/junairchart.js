@@ -112,16 +112,23 @@ $(document).ready(function () {
     },
     scales: {
       yAxes: [{
-        id: 'ambient',
+        id: 'Temperature',
         type: 'linear',
-        ticks: {
-          min: '0'
-        },
         scaleLabel: {
+          labelString: 'Temperature(C)',
           display: true
         },
-        position: 'right',
-      }]
+        position: 'left',
+      }, {
+          id: 'Humidity',
+          type: 'linear',
+          scaleLabel: {
+            labelString: 'Humidity(%)',
+            display: true
+          },
+          position: 'right'
+        }
+      ]
     }
   }
 
@@ -134,12 +141,29 @@ $(document).ready(function () {
     },
     scales: {
       yAxes: [{
-        id: 'airtank',
+        id: 'Temperature',
         type: 'linear',
         scaleLabel: {
+          labelString: 'temperature',
           display: true
         },
         position: 'right',
+      },{
+        id: 'Pressure',
+        type: 'linear',
+        scaleLabel: {
+          labelString: 'Pressure (psi)',
+          display: true
+        },
+        position: 'right',
+      },{
+        id: 'Humidity',
+        type: 'linear',
+        scaleLabel: {
+          labelString: 'Humidity',
+          display: true
+        },
+        position: 'left'
       }]
     }
   }
@@ -160,10 +184,7 @@ $(document).ready(function () {
           display: true
         },
         position: 'right',
-        ticks: {
-          suggestedMin: 0,
-        }},
-        {
+      },{
         id: 'placeholder',
         type: 'linear',
         scaleLabel: {
