@@ -54,11 +54,11 @@ $(document).ready(function () {
     fill: false,
     label: 'Temperature',
     yAxisID: 'Temperature',
-    borderColor: "rgba(255, 204, 0, 1)",
-    pointBoarderColor: "rgba(255, 204, 0, 1)",
-    backgroundColor: "rgba(255, 204, 0, 0.4)",
-    pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
-    pointHoverBorderColor: "rgba(255, 204, 0, 1)",
+    borderColor: "rgba(255, 0, 0, 1)",
+    pointBoarderColor: "rgba(255, 0, 0, 1)",
+    backgroundColor: "rgba(255, 0, 0, 0.4)",
+    pointHoverBackgroundColor: "rgba(255, 0, 0, 1)",
+    pointHoverBorderColor: "rgba(255, 0, 0, 1)",
     data: junair2Sht20TemperatureData 
   },
   {
