@@ -7,15 +7,6 @@ $(document).ready(function () {
   nitrothermocoupleData = [],
   nitronitrogenGenerationData = [];
 
-  (function chartDump (){
-    chartDumper(nitrotimeData, "nitrotimeData")
-    chartDumper(nitroam2302HumidityData,"nitroam2302HumidityData");
-    chartDumper(nitroam2302TemperatureData,"nitroam2302TemperatureData");
-    chartDumper(nitrothermocoupleData,"nitrothermocoupleData");
-    chartDumper(nitropressureTransmitterData,"nitropressureTransmitterData");
-    chartDumper(nitronitrogenGenerationData,"nitronitrogenGenerationData");
-  })();
-
 
   //datasets for the am2302 sensor chart 
   var am2302Dataset = {
@@ -298,13 +289,5 @@ $(document).ready(function () {
     }
   } 
 
-  window.onbeforeunload = function() {
-    chartSaver(nitrotimeData,"nitrotimeData");
-    chartSaver(nitroam2302HumidityData,"nitroam2302HumidityData");
-    chartSaver(nitroam2302TemperatureData,"nitroam2302TemperatureData");
-    chartSaver(nitrothermocoupleData,"nitrothermocoupleData");
-    chartSaver(nitropressureTransmitterData,"nitropressureTransmitterData");
-    chartSaver(nitronitrogenGenerationData,"nitronitrogenGenerationData");
-  }
 })
   
