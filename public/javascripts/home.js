@@ -159,10 +159,7 @@ $(document).ready(function () {
      * function to run when the junair1 system is clicked
      */
     document.getElementById("junair1SelectButton").onclick = function(){
-    if (this.classList.contains("active")){
-        unsuccessfulAlert("This device is already active!")
-    }
-    else {
+    if (!this.classList.contains("active")){
         bringBackOpenedCharts("junair1")
         var activeList = document.getElementById("deviceSelectContainer").getElementsByClassName("nav-link");
         for (var i=0; i<activeList.length; i++){
@@ -179,10 +176,7 @@ $(document).ready(function () {
      * function to run when the junair2 system button is clicked
      */
     document.getElementById("junair2SelectButton").onclick = function(){
-        if (this.classList.contains("active")){
-            unsuccessfulAlert("This device is already active!")
-        }
-        else {
+        if (!this.classList.contains("active")){
             bringBackOpenedCharts("junair2");
             var activeListNitro = document.getElementById("deviceSelectContainer").getElementsByClassName("nav-link");
             for (var i=0; i<activeListNitro.length; i++){
