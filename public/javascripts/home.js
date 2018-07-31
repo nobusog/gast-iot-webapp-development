@@ -98,29 +98,6 @@ $(document).ready(function () {
         document.getElementById("compressorContainerJunair2").classList.add("d-none");
     };
 
-    //Toggle quick stats when button is clicked
-    document.getElementById("quickStatsButton").onclick = function() {
-        if (document.getElementById("junair1SelectButton").classList.contains("active")) {
-            if (document.getElementById("quickStatsContainerJunair1").classList.contains("d-none")) {
-                document.getElementById("quickStatsContainerJunair1").classList.remove("d-none");
-            }
-            else  {
-                document.getElementById("quickStatsContainerJunair1").classList.add("d-none");
-            }
-        }
-        else if (document.getElementById("junair2SelectButton").classList.contains("active")) {
-            if (document.getElementById("quickStatsContainerJunair2").classList.contains("d-none")) {
-                document.getElementById("quickStatsContainerJunair2").classList.remove("d-none");
-            }
-            else  {
-                document.getElementById("quickStatsContainerJunair2").classList.add("d-none");
-            }
-        }
-        else {
-            unsuccessfulAlert("Please Select A Device!")
-        }
-    };
-
     //open new websocket 
     var ws = new WebSocket('wss://' + location.host);
     ws.onopen = function () {
@@ -193,7 +170,6 @@ $(document).ready(function () {
         document.getElementById("deviceAlert").classList.remove("d-none");
     }
     else {
-        document.getElementById("quickStatsContainerJunair2").classList.add("d-none");
         bringBackOpenedCharts("junair")
         var activeList = document.getElementById("deviceSelectContainer").getElementsByClassName("nav-link");
         for (var i=0; i<activeList.length; i++){
@@ -214,8 +190,7 @@ $(document).ready(function () {
             document.getElementById("deviceAlert").classList.remove("d-none");
         }
         else {
-            document.getElementById("quickStatsContainerJunair1").classList.add("d-none");
-            bringBackOpenedCharts("nitrogen");
+            bringBackOpenedCharts("junair2");
             var activeListNitro = document.getElementById("deviceSelectContainer").getElementsByClassName("nav-link");
             for (var i=0; i<activeListNitro.length; i++){
                 activeListNitro[i].classList.remove("active");
