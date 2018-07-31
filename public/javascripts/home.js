@@ -18,13 +18,6 @@ $(document).ready(function () {
         document.getElementById("timePlaceHolder").innerHTML = currentTime; 
         setTimeout(updateTime, 900);
     })(); 
-   
-    //Insert Current Location into jumbotron
-    navigator.geolocation.getCurrentPosition(function locationNotFound(position) {
-        currentLocation = position.coords.latitude;
-    }, function locationFound() {
-        currentLocation = "Location not Found" ;
-    });
     
     //Insert greeting into jumbotron and update every 30 mins
     (function updateGreeting() {
@@ -167,7 +160,7 @@ $(document).ready(function () {
      */
     document.getElementById("junair1SelectButton").onclick = function(){
     if (this.classList.contains("active")){
-        document.getElementById("deviceAlert").classList.remove("d-none");
+        unsuccessfulAlert("This device is already active!")
     }
     else {
         bringBackOpenedCharts("junair1")
@@ -187,7 +180,7 @@ $(document).ready(function () {
      */
     document.getElementById("junair2SelectButton").onclick = function(){
         if (this.classList.contains("active")){
-            document.getElementById("deviceAlert").classList.remove("d-none");
+            unsuccessfulAlert("This device is already active!")
         }
         else {
             bringBackOpenedCharts("junair2");
@@ -202,10 +195,6 @@ $(document).ready(function () {
         }
     }
 
-    //close alert whenever button is pressed 
-    document.getElementById("deviceAlertCloseButton").onclick = function(){
-        document.getElementById("deviceAlert").classList.add("d-none");
-    }
     
     /*Device Select Alerts
     */
