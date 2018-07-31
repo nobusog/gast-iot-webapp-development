@@ -111,9 +111,6 @@ $(document).ready(function () {
             if (obj.deviceId == "JunAir 1.0") {
                 sessionStorage.setItem("junair1CompOnTimer", Date.now())
                 timeOnJunair1 = timeOnJunair1 + obj.globalTimeOn;
-                document.getElementById("junair1CompressorOnTimeContainer").innerHTML= +timeOnJunair1.toFixed(2)+"s";
-                document.getElementById("junair1DutyCycleContainer").innerHTML = +obj.dutyCycle.toFixed(2)+"%";
-
                 if(obj.compState == 1) {
                     sessionStorage.setItem("junair1CompState", "1");
                     document.getElementById("deviceActiveAlert").classList.remove("d-none");
@@ -131,9 +128,6 @@ $(document).ready(function () {
             } else if  (obj.deviceId == "JunAir 2.0") {
                 sessionStorage.setItem("junair2CompOnTimer", Date.now())
                 timeOnJunair2 = timeOnJunair2 + obj.globalTimeOn;
-                document.getElementById("junair2CompressorOnTimeContainer").innerHTML= +timeOnJunair2.toFixed(2)+"s";
-                document.getElementById("junair2DutyCycleContainer").innerHTML = +obj.dutyCycle.toFixed(2)+"%";
-
                 if(obj.compState == 1) {
                     sessionStorage.setItem("junair2CompState", "1");
                     document.getElementById("deviceActiveAlert").classList.remove("d-none");
