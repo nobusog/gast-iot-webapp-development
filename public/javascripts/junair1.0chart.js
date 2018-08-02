@@ -247,7 +247,7 @@ $(document).ready(function () {
           //return;
         }
         console.log(obj)
-        console.log(obj.type())
+        console.log(obj.type)
         junair1TimeData.push(obj.displayTime);
         
         // only keep no more than 50 points in the line chart
