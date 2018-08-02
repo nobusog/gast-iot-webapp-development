@@ -239,6 +239,7 @@ $(document).ready(function () {
     unsuccessfulAlert("Please reload page, websocket failed to load ")
   }
   ws.onmessage = function (message) {
+    console.log("test1")
     try {
       var obj = JSON.parse(message.data);
       if (obj.deviceId == "JunAir 1.0") {
