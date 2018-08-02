@@ -245,8 +245,9 @@ $(document).ready(function () {
         if (!obj.time || !obj.thermocoupleTemperature) {
           return;
         }
+        console.log(obj)
         junair1TimeData.push(obj.displayTime);
-
+        
         // only keep no more than 50 points in the line chart
         const maxLen = 50;
         var len = junair1TimeData.length;
