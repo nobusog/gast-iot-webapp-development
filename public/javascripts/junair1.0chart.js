@@ -244,7 +244,7 @@ $(document).ready(function () {
       var obj = JSON.parse(message.data);
       if (obj.deviceId == "JunAir 1.0") {
         if (!obj.time) {
-          return;
+          //return;
         }
         console.log(obj)
         junair1TimeData.push(obj.displayTime);
