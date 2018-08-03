@@ -240,8 +240,13 @@ $(document).ready(function () {
   }
   ws.onmessage = function (message) {
     try {
-      
-      var obj = JSON.parse(message.data);
+      if (typeof message == "object") {
+        mess = JSON.stringify(message.data)
+      } 
+      else {
+        mess = message.data
+      }
+      var obj = JSON.parse(mess);
       console.log(obj);
       if (obj.deviceId == "JunAir 1.0") {
         if (!obj.time) {
