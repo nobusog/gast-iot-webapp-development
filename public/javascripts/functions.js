@@ -289,7 +289,8 @@ function statusStateUpdater (statusArray, sensorArray, device){
                 break;
         }
     }
-
+    console.log(statusArray)
+    console.log(sensorArray)
     for (var j=0; j<sensorArray.length; j++){
         switch (sensorArray[j]){
             case "am2302":
