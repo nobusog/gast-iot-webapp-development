@@ -239,15 +239,12 @@ $(document).ready(function () {
     unsuccessfulAlert("Please reload page, websocket failed to load ")
   }
   ws.onmessage = function (message) {
-    console.log("test1")
     try {
       var obj = JSON.parse(message.data);
       if (obj.deviceId == "JunAir 1.0") {
         if (!obj.time) {
           //return;
         }
-        console.log(obj)
-        console.log(obj.type)
         junair1TimeData.push(obj.displayTime);
         
         // only keep no more than 50 points in the line chart
