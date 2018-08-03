@@ -4,6 +4,8 @@ const WebSocket = require('ws');
 const moment = require('moment');
 const path = require('path');
 const iotHubClient = require('./IoThub/iot-hub.js');
+const { StringDecoder} = require('string_decoder');
+const decoder = new StringDecoder('utf8');
 
 const app = express();
 
@@ -21,7 +23,7 @@ wss.broadcast = function broadcast(data) {
     if (client.readyState === WebSocket.OPEN) {
       try {
         console.log('sending data ' + data);
-        client.send(data);
+        client.send(decoder.write(data));
       } catch (e) {
         console.error(e);
       }
