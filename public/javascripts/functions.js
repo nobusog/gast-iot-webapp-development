@@ -265,27 +265,27 @@ function statusStateUpdater (statusArray, sensorArray, device){
             case "tankLeak":
                 document.getElementById("tankLeakStatus"+device).classList.remove("btn-success","btn-warning");
                 document.getElementById("tankLeakStatus"+device).classList.add("btn-danger");
-                document.getElementById("tankLeakStatus"+device).dataset.content = miniArray[1];
+                document.getElementById("tankLeakStatus"+device).setAttribute("data-content", miniArray[1]);
                 break;
             case "radiator":
                 document.getElementById("radiatorStatus"+device).classList.remove("btn-success","btn-warning");
                 document.getElementById("radiatorStatus"+device).classList.add("btn-danger");
-                document.getElementById("radiatorStatus"+device).dataset.content = miniArray[1];
+                document.getElementById("radiatorStatus"+device).setAttribute("data-content", miniArray[1]);
                 break;
             case "dryer" :
                 document.getElementById("dryerStatus"+device).classList.remove("btn-success","btn-warning");
                 document.getElementById("dryerStatus"+device).classList.add("btn-danger");
-                document.getElementById("dryerStatus"+device).dataset.content = miniArray[1];
+                document.getElementById("dryerStatus"+device).setAttribute("data-content", miniArray[1]);
                 break;
             case "overCurrent":
                 document.getElementById("currentDrawStatus"+device).classList.remove("btn-success","btn-warning");
                 document.getElementById("currentDrawStatus"+device).classList.add("btn-danger");
-                document.getElementById("currentDrawStatus"+device).dataset.content = miniArray[1];
+                document.getElementById("currentDrawStatus"+device).setAttribute("data-content", miniArray[1]);
                 break;
             case "overHeat":
                 document.getElementById("overheatStatus"+device).classList.remove("btn-success","btn-warning");
                 document.getElementById("overheatStatus"+device).classList.add("btn-danger");
-                document.getElementById("overheatStatus"+device).dataset.content = miniArray[1];
+                document.getElementById("overheatStatus"+device).setAttribute("data-content", miniArray[1]);
                 break;
         }
     }
