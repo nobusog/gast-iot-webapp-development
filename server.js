@@ -23,7 +23,7 @@ wss.broadcast = function broadcast(data) {
     if (client.readyState === WebSocket.OPEN) {
       try {
         console.log('sending data ' + data);
-        client.send(decoder.write(data));
+        client.send(data.toString());
       } catch (e) {
         console.error(e);
       }
