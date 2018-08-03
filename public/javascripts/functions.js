@@ -235,3 +235,20 @@ function setActiveDevice (string) {
     }
 }
 
+/**
+ * This function takes a string object from the iot message and splits the string 
+ * into an array of smaller strings based on the "splitter"(delimiter) provided.
+ * @param {string object} arr 
+ * @param {string} splitter 
+ */
+function readString (arr,splitter){
+    var newArray
+    var array = arr.split(splitter);
+    for (i=0; i<array.length; i++){
+        if (array[i] != null && array[i] && array[i] != ""){
+            newArray.push(array[i]);
+        }
+    }
+    return newArray
+}
+

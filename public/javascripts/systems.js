@@ -19,10 +19,4 @@ $(document).ready(function () {
         document.getElementById("junair2SystemContainer").classList.remove("d-none");
         document.getElementById("junair1SystemContainer").classList.add("d-none");
     }
-
-    function readStatusString (arr) {
-        
-    }
-
-
 })

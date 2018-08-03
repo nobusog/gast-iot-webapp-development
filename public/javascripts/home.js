@@ -111,6 +111,15 @@ $(document).ready(function () {
             if (obj.deviceId == "JunAir 1.0") {
                 sessionStorage.setItem("junair1CompOnTimer", Date.now())
                 timeOnJunair1 = timeOnJunair1 + obj.globalTimeOn;
+                statusObject.slice(readString(obj.statusString));
+                console.log(statusObject)
+
+
+
+
+
+
+
                 if(obj.compState == 1) {
                     sessionStorage.setItem("junair1CompState", "1");
                     document.getElementById("deviceActiveAlert").classList.remove("d-none");
