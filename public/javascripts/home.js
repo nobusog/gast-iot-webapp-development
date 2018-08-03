@@ -111,9 +111,9 @@ $(document).ready(function () {
             if (obj.deviceId == "JunAir 1.0") {
                 sessionStorage.setItem("junair1CompOnTimer", Date.now())
                 timeOnJunair1 = timeOnJunair1 + obj.globalTimeOn;
-                var statusObject= readString(obj.statusString,";").slice();
-                console.log(statusObject)
-
+                var statusObject = readString(obj.statusString,";").slice();
+                var sensorObject = readString(obj.statusString,",").slice();
+                statusStateUpdater(statusObject,sensorObject,"Junair1");
                 if(obj.compState == 1) {
                     sessionStorage.setItem("junair1CompState", "1");
                     document.getElementById("deviceActiveAlert").classList.remove("d-none");
@@ -131,6 +131,9 @@ $(document).ready(function () {
             } else if  (obj.deviceId == "JunAir 2.0") {
                 sessionStorage.setItem("junair2CompOnTimer", Date.now())
                 timeOnJunair2 = timeOnJunair2 + obj.globalTimeOn;
+                var statusObject = readString(obj.statusString,";").slice();
+                var sensorObject = readString(obj.statusString,",").slice();
+                statusStateUpdater(statusObject,sensorObject,"Junair1");
                 if(obj.compState == 1) {
                     sessionStorage.setItem("junair2CompState", "1");
                     document.getElementById("deviceActiveAlert").classList.remove("d-none");

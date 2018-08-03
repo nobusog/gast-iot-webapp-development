@@ -252,3 +252,65 @@ function readString (arr,splitter){
     return newArray
 }
 
+/**
+ * This function takes the broken down arrays and device name, parses it and uses the contents to update the systems status displays.
+ * @param {array} statusArray 
+ * @param {array} sensorArray 
+ * @param {string} device 
+ */
+function statusStateUpdater (statusArray, sensorArray, device){
+    for (var i=0; i<statusArray.length; i++){
+        miniArray = readString(statusArray[i], ",")
+        switch (miniArray[0]){
+            case "tankLeak":
+                document.getElementById("tankLeakStatus"+device).classList.remove("btn-success","btn-warning");
+                document.getElementById("tankLeakStatus"+device).classList.add("btn-danger");
+                document.getElementById("tankLeakStatus"+device).dataset.content = miniArray[1];
+                break;
+            case "radiator":
+                document.getElementById("radiatorStatus"+device).classList.remove("btn-success","btn-warning");
+                document.getElementById("radiatorStatus"+device).classList.add("btn-danger");
+                document.getElementById("radiatorStatus"+device).dataset.content = miniArray[1];
+                break;
+            case "dryer" :
+                document.getElementById("dryerStatus"+device).classList.remove("btn-success","btn-warning");
+                document.getElementById("dryerStatus"+device).classList.add("btn-danger");
+                document.getElementById("dryerStatus"+device).dataset.content = miniArray[1];
+                break;
+            case "overCurrent":
+                document.getElementById("currentDrawStatus"+device).classList.remove("btn-success","btn-warning");
+                document.getElementById("currentDrawStatus"+device).classList.add("btn-danger");
+                document.getElementById("currentDrawStatus"+device).dataset.content = miniArray[1];
+                break;
+            case "overHeat":
+                document.getElementById("overheatStatus"+device).classList.remove("btn-success","btn-warning");
+                document.getElementById("overheatStatus"+device).classList.add("btn-danger");
+                document.getElementById("overheatStatus"+device).dataset.content = miniArray[1];
+                break;
+            default :
+                break;
+        }
+    }
+
+    for (var j=0; j<sensorArray.length; j++){
+        switch (sensorArray[i]){
+            case "am2302":
+                document.getElementById("am2302Status"+device).classList.replace("btn-success","btn-danger");
+                break;
+            case "sht20":
+                document.getElementById("sht20Status"+device).classList.replace("btn-success","btn-danger");
+                break;
+            case "thermocouple" :
+                document.getElementById("thermocoupleStatus"+device).classList.replace("btn-success","btn-danger");
+                break;
+            case "pressureTranducer":
+                document.getElementById("pressureTransducerStatus"+device).classList.replace("btn-success","btn-danger");
+                break;
+            case "currentSensor":
+                document.getElementById("currentStatus"+device).classList.replace("btn-success","btn-danger");
+                break;
+            default :
+                break;
+        }
+    }
+}
