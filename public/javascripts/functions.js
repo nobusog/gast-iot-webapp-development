@@ -242,7 +242,7 @@ function setActiveDevice (string) {
  * @param {string} splitter 
  */
 function readString (arr,splitter){
-    var newArray
+    var newArray = []
     var array = arr.split(splitter);
     for (i=0; i<array.length; i++){
         if (array[i] != null && array[i] && array[i] != ""){
