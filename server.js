@@ -4,8 +4,6 @@ const WebSocket = require('ws');
 const moment = require('moment');
 const path = require('path');
 const iotHubClient = require('./IoThub/iot-hub.js');
-const { StringDecoder} = require('string_decoder');
-const decoder = new StringDecoder('utf8');
 
 const app = express();
 
