@@ -287,8 +287,6 @@ function statusStateUpdater (statusArray, sensorArray, device){
                 document.getElementById("overheatStatus"+device).classList.add("btn-danger");
                 document.getElementById("overheatStatus"+device).dataset.content = miniArray[1];
                 break;
-            default :
-                break;
         }
     }
 
@@ -308,8 +306,6 @@ function statusStateUpdater (statusArray, sensorArray, device){
                 break;
             case "currentSensor":
                 document.getElementById("currentStatus"+device).classList.replace("btn-success","btn-danger");
-                break;
-            default :
                 break;
         }
     }
