@@ -132,7 +132,7 @@ $(document).ready(function () {
                 sessionStorage.setItem("junair2CompOnTimer", Date.now())
                 timeOnJunair2 = timeOnJunair2 + obj.globalTimeOn;
                 var statusObject = readString(obj.statusString,";").slice();
-                var sensorObject = readString(obj.statusString,",").slice();
+                var sensorObject = readString(obj.sensorString,",").slice();
                 statusStateUpdater(statusObject,sensorObject,"Junair1");
                 if(obj.compState == 1) {
                     sessionStorage.setItem("junair2CompState", "1");
