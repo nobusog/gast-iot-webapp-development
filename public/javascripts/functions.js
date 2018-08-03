@@ -293,7 +293,7 @@ function statusStateUpdater (statusArray, sensorArray, device){
     }
 
     for (var j=0; j<sensorArray.length; j++){
-        switch (sensorArray[i]){
+        switch (sensorArray[j]){
             case "am2302":
                 document.getElementById("am2302Status"+device).classList.replace("btn-success","btn-danger");
                 break;
