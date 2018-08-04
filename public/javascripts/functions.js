@@ -267,17 +267,17 @@ function statusStateUpdater (statusArray, sensorArray, device){
                 document.getElementById("tankLeakStatus"+device).classList.add("btn-danger");
                 document.getElementById("tankLeakStatus"+device).setAttribute("data-content", miniArray[1]);
                 break;
-            case "radiator":
+            case "radiatorFailure":
                 document.getElementById("radiatorStatus"+device).classList.remove("btn-success","btn-warning");
                 document.getElementById("radiatorStatus"+device).classList.add("btn-danger");
                 document.getElementById("radiatorStatus"+device).setAttribute("data-content", miniArray[1]);
                 break;
-            case "dryer" :
+            case "dryerFailure" :
                 document.getElementById("dryerStatus"+device).classList.remove("btn-success","btn-warning");
                 document.getElementById("dryerStatus"+device).classList.add("btn-danger");
                 document.getElementById("dryerStatus"+device).setAttribute("data-content", miniArray[1]);
                 break;
-            case "overCurrent":
+            case "overLoad":
                 document.getElementById("currentDrawStatus"+device).classList.remove("btn-success","btn-warning");
                 document.getElementById("currentDrawStatus"+device).classList.add("btn-danger");
                 document.getElementById("currentDrawStatus"+device).setAttribute("data-content", miniArray[1]);
@@ -300,10 +300,10 @@ function statusStateUpdater (statusArray, sensorArray, device){
             case "thermocouple" :
                 document.getElementById("thermocoupleStatus"+device).classList.replace("btn-success","btn-danger");
                 break;
-            case "pressureTranducer":
+            case "transducer":
                 document.getElementById("pressureTransducerStatus"+device).classList.replace("btn-success","btn-danger");
                 break;
-            case "currentSensor":
+            case "current":
                 document.getElementById("currentStatus"+device).classList.replace("btn-success","btn-danger");
                 break;
         }
