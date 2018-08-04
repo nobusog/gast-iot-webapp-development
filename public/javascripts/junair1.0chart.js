@@ -240,10 +240,8 @@ $(document).ready(function () {
   }
   ws.onmessage = function (message) {
     try {
-      decoder = new TextDecoder('utf-8')
       var obj = JSON.parse(message.data);
       console.log(obj);
-      console.log(decoder.decode(obj))
       if (obj.deviceId == "JunAir 1.0") {
         if (!obj.time) {
           //return;
