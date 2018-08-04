@@ -111,8 +111,16 @@ $(document).ready(function () {
             if (obj.deviceId == "JunAir 1.0") {
                 sessionStorage.setItem("junair1CompOnTimer", Date.now())
                 timeOnJunair1 = timeOnJunair1 + obj.globalTimeOn;
-                var statusObject = readString(obj.statusString,";").slice();
-                var sensorObject = readString(obj.sensorString,",").slice();
+                if (obj.statusString != 1 || obj.statusString != 0) {
+                    var statusObject = readString(obj.statusString,";").slice();
+                } else {
+                    var statusObject = []
+                }
+                if (obj.sensorString != 1 || obj.sensorString != 0) {
+                    var sensorObject = readString(obj.sensorString,",").slice();
+                } else {
+                    var sensorObject = []
+                }
                 statusStateUpdater(statusObject,sensorObject,"Junair1");
                 if(obj.compState == 1) {
                     sessionStorage.setItem("junair1CompState", "1");
@@ -131,9 +139,17 @@ $(document).ready(function () {
             } else if  (obj.deviceId == "JunAir 2.0") {
                 sessionStorage.setItem("junair2CompOnTimer", Date.now())
                 timeOnJunair2 = timeOnJunair2 + obj.globalTimeOn;
-                var statusObject = readString(obj.statusString,";").slice();
-                var sensorObject = readString(obj.sensorString,",").slice();
-                statusStateUpdater(statusObject,sensorObject,"Junair1");
+                if (obj.statusString != 1 || obj.statusString != 0) {
+                    var statusObject = readString(obj.statusString,";").slice();
+                } else {
+                    var statusObject = []
+                }
+                if (obj.sensorString != 1 || obj.sensorString != 0) {
+                    var sensorObject = readString(obj.sensorString,",").slice();
+                } else {
+                    var sensorObject = []
+                }
+                statusStateUpdater(statusObject,sensorObject,"Junair2");
                 if(obj.compState == 1) {
                     sessionStorage.setItem("junair2CompState", "1");
                     document.getElementById("deviceActiveAlert").classList.remove("d-none");
