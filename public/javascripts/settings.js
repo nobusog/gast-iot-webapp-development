@@ -21,7 +21,7 @@ $(document).ready(function () {
         document.getElementById("settingsJunair2SelectButton").classList.replace("btn-primary", "btn-secondary");
         document.getElementById("settingsJunair1SelectButton").classList.add("active");
         document.getElementById("settingsJunair2SelectButton").classList.remove("active");
-        deviceIdVal = "junair1.0_data";
+        deviceIdVal = "junair1";
         setHeadersSettings("junair1");
     }
 
@@ -30,7 +30,7 @@ $(document).ready(function () {
         document.getElementById("settingsJunair1SelectButton").classList.remove("active");
         document.getElementById("settingsJunair2SelectButton").classList.replace("btn-secondary", "btn-primary");
         document.getElementById("settingsJunair1SelectButton").classList.replace("btn-primary", "btn-secondary");
-        deviceIdVal = "junair2.0_data";
+        deviceIdVal = "junair2";
         setHeadersSettings("junair2");   
     }
 
