@@ -112,12 +112,12 @@ $(document).ready(function () {
                 sessionStorage.setItem("junair1CompOnTimer", Date.now())
                 timeOnJunair1 = timeOnJunair1 + obj.globalTimeOn;
                 if (obj.statusString != "1" || obj.statusString != "0") {
-                    var statusObject = readString(obj.statusString,";").slice();
+                    var statusObject = statusStateParser(obj.statusString).slice();
                 } else {
                     var statusObject = []
                 }
                 if (obj.sensorString != "1" || obj.sensorString != "0") {
-                    var sensorObject = readString(obj.sensorString,",").slice();
+                    var sensorObject = sensorStateParser(obj.sensorString).slice();
                 } else {
                     var sensorObject = []
                 }
@@ -140,12 +140,12 @@ $(document).ready(function () {
                 sessionStorage.setItem("junair2CompOnTimer", Date.now())
                 timeOnJunair2 = timeOnJunair2 + obj.globalTimeOn;
                 if (obj.statusString != "1" || obj.statusString != "0") {
-                    var statusObject = readString(obj.statusString,";").slice();
+                    var statusObject = statusStateParser(obj.statusString).slice();
                 } else {
                     var statusObject = []
                 }
                 if (obj.sensorString != "1" || obj.sensorString != "0") {
-                    var sensorObject = readString(obj.sensorString,",").slice();
+                    var sensorObject = sensorStateParser(obj.sensorString).slice();
                 } else {
                     var sensorObject = []
                 }

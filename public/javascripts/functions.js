@@ -252,6 +252,38 @@ function readString (arr,splitter){
     return newArray
 }
 
+function statusStateParser (statusInt) {
+    var statusarr = (""+statusInt).split("").map(Number);
+    var statusDict = ["radiatorFailure","dryerFailure","overLoad","overHeat","tankLeak"];
+    var status = [];
+
+    for (var i=0; i<statusarr.length; i++) {
+        if (statusarr[i] == 1) {
+            status[i] = statusDict[i];
+        } else {
+            status[i] =" ";
+        }
+    }
+    
+
+    return status
+}
+
+function sensorStateParser (sensorInt){
+    var sensorarr = (""+sensorInt).split("").map(Number);
+    var sensorDict = ["transducer","current","thermocouple","sht20","am2302"];
+    var sensor =[];
+
+    for (var i=0; i<sensorarr.length; i++) {
+        if (sensorarr[i] == 1) {
+            sensor[i] = sensorDict[i];
+        } else {
+            sensor[i] =" ";
+        }
+    }
+
+    return sensor
+}
 /**
  * This function takes the broken down arrays and device name, parses it and uses the contents to update the systems status displays.
  * @param {array} statusArray 
