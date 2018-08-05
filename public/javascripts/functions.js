@@ -195,13 +195,13 @@ function removeChart (chart) {
 function setHeadersSettings (system) {
     switch (system) {
         case "junair1":
-            document.getElementById("settingsReportsHeader").innerText = "Jun-Air1 Report Settings";
+            document.getElementById("settingsReportsHeader").innerText = "Jun-Air 1.0 Report Settings";
             break;
         case "junair2":
-            document.getElementById("settingsReportsHeader").innerText = "junair2 Report Settings";
+            document.getElementById("settingsReportsHeader").innerText = "Jun-Air 2.0 Report Settings";
             break;
         default:
-            unsuccessfulAlert("errorr in selecting system");
+            unsuccessfulAlert("error in selecting system");
     }
 }
 
