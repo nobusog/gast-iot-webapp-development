@@ -242,7 +242,7 @@ $(document).ready(function () {
     var obj = JSON.parse(message.data);
 
     if (obj.deviceId == "JunAir 2.0") {
-      if (!obj.time || !obj.thermocoupleTemperature) {
+      if (!obj.time) {
         return;
       }
       junair2TimeData.push(obj.displayTime);
