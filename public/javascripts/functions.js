@@ -253,6 +253,9 @@ function readString (arr,splitter){
 }
 
 function statusStateParser (statusInt) {
+    if (statusInt = 0) {
+        statusInt = "00000"
+    }
     var statusarr = (""+statusInt).split("").map(Number);
     var statusDict = ["radiatorFailure","dryerFailure","overLoad","overHeat","tankLeak"];
     var status = [];
@@ -270,6 +273,9 @@ function statusStateParser (statusInt) {
 }
 
 function sensorStateParser (sensorInt){
+    if (sensorInt = 0) {
+        sensorInt = "00000"
+    }
     var sensorarr = (""+sensorInt).split("").map(Number);
     var sensorDict = ["transducer","current","thermocouple","sht20","am2302"];
     var sensor =[];
