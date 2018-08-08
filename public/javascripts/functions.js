@@ -261,14 +261,9 @@ function statusStateParser (statusInt) {
     var status = [];
 
     for (var i=0; i<statusarr.length; i++) {
-        if (statusarr[i] == 1) {
-            status[i] = statusDict[i];
-        } else {
-            status[i] =" ";
-        }
+        status.push(statusDict[statusarr[i]])
     }
     
-
     return status
 }
 
@@ -281,13 +276,9 @@ function sensorStateParser (sensorInt){
     var sensor =[];
 
     for (var i=0; i<sensorarr.length; i++) {
-        if (sensorarr[i] == 1) {
-            sensor[i] = sensorDict[i];
-        } else {
-            sensor[i] =" ";
-        }
+        sensor.push(sensorDict[sensorarr[i]])
     }
-
+    
     return sensor
 }
 
