@@ -256,7 +256,12 @@ function statusStateParser (statusInt) {
     if (statusInt == 0) {
         statusInt = "00000"
     }
-    var statusarr = (""+statusInt).split("").map(Number);
+    if (statusInt >10){
+        var statusarr = (""+statusInt).split("").map(Number);
+    }
+    else {
+        var statusarr =statusInt;
+    }
     var statusDict = ["radiatorFailure","dryerFailure","overLoad","overHeat","tankLeak"];
     var status = [];
 
@@ -271,7 +276,12 @@ function sensorStateParser (sensorInt){
     if (sensorInt == 0) {
         sensorInt = "00000"
     }
-    var sensorarr = (""+sensorInt).split("").map(Number);
+    if (sensorInt > 10){
+        var sensorarr = (""+sensorInt).split("").map(Number);
+    }
+    else {
+        var sensorarr = sensorInt;
+    }
     var sensorDict = ["transducer","current","thermocouple","sht20","am2302"];
     var sensor =[];
 
