@@ -80,7 +80,7 @@ function setCompOff () {
 }}
 /**
  * This function updates the users screen when any of the systems turn off by sending them to another 
- * more relevant page.
+ * more relevant page. 
  */
 function systemsCompStateUpdate() {
     if (isCompOff("junair1") && !isCompOff("junair2")) {
@@ -96,7 +96,7 @@ function systemsCompStateUpdate() {
 }}
 /**
  * This function checks the session storage to see if a compressor is off and if so, 
- * turns off and dsiabled the display button located on the main navbar.
+ * turns off and dsiabled the display button located on the main navbar. #obsolete!
  */
 function readCompState() {
     if (sessionStorage.getItem("junair1CompState") == 0) {
@@ -284,6 +284,30 @@ function sensorStateParser (sensorInt){
 
     return sensor
 }
+
+/**
+ * This is not the right way to do this but... this function simply truns all the status display buttons
+ * green
+ * @param {string} device 
+ */
+function cleanUpStatus (device) {
+    document.getElementById("tankLeakStatus"+device).classList.remove("btn-danger","btn-warning");
+    document.getElementById("tankLeakStatus"+device).classList.add("btn-success");
+    document.getElementById("radiatorStatus"+device).classList.remove("btn-danger","btn-warning");
+    document.getElementById("radiatorStatus"+device).classList.add("btn-success");
+    document.getElementById("dryerStatus"+device).classList.remove("btn-danger","btn-warning");
+    document.getElementById("dryerStatus"+device).classList.add("btn-success");
+    document.getElementById("currentDrawStatus"+device).classList.remove("btn-danger","btn-warning");
+    document.getElementById("currentDrawStatus"+device).classList.add("btn-success");
+    document.getElementById("overheatStatus"+device).classList.remove("btn-danger","btn-warning");
+    document.getElementById("overheatStatus"+device).classList.add("btn-success");
+    document.getElementById("am2302Status"+device).classList.replace("btn-danger","btn-success");
+    document.getElementById("sht20Status"+device).classList.replace("btn-danger","btn-success");
+    document.getElementById("thermocoupleStatus"+device).classList.replace("btn-danger","btn-success");
+    document.getElementById("pressureTransducerStatus"+device).classList.replace("btn-danger","btn-success");
+    document.getElementById("currentStatus"+device).classList.replace("btn-danger","btn-success");
+}
+
 /**
  * This function takes the broken down arrays and device name, parses it and uses the contents to update the systems status displays.
  * @param {array} statusArray 
@@ -291,6 +315,7 @@ function sensorStateParser (sensorInt){
  * @param {string} device 
  */
 function statusStateUpdater (statusArray, sensorArray, device){
+    cleanUpStatus(device);
     for (var i=0; i<statusArray.length; i++){
         miniArray = readString(statusArray[i], ",")
         switch (miniArray[0]){
