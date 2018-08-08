@@ -253,7 +253,7 @@ function readString (arr,splitter){
 }
 
 function statusStateParser (statusInt) {
-    if (statusInt = 0) {
+    if (statusInt == 0) {
         statusInt = "00000"
     }
     var statusarr = (""+statusInt).split("").map(Number);
@@ -273,7 +273,7 @@ function statusStateParser (statusInt) {
 }
 
 function sensorStateParser (sensorInt){
-    if (sensorInt = 0) {
+    if (sensorInt == 0) {
         sensorInt = "00000"
     }
     var sensorarr = (""+sensorInt).split("").map(Number);
