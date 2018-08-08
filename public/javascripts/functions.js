@@ -261,9 +261,9 @@ function statusStateParser (statusInt) {
     var status = [];
 
     for (var i=0; i<statusarr.length; i++) {
-        status.push(statusDict[statusarr[i]])
+        status.push(statusDict[statusarr[i-1]])
     }
-    
+
     return status
 }
 
@@ -276,7 +276,7 @@ function sensorStateParser (sensorInt){
     var sensor =[];
 
     for (var i=0; i<sensorarr.length; i++) {
-        sensor.push(sensorDict[sensorarr[i]])
+        sensor.push(sensorDict[sensorarr[i-1]])
     }
     
     return sensor
